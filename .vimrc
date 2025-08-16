@@ -228,7 +228,8 @@ let NERDTreeShowHidden=1
 " ============================
 "      ПОИСК ФАЙЛОВ И БУФЕРОВ
 " ============================
-nnoremap <C-p> :Files<CR>             " Быстрый поиск файлов
+" быстрый поиск
+nnoremap <C-p> :Files<CR>
 nnoremap <C-b> :BuffergatorToggle<CR> " Поиск в буфере с плагином
 
 " Удалить выбранный буфер в Buffergator
