@@ -103,7 +103,15 @@ inoremap <C-k> <Up>
 "   Поддержка плагинов
 " ----------------------------
 call plug#begin('~/.vim/plugged')
+"LSP Server
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
+
+" Tree files
+Plug 'preservim/nerdtree'
+
+" File navigation
+Plug 'junegunn/fzf', { 'do': './install --all' }
+Plug 'junegunn/fzf.vim'
 call plug#end()
 
 " ----------------------------
@@ -186,3 +194,21 @@ noremap Т N
 noremap Ь M
 noremap Б <
 noremap Ю >
+
+
+" Быстрое открытие/закрытие NERDTree
+nnoremap <C-n> :NERDTreeToggle<CR>
+nnoremap <C-f> :NERDTreeFind<CR>
+
+
+
+" Быстрый поиск файлов
+nnoremap <C-p> :Files<CR>
+" Поиск в текущем буфере
+nnoremap <C-b> :Buffers<CR>
+
+
+" Следующий/предыдущий буфер
+nnoremap <Tab> :bnext<CR>
+nnoremap <S-Tab> :bprevious<CR>
+
