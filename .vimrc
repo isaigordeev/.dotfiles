@@ -119,9 +119,6 @@ Plug 'preservim/nerdtree'
 Plug 'junegunn/fzf', { 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 
-" Буферная навигация
-Plug 'jeetsukumaran/vim-buffergator'
-
 call plug#end()
 
 " ============================
@@ -223,17 +220,14 @@ nnoremap <C-n> :NERDTreeToggle<CR>  " Открыть/закрыть NERDTree
 nnoremap <C-f> :NERDTreeFind<CR>    " Найти текущий файл
 
 let NERDTreeShowHidden=1
-
+let g:NERDTreeWinSize = 55
 " Внутри NERDTree можно динамически переключать видимость скрытых файлов клавишей I (Shift + i)
 " ============================
 "      ПОИСК ФАЙЛОВ И БУФЕРОВ
 " ============================
 " быстрый поиск
 nnoremap <C-p> :Files<CR>
-nnoremap <C-b> :BuffergatorToggle<CR> " Поиск в буфере с плагином
-
-" Удалить выбранный буфер в Buffergator
-autocmd FileType Buffergator nnoremap <buffer> d :Bdelete<CR>
+nnoremap <C-b> :Buffers<CR>
 
 " Следующий/предыдущий буфер
 nnoremap <Tab> :bnext<CR>
