@@ -1,58 +1,63 @@
-" ----------------------------
-"   Базовые настройки
-" ----------------------------
+" ============================
+"      БАЗОВЫЕ НАСТРОЙКИ
+" ============================
 
 " Включить синтаксис
 syntax on
 
-" Определение типа файлов и авто-отступов
+" Авто-определение типа файлов и авто-отступы
 filetype plugin indent on
 
-" Поддержка 256-цветной палитры
+" Поддержка 256 цветов
 set t_Co=256
 
-" Светлый фон, чтобы цвета выглядели корректно
+" Светлый фон для корректного отображения цветов
 set background=light
 
-" Табуляция и отступы
-set tabstop=3
-set softtabstop=3
-set shiftwidth=3
-set expandtab
+" ----------------------------
+"      ТАБУЛЯЦИЯ И ОТСТУПЫ
+" ----------------------------
+set tabstop=3         " Количество пробелов, соответствующих табу
+set softtabstop=3     " Количество пробелов для редактирования табов
+set shiftwidth=3      " Количество пробелов при автоотступе
+set expandtab         " Использовать пробелы вместо табов
 
-" Номера строк
-set number
+" ----------------------------
+"      НАВИГАЦИЯ И ПОИСК
+" ----------------------------
+set number            " Номера строк
+set ruler             " Показ позиции курсора
+set incsearch         " Инкрементальный поиск
 
-" Инкрементальный поиск
-set incsearch
+" ----------------------------
+"      СКЛАДКИ
+" ----------------------------
+set foldmethod=indent  " Складки по отступам
+set foldlevel=99       " Все складки открыты по умолчанию
+nnoremap <space> za    " Пробел переключает складку
 
-" Складки по отступам
-set foldmethod=indent
-set foldlevel=99
-nnoremap <space> za
-
-" Показ позиции курсора
-set ruler
-
-" Авто-отступы
+" ----------------------------
+"      АВТО-ОТСТУПЫ
+" ----------------------------
 set smartindent
 set autoindent
 set copyindent
 set cindent
 
-" Время обновления для Coc и подсветки
-set updatetime=300
+" ----------------------------
+"      ОБНОВЛЕНИЕ И ВРЕМЯ
+" ----------------------------
+set updatetime=300    " Быстрое обновление для Coc и подсветки
 
-" ----------------------------
-"   CLion Light Цветовая схема
-" ----------------------------
+" ============================
+"      CLion LIGHT COLOR SCHEME
+" ============================
 
 " Основной текст
 highlight Normal ctermfg=black 
 
 " Номера строк
 highlight LineNr ctermfg=242 
-" highlight CursorLineNr ctermfg=32 ctermbg=254
 
 " Фон текущей строки
 highlight CursorLine ctermbg=254
@@ -60,7 +65,7 @@ highlight CursorLine ctermbg=254
 " Комментарии (серый)
 highlight Comment ctermfg=244
 
-" Ключевые слова (тёмно-синий, как в CLion)
+" Ключевые слова (тёмно-синий)
 highlight Keyword ctermfg=20
 highlight Statement ctermfg=20
 
@@ -91,32 +96,46 @@ highlight Special ctermfg=202
 " Identifier
 highlight Identifier ctermfg=94
 
-" ----------------------------
-"   Навигация в Insert Mode
-" ----------------------------
+" ============================
+"      НАВИГАЦИЯ В INSERT MODE
+" ============================
 inoremap <C-h> <Left>
 inoremap <C-l> <Right>
 inoremap <C-j> <Down>
 inoremap <C-k> <Up>
 
-" ----------------------------
-"   Поддержка плагинов
-" ----------------------------
+" ============================
+"      ПОДДЕРЖКА ПЛАГИНОВ
+" ============================
 call plug#begin('~/.vim/plugged')
-"LSP Server
+
+" LSP Server
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
-" Tree files
+" Древовидная навигация
 Plug 'preservim/nerdtree'
 
-" File navigation
+" Поиск файлов
 Plug 'junegunn/fzf', { 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
+
+" Буферная навигация
+Plug 'jeetsukumaran/vim-buffergator'
+
 call plug#end()
 
-" ----------------------------
-"   Coc.nvim keybindings
-" ----------------------------
+" ============================
+"      COC.NVIM KEYBINDINGS
+" ============================
+
+" Принять выделенный вариант автодополнения
+inoremap <silent><expr> <CR> coc#pum#visible() ? coc#pum#confirm() : "\<CR>"
+
+" Перемещение по элементам автодополнения
+inoremap <silent><expr> <C-j> coc#pum#visible() ? coc#pum#next(1) : "\<C-j>"
+inoremap <silent><expr> <C-k> coc#pum#visible() ? coc#pum#prev(1) : "\<C-k>"
+
+" Навигация по коду
 nmap <silent> gd <Plug>(coc-definition)
 nmap <silent> gy <Plug>(coc-type-definition)
 nmap <silent> gi <Plug>(coc-implementation)
@@ -124,9 +143,11 @@ nmap <silent> gr <Plug>(coc-references)
 nnoremap <silent> K :call CocActionAsync('doHover')<CR>
 autocmd CursorHold * silent call CocActionAsync('highlight')
 
-" ----------------------------
-"   Русская раскладка (основные привязки)
-" ----------------------------
+" ============================
+"      РУССКАЯ РАСКЛАДКА
+" ============================
+
+" Нижний регистр
 noremap й q
 noremap ц w
 noremap у e
@@ -195,18 +216,23 @@ noremap Ь M
 noremap Б <
 noremap Ю >
 
+" ============================
+"      NERD TREE
+" ============================
+nnoremap <C-n> :NERDTreeToggle<CR>  " Открыть/закрыть NERDTree
+nnoremap <C-f> :NERDTreeFind<CR>    " Найти текущий файл
 
-" Быстрое открытие/закрытие NERDTree
-nnoremap <C-n> :NERDTreeToggle<CR>
-nnoremap <C-f> :NERDTreeFind<CR>
+let NERDTreeShowHidden=1
 
+" Внутри NERDTree можно динамически переключать видимость скрытых файлов клавишей I (Shift + i)
+" ============================
+"      ПОИСК ФАЙЛОВ И БУФЕРОВ
+" ============================
+nnoremap <C-p> :Files<CR>             " Быстрый поиск файлов
+nnoremap <C-b> :BuffergatorToggle<CR> " Поиск в буфере с плагином
 
-
-" Быстрый поиск файлов
-nnoremap <C-p> :Files<CR>
-" Поиск в текущем буфере
-nnoremap <C-b> :Buffers<CR>
-
+" Удалить выбранный буфер в Buffergator
+autocmd FileType Buffergator nnoremap <buffer> d :Bdelete<CR>
 
 " Следующий/предыдущий буфер
 nnoremap <Tab> :bnext<CR>
