@@ -29,6 +29,9 @@ set number            " Номера строк
 set ruler             " Показ позиции курсора
 set incsearch         " Инкрементальный поиск
 
+set signcolumn=yes
+highlight SignColumn ctermbg=NONE guibg=NONE
+
 " ----------------------------
 "      СКЛАДКИ
 " ----------------------------
@@ -54,47 +57,47 @@ set updatetime=300    " Быстрое обновление для Coc и под
 " ============================
 
 " Основной текст
-highlight Normal ctermfg=black 
+"highlight Normal ctermfg=black 
 
 " Номера строк
-highlight LineNr ctermfg=242 
+"highlight LineNr ctermfg=242 
 
 " Фон текущей строки
-highlight CursorLine ctermbg=254
+"highlight CursorLine ctermbg=254
 
 " Комментарии (серый)
 highlight Comment ctermfg=244
 
 " Ключевые слова (тёмно-синий)
-highlight Keyword ctermfg=20
-highlight Statement ctermfg=20
+"highlight Keyword ctermfg=45
+"highlight Statement ctermfg=55
 
 " Строки (тёмно-красный)
-highlight String ctermfg=124
+"highlight String ctermfg=124
 
 " Числа (фиолетовый)
-highlight Number ctermfg=92
+"highlight Number ctermfg=92
 
 " Функции (тёмно-коричневый)
-highlight Function ctermfg=30
+"highlight Function ctermfg=30
 
 " Типы (тёмно-голубой)
-highlight Type ctermfg=30
+"highlight Type ctermfg=30
 
 " Константы (фиолетовый)
-highlight Constant ctermfg=92
+"highlight Constant ctermfg=92
 
 " Операторы (чёрный)
-highlight Operator ctermfg=black
+"highlight Operator ctermfg=black
 
 " PreProc (include, define - тёмно-пурпурный)
-highlight PreProc ctermfg=127
+"highlight PreProc ctermfg=127
 
 " Специальные символы (оранжевый)
-highlight Special ctermfg=202
+"highlight Special ctermfg=202
 
 " Identifier
-highlight Identifier ctermfg=94
+"highlight Identifier ctermfg=94
 
 " ============================
 "      НАВИГАЦИЯ В INSERT MODE
@@ -118,6 +121,12 @@ Plug 'preservim/nerdtree'
 " Поиск файлов
 Plug 'junegunn/fzf', { 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
+
+" Комментарии
+"
+"
+Plug 'preservim/nerdcommenter'
+
 
 call plug#end()
 
@@ -233,3 +242,41 @@ nnoremap <C-b> :Buffers<CR>
 nnoremap <Tab> :bnext<CR>
 nnoremap <S-Tab> :bprevious<CR>
 
+
+" === Шорткат для комментирования через Ctrl-/ ===
+" В normal режиме: закомментировать/раскомментировать строку
+nnoremap <C-_> <Plug>NERDCommenterToggle
+" В visual режиме: закомментировать/раскомментировать выделение
+vnoremap <C-_> <Plug>NERDCommenterToggle
+
+
+
+
+" Внутри NERDTree:
+" o  - открыть файл/папку в текущем окне
+" i  - открыть файл в вертикальном сплите
+" s  - открыть файл в горизонтальном сплите
+" t  - открыть файл в новой вкладке
+" go - открыть файл без закрытия NERDTree
+" p  - перейти к родительской папке
+" u  - перейти на уровень выше
+" C  - сменить корневую папку NERDTree
+" R  - обновить дерево (refresh)
+" za - переключить складку (open/close)
+" zA - рекурсивно переключить складку
+" zo - открыть складку
+" zc - закрыть складку
+
+" ----------------------------
+"      УПРАВЛЕНИЕ ФАЙЛАМИ
+" ----------------------------
+" m - меню управления (создать, удалить, переименовать, копировать)
+" I - показать/скрыть скрытые файлы
+" x - удалить файл/папку
+" r - переименовать файл/папку
+" a - создать новый файл
+" A - создать новую папку
+" gy - скопировать путь до файла в буфер обмена
+" Y  - скопировать полный путь до файла
+"
+ let g:coc_config_home = expand('~/.config/nvim')
