@@ -1,11 +1,14 @@
 " ============================
 "      БАЗОВЫЕ НАСТРОЙКИ
 " ============================
+"
+" BAZA
+let mapleader = " "
 
 " Включить синтаксис
 syntax on
 
-" Авто-определение типа файлов и авто-отступы
+"Авто-определение типа файлов и авто-отступы
 filetype plugin indent on
 
 " Поддержка 256 цветов
@@ -239,15 +242,17 @@ nnoremap <C-p> :Files<CR>
 nnoremap <C-b> :Buffers<CR>
 
 " Следующий/предыдущий буфер
-nnoremap <Tab> :bnext<CR>
-nnoremap <S-Tab> :bprevious<CR>
+"nnoremap <Tab> :bnext<CR>
+"nnoremap <S-Tab> :bprevious<CR>
 
 
 " === Шорткат для комментирования через Ctrl-/ ===
 " В normal режиме: закомментировать/раскомментировать строку
+nnoremap <leader>c <Plug>NERDCommenterToggle
 nnoremap <C-_> <Plug>NERDCommenterToggle
 " В visual режиме: закомментировать/раскомментировать выделение
 vnoremap <C-_> <Plug>NERDCommenterToggle
+vnoremap <leader>c <Plug>NERDCommenterToggle
 
 
 
@@ -280,3 +285,59 @@ vnoremap <C-_> <Plug>NERDCommenterToggle
 " Y  - скопировать полный путь до файла
 "
  let g:coc_config_home = expand('~/.config/nvim')
+
+
+" Close current tab
+"nnoremap <leader>w :tabclose<CR>
+
+" New tab
+nnoremap <leader>t :tabnew<CR>
+
+
+" Jump to tab 1–9 with leader + number
+nnoremap <leader>1 1gt
+nnoremap <leader>2 2gt
+nnoremap <leader>3 3gt
+nnoremap <leader>4 4gt
+nnoremap <leader>5 5gt
+nnoremap <leader>6 6gt
+nnoremap <leader>7 7gt
+nnoremap <leader>8 8gt
+nnoremap <leader>9 9gt
+
+" navigation between tab
+"
+nnoremap <leader>L :tabnext<CR>
+nnoremap <leader>H :tabprevious<CR>
+
+" file
+nnoremap <leader>s :w<cr>         " save file
+nnoremap <leader>w :q<cr>         " quit file
+nnoremap <leader>x :x<cr>         " save+quit file
+nnoremap <leader>W :q!<CR>        " Quit all
+nnoremap <leader>Q :qa<CR>        " Quit all
+
+
+nnoremap <leader>e :vsplit<CR>   " Vertical split
+nnoremap <leader>r :split<CR>    " Horizontal split
+nnoremap <leader>d :only<CR>     " Keep only current split
+
+
+" navigation between splits 
+"
+"
+"
+nnoremap <leader>h <c-w>h
+nnoremap <leader>j <c-w>j
+nnoremap <leader>k <c-w>k
+nnoremap <leader>l <C-w>l
+
+" history of commands
+"
+nnoremap <leader>q q:
+nnoremap <leader>/ q/
+
+" GODDESS pastes copy
+vnoremap <leader>y "+y             " Yank to system clipboard
+
+nnoremap <leader>v gv
