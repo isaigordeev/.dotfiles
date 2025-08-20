@@ -343,3 +343,14 @@ nnoremap <leader>/ q/
 vnoremap <leader>y "+y             " Yank to system clipboard
 
 nnoremap <leader>v gv
+
+
+" Default location for the session file
+let g:session_file = expand('~/.vim/session.vim')
+
+" Save session with <leader><Tab>
+nnoremap <leader><Tab> :mksession! ~/.vim/session.vim<CR>:echo "Session saved!"<CR>
+
+" Load session with <leader><S-Tab>
+nnoremap <leader><S-Tab> :source ~/.vim/session.vim<CR>:echo "Session loaded!"<CR>
+
