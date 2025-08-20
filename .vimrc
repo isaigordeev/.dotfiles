@@ -254,6 +254,8 @@ nnoremap <C-_> <Plug>NERDCommenterToggle
 vnoremap <C-_> <Plug>NERDCommenterToggle
 vnoremap <leader>c <Plug>NERDCommenterToggle
 
+autocmd FileType nerdtree setlocal number
+
 
 
 

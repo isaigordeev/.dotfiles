@@ -18,3 +18,14 @@ probably you need a little capacity to use only a keyboard for everything but th
 
 super perfect if you have an old linux or darwin and you want to support a proj with 1kk lines of code without pretty Clion :) 
 
+to load oh my zsh
+
+```
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+```
+
+to load a theme to oh my zsh
+
+```
+ln -s $PWD/sobole.zsh-theme ~/.oh-my-zsh/custom/themes/sobole.zsh-theme
+```
