@@ -1,3 +1,6 @@
+FOL download zsh with curl
+
+
 load plugins
 
 
