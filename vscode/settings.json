@@ -1,0 +1,11 @@
+{
+  "editor.fontFamily": "JetBrains Mono", // for vscode only this
+  "editor.fontSize": 12.3,
+  "editor.lineHeight": 22,          // tighter, more JetBrains-like
+
+    "editor.tokenColorCustomizations": {
+    "textMateRules": [
+      { "scope": ["comment"], "settings": { "foreground": "#828282"} },
+    ]
+  },
+}
