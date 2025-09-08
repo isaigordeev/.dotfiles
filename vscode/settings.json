@@ -1,11 +1,30 @@
 {
   "editor.fontFamily": "JetBrains Mono", // for vscode only this
   "editor.fontSize": 12.3,
-  "editor.lineHeight": 22,          // tighter, more JetBrains-like
-
-    "editor.tokenColorCustomizations": {
+  "editor.lineHeight": 22, // tighter, more JetBrains-like
+  "editor.tokenColorCustomizations": {
     "textMateRules": [
-      { "scope": ["comment"], "settings": { "foreground": "#828282"} },
+      {
+        "scope": [
+          "comment"
+        ],
+        "settings": {
+          "foreground": "#828282"
+        }
+      },
     ]
   },
+  "editor.rulers": [
+    90,
+    120
+  ],
+    "workbench.colorCustomizations": {
+    "[Visual Studio Dark]": {
+      "editor.background": "#2a2a2a",
+    }
+
+
+  },
+  "workbench.preferredDarkColorTheme": "Visual Studio Dark",
+  "workbench.preferredLightColorTheme": "Visual Studio Light"
 }
