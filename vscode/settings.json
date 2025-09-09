@@ -35,5 +35,9 @@
   "workbench.navigationControl.enabled": false,
   "window.commandCenter": false,
   "editor.minimap.renderCharacters": false,
-
+  "workbench.activityBar.location": "hidden",
+  "workbench.statusBar.visible": false,
+  "workbench.secondarySideBar.defaultVisibility": "hidden"
+  "workbench.panel.defaultLocation": "bottom",
+  "workbench.panel.opensMaximized": "never"
 }
