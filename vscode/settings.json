@@ -20,11 +20,20 @@
   ],
     "workbench.colorCustomizations": {
     "[Visual Studio Dark]": {
-      "editor.background": "#2a2a2a",
+      "editor.background": "#2d2d2d",
     }
 
 
   },
   "workbench.preferredDarkColorTheme": "Visual Studio Dark",
-  "workbench.preferredLightColorTheme": "Visual Studio Light"
+  "workbench.preferredLightColorTheme": "Visual Studio Light",
+  "editor.formatOnSave": true,
+  "editor.formatOnPaste": true,
+  "editor.wordWrap": "wordWrapColumn",
+  "zenMode.hideLineNumbers": false,
+  "editor.minimap.showSlider": "always",
+  "workbench.navigationControl.enabled": false,
+  "window.commandCenter": false,
+  "editor.minimap.renderCharacters": false,
+
 }
