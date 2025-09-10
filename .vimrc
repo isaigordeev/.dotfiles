@@ -248,11 +248,11 @@ nnoremap <C-b> :Buffers<CR>
 
 " === Шорткат для комментирования через Ctrl-/ ===
 " В normal режиме: закомментировать/раскомментировать строку
-nnoremap <leader>c <Plug>NERDCommenterToggle
+"nnoremap <leader>c <Plug>NERDCommenterToggle
 nnoremap <C-_> <Plug>NERDCommenterToggle
 " В visual режиме: закомментировать/раскомментировать выделение
 vnoremap <C-_> <Plug>NERDCommenterToggle
-vnoremap <leader>c <Plug>NERDCommenterToggle
+"vnoremap <leader>c <Plug>NERDCommenterToggle
 
 autocmd FileType nerdtree setlocal number
 
@@ -309,13 +309,15 @@ nnoremap <leader>9 9gt
 
 " navigation between tab
 "
-nnoremap <leader>L :tabnext<CR>
-nnoremap <leader>H :tabprevious<CR>
+nnoremap <leader>u :tabprevious<CR>
+nnoremap <leader>i :tabnext<CR>
 
 " file
 nnoremap <leader>s :w<cr>         " save file
 nnoremap <leader>w :q<cr>         " quit file
-nnoremap <leader>x :x<cr>         " save+quit file
+
+" nnoremap <leader>x :x<cr>         " save+quit file
+"
 nnoremap <leader>W :q!<CR>        " Quit all
 nnoremap <leader>Q :qa<CR>        " Quit all
 
