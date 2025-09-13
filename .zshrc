@@ -9,7 +9,8 @@ export ZSH="$HOME/.oh-my-zsh"
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
 ZSH_THEME="sobole"
-
+#SOBOLE_THEME_MODE=light
+#SOBOLE_THEME_MODE=dark
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
 # a theme from this variable instead of looking in $ZSH/themes/
@@ -101,7 +102,7 @@ source $ZSH/oh-my-zsh.sh
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 #
 # alias python=/Library/Frameworks/Python.framework/Versions/3.10/bin/python3
-alias python=/usr/local/bin/python3
+#alias python=/usr/local/bin/python3
 # export PATH="$HOME/nvim/bin:$PATH"
 
 # Created by `pipx` on 2024-06-11 08:50:53
@@ -114,3 +115,7 @@ export PATH="/usr/local/opt/llvm@17/bin:$PATH"
 if [ -f '/Users/isaigordeev/concurrency-course/client/activate' ]; then . '/Users/isaigordeev/concurrency-course/client/activate'; fi
 if [ -f '/Users/isaigordeev/concurrency-course/client/complete.bash' ]; then source /Users/isaigordeev/concurrency-course/client/complete.bash; fi
 
+
+#export NVM_DIR="$HOME/.nvm"
+#[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+#[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion

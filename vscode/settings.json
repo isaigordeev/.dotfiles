@@ -40,5 +40,20 @@
   "workbench.statusBar.visible": false,
   "workbench.secondarySideBar.defaultVisibility": "hidden",
   "workbench.panel.defaultLocation": "bottom",
-  "workbench.panel.opensMaximized": "never"
+  "workbench.panel.opensMaximized": "never",
+   // defaultFormatter
+    "editor.defaultFormatter": "ms-vscode.cpptools",
+   // python 
+
+     "python.analysis.inlayHints.variableTypes": true,
+  "ruff.lineLength": 80,
+  "ruff.configuration": "",
+  "ruff.path": [
+    "/Users/isaigordeev/Desktop/millenium-falcon-challenge/.venv/bin/ruff"
+  ],
+
+  // CPP
+   "C_Cpp.clang_format_path": "/usr/local/opt/llvm@17/bin/clang-format",
+ "C_Cpp.formatting": "clangFormat",
+  "C_Cpp.codeAnalysis.clangTidy.enabled": true
 }

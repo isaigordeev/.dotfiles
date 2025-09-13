@@ -139,7 +139,7 @@ module.exports = {
     //   `project#1.0.1`
     plugins:  [
        //"hyper-snazzy"   // Grey
-       //"hyper-one-light" // Light
+       "hyper-one-light" // Light
        //"hyper-dracula"    // Dark
     ],
     // in development, you can create a directory under
