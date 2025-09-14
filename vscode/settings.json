@@ -43,6 +43,7 @@
   "workbench.panel.opensMaximized": "never",
    // defaultFormatter
     "editor.defaultFormatter": "ms-vscode.cpptools",
+      "editor.autoClosingBrackets": "never",
    // python 
 
      "python.analysis.inlayHints.variableTypes": true,
@@ -53,7 +54,10 @@
   ],
 
   // CPP
-   "C_Cpp.clang_format_path": "/usr/local/opt/llvm@17/bin/clang-format",
- "C_Cpp.formatting": "clangFormat",
+  "C_Cpp.default.cppStandard": "c++20",
+  "C_Cpp.formatting": "clangFormat",
+  "C_Cpp.clang_format_path": "/usr/local/opt/llvm@17/bin/clang-format",
+  "C_Cpp.intelliSenseEngine": "default",
   "C_Cpp.codeAnalysis.clangTidy.enabled": true
+
 }
