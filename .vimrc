@@ -95,7 +95,6 @@ set softtabstop=3     " Number of spaces when editing tabs
 set shiftwidth=3      " Spaces per auto-indent
 set expandtab         " Use spaces instead of tabs
 
-
 " ----------------------------
 "        NAVIGATION & SEARCH
 " ----------------------------
@@ -133,14 +132,14 @@ set updatetime=300    " Faster update for Coc and highlighting
 "             CLION-LIKE LIGHT COLOR SCHEME
 " ============================================================
 highlight Comment   ctermfg=244   " Comments (gray)
-highlight String    ctermfg=124   " Strings (dark red)
-highlight Number    ctermfg=92    " Numbers (purple)
-highlight Function  ctermfg=30    " Functions (brown)
-highlight Type      ctermfg=30    " Types (blue)
-highlight Constant  ctermfg=92    " Constants (purple)
-highlight Operator  ctermfg=black " Operators (black)
-highlight Special   ctermfg=202   " Special characters (orange)
 " Optional:
+"highlight String    ctermfg=124   
+"highlight Number    ctermfg=92   
+"highlight Function  ctermfg=30  
+"highlight Type      ctermfg=30 
+"highlight Constant  ctermfg=92  
+"highlight Operator  ctermfg=black 
+"highlight Special   ctermfg=202   
 "highlight Normal   ctermfg=black
 "highlight LineNr   ctermfg=242
 "highlight CursorLine ctermbg=254
