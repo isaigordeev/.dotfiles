@@ -1,150 +1,156 @@
 " ============================
-"      БАЗОВЫЕ НАСТРОЙКИ
+"        BASIC SETTINGS
 " ============================
-"
-" BAZA
+
+" Leader key
 let mapleader = " "
 
-" Включить синтаксис
+" Enable syntax highlighting
 syntax on
 
-"Авто-определение типа файлов и авто-отступы
+" Filetype detection, plugins and indent
 filetype plugin indent on
 
-" Поддержка 256 цветов
+" Enable 256 colors
 set t_Co=256
 
-" Светлый фон для корректного отображения цветов
+" Light background for better colors
 set background=light
 
-" ----------------------------
-"      ТАБУЛЯЦИЯ И ОТСТУПЫ
-" ----------------------------
-set tabstop=3         " Количество пробелов, соответствующих табу
-set softtabstop=3     " Количество пробелов для редактирования табов
-set shiftwidth=3      " Количество пробелов при автоотступе
-set expandtab         " Использовать пробелы вместо табов
 
 " ----------------------------
-"      НАВИГАЦИЯ И ПОИСК
+"        TABS & INDENTS
 " ----------------------------
-set number            " Номера строк
-set ruler             " Показ позиции курсора
-set incsearch         " Инкрементальный поиск
+set tabstop=3         " Number of spaces per tab
+set softtabstop=3     " Number of spaces when editing tabs
+set shiftwidth=3      " Spaces per auto-indent
+set expandtab         " Use spaces instead of tabs
 
-set signcolumn=yes
+
+" ----------------------------
+"        NAVIGATION & SEARCH
+" ----------------------------
+set number            " Show line numbers
+set ruler             " Show cursor position
+set incsearch         " Incremental search
+
+set signcolumn=yes    " Always show sign column
 highlight SignColumn ctermbg=NONE guibg=NONE
 
-" ----------------------------
-"      СКЛАДКИ
-" ----------------------------
-set foldmethod=indent  " Складки по отступам
-set foldlevel=99       " Все складки открыты по умолчанию
-nnoremap <space> za    " Пробел переключает складку
 
 " ----------------------------
-"      АВТО-ОТСТУПЫ
+"        FOLDING
+" ----------------------------
+set foldmethod=indent " Fold based on indent level
+set foldlevel=99      " Keep all folds open by default
+nnoremap <space> za   " Toggle fold with <space>
+
+
+" ----------------------------
+"        AUTO-INDENT
 " ----------------------------
 set smartindent
 set autoindent
 set copyindent
 set cindent
 
+
 " ----------------------------
-"      ОБНОВЛЕНИЕ И ВРЕМЯ
+"        UPDATE & TIMING
 " ----------------------------
-set updatetime=300    " Быстрое обновление для Coc и подсветки
+set updatetime=300    " Faster update for Coc and highlighting
+
 
 " ============================
 "      CLion LIGHT COLOR SCHEME
 " ============================
 
-" Основной текст
+" Main text
 "highlight Normal ctermfg=black 
 
-" Номера строк
+" Line numbers
 "highlight LineNr ctermfg=242 
 
-" Фон текущей строки
+" Current line background
 "highlight CursorLine ctermbg=254
 
-" Комментарии (серый)
+" Comments (gray)
 highlight Comment ctermfg=244
 
-" Ключевые слова (тёмно-синий)
+" Keywords (dark blue)
 "highlight Keyword ctermfg=45
 "highlight Statement ctermfg=55
 
-" Строки (тёмно-красный)
+" Strings (dark red)
 "highlight String ctermfg=124
 
-" Числа (фиолетовый)
+" Numbers (purple)
 "highlight Number ctermfg=92
 
-" Функции (тёмно-коричневый)
+" Functions (brown)
 "highlight Function ctermfg=30
 
-" Типы (тёмно-голубой)
+" Types (blue)
 "highlight Type ctermfg=30
 
-" Константы (фиолетовый)
+" Constants (purple)
 "highlight Constant ctermfg=92
 
-" Операторы (чёрный)
+" Operators (black)
 "highlight Operator ctermfg=black
 
-" PreProc (include, define - тёмно-пурпурный)
+" PreProc (include, define - dark magenta)
 "highlight PreProc ctermfg=127
 
-" Специальные символы (оранжевый)
+" Special characters (orange)
 "highlight Special ctermfg=202
 
 " Identifier
 "highlight Identifier ctermfg=94
 
+
 " ============================
-"      НАВИГАЦИЯ В INSERT MODE
+"     INSERT MODE NAVIGATION
 " ============================
 inoremap <C-h> <Left>
 inoremap <C-l> <Right>
 inoremap <C-j> <Down>
 inoremap <C-k> <Up>
 
+
 " ============================
-"      ПОДДЕРЖКА ПЛАГИНОВ
+"        PLUGINS
 " ============================
 call plug#begin('~/.vim/plugged')
 
-" LSP Server
+" LSP (Coc)
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
-" Древовидная навигация
+" File tree
 Plug 'preservim/nerdtree'
 
-" Поиск файлов
+" Fuzzy file search
 Plug 'junegunn/fzf', { 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 
-" Комментарии
-"
-"
+" Commenting
 Plug 'preservim/nerdcommenter'
-
 
 call plug#end()
 
+
 " ============================
-"      COC.NVIM KEYBINDINGS
+"        COC KEYBINDINGS
 " ============================
 
-" Принять выделенный вариант автодополнения
+" Accept completion
 inoremap <silent><expr> <CR> coc#pum#visible() ? coc#pum#confirm() : "\<CR>"
 
-" Перемещение по элементам автодополнения
+" Completion navigation
 inoremap <silent><expr> <C-j> coc#pum#visible() ? coc#pum#next(1) : "\<C-j>"
 inoremap <silent><expr> <C-k> coc#pum#visible() ? coc#pum#prev(1) : "\<C-k>"
 
-" Навигация по коду
+" Code navigation
 nmap <silent> gd <Plug>(coc-definition)
 nmap <silent> gy <Plug>(coc-type-definition)
 nmap <silent> gi <Plug>(coc-implementation)
@@ -152,151 +158,92 @@ nmap <silent> gr <Plug>(coc-references)
 nnoremap <silent> K :call CocActionAsync('doHover')<CR>
 autocmd CursorHold * silent call CocActionAsync('highlight')
 
-" ============================
-"      РУССКАЯ РАСКЛАДКА
-" ============================
 
-" Нижний регистр
-noremap й q
-noremap ц w
-noremap у e
-noremap к r
-noremap е t
-noremap н y
-noremap г u
-noremap ш i
-noremap щ o
-noremap з p
-noremap х [
-noremap ъ ]
-noremap ф a
-noremap ы s
-noremap в d
-noremap а f
-noremap п g
-noremap р h
-noremap о j
-noremap л k
-noremap д l
-noremap ж ;
-noremap э '
-noremap ё \
-noremap я z
-noremap ч x
-noremap с c
-noremap м v
-noremap и b
-noremap т n
-noremap ь m
-noremap б ,
-noremap ю .
+" ============================
+"    RUSSIAN LAYOUT REMAPPING
+" ============================
+" (Maps Cyrillic keys to Vim commands so you can use Russian keyboard layout)
 
-" Верхний регистр
-noremap Й Q
-noremap Ц W
-noremap У E
-noremap К R
-noremap Е T
-noremap Н Y
-noremap Г U
-noremap Ш I
-noremap Щ O
-noremap З P
-noremap Х {
-noremap Ъ }
-noremap Ф A
-noremap Ы S
-noremap В D
-noremap А F
-noremap П G
-noremap Р H
-noremap О J
-noremap Л K
-noremap Д L
-noremap Ж :
-noremap Э "
-noremap Я Z
-noremap Ч X
-noremap С C
-noremap М V
-noremap И B
-noremap Т N
-noremap Ь M
-noremap Б <
-noremap Ю >
+noremap й q | noremap ц w | noremap у e | noremap к r | noremap е t
+noremap н y | noremap г u | noremap ш i | noremap щ o | noremap з p
+noremap х [ | noremap ъ ] | noremap ф a | noremap ы s | noremap в d
+noremap а f | noremap п g | noremap р h | noremap о j | noremap л k
+noremap д l | noremap ж ; | noremap э ' | noremap ё \
+noremap я z | noremap ч x | noremap с c | noremap м v
+noremap и b | noremap т n | noremap ь m | noremap б , | noremap ю .
+
+" Uppercase
+noremap Й Q | noremap Ц W | noremap У E | noremap К R | noremap Е T
+noremap Н Y | noremap Г U | noremap Ш I | noremap Щ O | noremap З P
+noremap Х { | noremap Ъ } | noremap Ф A | noremap Ы S | noremap В D
+noremap А F | noremap П G | noremap Р H | noremap О J | noremap Л K
+noremap Д L | noremap Ж : | noremap Э " | noremap Я Z
+noremap Ч X | noremap С C | noremap М V | noremap И B | noremap Т N
+noremap Ь M | noremap Б < | noremap Ю >
+
 
 " ============================
 "      NERD TREE
 " ============================
-nnoremap <C-n> :NERDTreeToggle<CR>  " Открыть/закрыть NERDTree
-nnoremap <C-f> :NERDTreeFind<CR>    " Найти текущий файл
+nnoremap <C-n> :NERDTreeToggle<CR>   " Toggle NERDTree
+nnoremap <C-f> :NERDTreeFind<CR>     " Find current file
 
 let NERDTreeShowHidden=1
-let g:NERDTreeWinSize = 55
-" Внутри NERDTree можно динамически переключать видимость скрытых файлов клавишей I (Shift + i)
-" ============================
-"      ПОИСК ФАЙЛОВ И БУФЕРОВ
-" ============================
-" быстрый поиск
-nnoremap <C-p> :Files<CR>
-nnoremap <C-b> :Buffers<CR>
-
-" Следующий/предыдущий буфер
-"nnoremap <Tab> :bnext<CR>
-"nnoremap <S-Tab> :bprevious<CR>
-
-
-" === Шорткат для комментирования через Ctrl-/ ===
-" В normal режиме: закомментировать/раскомментировать строку
-"nnoremap <leader>c <Plug>NERDCommenterToggle
-nnoremap <C-_> <Plug>NERDCommenterToggle
-" В visual режиме: закомментировать/раскомментировать выделение
-vnoremap <C-_> <Plug>NERDCommenterToggle
-"vnoremap <leader>c <Plug>NERDCommenterToggle
-
+let g:NERDTreeWinSize=55
+" Inside NERDTree, you can toggle hidden files with I (Shift+i)
 autocmd FileType nerdtree setlocal number
 
-
-
-
-" Внутри NERDTree:
-" o  - открыть файл/папку в текущем окне
-" i  - открыть файл в вертикальном сплите
-" s  - открыть файл в горизонтальном сплите
-" t  - открыть файл в новой вкладке
-" go - открыть файл без закрытия NERDTree
-" p  - перейти к родительской папке
-" u  - перейти на уровень выше
-" C  - сменить корневую папку NERDTree
-" R  - обновить дерево (refresh)
-" za - переключить складку (open/close)
-" zA - рекурсивно переключить складку
-" zo - открыть складку
-" zc - закрыть складку
+" Inside NERDTree:
+" o  - open file/folder in current window
+" i  - open file in vertical split
+" s  - open file in horizontal split
+" t  - open file in new tab
+" go - open file without closing NERDTree
+" p  - go to parent folder
+" u  - go one level up
+" C  - change NERDTree root folder
+" R  - refresh tree
+" za - toggle fold
+" zA - recursively toggle fold
+" zo - open fold
+" zc - close fold
 
 " ----------------------------
-"      УПРАВЛЕНИЕ ФАЙЛАМИ
+"      FILE MANAGEMENT
 " ----------------------------
-" m - меню управления (создать, удалить, переименовать, копировать)
-" I - показать/скрыть скрытые файлы
-" x - удалить файл/папку
-" r - переименовать файл/папку
-" a - создать новый файл
-" A - создать новую папку
-" gy - скопировать путь до файла в буфер обмена
-" Y  - скопировать полный путь до файла
-"
- let g:coc_config_home = expand('~/.config/nvim')
+" m  - file management menu (create, delete, rename, copy)
+" I  - show/hide hidden files
+" x  - delete file/folder
+" r  - rename file/folder
+" a  - create new file
+" A  - create new folder
+" gy - copy relative path to clipboard
+" Y  - copy full path to clipboard
 
 
-" Close current tab
-"nnoremap <leader>w :tabclose<CR>
+" ============================
+"        FUZZY FIND
+" ============================
+nnoremap <C-p> :Files<CR>    " Search files
+nnoremap <C-b> :Buffers<CR>  " Search buffers
 
-" New tab
-nnoremap <leader>t :tabnew<CR>
+
+" ============================
+"        COMMENTING
+" ============================
+" Toggle comment with Ctrl-/
+nnoremap <C-_> <Plug>NERDCommenterToggle
+vnoremap <C-_> <Plug>NERDCommenterToggle
 
 
-" Jump to tab 1–9 with leader + number
+" ============================
+"        TABS
+" ============================
+nnoremap <leader>t :tabnew<CR>        " New tab
+nnoremap <leader>u :tabprevious<CR>   " Previous tab
+nnoremap <leader>i :tabnext<CR>       " Next tab
+
+" Jump to tab 1–9
 nnoremap <leader>1 1gt
 nnoremap <leader>2 2gt
 nnoremap <leader>3 3gt
@@ -307,52 +254,45 @@ nnoremap <leader>7 7gt
 nnoremap <leader>8 8gt
 nnoremap <leader>9 9gt
 
-" navigation between tab
-"
-nnoremap <leader>u :tabprevious<CR>
-nnoremap <leader>i :tabnext<CR>
 
-" file
-nnoremap <leader>s :w<cr>         " save file
-nnoremap <leader>w :q<cr>         " quit file
+" ============================
+"        FILE MANAGEMENT
+" ============================
+nnoremap <leader>s :w<CR>       " Save file
+nnoremap <leader>w :q<CR>       " Quit file
+nnoremap <leader>W :q!<CR>      " Quit without saving
+nnoremap <leader>Q :qa<CR>      " Quit all
 
-" nnoremap <leader>x :x<cr>         " save+quit file
-"
-nnoremap <leader>W :q!<CR>        " Quit all
-nnoremap <leader>Q :qa<CR>        " Quit all
+" Splits
+nnoremap <leader>e :vsplit<CR>  " Vertical split
+nnoremap <leader>r :split<CR>   " Horizontal split
+nnoremap <leader>f :only<CR>    " Keep only current split
 
-
-nnoremap <leader>e :vsplit<CR>   " Vertical split
-nnoremap <leader>r :split<CR>    " Horizontal split
-nnoremap <leader>d :only<CR>     " Keep only current split
-
-
-" navigation between splits 
-"
-"
-"
-nnoremap <leader>h <c-w>h
-nnoremap <leader>j <c-w>j
-nnoremap <leader>k <c-w>k
+" Move between splits
+nnoremap <leader>h <C-w>h
+nnoremap <leader>j <C-w>j
+nnoremap <leader>k <C-w>k
 nnoremap <leader>l <C-w>l
 
-" history of commands
-"
-nnoremap <leader>q q:
-nnoremap <leader>/ q/
 
-" GODDESS pastes copy
-vnoremap <leader>y "+y             " Yank to system clipboard
+" ============================
+"        HISTORY & CLIPBOARD
+" ============================
+nnoremap <leader>; q:          " Command history
+nnoremap <leader>/ q/          " Search history
 
-nnoremap <leader>v gv
+vnoremap <leader>y "+y         " Yank to system clipboard
+nnoremap <leader>v gv          " Reselect last visual selection
 
 
-" Default location for the session file
+" ============================
+"        SESSIONS
+" ============================
 let g:session_file = expand('~/.vim/session.vim')
 
-" Save session with <leader><Tab>
+" Save session
 nnoremap <leader><Tab> :mksession! ~/.vim/session.vim<CR>:echo "Session saved!"<CR>
 
-" Load session with <leader><S-Tab>
+" Load session
 nnoremap <leader><S-Tab> :source ~/.vim/session.vim<CR>:echo "Session loaded!"<CR>
 
