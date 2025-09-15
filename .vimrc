@@ -1,6 +1,75 @@
-" ============================
-"        BASIC SETTINGS
-" ============================
+" ============================================================
+"                   VIM CONFIGURATION
+" ============================================================
+"'  Features:
+" - Modern LSP support with CoC
+" - File explorer with NERDTree
+" - Fuzzy search with fzf
+" - Easy commenting with NERDCommenter
+" - Custom CLion-like light color scheme
+" - Russian keyboard layout remapped for Vim commands
+" - Tab and split management
+" - Session saving and restoring
+
+" ============================================================
+"                      HOTKEYS
+" ============================================================
+" GENERAL
+"   <leader>s        Save file
+"   <leader>w        Quit file
+"   <leader>W        Quit without saving
+"   <leader>Q        Quit all
+"   <leader>;        Command history
+"   <leader>/        Search history
+"   <leader>y        Yank to system clipboard
+"   <leader>v        Reselect last visual selection
+
+" SPLITS
+"   <leader>e        Vertical split
+"   <leader>r        Horizontal split
+"   <leader>f        Keep only current split
+"   <leader>h/j/k/l  Move between splits
+
+" TABS
+"   <leader>t        New tab
+"   <leader>u        Previous tab
+"   <leader>i        Next tab
+"   <leader>1..9     Jump to tab N
+
+" SESSIONS
+"   <leader><Tab>    Save session
+"   <leader><S-Tab>  Load session
+
+" NERDTREE
+"   <C-n>            Toggle NERDTree
+"   <C-f>            Find current file in NERDTree
+"   I                Show/hide hidden files
+"   m                File management menu
+"   o/i/s/t/go       Open file (normal/split/tab)
+"   p/u/C/R          Parent, up, change root, refresh
+"   za/zA/zo/zc      Folding commands
+
+" FUZZY FIND
+"   <C-p>            Search files
+"   <C-b>            Search buffers
+
+" COMMENTING
+"   <C-/>            Toggle comment (normal/visual mode)
+
+" COC (LSP)
+"   <CR>             Confirm completion
+"   <C-j>/<C-k>      Navigate completion menu
+"   gd/gy/gi/gr      Go to definition/type/impl/references
+"   K                Show documentation (hover)
+
+" NAVIGATION
+"   <space>          Toggle code fold
+"   Insert mode:     <C-h/j/k/l> → Move cursor left/down/up/right
+
+
+" ============================================================
+"                    BASIC SETTINGS
+" ============================================================
 
 " Leader key
 let mapleader = " "
@@ -33,7 +102,6 @@ set expandtab         " Use spaces instead of tabs
 set number            " Show line numbers
 set ruler             " Show cursor position
 set incsearch         " Incremental search
-
 set signcolumn=yes    " Always show sign column
 highlight SignColumn ctermbg=NONE guibg=NONE
 
@@ -61,96 +129,56 @@ set cindent
 set updatetime=300    " Faster update for Coc and highlighting
 
 
-" ============================
-"      CLion LIGHT COLOR SCHEME
-" ============================
-
-" Main text
-"highlight Normal ctermfg=black 
-
-" Line numbers
-"highlight LineNr ctermfg=242 
-
-" Current line background
+" ============================================================
+"             CLION-LIKE LIGHT COLOR SCHEME
+" ============================================================
+highlight Comment   ctermfg=244   " Comments (gray)
+highlight String    ctermfg=124   " Strings (dark red)
+highlight Number    ctermfg=92    " Numbers (purple)
+highlight Function  ctermfg=30    " Functions (brown)
+highlight Type      ctermfg=30    " Types (blue)
+highlight Constant  ctermfg=92    " Constants (purple)
+highlight Operator  ctermfg=black " Operators (black)
+highlight Special   ctermfg=202   " Special characters (orange)
+" Optional:
+"highlight Normal   ctermfg=black
+"highlight LineNr   ctermfg=242
 "highlight CursorLine ctermbg=254
-
-" Comments (gray)
-highlight Comment ctermfg=244
-
-" Keywords (dark blue)
-"highlight Keyword ctermfg=45
+"highlight Keyword  ctermfg=45
 "highlight Statement ctermfg=55
-
-" Strings (dark red)
-"highlight String ctermfg=124
-
-" Numbers (purple)
-"highlight Number ctermfg=92
-
-" Functions (brown)
-"highlight Function ctermfg=30
-
-" Types (blue)
-"highlight Type ctermfg=30
-
-" Constants (purple)
-"highlight Constant ctermfg=92
-
-" Operators (black)
-"highlight Operator ctermfg=black
-
-" PreProc (include, define - dark magenta)
-"highlight PreProc ctermfg=127
-
-" Special characters (orange)
-"highlight Special ctermfg=202
-
-" Identifier
+"highlight PreProc  ctermfg=127
 "highlight Identifier ctermfg=94
 
 
-" ============================
-"     INSERT MODE NAVIGATION
-" ============================
+" ============================================================
+"               INSERT MODE NAVIGATION
+" ============================================================
 inoremap <C-h> <Left>
 inoremap <C-l> <Right>
 inoremap <C-j> <Down>
 inoremap <C-k> <Up>
 
 
-" ============================
-"        PLUGINS
-" ============================
+" ============================================================
+"                        PLUGINS
+" ============================================================
 call plug#begin('~/.vim/plugged')
 
-" LSP (Coc)
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
-
-" File tree
-Plug 'preservim/nerdtree'
-
-" Fuzzy file search
-Plug 'junegunn/fzf', { 'do': './install --all' }
+Plug 'neoclide/coc.nvim', {'branch': 'release'} " LSP
+Plug 'preservim/nerdtree'                       " File tree
+Plug 'junegunn/fzf', { 'do': './install --all' }" Fuzzy finder
 Plug 'junegunn/fzf.vim'
-
-" Commenting
-Plug 'preservim/nerdcommenter'
+Plug 'preservim/nerdcommenter'                  " Commenting
 
 call plug#end()
 
 
-" ============================
-"        COC KEYBINDINGS
-" ============================
-
-" Accept completion
+" ============================================================
+"                    COC KEYBINDINGS
+" ============================================================
 inoremap <silent><expr> <CR> coc#pum#visible() ? coc#pum#confirm() : "\<CR>"
-
-" Completion navigation
 inoremap <silent><expr> <C-j> coc#pum#visible() ? coc#pum#next(1) : "\<C-j>"
 inoremap <silent><expr> <C-k> coc#pum#visible() ? coc#pum#prev(1) : "\<C-k>"
-
-" Code navigation
 nmap <silent> gd <Plug>(coc-definition)
 nmap <silent> gy <Plug>(coc-type-definition)
 nmap <silent> gi <Plug>(coc-implementation)
@@ -159,10 +187,11 @@ nnoremap <silent> K :call CocActionAsync('doHover')<CR>
 autocmd CursorHold * silent call CocActionAsync('highlight')
 
 
-" ============================
-"    RUSSIAN LAYOUT REMAPPING
-" ============================
-" (Maps Cyrillic keys to Vim commands so you can use Russian keyboard layout)
+" ============================================================
+"             RUSSIAN LAYOUT REMAPPING
+" ============================================================
+" Allows Vim commands on Russian keyboard layout
+" (maps Cyrillic keys to Vim commands)
 
 noremap й q | noremap ц w | noremap у e | noremap к r | noremap е t
 noremap н y | noremap г u | noremap ш i | noremap щ o | noremap з p
@@ -182,63 +211,32 @@ noremap Ч X | noremap С C | noremap М V | noremap И B | noremap Т N
 noremap Ь M | noremap Б < | noremap Ю >
 
 
-" ============================
-"      NERD TREE
-" ============================
-nnoremap <C-n> :NERDTreeToggle<CR>   " Toggle NERDTree
-nnoremap <C-f> :NERDTreeFind<CR>     " Find current file
-
+" ============================================================
+"                       NERD TREE
+" ============================================================
+nnoremap <C-n> :NERDTreeToggle<CR> " Toggle NERDTree
+nnoremap <C-f> :NERDTreeFind<CR>   " Find current file
 let NERDTreeShowHidden=1
 let g:NERDTreeWinSize=55
-" Inside NERDTree, you can toggle hidden files with I (Shift+i)
 autocmd FileType nerdtree setlocal number
 
-" Inside NERDTree:
-" o  - open file/folder in current window
-" i  - open file in vertical split
-" s  - open file in horizontal split
-" t  - open file in new tab
-" go - open file without closing NERDTree
-" p  - go to parent folder
-" u  - go one level up
-" C  - change NERDTree root folder
-" R  - refresh tree
-" za - toggle fold
-" zA - recursively toggle fold
-" zo - open fold
-" zc - close fold
-
-" ----------------------------
-"      FILE MANAGEMENT
-" ----------------------------
-" m  - file management menu (create, delete, rename, copy)
-" I  - show/hide hidden files
-" x  - delete file/folder
-" r  - rename file/folder
-" a  - create new file
-" A  - create new folder
-" gy - copy relative path to clipboard
-" Y  - copy full path to clipboard
-
-
-" ============================
-"        FUZZY FIND
-" ============================
+" ============================================================
+"                      FUZZY FIND
+" ============================================================
 nnoremap <C-p> :Files<CR>    " Search files
 nnoremap <C-b> :Buffers<CR>  " Search buffers
 
 
-" ============================
-"        COMMENTING
-" ============================
-" Toggle comment with Ctrl-/
-nnoremap <C-_> <Plug>NERDCommenterToggle
-vnoremap <C-_> <Plug>NERDCommenterToggle
+" ============================================================
+"                      COMMENTING
+" ============================================================
+nnoremap <C-_> <Plug>NERDCommenterToggle " Toggle comment (normal mode)
+vnoremap <C-_> <Plug>NERDCommenterToggle " Toggle comment (visual mode)
 
 
-" ============================
-"        TABS
-" ============================
+" ============================================================
+"                          TABS
+" ============================================================
 nnoremap <leader>t :tabnew<CR>        " New tab
 nnoremap <leader>u :tabprevious<CR>   " Previous tab
 nnoremap <leader>i :tabnext<CR>       " Next tab
@@ -255,18 +253,18 @@ nnoremap <leader>8 8gt
 nnoremap <leader>9 9gt
 
 
-" ============================
-"        FILE MANAGEMENT
-" ============================
-nnoremap <leader>s :w<CR>       " Save file
-nnoremap <leader>w :q<CR>       " Quit file
-nnoremap <leader>W :q!<CR>      " Quit without saving
-nnoremap <leader>Q :qa<CR>      " Quit all
+" ============================================================
+"                   FILE MANAGEMENT
+" ============================================================
+nnoremap <leader>s :w<CR>    " Save file
+nnoremap <leader>w :q<CR>    " Quit file
+nnoremap <leader>W :q!<CR>   " Quit without saving
+nnoremap <leader>Q :qa<CR>   " Quit all
 
 " Splits
-nnoremap <leader>e :vsplit<CR>  " Vertical split
-nnoremap <leader>r :split<CR>   " Horizontal split
-nnoremap <leader>f :only<CR>    " Keep only current split
+nnoremap <leader>e :vsplit<CR> " Vertical split
+nnoremap <leader>r :split<CR>  " Horizontal split
+nnoremap <leader>f :only<CR>   " Keep only current split
 
 " Move between splits
 nnoremap <leader>h <C-w>h
@@ -275,19 +273,19 @@ nnoremap <leader>k <C-w>k
 nnoremap <leader>l <C-w>l
 
 
-" ============================
-"        HISTORY & CLIPBOARD
-" ============================
-nnoremap <leader>; q:          " Command history
-nnoremap <leader>/ q/          " Search history
+" ============================================================
+"                HISTORY & CLIPBOARD
+" ============================================================
+nnoremap <leader>; q:    " Command history
+nnoremap <leader>/ q/    " Search history
 
-vnoremap <leader>y "+y         " Yank to system clipboard
-nnoremap <leader>v gv          " Reselect last visual selection
+vnoremap <leader>y "+y   " Yank to system clipboard
+nnoremap <leader>v gv    " Reselect last visual selection
 
 
-" ============================
-"        SESSIONS
-" ============================
+" ============================================================
+"                        SESSIONS
+" ============================================================
 let g:session_file = expand('~/.vim/session.vim')
 
 " Save session
@@ -295,4 +293,5 @@ nnoremap <leader><Tab> :mksession! ~/.vim/session.vim<CR>:echo "Session saved!"<
 
 " Load session
 nnoremap <leader><S-Tab> :source ~/.vim/session.vim<CR>:echo "Session loaded!"<CR>
+
 
