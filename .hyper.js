@@ -31,7 +31,8 @@ module.exports = {
         foregroundColor: '#fff',
         // terminal background color
         // opacity is only supported on macOS
-        backgroundColor: '#000',
+        //backgroundColor: '#000',
+        backgroundColor: '#1e1e1e', // was '#000'
         // terminal selection color
         selectionColor: 'rgba(248,28,229,0.3)',
         // border color (window, tabs)
@@ -139,7 +140,7 @@ module.exports = {
     //   `project#1.0.1`
     plugins:  [
        //"hyper-snazzy"   // Grey
-       "hyper-one-light" // Light
+       //"hyper-one-light" // Light
        //"hyper-dracula"    // Dark
     ],
     // in development, you can create a directory under
