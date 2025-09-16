@@ -8,9 +8,14 @@ export ZSH="$HOME/.oh-my-zsh"
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
+#
+#
 ZSH_THEME="sobole"
 #SOBOLE_THEME_MODE=light
-#SOBOLE_THEME_MODE=dark
+SOBOLE_THEME_MODE=dark
+SOBOLE_DEFAULT_USER=true # show user name 
+#
+#
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
 # a theme from this variable instead of looking in $ZSH/themes/
