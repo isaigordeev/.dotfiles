@@ -8,7 +8,7 @@ module.exports = {
         // or `'canary'` for less polished but more frequent updates
         updateChannel: 'stable',
         // default font size in pixels for all tabs
-        fontSize: 12,
+        fontSize: 13,
         // font family with optional fallbacks
         fontFamily: 'Menlo, "DejaVu Sans Mono", Consolas, "Lucida Console", monospace',
         // default font weight: 'normal' or 'bold'
@@ -16,7 +16,7 @@ module.exports = {
         // font weight for bold characters: 'normal' or 'bold'
         fontWeightBold: 'bold',
         // line height as a relative unit
-        lineHeight: 1,
+        lineHeight: 1.2,
         // letter spacing as a relative unit
         letterSpacing: 0,
         // terminal cursor background color and opacity (hex, rgb, hsl, hsv, hwb or cmyk)
@@ -32,7 +32,7 @@ module.exports = {
         // terminal background color
         // opacity is only supported on macOS
         //backgroundColor: '#000',
-        backgroundColor: '#1e1e1e', // was '#000'
+        backgroundColor: '#2d2d2d', // was '#000'
         // terminal selection color
         selectionColor: 'rgba(248,28,229,0.3)',
         // border color (window, tabs)
@@ -97,8 +97,6 @@ module.exports = {
         // for setting shell arguments (i.e. for using interactive shellArgs: `['-i']`)
         // by default `['--login']` will be used
         shellArgs: ['--login'],
-        // for environment variables
-        env: {},
         // Supported Options:
         //  1. 'SOUND' -> Enables the bell as a sound
         //  2. false: turns off the bell
