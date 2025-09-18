@@ -1,29 +1,21 @@
 {
   "languageserver": {
-    "python": {
-      "command": "pylsp",
-      "filetypes": ["python"],
-      "settings": {
-        "pylsp.plugins.black.enabled": true,
-        "pylsp.plugins.isort.enabled": true,
-        "pylsp.plugins.flake8.enabled": true,
-        "pylsp.plugins.pylint.enabled": true
-      }
-    },
     "cpp": {
       "command": "clangd",
       "filetypes": ["c", "cpp", "h", "hpp"],
       "initializationOptions": {
-      "clangdFileStatus": true,
-      "fallbackFlags": ["-std=c++17"],
-      "clang-tidy": true
-       },   
+        "clangdFileStatus": true,
+        "fallbackFlags": ["-std=c++17"],
+        "clang-tidy": true
+      },
       "clangd.arguments": ["--clang-tidy", "--header-filter=.*"]
     }
   },
-  "coc.preferences.formatOnSaveFiletypes": [
-  ],
-  "python.formatting.provider": "black",
-  "python.sortImports.provider": "isort"
+
+  "pyright.inlayHints.functionReturnTypes": true,
+  "pyright.inlayHints.variableTypes": true,
+  "python.analysis.typeCheckingMode": "basic",
+  "python.analysis.autoImportCompletions": true,
+  "python.analysis.diagnosticMode": "workspace"
 }
 
