@@ -10,11 +10,6 @@ module.exports = {
         //   `hyperpower`
         //   `@company/project`
         //   `project#1.0.1`
-        plugins:  [
-          //"hyper-snazzy"   // Grey
-          //"hyper-one-light" // Light
-          //"hyper-dracula"    // Dark
-        ],
         // choose either `'stable'` for receiving highly polished,
         // or `'canary'` for less polished but more frequent updates
         updateChannel: 'stable',
@@ -144,6 +139,11 @@ module.exports = {
     // in development, you can create a directory under
     // `~/.hyper_plugins/local/` and include it here
     // to load it and avoid it being `npm install`ed
+    plugins:  [
+       //"hyper-snazzy"   // Grey
+       "hyper-one-light" // Light
+       //"hyper-dracula"    // Dark
+    ],
     localPlugins: [],
     keymaps: {
     // Example
