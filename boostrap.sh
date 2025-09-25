@@ -3,11 +3,19 @@ set -e
 
 echo "🚀 Starting dotfiles setup..."
 
-# --- Install Homebrew packages ---
-if [ -f Brewfile ]; then
-  echo "📦 Installing Brewfile packages..."
-  brew bundle --file=Brewfile
+# --- Install Homebrew if missing ---
+if ! command -v brew &>/dev/null; then
+  echo "🍺 Installing Homebrew..."
+  /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+  echo 'eval "$(/opt/homebrew/bin/brew shellenv)"' >> ~/.zprofile
+  eval "$(/opt/homebrew/bin/brew shellenv)"
 fi
+
+# --- Install core apps ---
+echo "📦 Installing VSCode, Hyper, and Zsh..."
+brew install --cask visual-studio-code
+brew install --cask hyper
+brew install zsh
 
 # --- Vim setup ---
 echo "📝 Setting up Vim..."
@@ -52,7 +60,7 @@ if [ -f vscode/settings.json ]; then
   ln -sf "$PWD/vscode/settings.json" "$VSCODE_DIR/settings.json"
 fi
 
-if [ -f vscode/author.code-snippets ]; then
+if [ -f vscode/cpp-author.code-snippets ]; then
   ln -sf "$PWD/vscode/author.code-snippets" "$VSCODE_DIR/snippets/author.code-snippets"
 fi
 
