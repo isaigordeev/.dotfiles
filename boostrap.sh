@@ -29,6 +29,10 @@ if [ -f vim/vimrc ]; then
   ln -sf $PWD/vim/vimrc ~/.vimrc
 fi
 
+# PlugInstall for vim
+echo "📥 Installing Vim plugins..."
+vim +'PlugInstall --sync' +qa || true
+
 # --- Hyper setup ---
 if [ -f hyper/.hyper.js ]; then
   echo "⚡ Setting up Hyper..."
