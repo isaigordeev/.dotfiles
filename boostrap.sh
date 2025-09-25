@@ -77,5 +77,5 @@ echo "🔤 Installing fonts..."
 mkdir -p ~/Library/Fonts
 cp -n fonts/*.ttf ~/Library/Fonts/
 
-echo "✅ Setup complete! Restart your terminal and run :PlugInstall inside Vim."
+echo "✅ Setup complete! Restart your terminal"
 
