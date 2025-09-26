@@ -15,6 +15,7 @@
     ]
   },
   "editor.rulers": [
+    80,
     90,
     120
   ],
@@ -31,6 +32,7 @@
   "editor.formatOnSave": true,
   "editor.formatOnPaste": true,
   "editor.wordWrap": "wordWrapColumn",
+  "editor.wordWrapColumn": 80,
   "zenMode.hideLineNumbers": false,
   "editor.minimap.showSlider": "always",
   "workbench.navigationControl.enabled": false,
