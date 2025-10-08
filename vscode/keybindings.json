@@ -36,6 +36,16 @@
         "key": "shift+k",
         "command": "workbench.action.quickOpenSelectPrevious",
         "when": "inQuickOpen"
-    }
+    }, 
+    {
+    "key": "shift+l",
+    "command": "workbench.action.quickOpenSelectNext", // optional if you want to navigate
+    "when": "inQuickOpen"
+},
+{
+    "key": "shift+l",
+    "command": "workbench.action.acceptSelectedQuickOpenItem",
+    "when": "inQuickOpen"
+}
 
 ]
