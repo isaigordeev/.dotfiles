@@ -72,6 +72,10 @@
 {
     "key": "cmd+b",
     "command": "-workbench.action.toggleSidebarVisibility"
+},
+{
+    "key": "shift+cmd+t",
+    "command": "-workbench.action.reopenClosedEditor"
 }
 ]
 
