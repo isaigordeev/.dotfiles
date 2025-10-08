@@ -2,7 +2,8 @@
 [
     {
         "key": "shift+cmd+r",
-        "command": "workbench.action.focusActiveEditorGroup"
+        "command": "-rerunSearchEditorSearch",
+        "when": "inSearchEditor"
     },
     {
         "key": "shift+cmd+r",
@@ -13,6 +14,10 @@
         "key": "f2",
         "command": "-editor.action.rename",
         "when": "editorHasRenameProvider && editorTextFocus && !editorReadonly"
+    },
+    {
+        "key": "shift+cmd+w",
+        "command": "workbench.action.focusActiveEditorGroup"
     },
     {
         "key": "shift+cmd+s",
@@ -48,7 +53,7 @@
     "when": "inQuickOpen"
 },
 {
-    "key": "shift+cmd+b",
+    "key": "cmd+b",
     "command": "workbench.action.showAllEditors"
 },
 {
@@ -59,6 +64,14 @@
     "key": "shift+cmd+b",
     "command": "-workbench.action.tasks.build",
     "when": "taskCommandsRegistered"
+},
+{
+    "key": "shift+cmd+b",
+    "command": "workbench.action.toggleSidebarVisibility"
+},
+{
+    "key": "cmd+b",
+    "command": "-workbench.action.toggleSidebarVisibility"
 }
-
 ]
+
