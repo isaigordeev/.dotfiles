@@ -18,7 +18,7 @@
   ],
 
   "vim.visualModeKeyBindingsNonRecursive": [
-    { "before": ["<leader>", "y"], "commands": ["editor.action.clipboardCopyAction", "cancelSelection"] }
+    { "before": ["<leader>", "y"], "commands": ["editor.action.clipboardCopyAction"] }
   ],
 
   "vim.normalModeKeyBindings": [
@@ -78,6 +78,7 @@
   "window.commandCenter": false,
   "editor.minimap.renderCharacters": false,
   "workbench.activityBar.location": "hidden",
+  "workbench.editor.showTabs": "single",
   "workbench.statusBar.visible": false,
   "workbench.secondarySideBar.defaultVisibility": "hidden",
   "workbench.panel.defaultLocation": "bottom",
