@@ -1,4 +1,43 @@
 {
+
+  "vim.leader": " ",
+  "vim.useSystemClipboard": true,
+
+  "vim.normalModeKeyBindingsNonRecursive": [
+    { "before": ["<leader>", "s"], "commands": ["workbench.action.files.save"] },
+    { "before": ["<leader>", "w"], "commands": ["workbench.action.closeActiveEditor"] },
+    { "before": ["<leader>", "Q"], "commands": ["workbench.action.closeAllEditors"] },
+    { "before": ["<leader>", "f"], "commands": ["workbench.action.closeOtherEditors"] },
+    { "before": ["<leader>", "t"], "commands": ["workbench.action.reopenClosedEditor"] },
+    { "before": ["<leader>", "h"], "commands": ["workbench.action.navigateLeft"] },
+    { "before": ["<leader>", "j"], "commands": ["workbench.action.navigateDown"] },
+    { "before": ["<leader>", "k"], "commands": ["workbench.action.navigateUp"] },
+    { "before": ["<leader>", "l"], "commands": ["workbench.action.navigateRight"] },
+    { "before": ["<leader>", "H"], "commands": ["workbench.action.previousEditor"] },
+    { "before": ["<leader>", "L"], "commands": ["workbench.action.nextEditor"] }
+  ],
+
+  "vim.visualModeKeyBindingsNonRecursive": [
+    { "before": ["<leader>", "y"], "commands": ["editor.action.clipboardCopyAction", "cancelSelection"] }
+  ],
+
+  "vim.normalModeKeyBindings": [
+    { "before": ["<C-p>"], "commands": ["workbench.action.quickOpen"] },
+    { "before": ["<C-b>"], "commands": ["workbench.action.showAllEditors"] }
+  ],
+
+  "vim.cursorStylePerMode": {
+    "normal": "block",
+    "visual": "block",
+    "select": "block",
+    "insert": "line",
+    "replace": "underline",
+    "cmdline_normal": "block"
+  },
+
+  "editor.cursorBlinking": "solid",
+
+
   "editor.fontFamily": "JetBrains Mono", // for vscode only this
   "editor.fontSize": 12.3,
   "editor.lineHeight": 22, // tighter, more JetBrains-like
