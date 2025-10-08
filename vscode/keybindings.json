@@ -46,6 +46,19 @@
     "key": "shift+l",
     "command": "workbench.action.acceptSelectedQuickOpenItem",
     "when": "inQuickOpen"
+},
+{
+    "key": "shift+cmd+b",
+    "command": "workbench.action.showAllEditors"
+},
+{
+    "key": "alt+cmd+tab",
+    "command": "-workbench.action.showAllEditors"
+},
+{
+    "key": "shift+cmd+b",
+    "command": "-workbench.action.tasks.build",
+    "when": "taskCommandsRegistered"
 }
 
 ]
