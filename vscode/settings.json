@@ -37,6 +37,9 @@
 
   "editor.cursorBlinking": "solid",
 
+  "zenMode.fullScreen": true,
+  "zenMode.restore": true,
+  "zenMode.centerLayout": true,
 
   "editor.fontFamily": "JetBrains Mono", // for vscode only this
   "editor.fontSize": 12.3,
@@ -72,17 +75,20 @@
   "editor.formatOnPaste": true,
   "editor.wordWrap": "wordWrapColumn",
   "editor.wordWrapColumn": 80,
+  "zenMode.showTabs": "none",
   "zenMode.hideLineNumbers": false,
   "editor.minimap.showSlider": "always",
   "workbench.navigationControl.enabled": false,
   "window.commandCenter": false,
   "editor.minimap.renderCharacters": false,
   "workbench.activityBar.location": "hidden",
-  "workbench.editor.showTabs": "single",
+  "workbench.editor.showTabs": "none",
   "workbench.statusBar.visible": false,
   "workbench.secondarySideBar.defaultVisibility": "hidden",
   "workbench.panel.defaultLocation": "bottom",
   "workbench.panel.opensMaximized": "never",
+  "breadcrumbs.enabled": true,
+  "window.title": "${dirty}${activeEditorShort}${separator}${rootName}",
    // defaultFormatter
     "editor.defaultFormatter": "ms-vscode.cpptools",
       "editor.autoClosingBrackets": "never",
