@@ -93,6 +93,9 @@
   "breadcrumbs.enabled": true,
   "window.title": "${dirty}${activeEditorShort}${separator}${rootName}",
   "window.commandCenter": false,
+  "chat.commandCenter.enabled": false,
+  "workbench.layoutControl.enabled": true,
+  "workbench.editor.editorActionsLocation": "hidden",
 
   "_comment_defaultFormatter": "Default formatter configuration",
   "editor.defaultFormatter": "ms-vscode.cpptools",
