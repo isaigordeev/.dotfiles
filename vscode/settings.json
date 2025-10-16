@@ -220,4 +220,5 @@
   "C_Cpp.clang_format_fallbackStyle": "",
   "python.defaultInterpreterPath": "/usr/local/bin/python3.11",
   "workbench.colorTheme": "Visual Studio Dark",
+  "search.searchEditor.focusResultsOnSearch": true,
 }
