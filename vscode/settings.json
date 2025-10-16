@@ -223,4 +223,6 @@
     "python.defaultInterpreterPath": "/usr/local/bin/python3.11",
     "workbench.colorTheme": "Visual Studio Dark",
     "search.searchEditor.focusResultsOnSearch": false,
+    "editor.scrollbar.ignoreHorizontalScrollbarInContentHeight": true,
+    "editor.scrollbar.horizontal": "hidden",
 }
