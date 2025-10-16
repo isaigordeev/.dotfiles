@@ -41,55 +41,59 @@
         "key": "shift+k",
         "command": "workbench.action.quickOpenSelectPrevious",
         "when": "inQuickOpen"
-    }, 
+    },
     {
-    "key": "shift+l",
-    "command": "workbench.action.quickOpenSelectNext", // optional if you want to navigate
-    "when": "inQuickOpen"
-},
-{
-    "key": "shift+l",
-    "command": "workbench.action.acceptSelectedQuickOpenItem",
-    "when": "inQuickOpen"
-},
-{
-    "key": "cmd+b",
-    "command": "workbench.action.showAllEditors"
-},
-{
-    "key": "alt+cmd+tab",
-    "command": "-workbench.action.showAllEditors"
-},
-{
-    "key": "shift+cmd+b",
-    "command": "-workbench.action.tasks.build",
-    "when": "taskCommandsRegistered"
-},
-{
-    "key": "shift+cmd+b",
-    "command": "workbench.action.toggleSidebarVisibility"
-},
-{
-    "key": "cmd+b",
-    "command": "-workbench.action.toggleSidebarVisibility"
-},
-{
-    "key": "shift+cmd+t",
-    "command": "-workbench.action.reopenClosedEditor"
-},
-{
-    "key": "alt+space",
-    "command": "editor.action.triggerSuggest",
-    "when": "editorHasCompletionItemProvider && textInputFocus && !editorReadonly && !suggestWidgetVisible"
-},
-{
-    "key": "ctrl+space",
-    "command": "-editor.action.triggerSuggest",
-    "when": "editorHasCompletionItemProvider && textInputFocus && !editorReadonly && !suggestWidgetVisible"
-},
-{
-    "key": "alt+space",
-    "command": "-workbench.action.terminal.sendSequence",
-    "when": "terminalFocus && terminalShellIntegrationEnabled && !accessibilityModeEnabled && terminalShellType == 'pwsh'"
-}
+        "key": "shift+l",
+        "command": "workbench.action.quickOpenSelectNext", // optional if you want to navigate
+        "when": "inQuickOpen"
+    },
+    {
+        "key": "shift+l",
+        "command": "workbench.action.acceptSelectedQuickOpenItem",
+        "when": "inQuickOpen"
+    },
+    {
+        "key": "cmd+b",
+        "command": "workbench.action.showAllEditors"
+    },
+    {
+        "key": "alt+cmd+tab",
+        "command": "-workbench.action.showAllEditors"
+    },
+    {
+        "key": "shift+cmd+b",
+        "command": "-workbench.action.tasks.build",
+        "when": "taskCommandsRegistered"
+    },
+    {
+        "key": "shift+cmd+b",
+        "command": "workbench.action.toggleSidebarVisibility"
+    },
+    {
+        "key": "cmd+b",
+        "command": "-workbench.action.toggleSidebarVisibility"
+    },
+    {
+        "key": "shift+cmd+t",
+        "command": "-workbench.action.reopenClosedEditor"
+    },
+    {
+        "key": "alt+space",
+        "command": "editor.action.triggerSuggest",
+        "when": "editorHasCompletionItemProvider && textInputFocus && !editorReadonly && !suggestWidgetVisible"
+    },
+    {
+        "key": "ctrl+space",
+        "command": "-editor.action.triggerSuggest",
+        "when": "editorHasCompletionItemProvider && textInputFocus && !editorReadonly && !suggestWidgetVisible"
+    },
+    {
+        "key": "alt+space",
+        "command": "-workbench.action.terminal.sendSequence",
+        "when": "terminalFocus && terminalShellIntegrationEnabled && !accessibilityModeEnabled && terminalShellType == 'pwsh'"
+    },
+    {
+        "key": "shift+f",
+        "command": "search.action.openNewEditor"
+    }
 ]
