@@ -3,7 +3,7 @@
 xargs -n 1 code --install-extension < vscode_extensions.txt
 
 ## link dir from the repo root
-ln -s "$(pwd)/vscode" /Users/you/linked-folder
+ln -s "$(pwd)/vscode" /Users/you/linked-folder/.vscode
 
 
 ## to test this repo
