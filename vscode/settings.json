@@ -141,14 +141,6 @@
       ]
     }
   ],
-  "vim.cursorStylePerMode": {
-    "normal": "block",
-    "visual": "block",
-    "select": "block",
-    "insert": "line",
-    "replace": "underline",
-    "cmdline_normal": "block"
-  },
   "editor.cursorBlinking": "solid",
   "_comment_zen": "Zen Mode configuration",
   "zenMode.fullScreen": true,
@@ -209,6 +201,7 @@
   "chat.commandCenter.enabled": false,
   "workbench.layoutControl.enabled": true,
   "workbench.editor.editorActionsLocation": "hidden",
+  "_comment_defaultFormatter_sep": "##########################################",
   "_comment_defaultFormatter": "Default formatter configuration",
   "_comment_python": "Python and Ruff settings",
   "_python.analysis.inlayHints.variableTypes": true,
@@ -217,6 +210,7 @@
   "_ruff.path": [
     "/Users/isaigordeev/Desktop/millenium-falcon-challenge/.venv/bin/ruff"
   ],
+  "_comment_cpp_sep": "#######################################################",
   "_comment_cpp": "C/C++ language server configuration",
   "_C_Cpp.default.cppStandard": "c++20",
   "_C_Cpp.formatting": "clangFormat",
@@ -224,5 +218,6 @@
   "_C_Cpp.intelliSenseEngine": "default",
   "_C_Cpp.codeAnalysis.clangTidy.enabled": true,
   "C_Cpp.clang_format_fallbackStyle": "",
-  "python.defaultInterpreterPath": "/usr/local/bin/python3.11"
+  "python.defaultInterpreterPath": "/usr/local/bin/python3.11",
+  "workbench.colorTheme": "Visual Studio Dark",
 }
