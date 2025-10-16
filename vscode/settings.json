@@ -2,31 +2,145 @@
   "_comment_vim": "Vim configuration",
   "vim.leader": " ",
   "vim.useSystemClipboard": true,
-
   "vim.normalModeKeyBindingsNonRecursive": [
-    { "before": ["<leader>", "s"], "commands": ["workbench.action.files.save"] },
-    { "before": ["<leader>", "w"], "commands": ["workbench.action.closeActiveEditor"] },
-    { "before": ["<leader>", "z"], "commands": ["workbench.action.toggleZenMode"] },
-    { "before": ["<leader>", "Q"], "commands": ["workbench.action.closeAllEditors"] },
-    { "before": ["<leader>", "f"], "commands": ["workbench.action.closeOtherEditors"] },
-    { "before": ["<leader>", "t"], "commands": ["workbench.action.reopenClosedEditor"] },
-    { "before": ["<leader>", "h"], "commands": ["workbench.action.navigateLeft"] },
-    { "before": ["<leader>", "j"], "commands": ["workbench.action.navigateDown"] },
-    { "before": ["<leader>", "k"], "commands": ["workbench.action.navigateUp"] },
-    { "before": ["<leader>", "l"], "commands": ["workbench.action.navigateRight"] },
-    { "before": ["<leader>", "H"], "commands": ["workbench.action.previousEditor"] },
-    { "before": ["<leader>", "L"], "commands": ["workbench.action.nextEditor"] }
+    {
+      "before": [
+        "<leader>",
+        "s"
+      ],
+      "commands": [
+        "workbench.action.files.save"
+      ]
+    },
+    {
+      "before": [
+        "<leader>",
+        "w"
+      ],
+      "commands": [
+        "workbench.action.closeActiveEditor"
+      ]
+    },
+    {
+      "before": [
+        "<leader>",
+        "z"
+      ],
+      "commands": [
+        "workbench.action.toggleZenMode"
+      ]
+    },
+    {
+      "before": [
+        "<leader>",
+        "Q"
+      ],
+      "commands": [
+        "workbench.action.closeAllEditors"
+      ]
+    },
+    {
+      "before": [
+        "<leader>",
+        "f"
+      ],
+      "commands": [
+        "workbench.action.closeOtherEditors"
+      ]
+    },
+    {
+      "before": [
+        "<leader>",
+        "t"
+      ],
+      "commands": [
+        "workbench.action.reopenClosedEditor"
+      ]
+    },
+    {
+      "before": [
+        "<leader>",
+        "h"
+      ],
+      "commands": [
+        "workbench.action.navigateLeft"
+      ]
+    },
+    {
+      "before": [
+        "<leader>",
+        "j"
+      ],
+      "commands": [
+        "workbench.action.navigateDown"
+      ]
+    },
+    {
+      "before": [
+        "<leader>",
+        "k"
+      ],
+      "commands": [
+        "workbench.action.navigateUp"
+      ]
+    },
+    {
+      "before": [
+        "<leader>",
+        "l"
+      ],
+      "commands": [
+        "workbench.action.navigateRight"
+      ]
+    },
+    {
+      "before": [
+        "<leader>",
+        "H"
+      ],
+      "commands": [
+        "workbench.action.previousEditor"
+      ]
+    },
+    {
+      "before": [
+        "<leader>",
+        "L"
+      ],
+      "commands": [
+        "workbench.action.nextEditor"
+      ]
+    }
   ],
-
   "vim.visualModeKeyBindingsNonRecursive": [
-    { "before": ["<leader>", "y"], "commands": ["editor.action.clipboardCopyAction"] }
+    {
+      "before": [
+        "<leader>",
+        "y"
+      ],
+      "commands": [
+        "editor.action.clipboardCopyAction"
+      ]
+    }
   ],
-
   "vim.normalModeKeyBindings": [
-    { "before": ["<C-p>"], "commands": ["workbench.action.quickOpen"] },
-    { "before": ["<C-b>"], "commands": ["workbench.action.showAllEditors"] }
+    {
+      "before": [
+        "<C-p>"
+      ],
+      "commands": [
+        "workbench.action.quickOpen"
+      ]
+    },
+    {
+      "before": [
+        "<C-b>"
+      ],
+      "commands": [
+        "workbench.action.showAllEditors"
+      ]
+    }
   ],
-
   "vim.cursorStylePerMode": {
     "normal": "block",
     "visual": "block",
@@ -35,21 +149,22 @@
     "replace": "underline",
     "cmdline_normal": "block"
   },
-
   "editor.cursorBlinking": "solid",
-
   "_comment_zen": "Zen Mode configuration",
   "zenMode.fullScreen": true,
   "zenMode.restore": true,
   "zenMode.centerLayout": true,
   "zenMode.showTabs": "none",
   "zenMode.hideLineNumbers": false,
-
   "_comment_editor": "Editor appearance and layout",
   "editor.fontFamily": "JetBrains Mono",
   "editor.fontSize": 12.3,
   "editor.lineHeight": 22,
-  "editor.rulers": [80, 90, 120],
+  "editor.rulers": [
+    80,
+    90,
+    120
+  ],
   "editor.wordWrap": "wordWrapColumn",
   "editor.wordWrapColumn": 80,
   "editor.minimap.showSlider": "always",
@@ -57,19 +172,19 @@
   "editor.formatOnSave": true,
   "editor.formatOnPaste": true,
   "editor.autoClosingBrackets": "never",
-
   "_comment_colors": "Color and theme customizations",
   "editor.tokenColorCustomizations": {
     "textMateRules": [
       {
-        "scope": ["comment"],
+        "scope": [
+          "comment"
+        ],
         "settings": {
           "foreground": "#828282"
         }
       }
     ]
   },
-
   "workbench.colorCustomizations": {
     "[Visual Studio Dark]": {
       "editor.background": "#2d2d2d"
@@ -78,10 +193,8 @@
       "editor.background": "#f2f2f2"
     }
   },
-
   "workbench.preferredDarkColorTheme": "Visual Studio Dark",
   "workbench.preferredLightColorTheme": "Visual Studio Light",
-
   "_comment_workbench": "Workbench and layout settings",
   "workbench.navigationControl.enabled": false,
   "workbench.activityBar.location": "hidden",
@@ -96,10 +209,7 @@
   "chat.commandCenter.enabled": false,
   "workbench.layoutControl.enabled": true,
   "workbench.editor.editorActionsLocation": "hidden",
-
   "_comment_defaultFormatter": "Default formatter configuration",
-  "editor.defaultFormatter": "ms-vscode.cpptools",
-
   "_comment_python": "Python and Ruff settings",
   "_python.analysis.inlayHints.variableTypes": true,
   "_ruff.lineLength": 80,
@@ -107,12 +217,12 @@
   "_ruff.path": [
     "/Users/isaigordeev/Desktop/millenium-falcon-challenge/.venv/bin/ruff"
   ],
-
   "_comment_cpp": "C/C++ language server configuration",
   "_C_Cpp.default.cppStandard": "c++20",
   "_C_Cpp.formatting": "clangFormat",
   "_C_Cpp.clang_format_path": "/usr/local/opt/llvm@17/bin/clang-format",
   "_C_Cpp.intelliSenseEngine": "default",
   "_C_Cpp.codeAnalysis.clangTidy.enabled": true,
-  "workbench.colorTheme": "Visual Studio Light"
+  "C_Cpp.clang_format_fallbackStyle": "",
+  "python.defaultInterpreterPath": "/usr/local/bin/python3.11"
 }
