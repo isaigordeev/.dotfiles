@@ -205,7 +205,7 @@
   "_comment_defaultFormatter": "Default formatter configuration",
   "_comment_python": "Python and Ruff settings",
   "_python.analysis.inlayHints.variableTypes": true,
-  "_ruff.lineLength": 80,
+  "_ruff.lineLength": 79,
   "_ruff.configuration": "",
   "_ruff.path": [
     "/Users/isaigordeev/Desktop/millenium-falcon-challenge/.venv/bin/ruff"
