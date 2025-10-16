@@ -29,7 +29,7 @@
         "when": "remoteFileDialogVisible"
     },
     {
-        "key": "shift+cmd+s",
+        "key": "ctrl+f",
         "command": "workbench.files.action.showActiveFileInExplorer"
     },
     {
@@ -76,6 +76,20 @@
 {
     "key": "shift+cmd+t",
     "command": "-workbench.action.reopenClosedEditor"
+},
+{
+    "key": "alt+space",
+    "command": "editor.action.triggerSuggest",
+    "when": "editorHasCompletionItemProvider && textInputFocus && !editorReadonly && !suggestWidgetVisible"
+},
+{
+    "key": "ctrl+space",
+    "command": "-editor.action.triggerSuggest",
+    "when": "editorHasCompletionItemProvider && textInputFocus && !editorReadonly && !suggestWidgetVisible"
+},
+{
+    "key": "alt+space",
+    "command": "-workbench.action.terminal.sendSequence",
+    "when": "terminalFocus && terminalShellIntegrationEnabled && !accessibilityModeEnabled && terminalShellType == 'pwsh'"
 }
 ]
-
