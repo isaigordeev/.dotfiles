@@ -98,7 +98,8 @@
         "args": {
           "query": "",
           "triggerSearch": false,
-          "filesToInclude": "${relativeFile}"
+          "filesToInclude": "${relativeFile}",
+          "onlyOpenEditors": true
         }
     },
     {
