@@ -83,10 +83,10 @@
 "   %                 Jump to matching bracket/brace/parenthesis
 
 " SCREEN & SCROLL MOVEMENT
+"   <C-b> / <C-f>     Scroll full-page up / down
 "   H / M / L         Move cursor to top / middle / bottom of screen
 "   zz / zt / zb      Center / top / bottom current line on screen
 "   <C-u> / <C-d>     Scroll half-page up / down
-"   <C-b> / <C-f>     Scroll full-page up / down
 "   <C-e> / <C-y>     Scroll screen down / up (without moving cursor)
 "   gg=G              Re-indent whole file
 
