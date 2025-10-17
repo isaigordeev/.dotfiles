@@ -96,7 +96,6 @@
         "key": "shift+cmd+f",
         "command": "search.action.openNewEditor",
         "args": {
-          "query": "",
           "triggerSearch": false,
           "filesToInclude": "${relativeFile}",
           "onlyOpenEditors": true
