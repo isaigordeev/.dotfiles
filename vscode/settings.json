@@ -152,10 +152,7 @@
     "editor.fontFamily": "JetBrains Mono",
     "editor.fontSize": 12.3,
     "editor.lineHeight": 22,
-    "editor.rulers": [
-        80,
-        90
-    ],
+  "editor.rulers": [80],
     "editor.wordWrap": "wordWrapColumn",
     "editor.wordWrapColumn": 79,
     "_editor.insertSpaces": true,
@@ -203,7 +200,6 @@
     "chat.commandCenter.enabled": false,
     "workbench.layoutControl.enabled": true,
     "workbench.editor.editorActionsLocation": "hidden",
-    "_comment_defaultFormatter_sep": "##########################################",
     "_comment_defaultFormatter": "Default formatter configuration",
     "_comment_python": "Python and Ruff settings",
     "_python.analysis.inlayHints.variableTypes": true,
@@ -212,7 +208,6 @@
     "_ruff.path": [
         "/Users/isaigordeev/Desktop/millenium-falcon-challenge/.venv/bin/ruff"
     ],
-    "_comment_cpp_sep": "#######################################################",
     "_comment_cpp": "C/C++ language server configuration",
     "_C_Cpp.default.cppStandard": "c++20",
     "_C_Cpp.formatting": "clangFormat",
@@ -225,4 +220,5 @@
     "search.searchEditor.focusResultsOnSearch": false,
     "editor.scrollbar.ignoreHorizontalScrollbarInContentHeight": true,
     "editor.scrollbar.horizontal": "hidden",
+  "editor.showFoldingControls": "never",
 }
