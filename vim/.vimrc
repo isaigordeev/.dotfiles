@@ -260,8 +260,6 @@ set expandtab         " Use spaces instead of tabs
 set number            " Show line numbers
 set ruler             " Show cursor position
 set incsearch         " Incremental search
-set signcolumn=yes    " Always show sign column
-highlight SignColumn ctermbg=NONE guibg=NONE
 set scrolloff=4       " Set space when scrolloff
 
 " ----------------------------
@@ -327,6 +325,7 @@ Plug 'preservim/nerdtree'                       " File tree
 Plug 'junegunn/fzf', { 'do': './install --all' }" Fuzzy finder
 Plug 'junegunn/fzf.vim'
 Plug 'preservim/nerdcommenter'                  " Commenting
+Plug 'junegunn/goyo.vim'
 
 call plug#end()
 
@@ -467,3 +466,18 @@ nnoremap <leader><Tab> :mksession! ~/.vim/session.vim<CR>:echo "Session saved!"<
 nnoremap <leader><S-Tab> :source ~/.vim/session.vim<CR>:echo "Session loaded!"<CR>
 
 
+" ============================================================
+"                           GOYO
+" ============================================================
+" Make Goyo fill the entire screen vertically and horizontally (no margins)
+let g:goyo_height = '100%'  " Full vertical height
+
+" Disable horizontal resizing by Goyo
+let g:goyo_linenr = 1
+
+" Automatically enable line numbers when Goyo starts
+autocmd! User GoyoEnter nested set number
+autocmd! User GoyoLeave nested set nonumber
+
+" Map toggle to <leader>z
+nnoremap <leader>z :Goyo<CR>
