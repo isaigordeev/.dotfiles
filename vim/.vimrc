@@ -262,7 +262,7 @@ set ruler             " Show cursor position
 set incsearch         " Incremental search
 set signcolumn=yes    " Always show sign column
 highlight SignColumn ctermbg=NONE guibg=NONE
-set scrolloff=3       " Set space when scrolloff
+set scrolloff=4       " Set space when scrolloff
 
 " ----------------------------
 "        FOLDING
