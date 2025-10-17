@@ -93,7 +93,7 @@
         "when": "terminalFocus && terminalShellIntegrationEnabled && !accessibilityModeEnabled && terminalShellType == 'pwsh'"
     },
     {
-        "key": "shift+alt+f",
+        "key": "shift+cmd+f",
         "command": "search.action.openNewEditor",
         "args": {
           "query": "",
@@ -136,5 +136,13 @@
         "key": "ctrl+shift+f",
         "command": "search.action.focusFilesToInclude",
         "when": "inSearchEditor"
+    },
+    {
+        "key": "shift+alt+f",
+        "command": "workbench.action.findInFiles"
+    },
+    {
+        "key": "shift+cmd+f",
+        "command": "-workbench.action.findInFiles"
     }
 ]
