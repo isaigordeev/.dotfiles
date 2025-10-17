@@ -150,8 +150,8 @@
     "zenMode.hideLineNumbers": false,
     "_comment_editor": "Editor appearance and layout",
     "editor.fontFamily": "JetBrains Mono",
-    "editor.fontSize": 12.3,
-    "editor.lineHeight": 22,
+  "editor.fontSize": 11.9,  // 11.9 // 12.3
+  "editor.lineHeight": 20,  // 20   // 22
   "editor.rulers": [80],
     "editor.wordWrap": "wordWrapColumn",
     "editor.wordWrapColumn": 79,
