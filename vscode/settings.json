@@ -221,7 +221,7 @@
     "_C_Cpp.codeAnalysis.clangTidy.enabled": true,
     "C_Cpp.clang_format_fallbackStyle": "",
     "python.defaultInterpreterPath": "/usr/local/bin/python3.11",
-    "workbench.colorTheme": "Visual Studio Dark",
+    "workbench.colorTheme": "Visual Studio Light",
     "search.searchEditor.focusResultsOnSearch": false,
     "editor.scrollbar.ignoreHorizontalScrollbarInContentHeight": true,
     "editor.scrollbar.horizontal": "hidden",

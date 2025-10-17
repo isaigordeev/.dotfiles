@@ -94,10 +94,15 @@
     },
     {
         "key": "shift+alt+f",
-        "command": "search.action.openNewEditor"
+        "command": "search.action.openNewEditor",
+        "args": {
+          "query": "",
+          "triggerSearch": false,
+          "filesToInclude": "${relativeFile}"
+        }
     },
     {
-        "key": "ctrl+shift+f",
+        "key": "shift+cmd+f",
         "command": "search.action.focusQueryEditorWidget",
         "when": "inSearchEditor"
     },
@@ -125,5 +130,10 @@
         "key": "shift+alt+f",
         "command": "-notebook.formatCell",
         "when": "editorHasDocumentFormattingProvider && editorTextFocus && inCompositeEditor && notebookEditable && !editorReadonly && activeEditor == 'workbench.editor.notebook'"
+    },
+    {
+        "key": "ctrl+shift+f",
+        "command": "search.action.focusFilesToInclude",
+        "when": "inSearchEditor"
     }
 ]
