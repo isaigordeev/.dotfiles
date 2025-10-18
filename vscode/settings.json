@@ -141,15 +141,15 @@
             ]
         }
     ],
-    "editor.cursorBlinking": "solid",
-    "_comment_zen": "Zen Mode configuration",
-    "zenMode.fullScreen": true,
-    "zenMode.restore": true,
-    "zenMode.centerLayout": true,
-    "zenMode.showTabs": "none",
-    "zenMode.hideLineNumbers": false,
-    "_comment_editor": "Editor appearance and layout",
-    "editor.fontFamily": "JetBrains Mono",
+  "editor.cursorBlinking": "solid",
+  "_comment_zen": "Zen Mode configuration",
+  "zenMode.fullScreen": true,
+  "zenMode.restore": true,
+  "zenMode.centerLayout": true,
+  "zenMode.showTabs": "none",
+  "zenMode.hideLineNumbers": false,
+  "_comment_editor": "Editor appearance and layout",
+  "editor.fontFamily": "JetBrains Mono",
   "editor.fontSize": 11.9,  // 11.9 // 12.3
   "editor.lineHeight": 20,  // 20   // 22
   "editor.rulers": [80],
