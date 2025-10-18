@@ -96,7 +96,6 @@
         "key": "shift+cmd+f",
         "command": "search.action.openNewEditor",
         "args": {
-          "triggerSearch": false,
           "filesToInclude": "${relativeFile}",
           "onlyOpenEditors": true
         }
@@ -143,5 +142,18 @@
     {
         "key": "shift+cmd+f",
         "command": "-workbench.action.findInFiles"
+    },
+    {
+        "key": "shift+cmd+g",
+        "command": "search.action.openNewEditor",
+        "args": {
+          "filesToInclude": "",
+          "onlyOpenEditors": false
+        }
+    },
+    {
+        "key": "shift+cmd+g",
+        "command": "-editor.action.previousMatchFindAction",
+        "when": "editorFocus"
     }
 ]
