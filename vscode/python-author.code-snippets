@@ -18,9 +18,8 @@
 	"File Header": {
 		"prefix": "fileheader",
 		"body": [
-			"#",
-			"# Created by Isai GORDEEV on ${CURRENT_DATE}/${CURRENT_MONTH}/${CURRENT_YEAR}.",
-			"#",
+			"\"\"\"Created by Isai GORDEEV on ${CURRENT_DATE}/${CURRENT_MONTH}/${CURRENT_YEAR}.\"\"\"",
+			"",
 			""
 		],
 		"description": "Insert file header comment"
