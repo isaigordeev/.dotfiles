@@ -1,7 +1,11 @@
 " ============================================================
 "                      VIM PLUGIN SPECIFIC COMMANDS
 " ============================================================
+"
+" -------
 " GENERAL
+" -------
+"
 "   :w                 Save file
 "   :q                 Close file
 "   :q!                Quit without saving
@@ -13,21 +17,30 @@
 "   p                   Paste
 "   <leader>s           Save file (custom)
 "   <leader>w           Close file (custom)
-
+"
+" ------
 " SPLITS
+" ------
+"
 "   :vsp                Vertical split
 "   :sp                 Horizontal split
 "   Ctrl+W+h/j/k/l      Move between splits
 "   Ctrl+W+H/J/K/L      Move split to left/bottom/top/right
 "   Ctrl+W+=             Equalize splits
-
+"
+" ----
 " TABS
+" ----
+" 
 "   :tabnew             New tab
 "   gt / gT             Next / previous tab
 "   :tabclose           Close tab
 "   :tabonly            Close other tabs
-
+"
+" ------
 " SEARCH
+" ------
+"
 "   /pattern            Search forward
 "   ?pattern            Search backward
 "   n / N               Repeat search
