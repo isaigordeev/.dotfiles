@@ -153,72 +153,74 @@
   "editor.fontSize": 11.9,  // 11.9 // 12.3
   "editor.lineHeight": 20,  // 20   // 22
   "editor.rulers": [80],
-    "editor.wordWrap": "wordWrapColumn",
-    "editor.wordWrapColumn": 79,
-    "_editor.insertSpaces": true,
-    "_editor.tabSize": 4,
-    "editor.detectIndentation": true,
-    "editor.minimap.showSlider": "always",
-    "editor.minimap.renderCharacters": false,
-    "editor.formatOnSave": true,
-    "editor.formatOnPaste": true,
-    "editor.autoClosingBrackets": "never",
-    "_comment_colors": "Color and theme customizations",
-    "editor.tokenColorCustomizations": {
-        "textMateRules": [
-            {
-                "scope": [
-                    "comment"
-                ],
-                "settings": {
-                    "foreground": "#828282"
-                }
-            }
-        ]
-    },
-    "workbench.colorCustomizations": {
-        "[Visual Studio Dark]": {
-            "editor.background": "#2d2d2d"
-        },
-        "[Visual Studio Light]": {
-            "editor.background": "#f2f2f2"
+  "editor.wordWrap": "wordWrapColumn",
+  "editor.wordWrapColumn": 79,
+  "_editor.insertSpaces": true,
+  "_editor.tabSize": 4,
+  "editor.detectIndentation": true,
+  "editor.minimap.showSlider": "always",
+  "editor.minimap.renderCharacters": false,
+  "editor.formatOnSave": true,
+  "editor.formatOnPaste": true,
+  "editor.autoClosingBrackets": "never",
+  "_comment_colors": "Color and theme customizations",
+  "editor.tokenColorCustomizations": {
+    "textMateRules": [
+      {
+        "scope": [
+            "comment"
+        ],
+        "settings": {
+          "foreground": "#828282"
         }
+      }
+    ]
+  },
+  "workbench.colorCustomizations": {
+    "[Visual Studio Dark]": {
+      "editor.background": "#2d2d2d"
     },
-    "workbench.preferredDarkColorTheme": "Visual Studio Dark",
-    "workbench.preferredLightColorTheme": "Visual Studio Light",
-    "_comment_workbench": "Workbench and layout settings",
-    "workbench.navigationControl.enabled": false,
-    "workbench.activityBar.location": "hidden",
-    "workbench.editor.showTabs": "none",
-    "workbench.statusBar.visible": false,
-    "workbench.secondarySideBar.defaultVisibility": "hidden",
-    "workbench.panel.defaultLocation": "bottom",
-    "workbench.panel.opensMaximized": "never",
-    "breadcrumbs.enabled": true,
-    "window.title": "${dirty}${activeEditorShort}${separator}${rootName}",
-    "window.commandCenter": false,
-    "chat.commandCenter.enabled": false,
-    "workbench.layoutControl.enabled": true,
-    "workbench.editor.editorActionsLocation": "hidden",
-    "_comment_defaultFormatter": "Default formatter configuration",
-    "_comment_python": "Python and Ruff settings",
-    "_python.analysis.inlayHints.variableTypes": true,
-    "_ruff.lineLength": 79,
-    "_ruff.configuration": "",
-    "_ruff.path": [
-        "/Users/isaigordeev/Desktop/millenium-falcon-challenge/.venv/bin/ruff"
-    ],
-    "_comment_cpp": "C/C++ language server configuration",
-    "_C_Cpp.default.cppStandard": "c++20",
-    "_C_Cpp.formatting": "clangFormat",
-    "_C_Cpp.clang_format_path": "/usr/local/opt/llvm@17/bin/clang-format",
-    "_C_Cpp.intelliSenseEngine": "default",
-    "_C_Cpp.codeAnalysis.clangTidy.enabled": true,
-    "C_Cpp.clang_format_fallbackStyle": "",
-    "python.defaultInterpreterPath": "/usr/local/bin/python3.11",
-    "workbench.colorTheme": "Visual Studio Light",
-    "search.searchEditor.focusResultsOnSearch": false,
-    "editor.scrollbar.ignoreHorizontalScrollbarInContentHeight": true,
-    "editor.scrollbar.horizontal": "hidden",
+    "[Visual Studio Light]": {
+      "editor.background": "#f2f2f2"
+    }
+  },
+  "workbench.preferredDarkColorTheme": "Visual Studio Dark",
+  "workbench.preferredLightColorTheme": "Visual Studio Light",
+  "_comment_workbench": "Workbench and layout settings",
+  "workbench.navigationControl.enabled": false,
+  "workbench.activityBar.location": "hidden",
+  "workbench.editor.showTabs": "none",
+  "workbench.statusBar.visible": false,
+  "workbench.secondarySideBar.defaultVisibility": "hidden",
+  "workbench.panel.defaultLocation": "bottom",
+  "workbench.panel.opensMaximized": "never",
+  "breadcrumbs.enabled": true,
+  "window.title": "${dirty}${activeEditorShort}${separator}${rootName}",
+  "window.commandCenter": false,
+  "chat.commandCenter.enabled": false,
+  "workbench.layoutControl.enabled": true,
+  "workbench.editor.editorActionsLocation": "hidden",
+  "_comment_defaultFormatter": "Default formatter configuration",
+  "_comment_python": "Python and Ruff settings",
+  "_python.analysis.inlayHints.variableTypes": true,
+  "_ruff.lineLength": 79,
+  "_ruff.configuration": "",
+  "_ruff.path": [
+    "/Users/isaigordeev/Desktop/millenium-falcon-challenge/.venv/bin/ruff"
+  ],
+  "_comment_cpp": "C/C++ language server configuration",
+  "_C_Cpp.default.cppStandard": "c++20",
+  "_C_Cpp.formatting": "clangFormat",
+  "_C_Cpp.clang_format_path": "/usr/local/opt/llvm@17/bin/clang-format",
+  "_C_Cpp.intelliSenseEngine": "default",
+  "_C_Cpp.codeAnalysis.clangTidy.enabled": true,
+  "C_Cpp.clang_format_fallbackStyle": "",
+  "python.defaultInterpreterPath": "/usr/local/bin/python3.11",
+  "workbench.colorTheme": "Visual Studio Dark",
+  "search.searchEditor.focusResultsOnSearch": false,
+  "editor.scrollbar.ignoreHorizontalScrollbarInContentHeight": true,
+  "editor.scrollbar.horizontal": "hidden",
   "editor.showFoldingControls": "never",
+  "editor.minimap.enabled": false,
+  "editor.scrollbar.vertical": "hidden",
 }
