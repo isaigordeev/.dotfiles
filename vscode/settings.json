@@ -240,5 +240,5 @@
         "editor.formatOnSave": true,
         "editor.formatOnPaste": true
     },
-    "prettier.configPath": ".prettiercc"
+    "prettier.configPath": ".prettierrc"
 }
