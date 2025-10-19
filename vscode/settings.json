@@ -229,4 +229,5 @@
     "editor.unicodeHighlight.allowedCharacters": {
         "σ": true
     },
+    "editor.autoClosingQuotes": "never"
 }
