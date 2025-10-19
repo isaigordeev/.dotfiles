@@ -1,0 +1,51 @@
+{
+  "collapse-filter": false,
+  "search": "",
+  "showTags": false,
+  "showAttachments": false,
+  "hideUnresolved": false,
+  "showOrphans": false,
+  "collapse-color-groups": false,
+  "colorGroups": [
+    {
+      "query": "path:notes/zettelkasten  ",
+      "color": {
+        "a": 1,
+        "rgb": 16489885
+      }
+    },
+    {
+      "query": "path:notes/management",
+      "color": {
+        "a": 1,
+        "rgb": 16489885
+      }
+    },
+    {
+      "query": "path:notes/me  ",
+      "color": {
+        "a": 1,
+        "rgb": 10516519
+      }
+    },
+    {
+      "query": "path:notes/projects  ",
+      "color": {
+        "a": 1,
+        "rgb": 12639114
+      }
+    }
+  ],
+  "collapse-display": false,
+  "showArrow": false,
+  "textFadeMultiplier": 0,
+  "nodeSizeMultiplier": 5,
+  "lineSizeMultiplier": 0.993428548177083,
+  "collapse-forces": false,
+  "centerStrength": 0,
+  "repelStrength": 20,
+  "linkStrength": 1,
+  "linkDistance": 396,
+  "scale": 0.3935550908066852,
+  "close": true
+}
