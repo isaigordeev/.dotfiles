@@ -2,6 +2,7 @@
     "_comment_vim": "Vim configuration",
     "vim.leader": " ",
     "vim.useSystemClipboard": true,
+
     "vim.normalModeKeyBindingsNonRecursive": [
         {
             "before": [
@@ -229,5 +230,15 @@
     "editor.unicodeHighlight.allowedCharacters": {
         "σ": true
     },
-    "editor.autoClosingQuotes": "never"
+    "editor.autoClosingQuotes": "never",
+
+
+    "_palace.config": "Palace config for md editing",
+    "[markdown]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode",
+        "editor.rulers": [72],
+        "editor.formatOnSave": true,
+        "editor.formatOnPaste": true
+    },
+    "prettier.configPath": ".prettiercc"
 }
