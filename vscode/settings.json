@@ -226,4 +226,7 @@
     "editor.minimap.enabled": false,
     "editor.scrollbar.vertical": "hidden",
     "ruff.configurationPreference": "filesystemFirst",
+    "editor.unicodeHighlight.allowedCharacters": {
+        "σ": true
+    },
 }
