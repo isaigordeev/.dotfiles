@@ -1,0 +1,5 @@
+coc-prettier
+coc-tsserver
+coc-python
+coc-pyright
+coc-clangd
