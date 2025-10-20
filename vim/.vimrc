@@ -491,3 +491,7 @@ nnoremap <leader>z :Goyo<CR>
 command! InsertDate execute "normal! a" . strftime("%a %d %b %Y at %H:%M:%S")
 
 nnoremap <Leader>t :InsertDate<CR>
+
+" Insert timestamp in format: 2022-08-22 13:54
+nnoremap <Leader>T :execute "normal! a" . strftime("%Y-%m-%d %H:%M")<CR>
+
