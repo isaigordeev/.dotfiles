@@ -483,9 +483,6 @@ let g:goyo_height = '100%'  " Full vertical height
 " Disable horizontal resizing by Goyo
 let g:goyo_linenr = 1
 
-" Automatically enable line numbers when Goyo starts
-autocmd! User GoyoEnter nested set number
-autocmd! User GoyoLeave nested set nonumber
 
 " Map toggle to <leader>z
 nnoremap <leader>z :Goyo<CR>
