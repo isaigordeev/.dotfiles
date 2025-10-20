@@ -486,3 +486,8 @@ let g:goyo_linenr = 1
 
 " Map toggle to <leader>z
 nnoremap <leader>z :Goyo<CR>
+
+" Insert current date in format: Mon 18 Mar 2024 at 16:58:58
+command! InsertDate execute "normal! a" . strftime("%a %d %b %Y at %H:%M:%S")
+
+nnoremap <Leader>t :InsertDate<CR>
