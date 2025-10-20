@@ -1,8 +1,8 @@
 {
-    "printWidth": 68,
+    "printWidth": 66,
     "proseWrap": "always",
     "overrides": [ {
-      "files": "notes/**/*",
+      "files": "palace/**/*",
       "options": { "parser": "markdown" }
     }
   ]
