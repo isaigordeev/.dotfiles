@@ -1,0 +1,25 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "New Daily Note",
+      "type": "shell",
+      "command": "f=$(date +'%Y-%m-%d').md && mkdir -p notes && touch ./notes/$f && code ./notes/$f",
+      "problemMatcher": [],
+      "group": {
+        "kind": "build",
+        "isDefault": true
+      }
+    },
+    {
+      "label": "New Journal Note",
+      "type": "shell",
+      "command": "f=$(date +'%Y-%m-%d %H.%M').md && mkdir -p notes && touch ./notes/$f && code ./notes/$f",
+      "problemMatcher": [],
+      "group": {
+        "kind": "build",
+        "isDefault": true
+      }
+    }
+  ]
+}
