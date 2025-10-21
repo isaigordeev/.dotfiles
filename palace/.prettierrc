@@ -1,9 +1,4 @@
 {
     "printWidth": 66,
-    "proseWrap": "always",
-    "overrides": [ {
-      "files": "palace/**/*",
-      "options": { "parser": "markdown" }
-    }
-  ]
+    "proseWrap": "always"
 }
