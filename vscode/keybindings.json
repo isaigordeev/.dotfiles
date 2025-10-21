@@ -155,5 +155,10 @@
         "key": "shift+cmd+g",
         "command": "-editor.action.previousMatchFindAction",
         "when": "editorFocus"
+    },
+    {
+        "key": "shift+cmd+s",
+        "command": "editor.action.insertSnippet",
+        "when": "!editorReadonly"
     }
 ]

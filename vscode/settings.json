@@ -219,7 +219,7 @@
     "_C_Cpp.codeAnalysis.clangTidy.enabled": true,
     "C_Cpp.clang_format_fallbackStyle": "",
     "python.defaultInterpreterPath": "/usr/local/bin/python3.11",
-    "workbench.colorTheme": "Visual Studio Light",
+    "workbench.colorTheme": "Visual Studio Dark",
     "search.searchEditor.focusResultsOnSearch": false,
     "editor.scrollbar.ignoreHorizontalScrollbarInContentHeight": true,
     "editor.scrollbar.horizontal": "hidden",
@@ -238,7 +238,12 @@
         "editor.defaultFormatter": "esbenp.prettier-vscode",
         "editor.rulers": [72],
         "editor.formatOnSave": true,
-        "editor.formatOnPaste": true
+        "editor.formatOnPaste": true,
+        "editor.insertSpaces": true,
+        "editor.tabSize": 2,
+        "editor.detectIndentation": false
     },
-    "prettier.configPath": ".prettierrc"
+    "[json]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode",
+    }
 }
