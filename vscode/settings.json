@@ -876,7 +876,4 @@
     "editor.detectIndentation": false
   },
   "markdownlint.configFile": ".markdownlint.json",
-  "[json]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode",
-  }
 }
