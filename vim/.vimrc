@@ -377,16 +377,18 @@ let ru_eng = {
 \ 'я':'z', 'ч':'x', 'с':'c', 'м':'v', 'и':'b', 'т':'n', 'ь':'m', 'б':',', 'ю':'.', 'ё':'`'
 \ }
 
-let ru_eng_upper = {}
-for [r, e] in items(ru_eng)
-    let ru_eng_upper[toupper(r)] = toupper(e)
-endfor
+let ru_eng_upper = {
+\ 'Й':'Q', 'Ц':'W', 'У':'E', 'К':'R', 'Е':'T', 'Н':'Y', 'Г':'U', 'Ш':'I', 'Щ':'O', 'З':'P', 'Х':'{', 'Ъ':'}',
+\ 'Ф':'A', 'Ы':'S', 'В':'D', 'А':'F', 'П':'G', 'Р':'H', 'О':'J', 'Л':'K', 'Д':'L', 'Ж':':', 'Э':'"',
+\ 'Я':'Z', 'Ч':'X', 'С':'C', 'М':'V', 'И':'B', 'Т':'N', 'Ь':'M', 'Б':'<', 'Ю':'>', 'Ё':'~'
+\ }
 
 let ru_eng_final = extend(copy(ru_eng), ru_eng_upper)
 
 for [ru, en] in items(ru_eng_final)
     execute 'noremap' ru en
     execute 'vnoremap' ru en
+    execute 'onoremap' ru en
 endfor
 " ============================================================
 "                       NERD TREE
@@ -479,6 +481,7 @@ nnoremap <leader>; q:    " Command history
 nnoremap <leader>/ q/    " Search history
 
 vnoremap <leader>y "+y   " Yank to system clipboard
+
 nnoremap <leader>v gv    " Reselect last visual selection
 
 
@@ -522,13 +525,34 @@ let g:eng_to_ru = {
 \ 'z':'я', 'x':'ч', 'c':'с', 'v':'м', 'b':'и', 'n':'т', 'm':'ь'
 \ }
 
+let ru_jumps = {
+\ 'вв':'dd', 'фф':'yy', 'сс':'cc',
+\ 'пп':'gg'
+\ }
+
+for [ru, en] in items(ru_jumps)
+    nnoremap ru en
+endfor
+
 " Duplicate leader mappings for Russian layout
 function! DuplicateLeaderRu()
     for [eng, ru] in items(g:eng_to_ru)
-        " Check if a leader mapping exists for this English key
-        if !empty(maparg('<leader>'.eng, 'n'))
-            " Duplicate for Russian letter
-            execute 'nnoremap <leader>'.ru.' '.maparg('<leader>'.eng, 'n')
+        " Normal mode
+        let map_n = maparg('<leader>'.eng, 'n')
+        if !empty(map_n)
+            execute 'nnoremap <leader>'.ru.' '.map_n
+        endif
+
+        " Visual mode
+        let map_v = maparg('<leader>'.eng, 'v')
+        if !empty(map_v)
+            execute 'vnoremap <leader>'.ru.' '.map_v
+        endif
+
+        " Operator-pending mode
+        let map_o = maparg('<leader>'.eng, 'o')
+        if !empty(map_o)
+            execute 'onoremap <leader>'.ru.' '.map_o
         endif
     endfor
 endfunction
