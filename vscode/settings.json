@@ -974,6 +974,7 @@
   "editor.minimap.enabled": false,
   "editor.scrollbar.vertical": "hidden",
   "ruff.configurationPreference": "filesystemFirst",
+  "gitlens.currentLine.scrollable": false,
   "editor.unicodeHighlight.allowedCharacters": {
     "σ": true
   },
