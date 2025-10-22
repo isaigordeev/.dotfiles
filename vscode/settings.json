@@ -897,6 +897,7 @@
   "zenMode.fullScreen": true,
   "zenMode.restore": true,
   "zenMode.centerLayout": true,
+  "workbench.tree.renderIndentGuides": "none",
   "zenMode.showTabs": "none",
   "zenMode.hideLineNumbers": false,
   "_comment_editor": "Editor appearance and layout",
@@ -905,9 +906,13 @@
   "editor.lineHeight": 20, // 20   vim style // 22 JB style
   "editor.rulers": [80],
   "editor.wordWrap": "wordWrapColumn",
+  "workbench.editor.limit.enabled": true,
   "editor.wordWrapColumn": 79,
   "editor.insertSpaces": true,
   "editor.tabSize": 4,
+  "explorer.openEditors.visible": 1,
+  "workbench.sideBar.location": "left",
+  "editor.stickyScroll.enabled": false,
   "_editor.detectIndentation": true,
   "editor.minimap.showSlider": "always",
   "editor.minimap.renderCharacters": false,
@@ -970,15 +975,28 @@
   "search.searchEditor.focusResultsOnSearch": false,
   "editor.scrollbar.ignoreHorizontalScrollbarInContentHeight": true,
   "editor.scrollbar.horizontal": "hidden",
+  "editor.scrollbar.vertical": "hidden", // maybe, not sure
   "editor.showFoldingControls": "never",
   "editor.minimap.enabled": false,
-  "editor.scrollbar.vertical": "hidden",
+  "editor.scrollbar.verticalScrollbarSize": 20, // maybe, not sure
+  "search.quickOpen.history.filterSortOrder": "recency",
+
   "ruff.configurationPreference": "filesystemFirst",
   "gitlens.currentLine.scrollable": false,
   "editor.unicodeHighlight.allowedCharacters": {
     "σ": true
   },
   "editor.autoClosingQuotes": "never",
+  "editor.dragAndDrop": false,
+  "editor.folding": false,
+  "editor.renderWhitespace": "selection",
+
+  "explorer.compactFolders": false,
+  "editor.occurrencesHighlight": "off",
+
+  "explorer.confirmDragAndDrop": false,
+  "explorer.decorations.badges": false,
+
   "_palace.config": "Palace config for md editing",
   "[markdown]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode",
@@ -993,5 +1011,6 @@
   "markdownlint.configFile": ".markdownlint.json",
   "[jsonc]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
-  }
+  },
+  "window.customTitleBarVisibility": "windowed"
 }
