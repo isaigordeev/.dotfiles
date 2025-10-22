@@ -4,7 +4,7 @@
     {
       "label": "New Daily Note",
       "type": "shell",
-      "command": "f=$(date +'%Y-%m-%d').md && mkdir -p notes && touch ./notes/$f && code ./notes/$f",
+      "command": "f=$(date +'%Y-%m-%d').md && mkdir -p notes/management/daily/$(date +'%Y')/$(date +'%m') && touch notes/management/daily/$(date +'%Y')/$(date +'%m')/$f && code notes/management/daily/$(date +'%Y')/$(date +'%m')/$f",
       "problemMatcher": [],
       "group": {
         "kind": "build",
@@ -14,7 +14,7 @@
     {
       "label": "New Journal Note",
       "type": "shell",
-      "command": "f=$(date +'%Y-%m-%d %H.%M').md && mkdir -p notes && touch ./notes/$f && code ./notes/$f",
+      "command": "f=$(date +'%Y-%m-%d %H.%M').md && mkdir -p notes/$(date +'%Y')/$(date +'%m')/ && touch ./notes/$f && code ./notes/$f",
       "problemMatcher": [],
       "group": {
         "kind": "build",
