@@ -975,11 +975,11 @@
   "search.searchEditor.focusResultsOnSearch": false,
   "editor.scrollbar.ignoreHorizontalScrollbarInContentHeight": true,
   "editor.scrollbar.horizontal": "hidden",
-  "editor.scrollbar.vertical": "hidden", // maybe, not sure
+  "editor.scrollbar.vertical": "visible", // maybe, not sure
   "editor.showFoldingControls": "never",
   "editor.minimap.enabled": false,
   "editor.cursorSurroundingLines": 3,
-  "editor.scrollbar.verticalScrollbarSize": 0, // maybe, not sure
+  "editor.scrollbar.verticalScrollbarSize": 20, // maybe, not sure
   "search.quickOpen.history.filterSortOrder": "recency",
 
   "ruff.configurationPreference": "filesystemFirst",
