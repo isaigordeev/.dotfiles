@@ -970,7 +970,7 @@
   "_C_Cpp.intelliSenseEngine": "default",
   "_C_Cpp.codeAnalysis.clangTidy.enabled": true,
   "C_Cpp.clang_format_fallbackStyle": "",
-  "python.defaultInterpreterPath": "/usr/local/bin/python3.11",
+  "python.defaultInterpreterPath": "/usr/local/bin/python3.14",
   "workbench.colorTheme": "Visual Studio Dark",
   "search.searchEditor.focusResultsOnSearch": false,
   "editor.scrollbar.ignoreHorizontalScrollbarInContentHeight": true,
@@ -978,6 +978,7 @@
   "editor.scrollbar.vertical": "hidden", // maybe, not sure
   "editor.showFoldingControls": "never",
   "editor.minimap.enabled": false,
+  "editor.cursorSurroundingLines": 3,
   "editor.scrollbar.verticalScrollbarSize": 0, // maybe, not sure
   "search.quickOpen.history.filterSortOrder": "recency",
 
@@ -1012,5 +1013,6 @@
   "[jsonc]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
-  "window.customTitleBarVisibility": "windowed"
+  "window.customTitleBarVisibility": "windowed",
+  "workbench.welcomePage.walkthroughs.openOnInstall": false
 }
