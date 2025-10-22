@@ -927,7 +927,8 @@
   },
   "workbench.colorCustomizations": {
     "[Visual Studio Dark]": {
-      "editor.background": "#2d2d2d"
+      "editor.background": "#2d2d2d",
+      "sideBar.background": "#2d2d2d"
     },
     "[Visual Studio Light]": {
       "editor.background": "#f2f2f2"
