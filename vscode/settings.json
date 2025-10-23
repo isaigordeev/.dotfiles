@@ -913,6 +913,9 @@
   "explorer.openEditors.visible": 1,
   "workbench.sideBar.location": "left",
   "editor.stickyScroll.enabled": false,
+  "workbench.tree.enableStickyScroll": false,
+  "editor.tabCompletion": "on",
+  "editor.acceptSuggestionOnEnter": "on",
   "_editor.detectIndentation": true,
   "editor.minimap.showSlider": "always",
   "editor.minimap.renderCharacters": false,
@@ -993,6 +996,10 @@
 
   "explorer.compactFolders": false,
   "editor.occurrencesHighlight": "off",
+
+  "extensions.ignoreRecommendations": true,
+
+  "breadcrumbs.symbolSortOrder": "position",
 
   "explorer.confirmDragAndDrop": false,
   "explorer.decorations.badges": false,
