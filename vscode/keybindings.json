@@ -136,7 +136,7 @@
     "when": "inSearchEditor"
   },
   {
-    "key": "shift+alt+f",
+    "key": "cmd+g",
     "command": "workbench.action.findInFiles"
   },
   {
@@ -197,5 +197,20 @@
     "key": "ctrl+cmd+i",
     "command": "-workbench.panel.chat",
     "when": "workbench.panel.chat.view.copilot.active"
+  },
+  {
+    "key": "cmd+g",
+    "command": "-editor.action.nextMatchFindAction",
+    "when": "editorFocus"
+  },
+  {
+    "key": "cmd+g",
+    "command": "-workbench.action.terminal.findNext",
+    "when": "terminalFindFocused && terminalHasBeenCreated || terminalFindFocused && terminalProcessSupported || terminalFocusInAny && terminalHasBeenCreated || terminalFocusInAny && terminalProcessSupported"
+  },
+  {
+    "key": "cmd+g",
+    "command": "-workbench.action.terminal.goToRecentDirectory",
+    "when": "terminalFocus && terminalHasBeenCreated || terminalFocus && terminalProcessSupported"
   }
 ]
