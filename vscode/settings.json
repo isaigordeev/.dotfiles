@@ -1015,7 +1015,9 @@
     "editor.formatOnPaste": true,
     "editor.insertSpaces": true,
     "editor.tabSize": 2,
-    "editor.detectIndentation": false
+    "editor.detectIndentation": false,
+    "prettier.proseWrap": "always",
+    "prettier.printWidth": 66
   },
   "markdownlint.configFile": ".markdownlint.json",
   "[jsonc]": {
