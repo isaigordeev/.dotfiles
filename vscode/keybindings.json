@@ -237,5 +237,9 @@
     "key": "ctrl+shift+`",
     "command": "-workbench.action.terminal.new",
     "when": "terminalProcessSupported || terminalWebExtensionContributedProfile"
+  },
+  {
+    "key": "shift+alt+g",
+    "command": "git.openChange"
   }
 ]
