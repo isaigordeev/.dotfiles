@@ -3,8 +3,6 @@
   "_comment_vim": "Vim configuration",
   "vim.leader": " ",
   "vim.useSystemClipboard": true,
-  "problems.sortOrder": "position",
-  "gitlens.advanced.blame.delayAfterEdit": 0,
 
   // ─── Vim Key Bindings: Normal Mode ──────────────────────────────────────────────
   "vim.normalModeKeyBindingsNonRecursive": [
@@ -179,9 +177,171 @@
     {
       "before": ["<leader>", "y"],
       "commands": ["editor.action.clipboardCopyAction"]
-    }
+    },
     // (All Cyrillic mappings same as above)
-    // — omitted for brevity —
+    { "before": ["й"], "after": ["q"] },
+    { "before": ["ц"], "after": ["w"] },
+    { "before": ["у"], "after": ["e"] },
+    { "before": ["к"], "after": ["r"] },
+    { "before": ["е"], "after": ["t"] },
+    { "before": ["н"], "after": ["y"] },
+    { "before": ["г"], "after": ["u"] },
+    { "before": ["ш"], "after": ["i"] },
+    { "before": ["щ"], "after": ["o"] },
+    { "before": ["з"], "after": ["p"] },
+    { "before": ["х"], "after": ["["] },
+    { "before": ["ъ"], "after": ["]"] },
+    { "before": ["ф"], "after": ["a"] },
+    { "before": ["ы"], "after": ["s"] },
+    { "before": ["в"], "after": ["d"] },
+    { "before": ["а"], "after": ["f"] },
+    { "before": ["п"], "after": ["g"] },
+    { "before": ["р"], "after": ["h"] },
+    { "before": ["о"], "after": ["j"] },
+    { "before": ["л"], "after": ["k"] },
+    { "before": ["д"], "after": ["l"] },
+    { "before": ["ж"], "after": [";"] },
+    { "before": ["э"], "after": ["'"] },
+    { "before": ["я"], "after": ["z"] },
+    { "before": ["ч"], "after": ["x"] },
+    { "before": ["с"], "after": ["c"] },
+    { "before": ["м"], "after": ["v"] },
+    { "before": ["и"], "after": ["b"] },
+    { "before": ["т"], "after": ["n"] },
+    { "before": ["ь"], "after": ["m"] },
+    { "before": ["б"], "after": [","] },
+    { "before": ["ю"], "after": ["."] },
+
+    // Uppercase mappings
+    { "before": ["Й"], "after": ["Q"] },
+    { "before": ["Ц"], "after": ["W"] },
+    { "before": ["У"], "after": ["E"] },
+    { "before": ["К"], "after": ["R"] },
+    { "before": ["Е"], "after": ["T"] },
+    { "before": ["Н"], "after": ["Y"] },
+    { "before": ["Г"], "after": ["U"] },
+    { "before": ["Ш"], "after": ["I"] },
+    { "before": ["Щ"], "after": ["O"] },
+    { "before": ["З"], "after": ["P"] },
+    { "before": ["Х"], "after": ["{"] },
+    { "before": ["Ъ"], "after": ["}"] },
+    { "before": ["Ф"], "after": ["A"] },
+    { "before": ["Ы"], "after": ["S"] },
+    { "before": ["В"], "after": ["D"] },
+    { "before": ["А"], "after": ["F"] },
+    { "before": ["П"], "after": ["G"] },
+    { "before": ["Р"], "after": ["H"] },
+    { "before": ["О"], "after": ["J"] },
+    { "before": ["Л"], "after": ["K"] },
+    { "before": ["Д"], "after": ["L"] },
+    { "before": ["Ж"], "after": [":"] },
+    { "before": ["Э"], "after": ["\""] },
+    { "before": ["Я"], "after": ["Z"] },
+    { "before": ["Ч"], "after": ["X"] },
+    { "before": ["С"], "after": ["C"] },
+    { "before": ["М"], "after": ["V"] },
+    { "before": ["И"], "after": ["B"] },
+    { "before": ["Т"], "after": ["N"] },
+    { "before": ["Ь"], "after": ["M"] },
+    { "before": ["Б"], "after": ["<"] },
+    { "before": ["Ю"], "after": [">"] },
+
+    // Leader commands
+    {
+      "before": ["<leader>", "s"],
+      "commands": ["workbench.action.files.save"]
+    },
+    {
+      "before": ["<leader>", "w"],
+      "commands": ["workbench.action.closeActiveEditor"]
+    },
+    {
+      "before": ["<leader>", "z"],
+      "commands": ["workbench.action.toggleZenMode"]
+    },
+    {
+      "before": ["<leader>", "Q"],
+      "commands": ["workbench.action.closeAllEditors"]
+    },
+    {
+      "before": ["<leader>", "f"],
+      "commands": ["workbench.action.closeOtherEditors"]
+    },
+    {
+      "before": ["<leader>", "t"],
+      "commands": ["workbench.action.reopenClosedEditor"]
+    },
+    {
+      "before": ["<leader>", "h"],
+      "commands": ["workbench.action.navigateLeft"]
+    },
+    {
+      "before": ["<leader>", "j"],
+      "commands": ["workbench.action.navigateDown"]
+    },
+    {
+      "before": ["<leader>", "k"],
+      "commands": ["workbench.action.navigateUp"]
+    },
+    {
+      "before": ["<leader>", "l"],
+      "commands": ["workbench.action.navigateRight"]
+    },
+    {
+      "before": ["<leader>", "H"],
+      "commands": ["workbench.action.previousEditor"]
+    },
+    {
+      "before": ["<leader>", "L"],
+      "commands": ["workbench.action.nextEditor"]
+    },
+
+    // Русские эквиваленты лидера
+    {
+      "before": ["<leader>", "ы"],
+      "commands": ["workbench.action.files.save"]
+    },
+    {
+      "before": ["<leader>", "ц"],
+      "commands": ["workbench.action.closeActiveEditor"]
+    },
+    {
+      "before": ["<leader>", "я"],
+      "commands": ["workbench.action.toggleZenMode"]
+    },
+    {
+      "before": ["<leader>", "Й"],
+      "commands": ["workbench.action.closeAllEditors"]
+    },
+    {
+      "before": ["<leader>", "а"],
+      "commands": ["workbench.action.closeOtherEditors"]
+    },
+    {
+      "before": ["<leader>", "е"],
+      "commands": ["workbench.action.reopenClosedEditor"]
+    },
+    {
+      "before": ["<leader>", "р"],
+      "commands": ["workbench.action.navigateLeft"]
+    },
+    {
+      "before": ["<leader>", "о"],
+      "commands": ["workbench.action.navigateDown"]
+    },
+    {
+      "before": ["<leader>", "л"],
+      "commands": ["workbench.action.navigateUp"]
+    },
+    {
+      "before": ["<leader>", "д"],
+      "commands": ["workbench.action.navigateRight"]
+    },
+    {
+      "before": ["<leader>", "Р"],
+      "commands": ["workbench.action.previousEditor"]
+    },
+    { "before": ["<leader>", "Д"], "commands": ["workbench.action.nextEditor"] }
   ],
 
   // ─── Vim Key Bindings: Other Modes ──────────────────────────────────────────────
@@ -192,10 +352,173 @@
 
   "vim.operatorPendingModeKeyBindingsNonRecursive": [
     // (Same Cyrillic mappings as normal mode)
-    // — omitted for brevity —
+    { "before": ["й"], "after": ["q"] },
+    { "before": ["ц"], "after": ["w"] },
+    { "before": ["у"], "after": ["e"] },
+    { "before": ["к"], "after": ["r"] },
+    { "before": ["е"], "after": ["t"] },
+    { "before": ["н"], "after": ["y"] },
+    { "before": ["г"], "after": ["u"] },
+    { "before": ["ш"], "after": ["i"] },
+    { "before": ["щ"], "after": ["o"] },
+    { "before": ["з"], "after": ["p"] },
+    { "before": ["х"], "after": ["["] },
+    { "before": ["ъ"], "after": ["]"] },
+    { "before": ["ф"], "after": ["a"] },
+    { "before": ["ы"], "after": ["s"] },
+    { "before": ["в"], "after": ["d"] },
+    { "before": ["а"], "after": ["f"] },
+    { "before": ["п"], "after": ["g"] },
+    { "before": ["р"], "after": ["h"] },
+    { "before": ["о"], "after": ["j"] },
+    { "before": ["л"], "after": ["k"] },
+    { "before": ["д"], "after": ["l"] },
+    { "before": ["ж"], "after": [";"] },
+    { "before": ["э"], "after": ["'"] },
+    { "before": ["я"], "after": ["z"] },
+    { "before": ["ч"], "after": ["x"] },
+    { "before": ["с"], "after": ["c"] },
+    { "before": ["м"], "after": ["v"] },
+    { "before": ["и"], "after": ["b"] },
+    { "before": ["т"], "after": ["n"] },
+    { "before": ["ь"], "after": ["m"] },
+    { "before": ["б"], "after": [","] },
+    { "before": ["ю"], "after": ["."] },
+
+    // Uppercase mappings
+    { "before": ["Й"], "after": ["Q"] },
+    { "before": ["Ц"], "after": ["W"] },
+    { "before": ["У"], "after": ["E"] },
+    { "before": ["К"], "after": ["R"] },
+    { "before": ["Е"], "after": ["T"] },
+    { "before": ["Н"], "after": ["Y"] },
+    { "before": ["Г"], "after": ["U"] },
+    { "before": ["Ш"], "after": ["I"] },
+    { "before": ["Щ"], "after": ["O"] },
+    { "before": ["З"], "after": ["P"] },
+    { "before": ["Х"], "after": ["{"] },
+    { "before": ["Ъ"], "after": ["}"] },
+    { "before": ["Ф"], "after": ["A"] },
+    { "before": ["Ы"], "after": ["S"] },
+    { "before": ["В"], "after": ["D"] },
+    { "before": ["А"], "after": ["F"] },
+    { "before": ["П"], "after": ["G"] },
+    { "before": ["Р"], "after": ["H"] },
+    { "before": ["О"], "after": ["J"] },
+    { "before": ["Л"], "after": ["K"] },
+    { "before": ["Д"], "after": ["L"] },
+    { "before": ["Ж"], "after": [":"] },
+    { "before": ["Э"], "after": ["\""] },
+    { "before": ["Я"], "after": ["Z"] },
+    { "before": ["Ч"], "after": ["X"] },
+    { "before": ["С"], "after": ["C"] },
+    { "before": ["М"], "after": ["V"] },
+    { "before": ["И"], "after": ["B"] },
+    { "before": ["Т"], "after": ["N"] },
+    { "before": ["Ь"], "after": ["M"] },
+    { "before": ["Б"], "after": ["<"] },
+    { "before": ["Ю"], "after": [">"] },
+
+    // Leader commands
+    {
+      "before": ["<leader>", "s"],
+      "commands": ["workbench.action.files.save"]
+    },
+    {
+      "before": ["<leader>", "w"],
+      "commands": ["workbench.action.closeActiveEditor"]
+    },
+    {
+      "before": ["<leader>", "z"],
+      "commands": ["workbench.action.toggleZenMode"]
+    },
+    {
+      "before": ["<leader>", "Q"],
+      "commands": ["workbench.action.closeAllEditors"]
+    },
+    {
+      "before": ["<leader>", "f"],
+      "commands": ["workbench.action.closeOtherEditors"]
+    },
+    {
+      "before": ["<leader>", "t"],
+      "commands": ["workbench.action.reopenClosedEditor"]
+    },
+    {
+      "before": ["<leader>", "h"],
+      "commands": ["workbench.action.navigateLeft"]
+    },
+    {
+      "before": ["<leader>", "j"],
+      "commands": ["workbench.action.navigateDown"]
+    },
+    {
+      "before": ["<leader>", "k"],
+      "commands": ["workbench.action.navigateUp"]
+    },
+    {
+      "before": ["<leader>", "l"],
+      "commands": ["workbench.action.navigateRight"]
+    },
+    {
+      "before": ["<leader>", "H"],
+      "commands": ["workbench.action.previousEditor"]
+    },
+    {
+      "before": ["<leader>", "L"],
+      "commands": ["workbench.action.nextEditor"]
+    },
+
+    // Русские эквиваленты лидера
+    {
+      "before": ["<leader>", "ы"],
+      "commands": ["workbench.action.files.save"]
+    },
+    {
+      "before": ["<leader>", "ц"],
+      "commands": ["workbench.action.closeActiveEditor"]
+    },
+    {
+      "before": ["<leader>", "я"],
+      "commands": ["workbench.action.toggleZenMode"]
+    },
+    {
+      "before": ["<leader>", "Й"],
+      "commands": ["workbench.action.closeAllEditors"]
+    },
+    {
+      "before": ["<leader>", "а"],
+      "commands": ["workbench.action.closeOtherEditors"]
+    },
+    {
+      "before": ["<leader>", "е"],
+      "commands": ["workbench.action.reopenClosedEditor"]
+    },
+    {
+      "before": ["<leader>", "р"],
+      "commands": ["workbench.action.navigateLeft"]
+    },
+    {
+      "before": ["<leader>", "о"],
+      "commands": ["workbench.action.navigateDown"]
+    },
+    {
+      "before": ["<leader>", "л"],
+      "commands": ["workbench.action.navigateUp"]
+    },
+    {
+      "before": ["<leader>", "д"],
+      "commands": ["workbench.action.navigateRight"]
+    },
+    {
+      "before": ["<leader>", "Р"],
+      "commands": ["workbench.action.previousEditor"]
+    },
+    { "before": ["<leader>", "Д"], "commands": ["workbench.action.nextEditor"] }
   ],
 
-  // ─── Editor Settings ────────────────────────────────────────────────────────────
+  // ─── Editor Settings
+  // ────────────────────────────────────────────────────────────
   "editor.cursorBlinking": "solid",
   "editor.fontFamily": "JetBrains Mono",
   "editor.fontSize": 11.9, // 11.9 vim style // 12.3 JB style
@@ -262,7 +585,8 @@
   "zenMode.showTabs": "none",
   "zenMode.hideLineNumbers": false,
 
-  // ─── Python / Ruff / C++ Configuration ─────────────────────────────────────────
+  // ─── Python / Ruff
+  // ─────────────────────────────────────────
   "_comment_python": "Python and Ruff settings",
   "_python.analysis.inlayHints.variableTypes": true,
   "_python.defaultInterpreterPath": "/usr/local/bin/python3.14",
@@ -272,6 +596,7 @@
     "/Users/isaigordeev/Desktop/millenium-falcon-challenge/.venv/bin/ruff"
   ],
   // ─── C++ Configuration
+  // ─────────────────────────────────────────
   "_comment_cpp": "C/C++ language server configuration",
   "_C_Cpp.default.cppStandard": "c++20",
   "_C_Cpp.formatting": "clangFormat",
@@ -297,6 +622,7 @@
   "search.searchEditor.focusResultsOnSearch": false,
   "search.quickOpen.history.filterSortOrder": "recency",
   "gitlens.currentLine.scrollable": false,
+  "gitlens.advanced.blame.delayAfterEdit": 0,
 
   // ─── Markdown / JSONC Formatting ───────────────────────────────────────────────
   "_palace.config": "Palace config for md editing",
@@ -318,5 +644,6 @@
   },
 
   // ─── Miscellaneous ─────────────────────────────────────────────────────────────
-  "extensions.ignoreRecommendations": true
+  "extensions.ignoreRecommendations": true,
+  "problems.sortOrder": "position"
 }
