@@ -620,7 +620,10 @@
 
   // ─── Search & GitLens ──────────────────────────────────────────────────────────
   "search.searchEditor.focusResultsOnSearch": false,
+  "search.quickOpen.includeSymbols": false,
+  "search.quickAccess.preserveInput": true,
   "search.quickOpen.history.filterSortOrder": "recency",
+  "workbench.quickOpen.preserveInput": false,
   "gitlens.currentLine.scrollable": false,
   "gitlens.advanced.blame.delayAfterEdit": 0,
 
