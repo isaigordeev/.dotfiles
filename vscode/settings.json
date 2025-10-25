@@ -627,7 +627,7 @@
   "gitlens.currentLine.scrollable": false,
   "gitlens.advanced.blame.delayAfterEdit": 0,
 
-  // ─── Markdown / JSONC Formatting ───────────────────────────────────────────────
+  // ─── Markdown / Plain text / JSONC Formatting ───────────────────────────────────────────────
   "_palace.config": "Palace config for md editing",
   "[markdown]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode",
@@ -640,6 +640,12 @@
     "editor.detectIndentation": false,
     "prettier.printWidth": 66,
     "prettier.proseWrap": "always"
+  },
+  "[plaintext]": {
+    "editor.rulers": [67, 79],
+    "editor.insertSpaces": true,
+    "editor.tabSize": 2,
+    "editor.detectIndentation": false
   },
   "[jsonc]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
