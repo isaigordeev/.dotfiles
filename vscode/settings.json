@@ -576,6 +576,16 @@
       "editor.background": "#f2f2f2"
     }
   },
+  "editor.tokenColorCustomizations": {
+    "textMateRules": [
+      {
+        "scope": ["comment"],
+        "settings": {
+          "foreground": "#828282"
+        }
+      }
+    ]
+  },
 
   // ─── Zen Mode ──────────────────────────────────────────────────────────────────
   "_comment_zen": "Zen Mode configuration",
@@ -657,5 +667,6 @@
 
   // ─── Miscellaneous ─────────────────────────────────────────────────────────────
   "extensions.ignoreRecommendations": true,
-  "problems.sortOrder": "position"
+  "problems.sortOrder": "position",
+  "python.defaultInterpreterPath": "/usr/local/bin/python3.14"
 }
