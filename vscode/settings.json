@@ -520,7 +520,7 @@
   // ─── Editor Settings
   // ────────────────────────────────────────────────────────────
   "editor.cursorBlinking": "solid",
-  "editor.fontFamily": "JetBrains Mono",
+  "editor.fontFamily": "JetBrains Mono Light",
   "editor.fontSize": 11.9, // 11.9 vim style // 12.3 JB style
   "editor.lineHeight": 20, // 20 vim style // 22 JB style
   "editor.rulers": [80],
