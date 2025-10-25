@@ -1,4 +1,157 @@
 {
+  // ─── Editor Settings
+  // ────────────────────────────────────────────────────────────
+  "editor.cursorBlinking": "solid",
+  "editor.fontFamily": "JetBrains Mono Light",
+  "editor.fontSize": 11.9, // 11.9 vim style // 12.3 JB style
+  "editor.lineHeight": 20, // 20 vim style // 22 JB style
+  "editor.rulers": [80],
+  "editor.wordWrap": "wordWrapColumn",
+  "editor.wordWrapColumn": 79,
+  "editor.insertSpaces": true,
+  "editor.tabSize": 4,
+  "editor.tabCompletion": "on",
+  "editor.acceptSuggestionOnEnter": "on",
+  "editor.minimap.enabled": false,
+  "editor.minimap.showSlider": "always",
+  "editor.minimap.renderCharacters": false,
+  "editor.stickyScroll.enabled": false,
+  "editor.formatOnSave": true,
+  "editor.formatOnPaste": true,
+  "editor.autoClosingBrackets": "never",
+  "editor.autoClosingQuotes": "never",
+  "editor.dragAndDrop": false,
+  "editor.folding": false,
+  "editor.renderWhitespace": "selection",
+  "editor.occurrencesHighlight": "off",
+  "editor.cursorSurroundingLines": 3,
+  "editor.showFoldingControls": "never",
+  "editor.scrollbar.ignoreHorizontalScrollbarInContentHeight": true,
+  "editor.scrollbar.horizontal": "hidden",
+  "editor.scrollbar.vertical": "hidden",
+  "editor.scrollbar.verticalScrollbarSize": 0,
+  "editor.unicodeHighlight.allowedCharacters": { "σ": true },
+
+  // ─── Workbench Appearance ──────────────────────────────────────────────────────
+  "workbench.sideBar.location": "left",
+  "workbench.tree.enableStickyScroll": false,
+  "workbench.tree.renderIndentGuides": "none",
+  "workbench.navigationControl.enabled": false,
+  "workbench.activityBar.location": "hidden",
+  "workbench.editor.showTabs": "none",
+  "workbench.statusBar.visible": false,
+  "workbench.secondarySideBar.defaultVisibility": "hidden",
+  "workbench.panel.defaultLocation": "bottom",
+  "workbench.panel.opensMaximized": "never",
+  "workbench.layoutControl.enabled": true,
+  "workbench.editor.editorActionsLocation": "hidden",
+  "workbench.colorTheme": "Visual Studio Light",
+  "workbench.preferredDarkColorTheme": "Visual Studio Dark",
+  "workbench.preferredLightColorTheme": "Visual Studio Light",
+  "workbench.editor.limit.enabled": true,
+  "workbench.colorCustomizations": {
+    "[Visual Studio Dark]": {
+      "editor.background": "#2d2d2d",
+      "sideBar.background": "#2d2d2d"
+    },
+    "[Visual Studio Light]": {
+      "editor.background": "#f2f2f2"
+    }
+  },
+  "editor.tokenColorCustomizations": {
+    "textMateRules": [
+      {
+        "scope": ["comment"],
+        "settings": {
+          "foreground": "#828282"
+        }
+      }
+    ]
+  },
+
+  // ─── Zen Mode ──────────────────────────────────────────────────────────────────
+  "_comment_zen": "Zen Mode configuration",
+  "zenMode.fullScreen": true,
+  "zenMode.restore": true,
+  "zenMode.centerLayout": true,
+  "zenMode.showTabs": "none",
+  "zenMode.hideLineNumbers": false,
+
+  // ─── Python / Ruff
+  // ─────────────────────────────────────────
+  "_comment_python": "Python and Ruff settings",
+  "_python.analysis.inlayHints.variableTypes": true,
+  "_python.defaultInterpreterPath": "/usr/local/bin/python3.14",
+  "ruff.lineLength": 79,
+  "ruff.configurationPreference": "filesystemFirst",
+  "_ruff.path": [
+    "/Users/isaigordeev/Desktop/millenium-falcon-challenge/.venv/bin/ruff"
+  ],
+  // ─── C++ Configuration
+  // ─────────────────────────────────────────
+  "_comment_cpp": "C/C++ language server configuration",
+  "_C_Cpp.default.cppStandard": "c++20",
+  "_C_Cpp.formatting": "clangFormat",
+  "_C_Cpp.clang_format_path": "/usr/local/opt/llvm@17/bin/clang-format",
+  "_C_Cpp.intelliSenseEngine": "default",
+  "_C_Cpp.codeAnalysis.clangTidy.enabled": true,
+  "C_Cpp.clang_format_fallbackStyle": "",
+
+  // ─── Explorer and Window ───────────────────────────────────────────────────────
+  "explorer.openEditors.visible": 1,
+  "explorer.compactFolders": false,
+  "explorer.confirmDragAndDrop": false,
+  "explorer.decorations.badges": false,
+  "breadcrumbs.enabled": true,
+  "breadcrumbs.symbolSortOrder": "position",
+  "window.title": "${dirty}${activeEditorShort}${separator}${rootName}",
+  "window.commandCenter": false,
+  "window.customTitleBarVisibility": "windowed",
+  "chat.commandCenter.enabled": false,
+  "workbench.welcomePage.walkthroughs.openOnInstall": false,
+
+  // ─── Search & GitLens ──────────────────────────────────────────────────────────
+  "search.searchEditor.focusResultsOnSearch": false,
+  "search.quickOpen.includeSymbols": false,
+  "search.quickAccess.preserveInput": true,
+  "search.quickOpen.history.filterSortOrder": "recency",
+  "workbench.quickOpen.preserveInput": false,
+  "gitlens.currentLine.scrollable": false,
+  "gitlens.advanced.blame.delayAfterEdit": 0,
+
+  // ─── Markdown / Plain text / JSONC Formatting ───────────────────────────────────────────────
+  "_palace.config": "Palace config for md editing",
+  "[markdown]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.rulers": [72],
+    "editor.formatOnSave": false,
+    "editor.formatOnType": false,
+    "editor.formatOnPaste": false,
+    "editor.insertSpaces": true,
+    "editor.tabSize": 2,
+    "editor.detectIndentation": false,
+    "prettier.printWidth": 66,
+    "prettier.proseWrap": "always"
+  },
+  "[plaintext]": {
+    "editor.rulers": [67, 79],
+    "editor.insertSpaces": true,
+    "editor.tabSize": 2,
+    "editor.detectIndentation": false
+  },
+  "[jsonc]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  // ─── Terminal
+  // ─────────────────────────────────────────────────────────────
+
+  "terminal.integrated.defaultLocation": "editor",
+
+  // ─── Miscellaneous ─────────────────────────────────────────────────────────────
+  "extensions.ignoreRecommendations": true,
+  "problems.sortOrder": "position",
+  "python.defaultInterpreterPath": "/usr/local/bin/python3.14",
+
   // ─── Vim Configuration ─────────────────────────────────────────────────────────
   "_comment_vim": "Vim configuration",
   "vim.leader": " ",
@@ -515,158 +668,5 @@
       "commands": ["workbench.action.previousEditor"]
     },
     { "before": ["<leader>", "Д"], "commands": ["workbench.action.nextEditor"] }
-  ],
-
-  // ─── Editor Settings
-  // ────────────────────────────────────────────────────────────
-  "editor.cursorBlinking": "solid",
-  "editor.fontFamily": "JetBrains Mono Light",
-  "editor.fontSize": 11.9, // 11.9 vim style // 12.3 JB style
-  "editor.lineHeight": 20, // 20 vim style // 22 JB style
-  "editor.rulers": [80],
-  "editor.wordWrap": "wordWrapColumn",
-  "editor.wordWrapColumn": 79,
-  "editor.insertSpaces": true,
-  "editor.tabSize": 4,
-  "editor.tabCompletion": "on",
-  "editor.acceptSuggestionOnEnter": "on",
-  "editor.minimap.enabled": false,
-  "editor.minimap.showSlider": "always",
-  "editor.minimap.renderCharacters": false,
-  "editor.stickyScroll.enabled": false,
-  "editor.formatOnSave": true,
-  "editor.formatOnPaste": true,
-  "editor.autoClosingBrackets": "never",
-  "editor.autoClosingQuotes": "never",
-  "editor.dragAndDrop": false,
-  "editor.folding": false,
-  "editor.renderWhitespace": "selection",
-  "editor.occurrencesHighlight": "off",
-  "editor.cursorSurroundingLines": 3,
-  "editor.showFoldingControls": "never",
-  "editor.scrollbar.ignoreHorizontalScrollbarInContentHeight": true,
-  "editor.scrollbar.horizontal": "hidden",
-  "editor.scrollbar.vertical": "hidden",
-  "editor.scrollbar.verticalScrollbarSize": 0,
-  "editor.unicodeHighlight.allowedCharacters": { "σ": true },
-
-  // ─── Workbench Appearance ──────────────────────────────────────────────────────
-  "workbench.sideBar.location": "left",
-  "workbench.tree.enableStickyScroll": false,
-  "workbench.tree.renderIndentGuides": "none",
-  "workbench.navigationControl.enabled": false,
-  "workbench.activityBar.location": "hidden",
-  "workbench.editor.showTabs": "none",
-  "workbench.statusBar.visible": false,
-  "workbench.secondarySideBar.defaultVisibility": "hidden",
-  "workbench.panel.defaultLocation": "bottom",
-  "workbench.panel.opensMaximized": "never",
-  "workbench.layoutControl.enabled": true,
-  "workbench.editor.editorActionsLocation": "hidden",
-  "workbench.colorTheme": "Visual Studio Light",
-  "workbench.preferredDarkColorTheme": "Visual Studio Dark",
-  "workbench.preferredLightColorTheme": "Visual Studio Light",
-  "workbench.editor.limit.enabled": true,
-  "workbench.colorCustomizations": {
-    "[Visual Studio Dark]": {
-      "editor.background": "#2d2d2d",
-      "sideBar.background": "#2d2d2d"
-    },
-    "[Visual Studio Light]": {
-      "editor.background": "#f2f2f2"
-    }
-  },
-  "editor.tokenColorCustomizations": {
-    "textMateRules": [
-      {
-        "scope": ["comment"],
-        "settings": {
-          "foreground": "#828282"
-        }
-      }
-    ]
-  },
-
-  // ─── Zen Mode ──────────────────────────────────────────────────────────────────
-  "_comment_zen": "Zen Mode configuration",
-  "zenMode.fullScreen": true,
-  "zenMode.restore": true,
-  "zenMode.centerLayout": true,
-  "zenMode.showTabs": "none",
-  "zenMode.hideLineNumbers": false,
-
-  // ─── Python / Ruff
-  // ─────────────────────────────────────────
-  "_comment_python": "Python and Ruff settings",
-  "_python.analysis.inlayHints.variableTypes": true,
-  "_python.defaultInterpreterPath": "/usr/local/bin/python3.14",
-  "ruff.lineLength": 79,
-  "ruff.configurationPreference": "filesystemFirst",
-  "_ruff.path": [
-    "/Users/isaigordeev/Desktop/millenium-falcon-challenge/.venv/bin/ruff"
-  ],
-  // ─── C++ Configuration
-  // ─────────────────────────────────────────
-  "_comment_cpp": "C/C++ language server configuration",
-  "_C_Cpp.default.cppStandard": "c++20",
-  "_C_Cpp.formatting": "clangFormat",
-  "_C_Cpp.clang_format_path": "/usr/local/opt/llvm@17/bin/clang-format",
-  "_C_Cpp.intelliSenseEngine": "default",
-  "_C_Cpp.codeAnalysis.clangTidy.enabled": true,
-  "C_Cpp.clang_format_fallbackStyle": "",
-
-  // ─── Explorer and Window ───────────────────────────────────────────────────────
-  "explorer.openEditors.visible": 1,
-  "explorer.compactFolders": false,
-  "explorer.confirmDragAndDrop": false,
-  "explorer.decorations.badges": false,
-  "breadcrumbs.enabled": true,
-  "breadcrumbs.symbolSortOrder": "position",
-  "window.title": "${dirty}${activeEditorShort}${separator}${rootName}",
-  "window.commandCenter": false,
-  "window.customTitleBarVisibility": "windowed",
-  "chat.commandCenter.enabled": false,
-  "workbench.welcomePage.walkthroughs.openOnInstall": false,
-
-  // ─── Search & GitLens ──────────────────────────────────────────────────────────
-  "search.searchEditor.focusResultsOnSearch": false,
-  "search.quickOpen.includeSymbols": false,
-  "search.quickAccess.preserveInput": true,
-  "search.quickOpen.history.filterSortOrder": "recency",
-  "workbench.quickOpen.preserveInput": false,
-  "gitlens.currentLine.scrollable": false,
-  "gitlens.advanced.blame.delayAfterEdit": 0,
-
-  // ─── Markdown / Plain text / JSONC Formatting ───────────────────────────────────────────────
-  "_palace.config": "Palace config for md editing",
-  "[markdown]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode",
-    "editor.rulers": [72],
-    "editor.formatOnSave": false,
-    "editor.formatOnType": false,
-    "editor.formatOnPaste": false,
-    "editor.insertSpaces": true,
-    "editor.tabSize": 2,
-    "editor.detectIndentation": false,
-    "prettier.printWidth": 66,
-    "prettier.proseWrap": "always"
-  },
-  "[plaintext]": {
-    "editor.rulers": [67, 79],
-    "editor.insertSpaces": true,
-    "editor.tabSize": 2,
-    "editor.detectIndentation": false
-  },
-  "[jsonc]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
-  // ─── Terminal
-  // ─────────────────────────────────────────────────────────────
-
-  "terminal.integrated.defaultLocation": "editor",
-
-  // ─── Miscellaneous ─────────────────────────────────────────────────────────────
-  "extensions.ignoreRecommendations": true,
-  "problems.sortOrder": "position",
-  "python.defaultInterpreterPath": "/usr/local/bin/python3.14"
+  ]
 }
