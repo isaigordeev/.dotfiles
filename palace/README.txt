@@ -1,3 +1,4 @@
+
 PALACE NOTETAKING SETUP
 =======================
 
