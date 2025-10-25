@@ -7,7 +7,7 @@ VSCODE GLOBAL SETUP
 
 Use a text file containing extension IDs (one per line) to install:
 
-    xargs -n 1 code --install-extension < vscode_extensions.txt
+    > xargs -n 1 code --install-extension < vscode_extensions.txt
 
 -------------------------------------------------------------------------------
 2. Link VSCode folder from repo root
@@ -15,7 +15,7 @@ Use a text file containing extension IDs (one per line) to install:
 
 Create a symlink to your VSCode configuration folder:
 
-    ln -s "./vscode" "path-to-linked-folder/.vscode"
+    > ln -s "./vscode" "path-to-linked-folder/.vscode"
 
 -------------------------------------------------------------------------------
 3. Test this repo locally
@@ -23,7 +23,7 @@ Create a symlink to your VSCode configuration folder:
 
 Link the vscode folder in the local repository:
 
-    ln -s "./vscode" "$./.vscode"
+    > ln -s "./vscode" "$./.vscode"
 
 -------------------------------------------------------------------------------
 4. Bind keybindings on MacOS
@@ -31,7 +31,7 @@ Link the vscode folder in the local repository:
 
 Link keybindings.json to the VSCode user folder:
 
-    ln -s "$./vscode/keybindings.json" \
+    > ln -s "$./vscode/keybindings.json" \
           "$HOME/Library/Application Support/Code/User/keybindings.json"
 
 -------------------------------------------------------------------------------
@@ -40,7 +40,7 @@ Link keybindings.json to the VSCode user folder:
 
 Link settings.json to the VSCode user folder:
 
-    ln -s "./vscode/settings.json" \
+    > ln -s "./vscode/settings.json" \
           "$HOME/Library/Application Support/Code/User/settings.json"
 
 -------------------------------------------------------------------------------
@@ -49,4 +49,4 @@ Link settings.json to the VSCode user folder:
 
 Export currently installed extensions to a text file:
 
-    code --list-extensions > vscode-extensions.txt
+    > code --list-extensions > vscode-extensions.txt

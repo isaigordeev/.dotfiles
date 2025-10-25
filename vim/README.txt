@@ -7,7 +7,7 @@ VIM SETUP
 
 Create a symlink from the repo Vim configuration to your home directory:
 
-    ln -s "$(pwd)/vim/.vimrc" \
+    > ln -s "$(pwd)/vim/.vimrc" \
           "$HOME/.vimrc"
 
 -------------------------------------------------------------------------------

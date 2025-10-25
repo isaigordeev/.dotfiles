@@ -14,7 +14,7 @@ without relying on heavy IDEs like CLion.
 
 Download and install Zsh via curl (if not already installed):
 
-    curl -L https://example.com/install-zsh.sh | sh
+    > curl -L https://example.com/install-zsh.sh | sh
 
 -------------------------------------------------------------------------------
 2. Vim Setup
@@ -22,13 +22,13 @@ Download and install Zsh via curl (if not already installed):
 
 Install vim-plug (plugin manager):
 
-    curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
+    > curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
          https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 
 Install Plugins:
 1. Open Vim:
     
-    vim
+    > vim
 
 2. Inside Vim, run:
 
@@ -40,7 +40,7 @@ Reload Vim and enjoy a minimal, fast setup.
 3. Install Oh My Zsh
 -------------------------------------------------------------------------------
 
-    sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+    > sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 
 -------------------------------------------------------------------------------
 4. Syntax Highlighting
@@ -48,11 +48,11 @@ Reload Vim and enjoy a minimal, fast setup.
 
 Add Zsh syntax highlighting to your .zshrc:
 
-    echo "source $(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh" >> ${ZDOTDIR:-$HOME}/.zshrc
+    > echo "source $(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh" >> ${ZDOTDIR:-$HOME}/.zshrc
 
 Reload Zsh:
 
-    source ~/.zshrc
+    > source ~/.zshrc
 
 -------------------------------------------------------------------------------
 5. Load a Custom Theme
@@ -60,7 +60,7 @@ Reload Zsh:
 
 Link a theme file:
 
-    ln -s $PWD/sobole.zsh-theme ~/.oh-my-zsh/custom/themes/sobole.zsh-theme
+    > ln -s $PWD/sobole.zsh-theme ~/.oh-my-zsh/custom/themes/sobole.zsh-theme
 
 Set it in .zshrc:
 
@@ -68,7 +68,7 @@ Set it in .zshrc:
 
 Reload Zsh:
 
-    source ~/.zshrc
+    > source ~/.zshrc
 
 -------------------------------------------------------------------------------
 DONE!
