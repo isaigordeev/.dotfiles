@@ -165,7 +165,7 @@
 " FUZZY & SYMBOL SEARCH (via plugins)
 "   <C-p>             Fuzzy find files (:Files)
 "   <C-b>             Fuzzy find buffers (:Buffers)
-"   :BLines           Fuzzy search inside current buffer
+"   <C-e>             Fuzzy search inside current buffer
 "   :Rg <text>        Ripgrep search across project (requires ripgrep)
 
 " NOTES
@@ -286,7 +286,7 @@ set updatetime=300    " Faster update for Coc and highlighting
 
 
 " ============================================================
-"             CLION-LIKE LIGHT COLOR SCHEME
+"             VSCODE STUDIO LIGHT-LIKE COLOR SCHEME
 " ============================================================
 highlight Comment   ctermfg=244   " Comments (gray)
 " Optional:
@@ -309,10 +309,10 @@ highlight Comment   ctermfg=244   " Comments (gray)
 " ============================================================
 "               INSERT MODE NAVIGATION
 " ============================================================
-inoremap <C-h> <Left>
-inoremap <C-l> <Right>
-inoremap <C-j> <Down>
-inoremap <C-k> <Up>
+" inoremap <C-h> <Left>
+" inoremap <C-l> <Right>
+" inoremap <C-j> <Down>
+" inoremap <C-k> <Up>
 
 
 " ============================================================
@@ -325,7 +325,7 @@ Plug 'preservim/nerdtree'                       " File tree
 Plug 'junegunn/fzf', { 'do': './install --all' }" Fuzzy finder
 Plug 'junegunn/fzf.vim'
 Plug 'preservim/nerdcommenter'                  " Commenting
-Plug 'junegunn/goyo.vim'
+Plug 'junegunn/goyo.vim' " centered
 
 call plug#end()
 
@@ -409,6 +409,11 @@ nnoremap <C-p> :Files<CR>
 " Search buffers (buffer palette)
 nnoremap <C-b> :Buffers<CR>  
 
+" Search symbols accross current buffer
+nnoremap <C-r> :BLines<CR>
+
+" Search symbols accross project
+nnoremap <C-e> :Lines<CR>
 
 " ============================================================
 "                      COMMENTING
@@ -457,9 +462,9 @@ nnoremap <leader>Q :qa<CR>   " Quit all
 " ============================================================
 "                   SPLIT MANAGEMENT
 " ============================================================
-nnoremap <leader>e :vsplit<CR>        " Vertical split
-nnoremap <leader>r :split<CR>         " Horizontal split
-nnoremap <leader>f :only<CR>          " Keep only current split
+" nnoremap <leader>e :vsplit<CR>        " Vertical split
+" nnoremap <leader>r :split<CR>         " Horizontal split
+" nnoremap <leader>f :only<CR>          " Keep only current split
 
 " Move between splits
 nnoremap <leader>h <C-w>h
@@ -510,6 +515,12 @@ let g:goyo_linenr = 1
 " Map toggle to <leader>z
 nnoremap <leader>z :Goyo<CR>
 
+
+" ============================================================
+"                        RUSSIAN VIM
+" ============================================================
+"
+"
 " Insert current date in format: Mon 18 Mar 2024 at 16:58:58
 command! InsertDate execute "normal! a" . strftime("%a %d %b %Y at %H:%M:%S")
 
