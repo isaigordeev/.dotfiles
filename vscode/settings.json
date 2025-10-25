@@ -45,7 +45,7 @@
   "workbench.panel.opensMaximized": "never",
   "workbench.layoutControl.enabled": true,
   "workbench.editor.editorActionsLocation": "hidden",
-  "workbench.colorTheme": "Visual Studio Light",
+  "workbench.colorTheme": "Visual Studio Dark",
   "workbench.preferredDarkColorTheme": "Visual Studio Dark",
   "workbench.preferredLightColorTheme": "Visual Studio Light",
   "workbench.editor.limit.enabled": true,

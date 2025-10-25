@@ -141,7 +141,7 @@ module.exports = {
     // to load it and avoid it being `npm install`ed
     plugins:  [
        //"hyper-snazzy"   // Grey
-       "hyper-one-light" // Light
+       //"hyper-one-light" // Light
        //"hyper-dracula"    // Dark
     ],
     localPlugins: [],
