@@ -214,7 +214,7 @@
     "when": "terminalFocus && terminalHasBeenCreated || terminalFocus && terminalProcessSupported"
   },
   {
-    "key": "shift+cmd+o",
+    "key": "shift+alt+o",
     "command": "editor.action.marker.next",
     "when": "editorFocus"
   },
@@ -229,7 +229,7 @@
     "when": "textInputFocus && !editorReadonly && supportedCodeAction =~ /(\\s|^)source\\.organizeImports\\b/"
   },
   {
-    "key": "shift+alt+t",
+    "key": "cmd+t",
     "command": "workbench.action.terminal.new",
     "when": "terminalProcessSupported || terminalWebExtensionContributedProfile"
   },
@@ -262,7 +262,7 @@
     "when": "!accessibilityHelpIsShown && !accessibleViewIsShown"
   },
   {
-    "key": "shift+alt+o",
+    "key": "ctrl+shift+o",
     "command": "workbench.action.files.openFile",
     "when": "false"
   },
@@ -272,7 +272,7 @@
     "when": "false"
   },
   {
-    "key": "shift+alt+o",
+    "key": "ctrl+shift+o",
     "command": "workbench.action.files.openFolderViaWorkspace",
     "when": "!openFolderWorkspaceSupport && workbenchState == 'workspace'"
   },
@@ -282,7 +282,7 @@
     "when": "!openFolderWorkspaceSupport && workbenchState == 'workspace'"
   },
   {
-    "key": "shift+alt+o",
+    "key": "ctrl+shift+o",
     "command": "workbench.action.files.openFileFolder",
     "when": "openFolderWorkspaceSupport"
   },
@@ -327,7 +327,7 @@
     "when": "isDevelopment"
   },
   {
-    "key": "shift+cmd+i",
+    "key": "shift+alt+i",
     "command": "editor.action.marker.prev",
     "when": "editorFocus"
   },
@@ -347,5 +347,25 @@
   {
     "key": "shift+cmd+r",
     "command": "workbench.action.showCommands"
+  },
+  {
+    "key": "shift+cmd+o",
+    "command": "editor.action.dirtydiff.next",
+    "when": "editorTextFocus && !textCompareEditorActive"
+  },
+  {
+    "key": "alt+f3",
+    "command": "-editor.action.dirtydiff.next",
+    "when": "editorTextFocus && !textCompareEditorActive"
+  },
+  {
+    "key": "shift+cmd+i",
+    "command": "editor.action.dirtydiff.previous",
+    "when": "editorTextFocus && !textCompareEditorActive"
+  },
+  {
+    "key": "shift+alt+f3",
+    "command": "-editor.action.dirtydiff.previous",
+    "when": "editorTextFocus && !textCompareEditorActive"
   }
 ]
