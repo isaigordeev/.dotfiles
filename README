@@ -25,6 +25,15 @@ Load Oh My Zsh
 sh -c "$(curl -fsSL \
     https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 
+
+-------------------------------------------------------------------------------
+Syntax
+-------------------------------------------------------------------------------
+
+echo "source
+$(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh" >> ${ZDOTDIR:-$HOME}/.zshrc
+
+
 -------------------------------------------------------------------------------
 Load a theme for Oh My Zsh
 -------------------------------------------------------------------------------

@@ -632,16 +632,15 @@
   "[markdown]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode",
     "editor.rulers": [72],
-    "editor.formatOnSave": true,
-    "editor.formatOnType": true,
-    "editor.formatOnPaste": true,
+    "editor.formatOnSave": false,
+    "editor.formatOnType": false,
+    "editor.formatOnPaste": false,
     "editor.insertSpaces": true,
     "editor.tabSize": 2,
     "editor.detectIndentation": false,
-    "prettier.proseWrap": "always",
-    "prettier.printWidth": 66
+    "prettier.printWidth": 66,
+    "prettier.proseWrap": "always"
   },
-  "markdownlint.configFile": ".markdownlint.json",
   "[jsonc]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
