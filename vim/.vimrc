@@ -396,10 +396,13 @@ nnoremap <C-p> :Files<CR>
 nnoremap <C-b> :Buffers<CR>  
 
 " Search symbols accross current buffer
-nnoremap <C-r> :BLines<CR>
+nnoremap <C-o> :BLines<CR>
+
+" Search symbols accross open buffers
+nnoremap <C-r> :Lines<CR>
 
 " Search symbols accross project
-nnoremap <C-e> :Lines<CR>
+nnoremap <C-e> :RG<CR>
 
 " ============================================================
 "                      COMMENTING
