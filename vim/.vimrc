@@ -262,13 +262,6 @@ set ruler             " Show cursor position
 set incsearch         " Incremental search
 set scrolloff=4       " Set space when scrolloff
 
-" ----------------------------
-"        FOLDING
-" ----------------------------
-set foldmethod=indent " Fold based on indent level
-set foldlevel=99      " Keep all folds open by default
-nnoremap <space> za   " Toggle fold with <space>
-
 
 " ----------------------------
 "        AUTO-INDENT
