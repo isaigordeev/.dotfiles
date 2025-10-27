@@ -245,6 +245,10 @@ set termguicolors
 " Light background for better colors
 set background=light
 
+set wrap
+set linebreak
+set showbreak=↳\
+
 " ----------------------------
 "        TABS & INDENTS
 " ----------------------------
