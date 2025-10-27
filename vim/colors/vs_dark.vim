@@ -9,10 +9,10 @@ set background=light
 set termguicolors
 
 " Editor colors
-hi Normal       guifg=#D4D4D4 guibg=#1E1E1E
+hi Normal       guifg=#D4D4D4 guibg=#2D2D2D
 hi CursorLine   guibg=#2A2A2A
 hi Visual       guibg=#3A3D41
-hi LineNr       guifg=#6B6B6B guibg=#1E1E1E
+hi LineNr       guifg=#6B6B6B guibg=#2D2D2D
 hi CursorLineNr guifg=#FFFFFF guibg=#1E1E1E
 hi StatusLine   guifg=#D4D4D4 guibg=#007ACC
 hi StatusLineNC guifg=#BBBBBB guibg=#1E1E1E
