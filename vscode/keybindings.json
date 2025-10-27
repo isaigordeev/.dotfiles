@@ -53,7 +53,7 @@
     "when": "inQuickOpen"
   },
   {
-    "key": "cmd+b",
+    "key": "ctrl+b",
     "command": "workbench.action.showAllEditors"
   },
   {
@@ -162,7 +162,7 @@
     "when": "!editorReadonly"
   },
   {
-    "key": "cmd+r",
+    "key": "ctrl+r",
     "command": "workbench.action.showAllSymbols"
   },
   {
@@ -170,7 +170,7 @@
     "command": "-workbench.action.showAllSymbols"
   },
   {
-    "key": "cmd+e",
+    "key": "ctrl+a",
     "command": "workbench.action.quickTextSearch"
   },
   {
@@ -252,7 +252,7 @@
     "when": "accessibilityHelpIsShown"
   },
   {
-    "key": "cmd+o",
+    "key": "ctrl+c",
     "command": "workbench.action.gotoSymbol",
     "when": "!accessibilityHelpIsShown && !accessibleViewIsShown"
   },
@@ -367,5 +367,9 @@
     "key": "shift+alt+f3",
     "command": "-editor.action.dirtydiff.previous",
     "when": "editorTextFocus && !textCompareEditorActive"
+  },
+  {
+    "key": "cmd+b",
+    "command": "workbench.action.showAllEditors"
   }
 ]
