@@ -283,6 +283,7 @@ set updatetime=300    " Faster update for Coc and highlighting
 
 colorscheme vs_dark
 
+
 " ============================================================
 "               INSERT MODE NAVIGATION
 " ============================================================
@@ -303,7 +304,11 @@ Plug 'junegunn/fzf', { 'do': './install --all' }" Fuzzy finder
 Plug 'junegunn/fzf.vim'
 Plug 'preservim/nerdcommenter'                  " Commenting
 Plug 'junegunn/goyo.vim' " centered
+Plug 'luochen1990/rainbow'
 
+let g:rainbow_active = 1
+
+"
 call plug#end()
 
 
