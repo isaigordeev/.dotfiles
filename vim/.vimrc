@@ -245,7 +245,6 @@ set termguicolors
 " Light background for better colors
 set background=light
 
-
 " ----------------------------
 "        TABS & INDENTS
 " ----------------------------
@@ -281,23 +280,8 @@ set updatetime=300    " Faster update for Coc and highlighting
 " ============================================================
 "             VSCODE STUDIO LIGHT-LIKE COLOR SCHEME
 " ============================================================
-highlight Comment   ctermfg=244   " Comments (gray)
-" Optional:
-"highlight String    ctermfg=124   
-"highlight Number    ctermfg=92   
-"highlight Function  ctermfg=30  
-"highlight Type      ctermfg=30 
-"highlight Constant  ctermfg=92  
-"highlight Operator  ctermfg=black 
-"highlight Special   ctermfg=202   
-"highlight Normal   ctermfg=black
-"highlight LineNr   ctermfg=242
-"highlight CursorLine ctermbg=254
-"highlight Keyword  ctermfg=45
-"highlight Statement ctermfg=55
-"highlight PreProc  ctermfg=127
-"highlight Identifier ctermfg=94
 
+colorscheme vs_dark
 
 " ============================================================
 "               INSERT MODE NAVIGATION
