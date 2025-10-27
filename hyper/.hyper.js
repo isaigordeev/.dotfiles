@@ -139,12 +139,8 @@ module.exports = {
     // in development, you can create a directory under
     // `~/.hyper_plugins/local/` and include it here
     // to load it and avoid it being `npm install`ed
-    plugins:  [
-       //"hyper-snazzy"   // Grey
-       //"hyper-one-light" // Light
-       //"hyper-dracula"    // Dark
-    ],
-    localPlugins: [],
+    plugins:  [],
+    localPlugins: ["light"],
     keymaps: {
     // Example
     // 'window:devtools': 'cmd+alt+o',
