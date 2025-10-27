@@ -115,6 +115,8 @@
   "search.quickOpen.includeSymbols": false,
   "search.quickAccess.preserveInput": true,
   "search.quickOpen.history.filterSortOrder": "recency",
+  "search.quickOpen.includeHistory": true,
+  "search.showLineNumbers": true,
   "workbench.quickOpen.preserveInput": false,
   "gitlens.currentLine.scrollable": false,
   "gitlens.advanced.blame.delayAfterEdit": 0,
