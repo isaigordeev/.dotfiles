@@ -285,7 +285,7 @@ set updatetime=300    " Faster update for Coc and highlighting
 "             VSCODE STUDIO LIGHT-LIKE COLOR SCHEME
 " ============================================================
 
-colorscheme vs_dark
+colorscheme vs_light
 
 
 " ============================================================
@@ -399,10 +399,13 @@ nnoremap <C-b> :Buffers<CR>
 nnoremap <C-c> :BLines<CR>
 
 " Search symbols accross open buffers
-nnoremap <C-r> :Lines<CR>
+nnoremap <C-e> :Lines<CR>
 
 " Search symbols accross project
 nnoremap <C-a> :RG<CR>
+
+" Search symbols accross project?
+nnoremap <C-s> :Rg<CR>
 
 " ============================================================
 "                      COMMENTING
