@@ -86,3 +86,6 @@ hi Terminal     guifg=#D4D4D4 guibg=#1E1E1E
 " Popup and floating windows
 hi FloatBorder  guifg=#303031
 hi NormalFloat  guifg=#D4D4D4 guibg=#1E1E1E
+
+" Set folder color (optional)
+hi NERDTreeDir guifg=#569CD6 gui=bold
