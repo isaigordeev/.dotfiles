@@ -12,6 +12,8 @@ module.exports = {
         //   `project#1.0.1`
         // choose either `'stable'` for receiving highly polished,
         // or `'canary'` for less polished but more frequent updates
+        windowSize: [640, 480],
+        windowPosition: 'center',
         updateChannel: 'stable',
         // default font size in pixels for all tabs
         fontSize: 13,
@@ -57,7 +59,7 @@ module.exports = {
         // default: `true` (without backticks and without quotes) on Windows and Linux, ignored on macOS
         showWindowControls: '',
         // custom padding (CSS format, i.e.: `top right bottom left`)
-        padding: '12px 14px',
+        padding: '8px 8px',
         // the full list. if you're going to provide the full color palette,
         // including the 6 x 6 color cubes and the grayscale map, just provide
         // an array here instead of a color map object
@@ -140,7 +142,7 @@ module.exports = {
     // `~/.hyper_plugins/local/` and include it here
     // to load it and avoid it being `npm install`ed
     plugins:  [],
-    localPlugins: ["light"],
+    //localPlugins: ["light"],
     keymaps: {
     // Example
     // 'window:devtools': 'cmd+alt+o',
