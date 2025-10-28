@@ -162,7 +162,7 @@
     "when": "!editorReadonly"
   },
   {
-    "key": "ctrl+r",
+    "key": "ctrl+e",
     "command": "workbench.action.showAllSymbols"
   },
   {
