@@ -1,3 +1,5 @@
+
+------------------------------------------
 – finish tutorial for vscode only commands 
 – use yank for better search
 - palace rdm
@@ -5,3 +7,44 @@
 - adapt vim better for notes
 - md config for palace
 - ru vim
+------------------------------------------
+
+### Template for TODO
+
+- o open task
+- ± uncertain task
+- (!) important
+- (~.) linked (with number of points)
+- x closed task
+
+---
+
+
+
+- o DI between agent and manager
+- o advance agent history and memory (!) (~....)
+- o tool are not specific to agents (~....)
+- o interruptions and pause management (~.)
+- o lang to voice bijection (~.)
+- o jolie frontend
+  - o indication of thinking
+- o groq llmax
+- o re-read for better docstrings
+- o blocking event from inference (!)
+- o endpoint builder for POST (~...)
+- o voice model selection (~..)
+- o inference model selection (~..)
+- o config for agent init
+- o pagination model for mcp
+- o tool transform
+- o little phrases for synthesis
+
+- ± graph model for inference
+- ± MCP protocol implementation
+- ± ws vs https for azure (~...)
+- ± 11L TTS streaming is not per token but for phrase
+
+- x better closing logic without leaks
+- x DI between events and pipeline
+- x agent history and memory
+
