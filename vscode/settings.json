@@ -21,6 +21,7 @@
   "editor.formatOnPaste": true,
   "editor.autoClosingBrackets": "never",
   "editor.autoClosingQuotes": "never",
+  "editor.lightbulb.enabled": "off",
   "editor.dragAndDrop": false,
   "editor.folding": false,
   "editor.renderWhitespace": "selection",
