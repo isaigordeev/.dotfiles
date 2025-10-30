@@ -12,6 +12,7 @@
   "editor.tabSize": 4,
   "editor.tabCompletion": "on",
   "editor.acceptSuggestionOnEnter": "on",
+  "editor.inlineSuggest.enabled": false,
   "editor.minimap.enabled": false,
   "editor.minimap.showSlider": "always",
   "editor.minimap.renderCharacters": false,
@@ -670,5 +671,12 @@
       "commands": ["workbench.action.previousEditor"]
     },
     { "before": ["<leader>", "Д"], "commands": ["workbench.action.nextEditor"] }
-  ]
+  ],
+  // ─── AI: disable AI features (GitLens AI, GitHub Copilot, inline suggestions)
+  // Set these to turn AI features off. To re-enable, restore the original values
+  "gitlens.ai.enabled": false,
+  "chat.agent.enabled": false,
+  "github.copilot.enable": {
+    "*": false
+  }
 }
