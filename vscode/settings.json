@@ -156,6 +156,14 @@
   "problems.sortOrder": "position",
   "python.defaultInterpreterPath": "/usr/local/bin/python3.14",
 
+  // ─── AI: disable AI features (GitLens AI, GitHub Copilot, inline suggestions)
+  // Set these to turn AI features off. To re-enable, restore the original values
+  "gitlens.ai.enabled": false,
+  "chat.agent.enabled": false,
+  "github.copilot.enable": {
+    "*": false
+  },
+
   // ─── Vim Configuration ─────────────────────────────────────────────────────────
   "_comment_vim": "Vim configuration",
   "vim.leader": " ",
@@ -672,12 +680,5 @@
       "commands": ["workbench.action.previousEditor"]
     },
     { "before": ["<leader>", "Д"], "commands": ["workbench.action.nextEditor"] }
-  ],
-  // ─── AI: disable AI features (GitLens AI, GitHub Copilot, inline suggestions)
-  // Set these to turn AI features off. To re-enable, restore the original values
-  "gitlens.ai.enabled": false,
-  "chat.agent.enabled": false,
-  "github.copilot.enable": {
-    "*": false
-  }
+  ]
 }
