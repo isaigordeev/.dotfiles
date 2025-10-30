@@ -10,6 +10,10 @@ REAL_VIMRC="$(readlink "$VIMRC" || echo "$VIMRC")"
 REAL_ZSHRC="$(readlink "$ZSHRC" || echo "$ZSHRC")"
 REAL_HYPER="$(readlink "$HYPER" || echo "$HYPER")"
 
+echo $REAL_VIMRC
+echo $REAL_ZSHRC
+echo $REAL_HYPER
+
 # --- Vim: toggle colorscheme ---
 if grep -q "colorscheme vs_light" "$REAL_VIMRC"; then
     sed -i '' 's/colorscheme vs_light/colorscheme vs_dark/' "$REAL_VIMRC"
