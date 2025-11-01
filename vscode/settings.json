@@ -512,7 +512,23 @@
   // ─── Vim Key Bindings: Other Modes ──────────────────────────────────────────────
   "vim.normalModeKeyBindings": [
     { "before": ["<C-p>"], "commands": ["workbench.action.quickOpen"] },
-    { "before": ["<C-b>"], "commands": ["workbench.action.showAllEditors"] }
+    { "before": ["<leader>", "p"], "commands": ["workbench.action.quickOpen"] },
+    {
+      "before": ["<leader>", "b"],
+      "commands": ["workbench.action.showAllEditors"]
+    },
+    {
+      "before": ["<leader>", "a"],
+      "commands": ["workbench.action.quickTextSearch"]
+    },
+    {
+      "before": ["<leader>", "c"],
+      "commands": ["workbench.action.gotoSymbol"]
+    },
+    {
+      "before": ["<leader>", "e"],
+      "commands": ["workbench.action.showAllSymbols"]
+    }
   ],
 
   "vim.operatorPendingModeKeyBindingsNonRecursive": [
