@@ -44,11 +44,6 @@
   },
   {
     "key": "ctrl+l",
-    "command": "workbench.action.quickOpenSelectNext", // optional if you want to navigate
-    "when": "inQuickOpen"
-  },
-  {
-    "key": "ctrl+l",
     "command": "workbench.action.acceptSelectedQuickOpenItem",
     "when": "inQuickOpen"
   },
