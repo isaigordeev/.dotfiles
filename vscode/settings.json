@@ -330,6 +330,29 @@
   ],
 
   // ─── Vim Key Bindings: Visual Mode ──────────────────────────────────────────────
+
+
+  "vim.visualModeKeyBindings": [
+    { "before": ["<C-p>"], "commands": ["workbench.action.quickOpen"] },
+    { "before": ["<leader>", "p"], "commands": ["workbench.action.quickOpen"] },
+    {
+      "before": ["<leader>", "b"],
+      "commands": ["workbench.action.showAllEditors"]
+    },
+    {
+      "before": ["<leader>", "a"],
+      "commands": ["workbench.action.quickTextSearch"]
+    },
+    {
+      "before": ["<leader>", "c"],
+      "commands": ["workbench.action.gotoSymbol"]
+    },
+    {
+      "before": ["<leader>", "e"],
+      "commands": ["workbench.action.showAllSymbols"]
+    }
+  ],
+
   "vim.visualModeKeyBindingsNonRecursive": [
     {
       "before": ["<leader>", "y"],
