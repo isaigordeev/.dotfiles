@@ -383,7 +383,13 @@
     "when": "isMergeEditor"
   },
   {
-    "key": "cmd+a",
-    "command": "-editor.action.selectAll"
+    "key": "ctrl+l",
+    "command": "-workbench.action.chat.newChat",
+    "when": "chatIsEnabled && inChat"
+  },
+  {
+    "key": "ctrl+l",
+    "command": "-notebook.centerActiveCell",
+    "when": "notebookEditorFocused"
   }
 ]

@@ -261,10 +261,6 @@
       "commands": ["workbench.action.closeOtherEditors"]
     },
     {
-      "before": ["<leader>", "t"],
-      "commands": ["workbench.action.reopenClosedEditor"]
-    },
-    {
       "before": ["<leader>", "h"],
       "commands": ["workbench.action.navigateLeft"]
     },
@@ -309,10 +305,6 @@
     {
       "before": ["<leader>", "а"],
       "commands": ["workbench.action.closeOtherEditors"]
-    },
-    {
-      "before": ["<leader>", "е"],
-      "commands": ["workbench.action.reopenClosedEditor"]
     },
     {
       "before": ["<leader>", "р"],
@@ -433,10 +425,6 @@
       "commands": ["workbench.action.closeOtherEditors"]
     },
     {
-      "before": ["<leader>", "t"],
-      "commands": ["workbench.action.reopenClosedEditor"]
-    },
-    {
       "before": ["<leader>", "h"],
       "commands": ["workbench.action.navigateLeft"]
     },
@@ -481,10 +469,6 @@
     {
       "before": ["<leader>", "а"],
       "commands": ["workbench.action.closeOtherEditors"]
-    },
-    {
-      "before": ["<leader>", "е"],
-      "commands": ["workbench.action.reopenClosedEditor"]
     },
     {
       "before": ["<leader>", "р"],
@@ -622,10 +606,6 @@
       "commands": ["workbench.action.closeOtherEditors"]
     },
     {
-      "before": ["<leader>", "t"],
-      "commands": ["workbench.action.reopenClosedEditor"]
-    },
-    {
       "before": ["<leader>", "h"],
       "commands": ["workbench.action.navigateLeft"]
     },
@@ -670,10 +650,6 @@
     {
       "before": ["<leader>", "а"],
       "commands": ["workbench.action.closeOtherEditors"]
-    },
-    {
-      "before": ["<leader>", "е"],
-      "commands": ["workbench.action.reopenClosedEditor"]
     },
     {
       "before": ["<leader>", "р"],
