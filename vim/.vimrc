@@ -393,19 +393,19 @@ autocmd FileType nerdtree setlocal number
 " ============================================================
 
 " Search files (file palette)
-nnoremap <C-p> :Files<CR>   
+nnoremap <leader>p :Files<CR>   
 
 " Search buffers (buffer palette)
-nnoremap <C-b> :Buffers<CR>  
+nnoremap <leader>b :Buffers<CR>  
 
 " Search symbols accross current buffer
-nnoremap <C-c> :BLines<CR>
+nnoremap <leader>c :BLines<CR>
 
 " Search symbols accross open buffers
-nnoremap <C-e> :Lines<CR>
+nnoremap <leader>e :Lines<CR>
 
 " Search symbols accross project
-nnoremap <C-a> :RG<CR>
+nnoremap <leader>a :RG<CR>
 
 " Search symbols accross project?
 nnoremap <C-s> :Rg<CR>
