@@ -382,5 +382,8 @@
     "command": "-mergeEditor.toggleBetweenInputs",
     "when": "isMergeEditor"
   },
+{
+    "key": "cmd+a",
+    "command": "-editor.action.selectAll"
   }
 ]
