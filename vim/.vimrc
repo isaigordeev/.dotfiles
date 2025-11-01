@@ -249,6 +249,9 @@ set wrap
 set linebreak
 set showbreak=↳\
 
+set breakindent
+set breakindentopt=shift:2,min:20
+
 " ----------------------------
 "        TABS & INDENTS
 " ----------------------------
