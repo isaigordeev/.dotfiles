@@ -4,7 +4,7 @@
 if exists('syntax_on')
   syntax reset
 endif
-let g:colors_name = 'vsdark'
+let g:colors_name = 'vs_dark'
 set background=light
 set termguicolors
 

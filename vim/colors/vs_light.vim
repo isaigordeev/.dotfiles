@@ -7,7 +7,7 @@ if exists("syntax_on")
 endif
 
 set background=light
-let g:colors_name = "vslight"
+let g:colors_name = "vs_light"
 
 " =====================
 " Basic UI colors
