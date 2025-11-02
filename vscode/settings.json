@@ -62,9 +62,7 @@
     //    #e0e0e0
 
     "[Visual Studio Light]": {
-      "editor.background": "#f2f2f2",
-      "sideBar.background": "#f2f2f2",
-      "editor.lineHighlightBorder": "#f2f2f2" // the bounding line color
+      "editor.foreground": "#111111"
     }
   },
   "editor.tokenColorCustomizations": {
