@@ -525,24 +525,33 @@ nnoremap <Leader>t :InsertDate<CR>
 nnoremap <Leader>T :execute "normal! a" . strftime("%Y-%m-%d %H:%M")<CR>
 
 " English → Russian key mapping (for leader duplication)
-let g:eng_to_ru = {
+let g:eng_to_ru_for_leader = {
 \ 'q':'й', 'w':'ц', 'e':'у', 'r':'к', 't':'е', 'y':'н', 'u':'г', 'i':'ш', 'o':'щ', 'p':'з',
 \ 'a':'ф', 's':'ы', 'd':'в', 'f':'а', 'g':'п', 'h':'р', 'j':'о', 'k':'л', 'l':'д',
 \ 'z':'я', 'x':'ч', 'c':'с', 'v':'м', 'b':'и', 'n':'т', 'm':'ь'
 \ }
 
+" English → Russian key mapping (for leader duplication)
+let g:eng_to_ru_upper_for_leader = {
+\ 'Q':'Й', 'W':'Ц', 'E':'У', 'R':'К', 'T':'Е', 'Y':'Н', 'U':'Г', 'I':'Ш', 'O':'Щ', 'P':'З',
+\ 'A':'Ф', 'S':'Ы', 'D':'В', 'F':'А', 'G':'П', 'H':'Р', 'J':'О', 'K':'Л', 'L':'Д',
+\ 'Z':'Я', 'X':'Ч', 'C':'С', 'V':'М', 'B':'И', 'N':'Т', 'M':'Ь'
+\ }
+
+
 let ru_jumps = {
-\ 'вв':'dd', 'фф':'yy', 'сс':'cc',
-\ 'пп':'gg'
+\ 'вв':'dd', 'фф':'yy', 'сс':'cc','пп':'gg', 'яя': 'zz'
 \ }
 
 for [ru, en] in items(ru_jumps)
-    nnoremap ru en
+    execute 'nnoremap ' . ru . ' ' . en
 endfor
 
+let eng_to_ru_final_for_leader = extend(copy(eng_to_ru_for_leader), eng_to_ru_upper_for_leader)
+
 " Duplicate leader mappings for Russian layout
-function! DuplicateLeaderRu()
-    for [eng, ru] in items(g:eng_to_ru)
+function! DuplicateLeaderRu(maps)
+    for [eng, ru] in items(a:maps)
         " Normal mode
         let map_n = maparg('<leader>'.eng, 'n')
         if !empty(map_n)
@@ -563,5 +572,5 @@ function! DuplicateLeaderRu()
     endfor
 endfunction
 
-call DuplicateLeaderRu()
+call DuplicateLeaderRu(eng_to_ru_final_for_leader)
 
