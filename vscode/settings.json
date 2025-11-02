@@ -53,8 +53,8 @@
   "workbench.editor.limit.enabled": true,
   "workbench.colorCustomizations": {
     "[Visual Studio Dark]": {
-      "editor.background": "#2d2d2d",
-      "sideBar.background": "#2d2d2d"
+      "editor.background": "#2f2f2f",
+      "sideBar.background": "#2f2f2f"
     },
 
     // ———— Color guide
