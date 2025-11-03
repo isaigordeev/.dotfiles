@@ -368,14 +368,19 @@
     "command": "workbench.action.showAllEditors"
   },
   {
-    "key": "shift+cmd+t",
-    "command": "workbench.action.openChat",
+    "key": "alt+cmd+b",
+    "command": "workbench.action.chat.openInEditor",
     "when": "chatIsEnabled"
   },
   {
     "key": "shift+cmd+t",
     "command": "-mergeEditor.toggleBetweenInputs",
     "when": "isMergeEditor"
+  },
+  {
+    "key": "shift+cmd+t",
+    "command": "workbench.action.openChat",
+    "when": "chatIsEnabled"
   },
   {
     "key": "ctrl+l",
