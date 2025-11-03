@@ -54,7 +54,8 @@
   "workbench.colorCustomizations": {
     "[Visual Studio Dark]": {
       "editor.background": "#2f2f2f",
-      "sideBar.background": "#2f2f2f"
+      "sideBar.background": "#2f2f2f",
+      "editor.lineHighlightBorder": "#2f2f2f" // the bounding line color
     },
 
     // ———— Color guide
