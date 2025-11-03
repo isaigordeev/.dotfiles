@@ -7,8 +7,13 @@ VIM SETUP
 
 Create a symlink from the repo Vim configuration to your home directory:
 
-    > ln -s "$(pwd)/vim/.vimrc" \
+    > ln -fs "$HOME/.dotfiles/vim/.vimrc" \
           "$HOME/.vimrc"
+
+For colors 
+
+    > ln -fs "$HOME/.dotfiles/vim/.vim/colors/vs_dark.vim" \
+          "$HOME/.vim/vim/colors/vs_dark.vim"
 
 -------------------------------------------------------------------------------
 2. Check LSP/Treesitter config inside Vim

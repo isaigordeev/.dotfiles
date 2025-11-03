@@ -9,6 +9,12 @@ Perfect for old Linux/macOS systems or large codebases (~1M lines)
 without relying on heavy IDEs like CLion.
 
 -------------------------------------------------------------------------------
+0. Set .zshrc
+-------------------------------------------------------------------------------
+
+    > ln -fs "$HOME/.dotfiles/zsh/.zshrc" "$HOME/.zshrc"
+
+-------------------------------------------------------------------------------
 1. Install Zsh
 -------------------------------------------------------------------------------
 
@@ -60,7 +66,8 @@ Reload Zsh:
 
 Link a theme file:
 
-    > ln -s $PWD/sobole.zsh-theme ~/.oh-my-zsh/custom/themes/sobole.zsh-theme
+    > ln -fs "$HOME/.dotfiles/zsh/sobole.zsh-theme" "$HOME/.oh-my-zsh/custom/
+    themes/sobole.zsh-theme"
 
 Set it in .zshrc:
 
