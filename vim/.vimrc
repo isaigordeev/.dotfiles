@@ -407,8 +407,8 @@ nnoremap <leader>e :Lines<CR>
 " Search symbols accross project
 nnoremap <leader>a :RG<CR>
 
-" Search symbols accross project?
-nnoremap <C-s> :Rg<CR>
+" Search symbols accross project without order
+nnoremap <leader>A :Rg<CR>
 
 " ============================================================
 "                      COMMENTING
