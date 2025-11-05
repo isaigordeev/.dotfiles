@@ -171,7 +171,8 @@
   // ─── AI: disable AI features (GitLens AI, GitHub Copilot, inline suggestions)
   // Set these to turn AI features off. To re-enable, restore the original values
   "gitlens.ai.enabled": false,
-  "chat.agent.enabled": true,
+  "chat.agent.enabled": false,
+  "chat.disableAIFeatures": true,
   "terminal.integrated.suggest.inlineSuggestion": "off",
   "github.copilot.enable": {
     "*": false
