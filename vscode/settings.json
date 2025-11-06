@@ -181,7 +181,7 @@
   // ─── Vim Configuration ─────────────────────────────────────────────────────────
   "_comment_vim": "Vim configuration",
   "vim.leader": " ",
-  "vim.useSystemClipboard": true,
+  "vim.useSystemClipboard": false,
 
   // ─── Vim Key Bindings: Normal Mode ──────────────────────────────────────────────
   "vim.normalModeKeyBindingsNonRecursive": [
