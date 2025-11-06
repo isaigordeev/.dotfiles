@@ -11,7 +11,6 @@ export ZSH="$HOME/.oh-my-zsh"
 #
 #
 ZSH_THEME="sobole"
-#SOBOLE_THEME_MODE=light
 SOBOLE_THEME_MODE=dark
 SOBOLE_DEFAULT_USER=true # show user name 
 #
