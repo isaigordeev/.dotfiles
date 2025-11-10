@@ -136,6 +136,9 @@
   "workbench.quickOpen.preserveInput": false,
   "gitlens.currentLine.scrollable": false,
   "gitlens.advanced.blame.delayAfterEdit": 0,
+  "gitlens.currentLine.enabled": true,
+  "gitlens.codeLens.authors.enabled": false, // Disables other CodeLens features
+  "gitlens.codeLens.enabled": false,
 
   // ─── Markdown / Plain text / JSONC Formatting ───────────────────────────────────────────────
   "_palace.config": "Palace config for md editing",
