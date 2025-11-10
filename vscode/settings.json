@@ -57,7 +57,8 @@
     "[Visual Studio Dark]": {
       "editor.background": "#2f2f2f",
       "sideBar.background": "#2f2f2f",
-      "editor.lineHighlightBorder": "#2f2f2f" // the bounding line color
+      "editor.lineHighlightBorder": "#2f2f2f", // the bounding line color
+      "editor.foreground": "#d2d2d2"
     },
 
     // ———— Color guide
