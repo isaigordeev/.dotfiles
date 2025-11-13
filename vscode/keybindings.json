@@ -234,7 +234,7 @@
     "when": "terminalProcessSupported || terminalWebExtensionContributedProfile"
   },
   {
-    "key": "shift+alt+g",
+    "key": "ctrl+g",
     "command": "git.openChange"
   },
   {
@@ -381,5 +381,19 @@
     "key": "ctrl+l",
     "command": "-notebook.centerActiveCell",
     "when": "notebookEditorFocused"
+  },
+  {
+    "key": "ctrl+g",
+    "command": "-workbench.action.gotoLine"
+  },
+  {
+    "key": "ctrl+h",
+    "command": "workbench.view.scm",
+    "when": "workbench.scm.active"
+  },
+  {
+    "key": "ctrl+shift+g",
+    "command": "-workbench.view.scm",
+    "when": "workbench.scm.active"
   }
 ]
