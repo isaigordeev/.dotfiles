@@ -142,6 +142,7 @@
   "gitlens.currentLine.enabled": true,
   "gitlens.codeLens.authors.enabled": false, // Disables other CodeLens features
   "gitlens.codeLens.enabled": false,
+  "diffEditor.renderSideBySide": false, // false for inline view
 
   // ─── Markdown / Plain text / JSONC Formatting ───────────────────────────────────────────────
   "_palace.config": "Palace config for md editing",
