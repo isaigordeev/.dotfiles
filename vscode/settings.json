@@ -170,6 +170,8 @@
   // ─────────────────────────────────────────────────────────────
 
   "terminal.integrated.defaultLocation": "editor",
+  "terminal.integrated.confirmOnExit": "always",
+  "terminal.integrated.confirmOnKill": "always",
 
   // ─── Miscellaneous ─────────────────────────────────────────────────────────────
   "extensions.ignoreRecommendations": true,
