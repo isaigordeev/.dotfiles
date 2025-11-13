@@ -16,9 +16,9 @@ module.exports = {
         windowPosition: 'center',
         updateChannel: 'stable',
         // default font size in pixels for all tabs
-        fontSize: 13,
+        fontSize: 11.7,
         // font family with optional fallbacks
-        fontFamily: 'Menlo, "DejaVu Sans Mono", Consolas, "Lucida Console", monospace',
+        fontFamily: 'JetBrains Mono ExtraLight, "DejaVu Sans Mono", Consolas, "Lucida Console", monospace',
         // default font weight: 'normal' or 'bold'
         fontWeight: 'normal',
         // font weight for bold characters: 'normal' or 'bold'
