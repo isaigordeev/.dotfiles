@@ -53,7 +53,7 @@
   "workbench.preferredDarkColorTheme": "Visual Studio Dark",
   "workbench.preferredLightColorTheme": "Visual Studio Light",
   "workbench.editor.limit.enabled": true,
-  "workbench.editor.centeredLayoutAutoResize": false,
+  "workbench.editor.centeredLayoutAutoResize": true,
   "workbench.editor.centeredLayoutFixedWidth": true,
   "workbench.colorCustomizations": {
     "[Visual Studio Dark]": {
