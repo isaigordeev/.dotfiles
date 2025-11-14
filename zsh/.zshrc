@@ -110,14 +110,11 @@ source $ZSH/oh-my-zsh.sh
 # export PATH="$HOME/nvim/bin:$PATH"
 
 # Created by `pipx` on 2024-06-11 08:50:53
-export PATH="$PATH:/Users/isaigordeev/.local/bin"
+export PATH="$PATH:/Users/isg/.local/bin"
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 export PATH="/usr/local/opt/llvm@17/bin:$PATH"
 
-# Clippy
-if [ -f '/Users/isaigordeev/concurrency-course/client/activate' ]; then . '/Users/isaigordeev/concurrency-course/client/activate'; fi
-if [ -f '/Users/isaigordeev/concurrency-course/client/complete.bash' ]; then source /Users/isaigordeev/concurrency-course/client/complete.bash; fi
 
 
 #export NVM_DIR="$HOME/.nvm"
