@@ -174,7 +174,7 @@
   "terminal.integrated.defaultLocation": "editor",
   "terminal.integrated.confirmOnExit": "always",
   "terminal.integrated.confirmOnKill": "always",
-  "terminal.integrated.tabs.title": "${sequence}: ${process} - ${cwdFolder}${separator}",
+  "terminal.integrated.tabs.title": "${sequence}: ${process} - ${separator}",
   "terminal.integrated.tabs.description": "${cwd}",
   "terminal.integrated.shellIntegration.enabled": true,
 
