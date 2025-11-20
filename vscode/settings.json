@@ -55,6 +55,9 @@
   "workbench.editor.limit.enabled": true,
   "workbench.editor.centeredLayoutAutoResize": true,
   "workbench.editor.centeredLayoutFixedWidth": true,
+  "workbench.editor.openSideBySideDirection": "down",
+  "workbench.editor.revealIfOpen": false,
+  "workbench.editor.enablePreview": true,
   "workbench.colorCustomizations": {
     "[Visual Studio Dark]": {
       "editor.background": "#2f2f2f",
@@ -723,5 +726,6 @@
       "commands": ["workbench.action.previousEditor"]
     },
     { "before": ["<leader>", "Д"], "commands": ["workbench.action.nextEditor"] }
-  ]
+  ],
+  "claudeCode.useTerminal": true
 }
