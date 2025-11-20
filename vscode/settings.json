@@ -15,6 +15,12 @@
   "editor.tabCompletion": "on",
   "editor.acceptSuggestionOnEnter": "on",
   "editor.inlineSuggest.enabled": false,
+  // ─── Optional: Turn off suggestions completely ─────────────────────────────────
+  // "_editor.quickSuggestions": false,
+  // "_editor.suggestOnTriggerCharacters": false,
+  // "_editor.suggest.enabled": false,
+  // "_editor.parameterHints.enabled": false,
+  // "_editor.wordBasedSuggestions": "off",
   "editor.minimap.enabled": false,
   "editor.minimap.showSlider": "always",
   "editor.minimap.renderCharacters": false,
