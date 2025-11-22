@@ -63,7 +63,7 @@
   "workbench.editor.centeredLayoutFixedWidth": true,
   "workbench.editor.openSideBySideDirection": "down",
   "workbench.editor.revealIfOpen": false,
-  "workbench.editor.enablePreview": true,
+  "workbench.editor.enablePreview": false,
   "workbench.colorCustomizations": {
     "[Visual Studio Dark]": {
       "editor.background": "#2f2f2f",
