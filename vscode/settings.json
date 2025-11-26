@@ -146,11 +146,10 @@
   "search.quickOpen.includeHistory": true,
   "search.showLineNumbers": true,
   "workbench.quickOpen.preserveInput": false,
-  "gitlens.currentLine.scrollable": false,
-  "gitlens.advanced.blame.delayAfterEdit": 0,
-  "gitlens.currentLine.enabled": true,
-  "gitlens.codeLens.authors.enabled": false, // Disables other CodeLens features
+  "gitlens.currentLine.enabled": false,
   "gitlens.codeLens.enabled": false,
+  "gitlens.hovers.currentLine.enabled": false,
+  "gitlens.hovers.annotations.enabled": false,
   "diffEditor.renderSideBySide": false, // false for inline view
   "diffEditor.experimental.useTrueInlineView": false,
 
@@ -733,5 +732,6 @@
     },
     { "before": ["<leader>", "Д"], "commands": ["workbench.action.nextEditor"] }
   ],
-  "claudeCode.useTerminal": true
+  "claudeCode.useTerminal": true,
+  "git.blame.editorDecoration.enabled": false
 }
