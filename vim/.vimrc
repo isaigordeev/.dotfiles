@@ -239,8 +239,8 @@ syntax on
 " Filetype detection, plugins and indent
 filetype plugin indent on
 
-" Enable termgui colors
-set termguicolors
+" Enable termgui colors (disabled - using terminal colors instead)
+"set termguicolors
 
 " Light background for better colors
 set background=light
