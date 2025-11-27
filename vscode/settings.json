@@ -733,5 +733,9 @@
     { "before": ["<leader>", "Д"], "commands": ["workbench.action.nextEditor"] }
   ],
   "claudeCode.useTerminal": true,
-  "git.blame.editorDecoration.enabled": false
+  "git.blame.editorDecoration.enabled": false,
+  "accessibility.signals.terminalBell": {
+    "sound": "off",
+    "announcement": "off"
+  }
 }
