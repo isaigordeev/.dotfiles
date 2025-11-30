@@ -45,20 +45,20 @@ install_packages() {
     case "$PKG_MANAGER" in
         apt)
             sudo apt-get update
-            sudo apt-get install -y zsh git curl vim fzf ripgrep
+            sudo apt-get install -y zsh git curl vim fzf ripgrep nodejs npm
             ;;
         dnf)
-            sudo dnf install -y zsh git curl vim fzf ripgrep
+            sudo dnf install -y zsh git curl vim fzf ripgrep nodejs npm
             ;;
         yum)
-            sudo yum install -y zsh git curl vim fzf
+            sudo yum install -y zsh git curl vim fzf nodejs npm
             # ripgrep might need EPEL
             ;;
         pacman)
-            sudo pacman -Sy --noconfirm zsh git curl vim fzf ripgrep
+            sudo pacman -Sy --noconfirm zsh git curl vim fzf ripgrep nodejs npm
             ;;
         zypper)
-            sudo zypper install -y zsh git curl vim fzf ripgrep
+            sudo zypper install -y zsh git curl vim fzf ripgrep nodejs npm
             ;;
         *)
             echo "[ERROR] Unknown package manager. Please install manually:"
@@ -68,6 +68,7 @@ install_packages() {
             echo "  - vim"
             echo "  - fzf"
             echo "  - ripgrep (optional)"
+            echo "  - nodejs and npm (for CoC LSP)"
             exit 1
             ;;
     esac
@@ -75,6 +76,14 @@ install_packages() {
 
 install_packages
 echo "[OK] Packages installed"
+
+# Verify Node.js installation
+if command -v node > /dev/null 2>&1; then
+    echo "[INFO] Node.js version: $(node --version)"
+    echo "[INFO] npm version: $(npm --version)"
+else
+    echo "[WARN] Node.js not found in PATH. CoC may not work."
+fi
 echo ""
 
 # ============================================================
@@ -185,14 +194,20 @@ if [ ! -d "$HOME/.fzf" ]; then
     echo "[OK] fzf installed from source with keybindings"
 else
     echo "[SKIP] fzf already installed from source"
+fi
 
-    # Make sure .fzf.zsh is sourced in .zshrc
-    if ! grep -q ".fzf.zsh" "$HOME/.zshrc" 2>/dev/null; then
-        echo "" >> "$HOME/.zshrc"
-        echo "# fzf keybindings and completion" >> "$HOME/.zshrc"
-        echo "[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh" >> "$HOME/.zshrc"
-        echo "[OK] Added fzf source to .zshrc"
-    fi
+# Always ensure fzf is sourced at the END of .zshrc (after oh-my-zsh)
+# Remove any existing fzf lines first to avoid duplicates
+if [ -f "$HOME/.zshrc" ]; then
+    # Create a temporary file without fzf lines
+    grep -v "fzf" "$HOME/.zshrc" > "$HOME/.zshrc.tmp" || true
+    mv "$HOME/.zshrc.tmp" "$HOME/.zshrc"
+
+    # Add fzf at the end
+    echo "" >> "$HOME/.zshrc"
+    echo "# fzf keybindings and completion (must be at end)" >> "$HOME/.zshrc"
+    echo "[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh" >> "$HOME/.zshrc"
+    echo "[OK] Added fzf keybindings to end of .zshrc"
 fi
 echo ""
 
@@ -247,16 +262,15 @@ echo "  2. Open Vim and verify plugins loaded correctly"
 echo "  3. Configure Vim LSP (CoC) if needed:"
 echo "     :CocInstall coc-json coc-tsserver coc-python"
 echo ""
-echo "Optional:"
-echo "  - Install Node.js for CoC LSP support"
-echo "  - Configure fzf keybindings: \$(brew --prefix)/opt/fzf/install"
-echo ""
 echo "Installed:"
 echo "  - Zsh with Oh My Zsh"
 echo "  - Custom Sobole theme (dark mode)"
 echo "  - Vim with plugins (NERDTree, fzf, CoC, etc.)"
 echo "  - Vim color schemes (vs_dark, vs_light)"
 echo "  - Syntax highlighting for Zsh"
+echo "  - fzf fuzzy finder with keybindings"
+echo "  - ripgrep for fast searching"
+echo "  - Node.js and npm for CoC LSP support"
 echo ""
 echo "Your original .zshrc and .vimrc have been backed up"
 echo "to .zshrc.backup and .vimrc.backup if they existed."
