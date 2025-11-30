@@ -178,17 +178,32 @@ echo "[OPTIONAL] Setting Zsh as default shell..."
 
 if [ "$SHELL" != "$(which zsh)" ]; then
     echo "[INFO] Current shell: $SHELL"
-    echo "[INFO] Changing default shell to zsh..."
+    echo "[INFO] Attempting to change default shell to zsh..."
 
     # Add zsh to /etc/shells if not present
-    if ! grep -q "$(which zsh)" /etc/shells; then
+    if ! grep -q "$(which zsh)" /etc/shells 2>/dev/null; then
         echo "[SUDO] Adding zsh to /etc/shells..."
-        echo "$(which zsh)" | sudo tee -a /etc/shells
+        echo "$(which zsh)" | sudo tee -a /etc/shells > /dev/null
     fi
 
-    # Change shell
-    chsh -s "$(which zsh)"
-    echo "[OK] Default shell changed to zsh"
+    # Try to change shell
+    if chsh -s "$(which zsh)" 2>/dev/null; then
+        echo "[OK] Default shell changed to zsh"
+    else
+        echo "[WARN] Could not change default shell automatically (PAM authentication failed)"
+        echo "[INFO] You can change it manually with one of these methods:"
+        echo ""
+        echo "  Method 1: Run this command and enter your password:"
+        echo "    sudo chsh -s \$(which zsh) \$USER"
+        echo ""
+        echo "  Method 2: For now, just start zsh manually:"
+        echo "    exec zsh"
+        echo ""
+        echo "  Method 3: Add to your ~/.bashrc or ~/.bash_profile:"
+        echo "    if [ -t 1 ]; then"
+        echo "      exec zsh"
+        echo "    fi"
+    fi
 else
     echo "[SKIP] Zsh is already the default shell"
 fi
