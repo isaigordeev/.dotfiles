@@ -179,6 +179,15 @@
   "[jsonc]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
+  "[asm]": {
+    "editor.wordWrap": "off"
+  },
+  "[s]": {
+    "editor.wordWrap": "off"
+  },
+  "[nasm]": {
+    "editor.wordWrap": "off"
+  },
   // ─── Terminal
   // ─────────────────────────────────────────────────────────────
 
