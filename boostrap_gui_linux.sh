@@ -39,7 +39,7 @@ echo ""
 # ============================================================
 #                    INSTALL PACKAGES
 # ============================================================
-echo "[STEP 1/6] Installing required packages..."
+echo "[STEP 1/7] Installing required packages..."
 
 install_packages() {
     case "$PKG_MANAGER" in
@@ -80,7 +80,7 @@ echo ""
 # ============================================================
 #                    INSTALL OH MY ZSH
 # ============================================================
-echo "[STEP 2/6] Installing Oh My Zsh..."
+echo "[STEP 2/7] Installing Oh My Zsh..."
 
 if [ ! -d "$HOME/.oh-my-zsh" ]; then
     sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
@@ -93,7 +93,7 @@ echo ""
 # ============================================================
 #                    INSTALL ZSH SYNTAX HIGHLIGHTING
 # ============================================================
-echo "[STEP 3/6] Installing zsh-syntax-highlighting..."
+echo "[STEP 3/7] Installing zsh-syntax-highlighting..."
 
 ZSH_SYNTAX_DIR="${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting"
 if [ ! -d "$ZSH_SYNTAX_DIR" ]; then
@@ -107,7 +107,7 @@ echo ""
 # ============================================================
 #                    CREATE DIRECTORIES
 # ============================================================
-echo "[STEP 4/6] Creating required directories..."
+echo "[STEP 4/7] Creating required directories..."
 
 mkdir -p "$HOME/.vim/colors"
 mkdir -p "$HOME/.oh-my-zsh/custom/themes"
@@ -117,7 +117,7 @@ echo ""
 # ============================================================
 #                    LINK DOTFILES
 # ============================================================
-echo "[STEP 5/6] Linking dotfiles..."
+echo "[STEP 5/7] Linking dotfiles..."
 
 # Link Zsh config
 if [ -f "$HOME/.zshrc" ] && [ ! -L "$HOME/.zshrc" ]; then
@@ -152,7 +152,7 @@ echo ""
 # ============================================================
 #                    INSTALL VIM PLUGINS
 # ============================================================
-echo "[STEP 6/6] Installing Vim plugins..."
+echo "[STEP 6/7] Installing Vim plugins..."
 
 # Install vim-plug if not already installed
 VIM_PLUG_PATH="$HOME/.vim/autoload/plug.vim"
@@ -169,6 +169,31 @@ fi
 echo "[INFO] Installing Vim plugins (this may take a moment)..."
 vim +PlugInstall +qall
 echo "[OK] Vim plugins installed"
+echo ""
+
+# ============================================================
+#                    SETUP FZF KEYBINDINGS
+# ============================================================
+echo "[STEP 7/7] Setting up fzf keybindings..."
+
+# Always install fzf from source for consistent experience and latest features
+# Package manager versions are often outdated and missing --zsh support
+if [ ! -d "$HOME/.fzf" ]; then
+    echo "[INFO] Installing fzf from source for full features..."
+    git clone --depth 1 https://github.com/junegunn/fzf.git "$HOME/.fzf"
+    "$HOME/.fzf/install" --key-bindings --completion --no-update-rc --no-bash --no-fish
+    echo "[OK] fzf installed from source with keybindings"
+else
+    echo "[SKIP] fzf already installed from source"
+
+    # Make sure .fzf.zsh is sourced in .zshrc
+    if ! grep -q ".fzf.zsh" "$HOME/.zshrc" 2>/dev/null; then
+        echo "" >> "$HOME/.zshrc"
+        echo "# fzf keybindings and completion" >> "$HOME/.zshrc"
+        echo "[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh" >> "$HOME/.zshrc"
+        echo "[OK] Added fzf source to .zshrc"
+    fi
+fi
 echo ""
 
 # ============================================================
