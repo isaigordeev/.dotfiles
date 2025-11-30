@@ -17,15 +17,15 @@ echo ""
 #                    DETECT PACKAGE MANAGER
 # ============================================================
 detect_package_manager() {
-    if command -v apt-get &> /dev/null; then
+    if command -v apt-get > /dev/null 2>&1; then
         echo "apt"
-    elif command -v dnf &> /dev/null; then
+    elif command -v dnf > /dev/null 2>&1; then
         echo "dnf"
-    elif command -v yum &> /dev/null; then
+    elif command -v yum > /dev/null 2>&1; then
         echo "yum"
-    elif command -v pacman &> /dev/null; then
+    elif command -v pacman > /dev/null 2>&1; then
         echo "pacman"
-    elif command -v zypper &> /dev/null; then
+    elif command -v zypper > /dev/null 2>&1; then
         echo "zypper"
     else
         echo "unknown"
