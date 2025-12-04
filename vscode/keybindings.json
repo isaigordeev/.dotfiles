@@ -413,5 +413,18 @@
     "key": "shift+enter",
     "command": "-python.execSelectionInTerminal",
     "when": "editorTextFocus && !findInputFocussed && !isCompositeNotebook && !jupyter.ownsSelection && !notebookEditorFocused && !replaceInputFocussed && editorLangId == 'python'"
+  },
+  {
+    "key": "cmd+escape",
+    "command": "-claude-vscode.terminal.open.keyboard",
+    "when": "config.claudeCode.useTerminal"
+  },
+  {
+    "key": "cmd+escape",
+    "command": "workbench.action.splitEditor"
+  },
+  {
+    "key": "cmd+\\",
+    "command": "-workbench.action.splitEditor"
   }
 ]
