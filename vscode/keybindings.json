@@ -426,5 +426,20 @@
   {
     "key": "cmd+\\",
     "command": "-workbench.action.splitEditor"
+  },
+  {
+    "key": "alt+-",
+    "command": "workbench.action.navigateBack",
+    "when": "canNavigateBack"
+  },
+  {
+    "key": "alt+-",
+    "command": "-decreaseSearchEditorContextLines",
+    "when": "inSearchEditor"
+  },
+  {
+    "key": "shift+alt+-",
+    "command": "workbench.action.navigateForward",
+    "when": "canNavigateForward"
   }
 ]
