@@ -750,5 +750,7 @@
     "sound": "off",
     "announcement": "off"
   },
-  "accessibility.signalOptions.volume": 0
+  "accessibility.signalOptions.volume": 0,
+  "editor.wrappingStrategy": "advanced",
+  "editor.accessibilitySupport": "off"
 }
