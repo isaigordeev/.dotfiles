@@ -3,8 +3,8 @@
   // ────────────────────────────────────────────────────────────
   "editor.cursorBlinking": "solid",
   "editor.fontFamily": "JetBrains Mono ExtraLight",
-  "editor.fontSize": 11.7, //   11.9 vim style // 12.3 JB style
-  "editor.lineHeight": 18.0, // 19 vim style   // 22 JB style
+  "editor.fontSize": 12.0, // 11.7 vim //  12 vim style // 12.3 JB style
+  "editor.lineHeight": 19.0, // 18  vim // 19 vim style   // 22 JB style
   "editor.letterSpacing": 0,
   "editor.rulers": [80],
   "editor.wordWrap": "wordWrapColumn",
