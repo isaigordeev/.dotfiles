@@ -42,5 +42,12 @@
             ""
         ],
         "description": "Insert a new entry template with current date and time"
+    },
+    "Timestamp entry": {
+        "prefix": "ts",
+        "body": [
+            "${CURRENT_YEAR} ${CURRENT_DATE} ${CURRENT_MONTH_NAME} ${CURRENT_HOUR}.${CURRENT_MINUTE}"
+        ],
+        "description": "Insert timestamp in format: 2022 19 July 23.23"
     }
 }
