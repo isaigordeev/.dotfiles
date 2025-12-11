@@ -441,5 +441,18 @@
     "key": "shift+alt+-",
     "command": "workbench.action.navigateForward",
     "when": "canNavigateForward"
+  },
+  {
+    "key": "shift+cmd+escape",
+    "command": "-claude-vscode.editor.open",
+    "when": "!config.claudeCode.useTerminal"
+  },
+  {
+    "key": "shift+cmd+escape",
+    "command": "workbench.action.splitEditorRight"
+  },
+  {
+    "key": "cmd+k cmd+\\",
+    "command": "-workbench.action.splitEditorRight"
   }
 ]
