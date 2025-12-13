@@ -22,7 +22,7 @@
   },
   "centered_layout": {
     "right_padding": 0.3,
-    "left_padding": 0.3
+    "left_padding": 0.31
   },
   "buffer_line_height": "comfortable",
   "buffer_font_weight": 250.0,
@@ -43,7 +43,9 @@
     "auto_fold_dirs": false
   },
   "git": {
+    "git_gutter": "tracked_files",
     "inline_blame": {
+      "min_column": 80,
       "enabled": false
     }
   },
@@ -84,6 +86,10 @@
   },
   "cursor_blink": false,
   "buffer_font_family": "JetBrains Mono",
+  "buffer_font_features": {
+    "liga": false,
+    "calt": false
+  },
   "auto_indent_on_paste": true,
   "show_whitespaces": "selection",
   "show_edit_predictions": false,
@@ -92,7 +98,7 @@
   "hard_tabs": false,
   "tab_size": 4,
   "ui_font_size": 13.0,
-  "buffer_font_size": 12.0,
+  "buffer_font_size": 11.9,
   "theme": {
     "mode": "dark",
     "light": "Visual Studio Light",
