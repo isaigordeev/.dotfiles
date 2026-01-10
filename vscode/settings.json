@@ -3,7 +3,7 @@
   // ────────────────────────────────────────────────────────────
   "editor.cursorBlinking": "solid",
   "editor.fontFamily": "JetBrains Mono ExtraLight",
-  "editor.fontSize": 12.0, // 11.7 vim //  12 vim style // 12.3 JB style
+  "editor.fontSize": 12, // 11.7 vim //  12 vim style // 12.3 JB style
   "editor.lineHeight": 19.0, // 18  vim // 19 vim style   // 22 JB style
   "editor.letterSpacing": 0,
   "editor.rulers": [80],
@@ -41,6 +41,8 @@
   "editor.scrollbar.vertical": "hidden",
   "editor.scrollbar.verticalScrollbarSize": 0,
   "editor.unicodeHighlight.allowedCharacters": { "σ": true },
+  "editor.wrappingStrategy": "advanced",
+  "editor.accessibilitySupport": "off",
 
   // ─── Workbench Appearance ──────────────────────────────────────────────────────
   "workbench.sideBar.location": "left",
@@ -154,6 +156,7 @@
   "gitlens.strings.codeLens.unsavedChanges.authorsOnly": "",
   "gitlens.strings.codeLens.unsavedChanges.recentChangeAndAuthors": "",
   "gitlens.codeLens.recentChange.enabled": false,
+  "git.blame.editorDecoration.enabled": false,
   "diffEditor.renderSideBySide": false, // false for inline view
   "diffEditor.experimental.useTrueInlineView": false,
 
@@ -198,11 +201,18 @@
   "terminal.integrated.tabs.title": "${sequence}: ${process} - ${separator}",
   "terminal.integrated.tabs.description": "${cwd}",
   "terminal.integrated.shellIntegration.enabled": true,
+  "terminal.integrated.enablePersistentSessions": true,
+  "accessibility.signals.terminalBell": {
+    "sound": "off",
+    "announcement": "off"
+  },
+  "accessibility.signalOptions.volume": 0,
 
   // ─── Miscellaneous ─────────────────────────────────────────────────────────────
   "extensions.ignoreRecommendations": true,
   "problems.sortOrder": "position",
   "python.defaultInterpreterPath": "/usr/local/bin/python3.14",
+  "claudeCode.useTerminal": true,
 
   // ─── AI: disable AI features (GitLens AI, GitHub Copilot, inline suggestions)
   // Set these to turn AI features off. To re-enable, restore the original values
@@ -744,14 +754,5 @@
       "commands": ["workbench.action.previousEditor"]
     },
     { "before": ["<leader>", "Д"], "commands": ["workbench.action.nextEditor"] }
-  ],
-  "claudeCode.useTerminal": true,
-  "git.blame.editorDecoration.enabled": false,
-  "accessibility.signals.terminalBell": {
-    "sound": "off",
-    "announcement": "off"
-  },
-  "accessibility.signalOptions.volume": 0,
-  "editor.wrappingStrategy": "advanced",
-  "editor.accessibilitySupport": "off"
+  ]
 }
