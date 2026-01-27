@@ -267,6 +267,7 @@ set number            " Show line numbers
 set ruler             " Show cursor position
 set incsearch         " Incremental search
 set scrolloff=4       " Set space when scrolloff
+set hidden            " Allow switching buffers without saving
 
 
 " ----------------------------
