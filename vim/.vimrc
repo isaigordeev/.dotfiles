@@ -388,7 +388,7 @@ endfor
 nnoremap <C-n> :NERDTreeToggle<CR> " Toggle NERDTree
 nnoremap <C-f> :NERDTreeFind<CR>   " Find current file
 let NERDTreeShowHidden=1
-let g:NERDTreeWinSize=45
+let g:NERDTreeWinSize=35
 autocmd FileType nerdtree setlocal number
 
 " ============================================================
@@ -515,7 +515,7 @@ let g:goyo_linenr = 1
 
 
 " Map toggle to <leader>z (shifted 10 columns left)
-nnoremap <leader>z :Goyo 80x100%-20<CR>
+nnoremap <leader>z :Goyo-10<CR>
 
 
 " ============================================================
