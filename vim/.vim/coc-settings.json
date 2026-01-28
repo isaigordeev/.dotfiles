@@ -12,8 +12,9 @@
     }
   },
 
-  "pyright.inlayHints.functionReturnTypes": true,
-  "pyright.inlayHints.variableTypes": true,
+  "inlayHint.enable": false,
+  "pyright.inlayHints.functionReturnTypes": false,
+  "pyright.inlayHints.variableTypes": false,
   "python.analysis.typeCheckingMode": "strict",
   "python.analysis.autoImportCompletions": true,
   "python.analysis.diagnosticMode": "workspace",
