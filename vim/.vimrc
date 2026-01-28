@@ -233,6 +233,9 @@
 " Leader key
 let mapleader = " "
 
+" Fix Node 25 localStorage incompatibility with CoC
+let g:coc_node_args = ['--localstorage-file=/tmp/coc-localstorage']
+
 " Enable syntax highlighting
 syntax on
 

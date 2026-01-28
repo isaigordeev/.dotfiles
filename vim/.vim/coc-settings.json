@@ -18,7 +18,9 @@
   "python.analysis.autoImportCompletions": true,
   "python.analysis.diagnosticMode": "workspace",
 
-  "coc.preferences.formatOnSaveFiletypes": ["markdown", "json"],
+  "rust-analyzer.check.command": "clippy",
+
+  "coc.preferences.formatOnSaveFiletypes": ["markdown", "json", "rust"],
   "prettier.requireConfig": true,
   "prettier.enable": true
 }
