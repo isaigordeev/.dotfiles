@@ -46,7 +46,11 @@ module.exports = {
         // border color (window, tabs)
         borderColor: '#333',
         // custom CSS to embed in the main window
-        css: '',
+        css: `
+          .tabs_nav { height: 24px; }
+          .tab_tab { height: 24px; font-size: 10px; }
+          .tab_text { height: 24px; line-height: 24px; }
+        `,
         // custom CSS to embed in the terminal window
         termCSS: '',
         // set custom startup directory (must be an absolute path)
