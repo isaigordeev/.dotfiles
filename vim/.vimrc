@@ -334,7 +334,6 @@ nmap <silent> gy <Plug>(coc-type-definition)
 nmap <silent> gi <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references)
 nnoremap <silent> K :call CocActionAsync('doHover')<CR>
-autocmd CursorHold * if &filetype != 'rust' | silent call CocActionAsync('highlight') | endif
 
 
 " ============================================================
