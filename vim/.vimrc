@@ -388,7 +388,7 @@ endfor
 nnoremap <C-n> :NERDTreeToggle<CR> " Toggle NERDTree
 nnoremap <C-f> :NERDTreeFind<CR>   " Find current file
 let NERDTreeShowHidden=1
-let g:NERDTreeWinSize=35
+let g:NERDTreeWinSize=40
 autocmd FileType nerdtree setlocal number
 
 " ============================================================
