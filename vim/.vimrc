@@ -484,6 +484,10 @@ nnoremap <leader>= <C-w>=             " Equalize all split sizes
 nnoremap <leader>; q:    " Command history
 nnoremap <leader>/ q/    " Search history
 
+" Swap jump list navigation (Ctrl+I = back, Ctrl+O = forward)
+nnoremap <C-i> <C-o>
+nnoremap <C-o> <C-i>
+
 vnoremap <leader>y "+y   " Yank to system clipboard
 
 nnoremap <leader>v gv    " Reselect last visual selection

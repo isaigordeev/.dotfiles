@@ -233,6 +233,10 @@
 
   // ─── Vim Key Bindings: Normal Mode ──────────────────────────────────────────────
   "vim.normalModeKeyBindingsNonRecursive": [
+    // Swap jump list navigation (Ctrl+I = back, Ctrl+O = forward)
+    { "before": ["<C-i>"], "after": ["<C-o>"] },
+    { "before": ["<C-o>"], "after": ["<C-i>"] },
+
     // Lowercase mappings
     { "before": ["й"], "after": ["q"] },
     { "before": ["ц"], "after": ["w"] },
