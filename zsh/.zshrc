@@ -114,6 +114,7 @@ export PATH="$PATH:/Users/isg/.local/bin"
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 export PATH="/usr/local/opt/llvm@17/bin:$PATH"
+export PATH="$HOME/go/bin:$PATH"
 
 
 

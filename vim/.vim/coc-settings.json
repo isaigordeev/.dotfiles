@@ -20,7 +20,11 @@
 
   "rust-analyzer.check.command": "clippy",
 
-  "coc.preferences.formatOnSaveFiletypes": ["markdown", "json", "rust"],
+  "go.goplsOptions": {
+    "staticcheck": true
+  },
+
+  "coc.preferences.formatOnSaveFiletypes": ["markdown", "json", "rust", "go"],
   "prettier.requireConfig": true,
   "prettier.enable": true
 }

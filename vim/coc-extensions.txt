@@ -4,3 +4,4 @@ coc-python
 coc-pyright
 coc-clangd
 coc-rust-analyzer
+coc-go
