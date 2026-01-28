@@ -72,7 +72,7 @@ hi Title        guifg=#800000 gui=bold
 hi Bold         guifg=#000080 gui=bold
 hi Italic       guifg=#0000FF gui=italic
 hi Underlined   guifg=#0451a5 gui=underline
-hi Todo         guifg=#a31515 gui=bold
+hi Todo         guifg=#a31515 guibg=NONE gui=bold
 
 " =====================
 " Diff / Git

@@ -5,7 +5,7 @@ if exists('syntax_on')
   syntax reset
 endif
 let g:colors_name = 'vs_dark'
-set background=light
+set background=dark
 set termguicolors
 
 " Editor colors
@@ -65,7 +65,7 @@ hi Bold         gui=bold
 hi Italic       gui=italic
 hi Underlined   gui=underline
 hi Error        guifg=#F44747 guibg=#1E1E1E gui=bold
-hi Todo         guifg=#B5CEA8 guibg=#1E1E1E gui=bold
+hi Todo         guifg=#B5CEA8 guibg=NONE gui=bold 
 
 " Diff
 hi DiffAdd      guifg=#B5CEA8 guibg=#1E1E1E
