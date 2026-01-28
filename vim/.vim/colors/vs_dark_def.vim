@@ -30,8 +30,8 @@ hi Comment      ctermfg=8 cterm=italic
 hi Constant     ctermfg=12
 hi Number       ctermfg=10
 hi Boolean      ctermfg=12
-hi String       ctermfg=11
-hi Character    ctermfg=11
+hi String       ctermfg=1
+hi Character    ctermfg=1
 hi Float        ctermfg=10
 hi SpecialChar  ctermfg=9
 
