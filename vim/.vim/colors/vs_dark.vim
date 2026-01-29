@@ -89,3 +89,13 @@ hi NormalFloat  guifg=#D4D4D4 guibg=#1E1E1E
 
 " Set folder color (optional)
 hi NERDTreeDir guifg=#569CD6 gui=bold
+
+" CoC error/warning highlights (colored text, no background)
+hi CocErrorHighlight   guibg=NONE guifg=#F44747 gui=undercurl guisp=#F44747 cterm=underline ctermfg=Red
+hi CocWarningHighlight guibg=NONE guifg=#CCA700 gui=undercurl guisp=#CCA700 cterm=underline ctermfg=Yellow
+hi CocInfoHighlight    guibg=NONE guifg=#CCA700 gui=undercurl guisp=#CCA700 cterm=underline ctermfg=Yellow
+hi CocHintHighlight    guibg=NONE guifg=#CCA700 gui=undercurl guisp=#CCA700 cterm=underline ctermfg=Yellow
+hi CocUnusedHighlight  guibg=NONE guifg=#6B6B6B gui=undercurl guisp=#6B6B6B cterm=underline ctermfg=Grey
+hi CocDeprecatedHighlight guibg=NONE gui=strikethrough guisp=#6B6B6B cterm=strikethrough
+hi CocErrorLine        guibg=NONE
+hi CocWarningLine      guibg=NONE
