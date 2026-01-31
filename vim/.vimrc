@@ -515,8 +515,7 @@ let g:goyo_linenr = 1
 
 
 " Map toggle to <leader>z (shifted 10 columns left)
-nnoremap <leader>z :Goyo-10<CR>
-
+nnoremap <leader>z :Goyo<CR>
 
 " ============================================================
 "                        RUSSIAN VIM

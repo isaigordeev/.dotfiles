@@ -25,6 +25,7 @@
     "staticcheck": true
   },
 
+  "diagnostic.enableSign": false,
   "coc.preferences.formatOnSaveFiletypes": ["markdown", "json", "rust", "go"],
   "prettier.requireConfig": true,
   "prettier.enable": true
