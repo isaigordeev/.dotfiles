@@ -51,7 +51,7 @@ hi Typedef      guifg=#569CD6
 
 " Functions
 hi Function     guifg=#D4D4D4
-hi Identifier   guifg=#9CDCFE
+hi Identifier   guifg=#569CD6
 hi Method       guifg=#D4D4D4
 hi Statement    guifg=#569CD6
 
@@ -89,6 +89,13 @@ hi NormalFloat  guifg=#D4D4D4 guibg=#1E1E1E
 
 " Set folder color (optional)
 hi NERDTreeDir guifg=#569CD6 gui=bold
+
+" Directory and NERDTree arrows/bullets (lighter blue for readability)
+hi Directory          guifg=#87CFFF
+hi NERDTreeOpenable   guifg=#87CFFF
+hi NERDTreeClosable   guifg=#87CFFF
+hi NERDTreeDirSlash   guifg=#87CFFF
+hi NERDTreeUp         guifg=#87CFFF
 
 " CoC error/warning highlights (colored text, no background)
 hi CocErrorHighlight   guibg=NONE guifg=#F44747 gui=undercurl guisp=#F44747 cterm=underline ctermfg=Red
