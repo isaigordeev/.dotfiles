@@ -392,7 +392,10 @@
       "before": ["<leader>", "Р"],
       "commands": ["workbench.action.previousEditor"]
     },
-    { "before": ["<leader>", "Д"], "commands": ["workbench.action.nextEditor"] }
+    {
+      "before": ["<leader>", "Д"],
+      "commands": ["workbench.action.nextEditor"]
+    }
   ],
 
   // ─── Vim Key Bindings: Visual Mode ──────────────────────────────────────────────
@@ -578,7 +581,10 @@
       "before": ["<leader>", "Р"],
       "commands": ["workbench.action.previousEditor"]
     },
-    { "before": ["<leader>", "Д"], "commands": ["workbench.action.nextEditor"] }
+    {
+      "before": ["<leader>", "Д"],
+      "commands": ["workbench.action.nextEditor"]
+    }
   ],
 
   // ─── Vim Key Bindings: Other Modes ──────────────────────────────────────────────
@@ -759,6 +765,9 @@
       "before": ["<leader>", "Р"],
       "commands": ["workbench.action.previousEditor"]
     },
-    { "before": ["<leader>", "Д"], "commands": ["workbench.action.nextEditor"] }
+    {
+      "before": ["<leader>", "Д"],
+      "commands": ["workbench.action.nextEditor"]
+    }
   ]
 }
