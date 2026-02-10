@@ -286,6 +286,8 @@ set cindent
 "        UPDATE & TIMING
 " ----------------------------
 set updatetime=300    " Faster update for Coc and highlighting
+set redrawtime=10000  " Allow more time for syntax highlighting before disabling (default: 2000)
+set regexpengine=0    " Auto-select best regex engine (new engine is faster for syntax)
 
 
 " ============================================================
