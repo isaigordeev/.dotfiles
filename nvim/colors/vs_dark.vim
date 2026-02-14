@@ -88,6 +88,16 @@ hi FloatBorder  guifg=#303031
 hi NormalFloat  guifg=#D4D4D4 guibg=#1E1E1E
 
 " =====================
+" Window filler / zen-mode backdrop
+" =====================
+hi EndOfBuffer  guifg=#2f2f2f guibg=#2f2f2f
+hi WinSeparator guifg=#2f2f2f guibg=#2f2f2f
+hi NonText      guifg=#2f2f2f guibg=#2f2f2f
+hi ZenBg        guifg=#2f2f2f guibg=#2f2f2f
+hi SignColumn   guibg=#2f2f2f
+hi FoldColumn   guibg=#2f2f2f
+
+" =====================
 " nvim-tree highlights
 " =====================
 hi Directory                 guifg=#87CFFF

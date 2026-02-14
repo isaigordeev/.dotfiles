@@ -87,6 +87,16 @@ hi DiffText     guifg=#000000 guibg=#FFD700
 hi CursorLine   guibg=#E5EBF1
 
 " =====================
+" Window filler / zen-mode backdrop
+" =====================
+hi EndOfBuffer  guifg=#F2F2F2 guibg=#F2F2F2
+hi WinSeparator guifg=#F2F2F2 guibg=#F2F2F2
+hi NonText      guifg=#F2F2F2 guibg=#F2F2F2
+hi ZenBg        guifg=#F2F2F2 guibg=#F2F2F2
+hi SignColumn   guibg=#F2F2F2
+hi FoldColumn   guibg=#F2F2F2
+
+" =====================
 " nvim-tree highlights
 " =====================
 hi Directory             guifg=#0451a5
