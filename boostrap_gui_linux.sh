@@ -45,20 +45,20 @@ install_packages() {
     case "$PKG_MANAGER" in
         apt)
             sudo apt-get update
-            sudo apt-get install -y zsh git curl vim fzf ripgrep nodejs npm
+            sudo apt-get install -y zsh git curl vim neovim fzf ripgrep nodejs npm
             ;;
         dnf)
-            sudo dnf install -y zsh git curl vim fzf ripgrep nodejs npm
+            sudo dnf install -y zsh git curl vim neovim fzf ripgrep nodejs npm
             ;;
         yum)
-            sudo yum install -y zsh git curl vim fzf nodejs npm
+            sudo yum install -y zsh git curl vim neovim fzf nodejs npm
             # ripgrep might need EPEL
             ;;
         pacman)
-            sudo pacman -Sy --noconfirm zsh git curl vim fzf ripgrep nodejs npm
+            sudo pacman -Sy --noconfirm zsh git curl vim neovim fzf ripgrep nodejs npm
             ;;
         zypper)
-            sudo zypper install -y zsh git curl vim fzf ripgrep nodejs npm
+            sudo zypper install -y zsh git curl vim neovim fzf ripgrep nodejs npm
             ;;
         *)
             echo "[ERROR] Unknown package manager. Please install manually:"
@@ -119,6 +119,7 @@ echo ""
 echo "[STEP 4/7] Creating required directories..."
 
 mkdir -p "$HOME/.vim/colors"
+mkdir -p "$HOME/.config"
 mkdir -p "$HOME/.oh-my-zsh/custom/themes"
 echo "[OK] Directories created"
 echo ""
@@ -156,12 +157,20 @@ for color_file in "$SCRIPT_DIR/vim/.vim/colors"/*.vim; do
     fi
 done
 
+# Link Neovim config
+if [ -d "$HOME/.config/nvim" ] && [ ! -L "$HOME/.config/nvim" ]; then
+    echo "[BACKUP] Backing up existing nvim config to nvim.backup"
+    mv "$HOME/.config/nvim" "$HOME/.config/nvim.backup"
+fi
+ln -sf "$SCRIPT_DIR/nvim" "$HOME/.config/nvim"
+echo "[OK] Linked nvim config"
+
 echo ""
 
 # ============================================================
 #                    INSTALL VIM PLUGINS
 # ============================================================
-echo "[STEP 6/7] Installing Vim plugins..."
+echo "[STEP 6/7] Installing Vim & Neovim plugins..."
 
 # Install vim-plug if not already installed
 VIM_PLUG_PATH="$HOME/.vim/autoload/plug.vim"
@@ -178,6 +187,11 @@ fi
 echo "[INFO] Installing Vim plugins (this may take a moment)..."
 vim +PlugInstall +qall
 echo "[OK] Vim plugins installed"
+
+# Install Neovim plugins (lazy.nvim bootstraps itself on first run)
+echo "[INFO] Installing Neovim plugins..."
+nvim --headless "+Lazy! sync" +qa 2>/dev/null || true
+echo "[OK] Neovim plugins installed"
 echo ""
 
 # ============================================================
@@ -266,7 +280,8 @@ echo "Installed:"
 echo "  - Zsh with Oh My Zsh"
 echo "  - Custom Sobole theme (dark mode)"
 echo "  - Vim with plugins (NERDTree, fzf, CoC, etc.)"
-echo "  - Vim color schemes (vs_dark, vs_light)"
+echo "  - Neovim with plugins (telescope, nvim-lsp, nvim-cmp, etc.)"
+echo "  - Vim & Neovim color schemes (vs_dark, vs_light)"
 echo "  - Syntax highlighting for Zsh"
 echo "  - fzf fuzzy finder with keybindings"
 echo "  - ripgrep for fast searching"

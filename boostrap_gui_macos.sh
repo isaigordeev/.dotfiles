@@ -44,7 +44,7 @@ echo "[STEP 2/6] Installing required packages..."
 brew update
 
 # Install packages
-brew install zsh git curl vim fzf ripgrep
+brew install zsh git curl vim neovim fzf ripgrep
 
 # Install zsh-syntax-highlighting
 brew install zsh-syntax-highlighting
@@ -70,6 +70,7 @@ echo ""
 echo "[STEP 4/6] Creating required directories..."
 
 mkdir -p "$HOME/.vim/colors"
+mkdir -p "$HOME/.config"
 mkdir -p "$HOME/.oh-my-zsh/custom/themes"
 echo "[OK] Directories created"
 echo ""
@@ -115,12 +116,20 @@ for color_file in "$SCRIPT_DIR/vim/.vim/colors"/*.vim; do
     fi
 done
 
+# Link Neovim config
+if [ -d "$HOME/.config/nvim" ] && [ ! -L "$HOME/.config/nvim" ]; then
+    echo "[BACKUP] Backing up existing nvim config to nvim.backup"
+    mv "$HOME/.config/nvim" "$HOME/.config/nvim.backup"
+fi
+ln -sf "$SCRIPT_DIR/nvim" "$HOME/.config/nvim"
+echo "[OK] Linked nvim config"
+
 echo ""
 
 # ============================================================
 #                    INSTALL VIM PLUGINS
 # ============================================================
-echo "[STEP 6/6] Installing Vim plugins..."
+echo "[STEP 6/6] Installing Vim & Neovim plugins..."
 
 # Install vim-plug if not already installed
 VIM_PLUG_PATH="$HOME/.vim/autoload/plug.vim"
@@ -137,6 +146,11 @@ fi
 echo "[INFO] Installing Vim plugins (this may take a moment)..."
 vim +PlugInstall +qall
 echo "[OK] Vim plugins installed"
+
+# Install Neovim plugins (lazy.nvim bootstraps itself on first run)
+echo "[INFO] Installing Neovim plugins..."
+nvim --headless "+Lazy! sync" +qa 2>/dev/null || true
+echo "[OK] Neovim plugins installed"
 echo ""
 
 # ============================================================
@@ -206,7 +220,8 @@ echo "  - Homebrew package manager"
 echo "  - Zsh with Oh My Zsh"
 echo "  - Custom Sobole theme (dark mode)"
 echo "  - Vim with plugins (NERDTree, fzf, CoC, etc.)"
-echo "  - Vim color schemes (vs_dark, vs_light)"
+echo "  - Neovim with plugins (telescope, nvim-lsp, nvim-cmp, etc.)"
+echo "  - Vim & Neovim color schemes (vs_dark, vs_light)"
 echo "  - Syntax highlighting for Zsh"
 echo "  - fzf fuzzy finder with keybindings"
 echo "  - ripgrep for fast searching"

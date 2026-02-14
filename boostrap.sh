@@ -33,6 +33,17 @@ fi
 echo "📥 Installing Vim plugins..."
 vim +'PlugInstall --sync' +qa || true
 
+# --- Neovim setup ---
+echo "📝 Setting up Neovim..."
+mkdir -p ~/.config
+if [ -d nvim ]; then
+  ln -sf "$PWD/nvim" "$HOME/.config/nvim"
+fi
+
+# Install Neovim plugins (lazy.nvim bootstraps itself)
+echo "📥 Installing Neovim plugins..."
+nvim --headless "+Lazy! sync" +qa || true
+
 # --- Hyper setup ---
 if [ -f hyper/.hyper.js ]; then
   echo "⚡ Setting up Hyper..."
