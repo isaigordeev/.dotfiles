@@ -29,6 +29,7 @@ vim.opt.expandtab = true
 
 -- Navigation & search
 vim.opt.number = true
+vim.opt.signcolumn = "yes"
 vim.opt.incsearch = true
 vim.opt.scrolloff = 4
 

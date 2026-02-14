@@ -2,15 +2,18 @@
 # Toggle themes for Vim, Zsh, and Hyper (macOS)
 
 VIMRC="$HOME/.vimrc"
+NVIM_INIT="$HOME/.config/nvim/init.lua"
 ZSHRC="$HOME/.zshrc"
 HYPER="$HOME/.hyper.js"
 
 # Resolve symlinks
 REAL_VIMRC="$(readlink "$VIMRC" || echo "$VIMRC")"
+REAL_NVIM="$(readlink "$NVIM_INIT" || echo "$NVIM_INIT")"
 REAL_ZSHRC="$(readlink "$ZSHRC" || echo "$ZSHRC")"
 REAL_HYPER="$(readlink "$HYPER" || echo "$HYPER")"
 
 echo $REAL_VIMRC
+echo $REAL_NVIM
 echo $REAL_ZSHRC
 echo $REAL_HYPER
 
@@ -21,6 +24,19 @@ if grep -q "colorscheme vs_light" "$REAL_VIMRC"; then
 else
     sed -i '' 's/colorscheme vs_dark/colorscheme vs_light/' "$REAL_VIMRC"
     echo "☀️ Vim: vs_light"
+fi
+
+# --- Neovim: toggle colorscheme ---
+if [ -f "$REAL_NVIM" ]; then
+    if grep -q 'colorscheme vs_light' "$REAL_NVIM"; then
+        sed -i '' 's/colorscheme vs_light/colorscheme vs_dark/' "$REAL_NVIM"
+        echo "🌙 Neovim: vs_dark"
+    else
+        sed -i '' 's/colorscheme vs_dark/colorscheme vs_light/' "$REAL_NVIM"
+        echo "☀️ Neovim: vs_light"
+    fi
+else
+    echo "⚠️ Neovim: init.lua not found"
 fi
 
 # --- Zsh: toggle SOBOLE_THEME_MODE ---
