@@ -5,47 +5,56 @@
 -- equivalent of a vim-plug plugin from the original vimrc.
 
 return {
-   -- Treesitter (syntax highlighting, indent, required for rainbow)
+   -- Treesitter (parser installation + highlight)
    {
       "nvim-treesitter/nvim-treesitter",
       build = ":TSUpdate",
       config = function()
-         require("nvim-treesitter.configs").setup({
+         require("nvim-treesitter").setup({
             ensure_installed = {
                "c", "cpp", "python", "rust", "go", "lua",
                "javascript", "typescript", "markdown", "json", "bash",
             },
-            highlight = { enable = true },
-            indent = { enable = true },
          })
+         -- vim.api.nvim_create_autocmd("FileType", {
+         --    callback = function()
+         --       pcall(vim.treesitter.start)
+         --    end,
+         -- })
       end,
    },
 
-   -- LSP (replaces CoC)
+   -- Mason (LSP server installer)
    {
-      "neovim/nvim-lspconfig",
-      dependencies = {
-         "williamboman/mason.nvim",
-         "williamboman/mason-lspconfig.nvim",
-      },
+      "williamboman/mason.nvim",
       config = function()
          require("mason").setup()
+      end,
+   },
+
+   {
+      "williamboman/mason-lspconfig.nvim",
+      dependencies = { "williamboman/mason.nvim" },
+      config = function()
          require("mason-lspconfig").setup({
             ensure_installed = {
                "clangd", "pyright", "rust_analyzer", "gopls", "ts_ls",
             },
          })
 
-         local lspconfig = require("lspconfig")
+         -- Configure LSP servers using neovim 0.11+ native API
          local capabilities = require("cmp_nvim_lsp").default_capabilities()
 
-         lspconfig.clangd.setup({
+         -- Apply capabilities to all servers
+         vim.lsp.config("*", {
             capabilities = capabilities,
+         })
+
+         vim.lsp.config("clangd", {
             cmd = { "clangd", "--clang-tidy", "--header-filter=.*" },
          })
 
-         lspconfig.pyright.setup({
-            capabilities = capabilities,
+         vim.lsp.config("pyright", {
             settings = {
                python = {
                   analysis = {
@@ -57,21 +66,21 @@ return {
             },
          })
 
-         lspconfig.rust_analyzer.setup({
-            capabilities = capabilities,
+         vim.lsp.config("rust_analyzer", {
             settings = {
                ["rust-analyzer"] = { check = { command = "clippy" } },
             },
          })
 
-         lspconfig.gopls.setup({
-            capabilities = capabilities,
+         vim.lsp.config("gopls", {
             settings = {
                gopls = { staticcheck = true },
             },
          })
 
-         lspconfig.ts_ls.setup({ capabilities = capabilities })
+         vim.lsp.config("ts_ls", {})
+
+         vim.lsp.enable({ "clangd", "pyright", "rust_analyzer", "gopls", "ts_ls" })
 
          -- Disable diagnostic signs (matches coc-settings.json)
          vim.diagnostic.config({ signs = false })
@@ -141,7 +150,21 @@ return {
       },
       config = function()
          local telescope = require("telescope")
-         telescope.setup({})
+         telescope.setup({
+            defaults = {
+               vimgrep_arguments = {
+                  "rg", "--color=never", "--no-heading", "--with-filename",
+                  "--line-number", "--column", "--smart-case", "--hidden",
+                  "--glob", "!.git/",
+               },
+            },
+            pickers = {
+               find_files = {
+                  hidden = true,
+                  file_ignore_patterns = { "^.git/" },
+               },
+            },
+         })
          telescope.load_extension("fzf")
       end,
    },
@@ -163,10 +186,27 @@ return {
                width = 0.85,
                options = { number = true },
             },
+            backdrop = 0,
          })
       end,
    },
 
    -- Rainbow delimiters (replaces luochen1990/rainbow)
    { "HiPhish/rainbow-delimiters.nvim" },
+
+   -- Git: gutter signs, blame popup, hunk preview
+   {
+      "lewis6991/gitsigns.nvim",
+      config = function()
+         require("gitsigns").setup({
+            current_line_blame = false,
+         })
+      end,
+   },
+
+   -- Git: full commit/diff browser
+   {
+      "sindrets/diffview.nvim",
+      dependencies = { "nvim-lua/plenary.nvim" },
+   },
 }

@@ -109,6 +109,21 @@ lmap("n", "T", function()
 end, { desc = "Insert timestamp" })
 
 
+-- ─── Git (gitsigns + diffview) ──────────────────────────────────
+lmap("n", "g", function()
+   require("gitsigns").blame_line({ full = true })
+end, { desc = "Git blame popup" })
+
+lmap("n", "d", function()
+   require("gitsigns").preview_hunk()
+end, { desc = "Git diff hunk popup" })
+
+map("n", "]c", function() require("gitsigns").nav_hunk("next") end, { desc = "Next git hunk" })
+map("n", "[c", function() require("gitsigns").nav_hunk("prev") end, { desc = "Prev git hunk" })
+
+lmap("n", "G", "<cmd>DiffviewFileHistory %<CR>", { desc = "Git file history" })
+
+
 -- ─── LSP keymaps (on attach) ───────────────────────────────────
 vim.api.nvim_create_autocmd("LspAttach", {
    callback = function(ev)
