@@ -39,5 +39,6 @@ vim.opt.autoindent = true
 vim.opt.copyindent = true
 
 -- Update & timing
+vim.opt.showtabline = 0
 vim.opt.updatetime = 300
 vim.opt.redrawtime = 10000
