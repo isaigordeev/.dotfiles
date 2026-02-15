@@ -121,6 +121,13 @@ end, { desc = "Git diff hunk popup" })
 map("n", "]c", function() require("gitsigns").nav_hunk("next") end, { desc = "Next git hunk" })
 map("n", "[c", function() require("gitsigns").nav_hunk("prev") end, { desc = "Prev git hunk" })
 
+map("n", "<leader>gs", function() require("gitsigns").stage_hunk() end, { desc = "Git stage hunk" })
+map("v", "<leader>gs", function()
+   require("gitsigns").stage_hunk({ vim.fn.line("."), vim.fn.line("v") })
+end, { desc = "Git stage selection" })
+map("n", "<leader>gu", function() require("gitsigns").undo_stage_hunk() end, { desc = "Git unstage hunk" })
+map("n", "<leader>gr", function() require("gitsigns").reset_hunk() end, { desc = "Git reset hunk" })
+
 lmap("n", "G", "<cmd>DiffviewFileHistory %<CR>", { desc = "Git file history" })
 map("n", "<leader>gl", "<cmd>DiffviewFileHistory<CR>", { desc = "Git log (all commits)" })
 map("n", "<leader>go", "<cmd>DiffviewOpen<CR>", { desc = "Git diff vs HEAD" })
