@@ -75,6 +75,9 @@ map("v", "<C-_>", "gc", { remap = true, desc = "Toggle comment" })
 lmap("n", ";", "q:", { desc = "Command history" })
 lmap("n", "/", "q/", { desc = "Search history" })
 
+-- Clear search highlights
+map("n", "<Esc>", "<cmd>nohlsearch<CR>", { desc = "Clear search highlights" })
+
 -- Swap jump list navigation (Ctrl+I = back, Ctrl+O = forward)
 map("n", "<C-i>", "<C-o>", { noremap = true, desc = "Jump back" })
 map("n", "<C-o>", "<C-i>", { noremap = true, desc = "Jump forward" })
