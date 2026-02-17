@@ -14,8 +14,8 @@ hi CursorLine   guibg=#2A2A2A
 hi Visual       guibg=#3A3D41
 hi LineNr       guifg=#6B6B6B guibg=#2f2f2f
 hi CursorLineNr guifg=#FFFFFF guibg=#1E1E1E
-hi StatusLine   guifg=#D4D4D4 guibg=#007ACC
-hi StatusLineNC guifg=#BBBBBB guibg=#1E1E1E
+hi StatusLine   guifg=#D4D4D4 guibg=#2f2f2f
+hi StatusLineNC guifg=#6B6B6B guibg=#2f2f2f
 hi VertSplit    guifg=#454545 guibg=#1E1E1E
 hi Pmenu        guifg=#CCCCCC guibg=#252526
 hi PmenuSel     guifg=#FFFFFF guibg=#0078D4
