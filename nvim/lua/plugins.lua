@@ -34,7 +34,7 @@ return {
 
    {
       "williamboman/mason-lspconfig.nvim",
-      dependencies = { "williamboman/mason.nvim" },
+      dependencies = { "williamboman/mason.nvim", "hrsh7th/cmp-nvim-lsp" },
       config = function()
          require("mason-lspconfig").setup({
             ensure_installed = {
@@ -52,9 +52,14 @@ return {
 
          vim.lsp.config("clangd", {
             cmd = { "clangd", "--clang-tidy", "--header-filter=.*" },
+            filetypes = { "c", "cpp", "objc", "objcpp", "cuda" },
+            root_markers = { "compile_commands.json", "compile_flags.txt", ".clangd", ".git" },
          })
 
          vim.lsp.config("pyright", {
+            cmd = { "pyright-langserver", "--stdio" },
+            filetypes = { "python" },
+            root_markers = { "pyrightconfig.json", "pyproject.toml", "setup.py", "setup.cfg", "requirements.txt", ".git" },
             settings = {
                python = {
                   analysis = {
@@ -67,18 +72,28 @@ return {
          })
 
          vim.lsp.config("rust_analyzer", {
+            cmd = { "rust-analyzer" },
+            filetypes = { "rust" },
+            root_markers = { "Cargo.toml", "rust-project.json", ".git" },
             settings = {
                ["rust-analyzer"] = { check = { command = "clippy" } },
             },
          })
 
          vim.lsp.config("gopls", {
+            cmd = { "gopls" },
+            filetypes = { "go", "gomod", "gowork", "gotmpl" },
+            root_markers = { "go.mod", "go.work", ".git" },
             settings = {
                gopls = { staticcheck = true },
             },
          })
 
-         vim.lsp.config("ts_ls", {})
+         vim.lsp.config("ts_ls", {
+            cmd = { "typescript-language-server", "--stdio" },
+            filetypes = { "javascript", "javascriptreact", "typescript", "typescriptreact" },
+            root_markers = { "tsconfig.json", "jsconfig.json", "package.json", ".git" },
+         })
 
          vim.lsp.enable({ "clangd", "pyright", "rust_analyzer", "gopls", "ts_ls" })
 
@@ -209,4 +224,7 @@ return {
       "sindrets/diffview.nvim",
       dependencies = { "nvim-lua/plenary.nvim" },
    },
+
+   -- Git: unified diff & git commands (:Git diff, :Git blame, :Git log)
+   { "tpope/vim-fugitive" },
 }
