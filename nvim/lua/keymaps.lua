@@ -98,8 +98,9 @@ lmap("n", "<S-Tab>", "<cmd>source " .. session_path .. "<CR><cmd>echo 'Session l
    { desc = "Load session" })
 
 
--- ─── Zen mode (replaces Goyo) ───────────────────────────────────
-lmap("n", "z", "<cmd>ZenMode<CR>", { desc = "Toggle zen mode" })
+-- ─── Zen mode (Goyo) ────────────────────────────────────────────
+lmap("n", "z", "<cmd>Goyo-10<CR>", { desc = "Toggle zen mode" })
+-- lmap("n", "z", "<cmd>ZenMode<CR>", { desc = "Toggle zen mode (zen-mode.nvim)" })
 
 
 -- ─── Timestamps ─────────────────────────────────────────────────
