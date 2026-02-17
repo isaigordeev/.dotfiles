@@ -51,12 +51,12 @@ lmap("n", "p", "<cmd>Telescope find_files<CR>", { desc = "Find files" })
 lmap("n", "b", "<cmd>Telescope buffers<CR>", { desc = "Find buffers" })
 lmap("n", "c", "<cmd>Telescope current_buffer_fuzzy_find<CR>", { desc = "Search in buffer" })
 lmap("n", "a", "<cmd>Telescope live_grep<CR>", { desc = "Live ripgrep" })
-lmap("n", "A", "<cmd>Telescope grep_string<CR>", { desc = "Grep word under cursor" })
+lmap("n", "e", "<cmd>Telescope grep_string<CR>", { desc = "Grep word under cursor" })
 
--- Search across open buffers (equivalent to :Lines)
-lmap("n", "e", function()
-   require("telescope.builtin").live_grep({ grep_open_files = true })
-end, { desc = "Search open buffers" })
+-- -- Search across open buffers (equivalent to :Lines)
+-- lmap("n", "e", function()
+--    require("telescope.builtin").live_grep({ grep_open_files = true })
+-- end, { desc = "Search open buffers" })
 
 map("n", "<C-p>", "<cmd>Telescope find_files<CR>", { desc = "Find files" })
 
