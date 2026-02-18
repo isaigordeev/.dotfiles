@@ -51,10 +51,30 @@ lmap("n", "p", "<cmd>Telescope find_files<CR>", { desc = "Find files" })
 lmap("n", "b", "<cmd>Telescope buffers<CR>", { desc = "Find buffers" })
 lmap("n", "c", "<cmd>Telescope current_buffer_fuzzy_find<CR>", { desc = "Search in buffer" })
 lmap("n", "a", "<cmd>Telescope live_grep<CR>", { desc = "Live ripgrep" })
-lmap("n", "e", "<cmd>Telescope grep_string<CR>", { desc = "Grep word under cursor" })
-lmap("n", "E", "<cmd>Telescope lsp_dynamic_workspace_symbols<CR>", { desc = "Workspace symbols" })
-lmap("n", "C", "<cmd>Telescope lsp_document_symbols<CR>", { desc = "Document symbols" })
+lmap("n", "e", "<cmd>Telescope lsp_dynamic_workspace_symbols<CR>", { desc = "Workspace symbols" })
+lmap("n", "E", "<cmd>Telescope grep_string<CR>", { desc = "Grep word under cursor" })
+lmap("n", "C", function()
+   local params = vim.lsp.util.make_position_params()
+   local results = vim.lsp.buf_request_sync(0, "textDocument/documentSymbol", params, 1000)
+   local cursor = vim.api.nvim_win_get_cursor(0)
+   local row = cursor[1] - 1
+   local name = ""
+   local function find_symbol(symbols)
+      for _, s in ipairs(symbols or {}) do
+         local range = s.range or (s.location and s.location.range)
+         if range and row >= range.start.line and row <= range["end"].line then
+            name = s.name
+            if s.children then find_symbol(s.children) end
+         end
+      end
+   end
+   for _, res in pairs(results or {}) do
+      find_symbol(res.result)
+   end
+   require("telescope.builtin").lsp_document_symbols({ default_text = name })
+end, { desc = "Document symbols (focused)" })
 lmap("n", "A", "<cmd>Telescope diagnostics<CR>", { desc = "Diagnostics" })
+lmap("n", "o", "<cmd>Telescope oldfiles<CR>", { desc = "Recent files" })
 
 -- -- Search across open buffers (equivalent to :Lines)
 -- lmap("n", "e", function()
