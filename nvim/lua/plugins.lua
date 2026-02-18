@@ -192,28 +192,29 @@ return {
       end,
    },
 
-   -- Zen mode
-   {
-      "junegunn/goyo.vim",
-      config = function()
-         vim.g.goyo_width = 80
-         vim.g.goyo_height = "100%"
-         vim.g.goyo_linenr = 1
-      end,
-   },
-
-   -- Zen mode (alternative)
+   -- Zen mode (Goyo — commented out)
    -- {
-   --    "folke/zen-mode.nvim",
+   --    "junegunn/goyo.vim",
    --    config = function()
-   --       require("zen-mode").setup({
-   --          window = {
-   --             width = 80,
-   --             options = { number = true },
-   --          },
-   --       })
+   --       vim.g.goyo_width = 80
+   --       vim.g.goyo_height = "100%"
+   --       vim.g.goyo_linenr = 1
    --    end,
    -- },
+
+   -- Zen mode
+   {
+      "isaigordeev/zen-mode.nvim",
+      config = function()
+         require("zen-mode").setup({
+            window = {
+               width = 80,
+               col_offset = -15,
+               options = { number = true },
+            },
+         })
+      end,
+   },
 
    -- Rainbow delimiters (replaces luochen1990/rainbow)
    { "HiPhish/rainbow-delimiters.nvim" },
