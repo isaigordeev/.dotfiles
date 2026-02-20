@@ -47,7 +47,8 @@ module.exports = {
         borderColor: '#333',
         // custom CSS to embed in the main window
         css: `
-          .tabs_nav { height: 24px; }
+          .tabs_nav { height: 8px; overflow: hidden; transition: height 0.2s; }
+          .tabs_nav:hover { height: 24px; overflow: visible; }
           .tab_tab { height: 24px; font-size: 10px; }
           .tab_text { height: 24px; line-height: 24px; }
         `,
