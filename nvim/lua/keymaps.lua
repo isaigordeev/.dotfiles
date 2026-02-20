@@ -28,6 +28,7 @@ end
 
 -- ─── File management ────────────────────────────────────────────
 lmap("n", "s", "<cmd>w<CR>", { desc = "Save file" })
+lmap("n", "M", "<cmd>set number!<CR>", { desc = "Toggle line numbers" })
 lmap("n", "w", "<cmd>q<CR>", { desc = "Quit file" })
 lmap("n", "W", "<cmd>q!<CR>", { desc = "Quit without saving" })
 lmap("n", "Q", "<cmd>qa<CR>", { desc = "Quit all" })
