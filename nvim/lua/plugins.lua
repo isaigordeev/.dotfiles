@@ -40,6 +40,7 @@ return {
             ensure_installed = {
                "clangd", "pyright", "rust_analyzer", "gopls", "ts_ls",
             },
+            automatic_server_start = false,
          })
 
          -- Configure LSP servers using neovim 0.11+ native API

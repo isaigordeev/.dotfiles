@@ -102,6 +102,9 @@ lmap("n", "/", "q/", { desc = "Search history" })
 -- Clear search highlights
 map("n", "<Esc>", "<cmd>nohlsearch<CR>", { desc = "Clear search highlights" })
 
+-- Terminal: Esc exits terminal mode
+map("t", "<Esc>", "<C-\\><C-n>", { desc = "Exit terminal mode" })
+
 -- Swap jump list navigation (Ctrl+I = back, Ctrl+O = forward)
 map("n", "<C-i>", "<C-o>", { noremap = true, desc = "Jump back" })
 map("n", "<C-o>", "<C-i>", { noremap = true, desc = "Jump forward" })
