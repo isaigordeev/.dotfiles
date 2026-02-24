@@ -1,0 +1,1 @@
+bind main O !git checkout %(commit)

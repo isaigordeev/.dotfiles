@@ -88,5 +88,11 @@ echo "🔤 Installing fonts..."
 mkdir -p ~/Library/Fonts
 cp -n fonts/*.ttf ~/Library/Fonts/
 
+# --- Tig setup ---
+if [ -f tig/.tigrc ]; then
+  echo "🔍 Setting up tig..."
+  ln -sf "$PWD/tig/.tigrc" ~/.tigrc
+fi
+
 echo "✅ Setup complete! Restart your terminal"
 
