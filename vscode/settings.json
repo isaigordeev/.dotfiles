@@ -74,7 +74,7 @@
       "editor.background": "#2f2f2f",
       "sideBar.background": "#2f2f2f",
       "editor.lineHighlightBorder": "#2f2f2f", // the bounding line color
-      "editor.foreground": "#d2d2d2"
+      "editor.foreground": "#d2d2d2",
     },
 
     // ———— Color guide
@@ -88,18 +88,18 @@
       "editor.background": "#f2f2f2",
       "sideBar.background": "#f2f2f2",
       "editor.lineHighlightBorder": "#f2f2f2", // the bounding line color
-      "editor.foreground": "#000000"
-    }
+      "editor.foreground": "#000000",
+    },
   },
   "editor.tokenColorCustomizations": {
     "textMateRules": [
       {
         "scope": ["comment"],
         "settings": {
-          "foreground": "#828282"
-        }
-      }
-    ]
+          "foreground": "#828282",
+        },
+      },
+    ],
   },
 
   // ─── Zen Mode ──────────────────────────────────────────────────────────────────
@@ -118,7 +118,7 @@
   "ruff.lineLength": 79,
   "ruff.configurationPreference": "filesystemFirst",
   "_ruff.path": [
-    "/Users/isaigordeev/Desktop/millenium-falcon-challenge/.venv/bin/ruff"
+    "/Users/isaigordeev/Desktop/millenium-falcon-challenge/.venv/bin/ruff",
   ],
   // ─── C++ Configuration
   // ─────────────────────────────────────────
@@ -174,39 +174,39 @@
     "editor.tabSize": 2,
     "editor.detectIndentation": false,
     "prettier.printWidth": 66,
-    "prettier.proseWrap": "always"
+    "prettier.proseWrap": "always",
   },
   "[plaintext]": {
     "editor.rulers": [67, 79],
     "editor.insertSpaces": true,
     "editor.tabSize": 2,
-    "editor.detectIndentation": false
+    "editor.detectIndentation": false,
   },
   "[jsonc]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
   },
   "[asm]": {
-    "editor.wordWrap": "off"
+    "editor.wordWrap": "off",
   },
   "[s]": {
-    "editor.wordWrap": "off"
+    "editor.wordWrap": "off",
   },
   "[nasm]": {
-    "editor.wordWrap": "off"
+    "editor.wordWrap": "off",
   },
   // ─── Terminal
   // ─────────────────────────────────────────────────────────────
 
   "terminal.integrated.defaultLocation": "editor",
   "terminal.integrated.confirmOnExit": "always",
-  "terminal.integrated.confirmOnKill": "always",
+  "terminal.integrated.confirmOnKill": "hasChildProcesses",
   "terminal.integrated.tabs.title": "${sequence}: ${process} - ${separator}",
   "terminal.integrated.tabs.description": "${cwd}",
   "terminal.integrated.shellIntegration.enabled": true,
   "terminal.integrated.enablePersistentSessions": true,
   "accessibility.signals.terminalBell": {
     "sound": "off",
-    "announcement": "off"
+    "announcement": "off",
   },
   "accessibility.signalOptions.volume": 0,
 
@@ -223,7 +223,7 @@
   "chat.disableAIFeatures": true,
   "terminal.integrated.suggest.inlineSuggestion": "off",
   "github.copilot.enable": {
-    "*": false
+    "*": false,
   },
 
   // ─── Vim Configuration ─────────────────────────────────────────────────────────
@@ -308,94 +308,94 @@
     // Leader commands
     {
       "before": ["<leader>", "s"],
-      "commands": ["workbench.action.files.save"]
+      "commands": ["workbench.action.files.save"],
     },
     {
       "before": ["<leader>", "w"],
-      "commands": ["workbench.action.closeActiveEditor"]
+      "commands": ["workbench.action.closeActiveEditor"],
     },
     {
       "before": ["<leader>", "z"],
-      "commands": ["workbench.action.toggleZenMode"]
+      "commands": ["workbench.action.toggleZenMode"],
     },
     {
       "before": ["<leader>", "Q"],
-      "commands": ["workbench.action.closeAllEditors"]
+      "commands": ["workbench.action.closeAllEditors"],
     },
     {
       "before": ["<leader>", "f"],
-      "commands": ["workbench.action.closeOtherEditors"]
+      "commands": ["workbench.action.closeOtherEditors"],
     },
     {
       "before": ["<leader>", "h"],
-      "commands": ["workbench.action.navigateLeft"]
+      "commands": ["workbench.action.navigateLeft"],
     },
     {
       "before": ["<leader>", "j"],
-      "commands": ["workbench.action.navigateDown"]
+      "commands": ["workbench.action.navigateDown"],
     },
     {
       "before": ["<leader>", "k"],
-      "commands": ["workbench.action.navigateUp"]
+      "commands": ["workbench.action.navigateUp"],
     },
     {
       "before": ["<leader>", "l"],
-      "commands": ["workbench.action.navigateRight"]
+      "commands": ["workbench.action.navigateRight"],
     },
     {
       "before": ["<leader>", "H"],
-      "commands": ["workbench.action.previousEditor"]
+      "commands": ["workbench.action.previousEditor"],
     },
     {
       "before": ["<leader>", "L"],
-      "commands": ["workbench.action.nextEditor"]
+      "commands": ["workbench.action.nextEditor"],
     },
 
     // Русские эквиваленты лидера
     {
       "before": ["<leader>", "ы"],
-      "commands": ["workbench.action.files.save"]
+      "commands": ["workbench.action.files.save"],
     },
     {
       "before": ["<leader>", "ц"],
-      "commands": ["workbench.action.closeActiveEditor"]
+      "commands": ["workbench.action.closeActiveEditor"],
     },
     {
       "before": ["<leader>", "я"],
-      "commands": ["workbench.action.toggleZenMode"]
+      "commands": ["workbench.action.toggleZenMode"],
     },
     {
       "before": ["<leader>", "Й"],
-      "commands": ["workbench.action.closeAllEditors"]
+      "commands": ["workbench.action.closeAllEditors"],
     },
     {
       "before": ["<leader>", "а"],
-      "commands": ["workbench.action.closeOtherEditors"]
+      "commands": ["workbench.action.closeOtherEditors"],
     },
     {
       "before": ["<leader>", "р"],
-      "commands": ["workbench.action.navigateLeft"]
+      "commands": ["workbench.action.navigateLeft"],
     },
     {
       "before": ["<leader>", "о"],
-      "commands": ["workbench.action.navigateDown"]
+      "commands": ["workbench.action.navigateDown"],
     },
     {
       "before": ["<leader>", "л"],
-      "commands": ["workbench.action.navigateUp"]
+      "commands": ["workbench.action.navigateUp"],
     },
     {
       "before": ["<leader>", "д"],
-      "commands": ["workbench.action.navigateRight"]
+      "commands": ["workbench.action.navigateRight"],
     },
     {
       "before": ["<leader>", "Р"],
-      "commands": ["workbench.action.previousEditor"]
+      "commands": ["workbench.action.previousEditor"],
     },
     {
       "before": ["<leader>", "Д"],
-      "commands": ["workbench.action.nextEditor"]
-    }
+      "commands": ["workbench.action.nextEditor"],
+    },
   ],
 
   // ─── Vim Key Bindings: Visual Mode ──────────────────────────────────────────────
@@ -405,26 +405,26 @@
     { "before": ["<leader>", "p"], "commands": ["workbench.action.quickOpen"] },
     {
       "before": ["<leader>", "b"],
-      "commands": ["workbench.action.showAllEditors"]
+      "commands": ["workbench.action.showAllEditors"],
     },
     {
       "before": ["<leader>", "a"],
-      "commands": ["workbench.action.quickTextSearch"]
+      "commands": ["workbench.action.quickTextSearch"],
     },
     {
       "before": ["<leader>", "c"],
-      "commands": ["workbench.action.gotoSymbol"]
+      "commands": ["workbench.action.gotoSymbol"],
     },
     {
       "before": ["<leader>", "e"],
-      "commands": ["workbench.action.showAllSymbols"]
-    }
+      "commands": ["workbench.action.showAllSymbols"],
+    },
   ],
 
   "vim.visualModeKeyBindingsNonRecursive": [
     {
       "before": ["<leader>", "y"],
-      "commands": ["editor.action.clipboardCopyAction"]
+      "commands": ["editor.action.clipboardCopyAction"],
     },
     // (All Cyrillic mappings same as above)
     { "before": ["й"], "after": ["q"] },
@@ -497,94 +497,94 @@
     // Leader commands
     {
       "before": ["<leader>", "s"],
-      "commands": ["workbench.action.files.save"]
+      "commands": ["workbench.action.files.save"],
     },
     {
       "before": ["<leader>", "w"],
-      "commands": ["workbench.action.closeActiveEditor"]
+      "commands": ["workbench.action.closeActiveEditor"],
     },
     {
       "before": ["<leader>", "z"],
-      "commands": ["workbench.action.toggleZenMode"]
+      "commands": ["workbench.action.toggleZenMode"],
     },
     {
       "before": ["<leader>", "Q"],
-      "commands": ["workbench.action.closeAllEditors"]
+      "commands": ["workbench.action.closeAllEditors"],
     },
     {
       "before": ["<leader>", "f"],
-      "commands": ["workbench.action.closeOtherEditors"]
+      "commands": ["workbench.action.closeOtherEditors"],
     },
     {
       "before": ["<leader>", "h"],
-      "commands": ["workbench.action.navigateLeft"]
+      "commands": ["workbench.action.navigateLeft"],
     },
     {
       "before": ["<leader>", "j"],
-      "commands": ["workbench.action.navigateDown"]
+      "commands": ["workbench.action.navigateDown"],
     },
     {
       "before": ["<leader>", "k"],
-      "commands": ["workbench.action.navigateUp"]
+      "commands": ["workbench.action.navigateUp"],
     },
     {
       "before": ["<leader>", "l"],
-      "commands": ["workbench.action.navigateRight"]
+      "commands": ["workbench.action.navigateRight"],
     },
     {
       "before": ["<leader>", "H"],
-      "commands": ["workbench.action.previousEditor"]
+      "commands": ["workbench.action.previousEditor"],
     },
     {
       "before": ["<leader>", "L"],
-      "commands": ["workbench.action.nextEditor"]
+      "commands": ["workbench.action.nextEditor"],
     },
 
     // Русские эквиваленты лидера
     {
       "before": ["<leader>", "ы"],
-      "commands": ["workbench.action.files.save"]
+      "commands": ["workbench.action.files.save"],
     },
     {
       "before": ["<leader>", "ц"],
-      "commands": ["workbench.action.closeActiveEditor"]
+      "commands": ["workbench.action.closeActiveEditor"],
     },
     {
       "before": ["<leader>", "я"],
-      "commands": ["workbench.action.toggleZenMode"]
+      "commands": ["workbench.action.toggleZenMode"],
     },
     {
       "before": ["<leader>", "Й"],
-      "commands": ["workbench.action.closeAllEditors"]
+      "commands": ["workbench.action.closeAllEditors"],
     },
     {
       "before": ["<leader>", "а"],
-      "commands": ["workbench.action.closeOtherEditors"]
+      "commands": ["workbench.action.closeOtherEditors"],
     },
     {
       "before": ["<leader>", "р"],
-      "commands": ["workbench.action.navigateLeft"]
+      "commands": ["workbench.action.navigateLeft"],
     },
     {
       "before": ["<leader>", "о"],
-      "commands": ["workbench.action.navigateDown"]
+      "commands": ["workbench.action.navigateDown"],
     },
     {
       "before": ["<leader>", "л"],
-      "commands": ["workbench.action.navigateUp"]
+      "commands": ["workbench.action.navigateUp"],
     },
     {
       "before": ["<leader>", "д"],
-      "commands": ["workbench.action.navigateRight"]
+      "commands": ["workbench.action.navigateRight"],
     },
     {
       "before": ["<leader>", "Р"],
-      "commands": ["workbench.action.previousEditor"]
+      "commands": ["workbench.action.previousEditor"],
     },
     {
       "before": ["<leader>", "Д"],
-      "commands": ["workbench.action.nextEditor"]
-    }
+      "commands": ["workbench.action.nextEditor"],
+    },
   ],
 
   // ─── Vim Key Bindings: Other Modes ──────────────────────────────────────────────
@@ -593,20 +593,20 @@
     { "before": ["<leader>", "p"], "commands": ["workbench.action.quickOpen"] },
     {
       "before": ["<leader>", "b"],
-      "commands": ["workbench.action.showAllEditors"]
+      "commands": ["workbench.action.showAllEditors"],
     },
     {
       "before": ["<leader>", "a"],
-      "commands": ["workbench.action.quickTextSearch"]
+      "commands": ["workbench.action.quickTextSearch"],
     },
     {
       "before": ["<leader>", "c"],
-      "commands": ["workbench.action.gotoSymbol"]
+      "commands": ["workbench.action.gotoSymbol"],
     },
     {
       "before": ["<leader>", "e"],
-      "commands": ["workbench.action.showAllSymbols"]
-    }
+      "commands": ["workbench.action.showAllSymbols"],
+    },
   ],
 
   "vim.operatorPendingModeKeyBindingsNonRecursive": [
@@ -681,93 +681,93 @@
     // Leader commands
     {
       "before": ["<leader>", "s"],
-      "commands": ["workbench.action.files.save"]
+      "commands": ["workbench.action.files.save"],
     },
     {
       "before": ["<leader>", "w"],
-      "commands": ["workbench.action.closeActiveEditor"]
+      "commands": ["workbench.action.closeActiveEditor"],
     },
     {
       "before": ["<leader>", "z"],
-      "commands": ["workbench.action.toggleZenMode"]
+      "commands": ["workbench.action.toggleZenMode"],
     },
     {
       "before": ["<leader>", "Q"],
-      "commands": ["workbench.action.closeAllEditors"]
+      "commands": ["workbench.action.closeAllEditors"],
     },
     {
       "before": ["<leader>", "f"],
-      "commands": ["workbench.action.closeOtherEditors"]
+      "commands": ["workbench.action.closeOtherEditors"],
     },
     {
       "before": ["<leader>", "h"],
-      "commands": ["workbench.action.navigateLeft"]
+      "commands": ["workbench.action.navigateLeft"],
     },
     {
       "before": ["<leader>", "j"],
-      "commands": ["workbench.action.navigateDown"]
+      "commands": ["workbench.action.navigateDown"],
     },
     {
       "before": ["<leader>", "k"],
-      "commands": ["workbench.action.navigateUp"]
+      "commands": ["workbench.action.navigateUp"],
     },
     {
       "before": ["<leader>", "l"],
-      "commands": ["workbench.action.navigateRight"]
+      "commands": ["workbench.action.navigateRight"],
     },
     {
       "before": ["<leader>", "H"],
-      "commands": ["workbench.action.previousEditor"]
+      "commands": ["workbench.action.previousEditor"],
     },
     {
       "before": ["<leader>", "L"],
-      "commands": ["workbench.action.nextEditor"]
+      "commands": ["workbench.action.nextEditor"],
     },
 
     // Русские эквиваленты лидера
     {
       "before": ["<leader>", "ы"],
-      "commands": ["workbench.action.files.save"]
+      "commands": ["workbench.action.files.save"],
     },
     {
       "before": ["<leader>", "ц"],
-      "commands": ["workbench.action.closeActiveEditor"]
+      "commands": ["workbench.action.closeActiveEditor"],
     },
     {
       "before": ["<leader>", "я"],
-      "commands": ["workbench.action.toggleZenMode"]
+      "commands": ["workbench.action.toggleZenMode"],
     },
     {
       "before": ["<leader>", "Й"],
-      "commands": ["workbench.action.closeAllEditors"]
+      "commands": ["workbench.action.closeAllEditors"],
     },
     {
       "before": ["<leader>", "а"],
-      "commands": ["workbench.action.closeOtherEditors"]
+      "commands": ["workbench.action.closeOtherEditors"],
     },
     {
       "before": ["<leader>", "р"],
-      "commands": ["workbench.action.navigateLeft"]
+      "commands": ["workbench.action.navigateLeft"],
     },
     {
       "before": ["<leader>", "о"],
-      "commands": ["workbench.action.navigateDown"]
+      "commands": ["workbench.action.navigateDown"],
     },
     {
       "before": ["<leader>", "л"],
-      "commands": ["workbench.action.navigateUp"]
+      "commands": ["workbench.action.navigateUp"],
     },
     {
       "before": ["<leader>", "д"],
-      "commands": ["workbench.action.navigateRight"]
+      "commands": ["workbench.action.navigateRight"],
     },
     {
       "before": ["<leader>", "Р"],
-      "commands": ["workbench.action.previousEditor"]
+      "commands": ["workbench.action.previousEditor"],
     },
     {
       "before": ["<leader>", "Д"],
-      "commands": ["workbench.action.nextEditor"]
-    }
-  ]
+      "commands": ["workbench.action.nextEditor"],
+    },
+  ],
 }
