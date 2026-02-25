@@ -1,1 +1,111 @@
+# =============================================================================
+# .tigrc — tig configuration
+# https://jonas.github.io/tig/doc/tigrc.5.html
+# =============================================================================
+
+# -- General settings ---------------------------------------------------------
+
+# Show dates as relative time (e.g. "2 hours ago")
+set main-view-date = relative
+
+# Shorten author names in main view
+set main-view-author = full
+
+# Show short commit hash column in main view
+set main-view-id = yes
+
+# Number of characters to use for the commit hash column
+set main-view-id-width = 8
+
+# Show relative dates in blame view
+set blame-view-date = relative
+
+# Tab width in characters
+set tab-size = 4
+
+# Case-insensitive search with /
+set ignore-case = yes
+
+# Enable mouse scrolling
+set mouse = yes
+
+# Automatically refresh views when files change on disk
+set refresh-mode = auto
+
+# -- Colors -------------------------------------------------------------------
+
+# Highlight the currently selected line
+color cursor white blue bold
+
+# Title bar of an inactive (blurred) view
+color title-blur white black
+
+# Title bar of the active (focused) view
+color title-focus white blue bold
+
+# -- Key bindings: main view --------------------------------------------------
+
+# Checkout the selected commit (detached HEAD)
 bind main O !git checkout %(commit)
+
+# Create a new branch from the selected commit (prompts for branch name)
+bind main B !git checkout -b %(prompt) %(commit)
+
+# Hard reset current branch to the selected commit (destructive)
+bind main X !git reset --hard %(commit)
+
+# Start an interactive rebase from the selected commit
+bind main R !git rebase -i %(commit)
+
+# Push the current branch to its remote
+bind main P !git push
+
+# Fetch from all remotes
+bind main F !git fetch --all
+
+# Revert the selected commit (creates a new undo commit)
+bind main ! !git revert %(commit)
+
+# Copy the selected commit hash to the clipboard
+bind main Y !@bash -c "echo -n %(commit) | xclip -selection clipboard"
+
+# -- Key bindings: diff view --------------------------------------------------
+
+# Shrink the diff context by 3 lines
+bind diff [ :toggle diff-context -3
+
+# Expand the diff context by 3 lines
+bind diff ] :toggle diff-context +3
+
+# -- Key bindings: status view ------------------------------------------------
+
+# Amend the last commit
+bind status A !git commit --amend
+
+# Push the current branch to its remote
+bind status P !git push
+
+# Stash current uncommitted changes
+bind status S !git stash push
+
+# -- Key bindings: stash view -------------------------------------------------
+
+# Apply and remove the selected stash entry
+bind stash P !git stash pop
+
+# Drop (delete) the selected stash entry
+bind stash D !git stash drop %(stash)
+
+# -- Key bindings: generic (all views) ----------------------------------------
+
+# Jump to the first line (vim-style)
+bind generic g move-first-line
+
+# Jump to the last line (vim-style)
+bind generic G move-last-line
+
+# Scroll one page down
+bind generic <Ctrl-f> move-page-down
+
+# Scroll one page up
+bind generic <Ctrl-b> move-page-up
