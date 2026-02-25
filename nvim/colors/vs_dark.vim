@@ -118,3 +118,11 @@ hi DiagnosticUnderlineInfo  guibg=NONE gui=undercurl guisp=#CCA700
 hi DiagnosticUnderlineHint  guibg=NONE gui=undercurl guisp=#CCA700
 hi DiagnosticUnnecessary    guifg=#6B6B6B gui=undercurl guisp=#6B6B6B
 hi DiagnosticDeprecated     gui=strikethrough guisp=#6B6B6B
+
+" =====================
+" Treesitter highlights
+" =====================
+hi @variable            guifg=#D4D4D4
+hi @variable.parameter  guifg=#D4D4D4
+hi @variable.member     guifg=#D4D4D4
+hi @variable.builtin    guifg=#569CD6
