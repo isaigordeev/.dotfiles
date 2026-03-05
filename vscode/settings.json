@@ -198,12 +198,15 @@
   // ─────────────────────────────────────────────────────────────
 
   "terminal.integrated.defaultLocation": "editor",
+  "terminal.integrated.revealOnOutput": false,
+  "terminal.integrated.focusAfterRun": "none",
   "terminal.integrated.confirmOnExit": "always",
   "terminal.integrated.confirmOnKill": "hasChildProcesses",
   "terminal.integrated.tabs.title": "${sequence}: ${process} - ${separator}",
   "terminal.integrated.tabs.description": "${cwd}",
   "terminal.integrated.shellIntegration.enabled": true,
   "terminal.integrated.enablePersistentSessions": true,
+  "terminal.integrated.scrollback": 10000,
   "accessibility.signals.terminalBell": {
     "sound": "off",
     "announcement": "off",
