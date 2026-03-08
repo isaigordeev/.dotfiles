@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 #
-# Bootstrap script for macOS systems
+# Bootstrap script for Darwin systems
 # Sets up dotfiles: zsh, vim, and related configurations
 #
 set -e
@@ -9,7 +9,7 @@ DOTFILES_DIR="$HOME/.dotfiles"
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 
 echo "=========================================="
-echo "  Dotfiles Bootstrap for macOS"
+echo "  Dotfiles Bootstrap for Darwin"
 echo "=========================================="
 echo ""
 
