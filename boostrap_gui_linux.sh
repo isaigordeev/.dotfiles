@@ -44,24 +44,24 @@ echo "[STEP 1/7] Installing required packages..."
 install_packages() {
     case "$PKG_MANAGER" in
         apt)
-            sudo apt-get update
-            sudo apt-get install -y zsh git curl vim neovim fzf ripgrep nodejs npm
+            sudo apt-get update || echo "[WARN] apt-get update had warnings, continuing..."
+            sudo apt-get install -y zsh git curl vim neovim fzf ripgrep nodejs npm || echo "[WARN] Some packages may have failed to install"
             ;;
         dnf)
-            sudo dnf install -y zsh git curl vim neovim fzf ripgrep nodejs npm
+            sudo dnf install -y zsh git curl vim neovim fzf ripgrep nodejs npm || echo "[WARN] Some packages may have failed to install"
             ;;
         yum)
-            sudo yum install -y zsh git curl vim neovim fzf nodejs npm
+            sudo yum install -y zsh git curl vim neovim fzf nodejs npm || echo "[WARN] Some packages may have failed to install"
             # ripgrep might need EPEL
             ;;
         pacman)
-            sudo pacman -Sy --noconfirm zsh git curl vim neovim fzf ripgrep nodejs npm
+            sudo pacman -Sy --noconfirm zsh git curl vim neovim fzf ripgrep nodejs npm || echo "[WARN] Some packages may have failed to install"
             ;;
         zypper)
-            sudo zypper install -y zsh git curl vim neovim fzf ripgrep nodejs npm
+            sudo zypper install -y zsh git curl vim neovim fzf ripgrep nodejs npm || echo "[WARN] Some packages may have failed to install"
             ;;
         *)
-            echo "[ERROR] Unknown package manager. Please install manually:"
+            echo "[WARN] Unknown package manager. Please install manually:"
             echo "  - zsh"
             echo "  - git"
             echo "  - curl"
@@ -69,7 +69,6 @@ install_packages() {
             echo "  - fzf"
             echo "  - ripgrep (optional)"
             echo "  - nodejs and npm (for CoC LSP)"
-            exit 1
             ;;
     esac
 }
@@ -199,29 +198,15 @@ echo ""
 # ============================================================
 echo "[STEP 7/7] Setting up fzf keybindings..."
 
-# Always install fzf from source for consistent experience and latest features
+# Install fzf from source for consistent experience and latest features
 # Package manager versions are often outdated and missing --zsh support
 if [ ! -d "$HOME/.fzf" ]; then
     echo "[INFO] Installing fzf from source for full features..."
     git clone --depth 1 https://github.com/junegunn/fzf.git "$HOME/.fzf"
-    "$HOME/.fzf/install" --key-bindings --completion --no-update-rc --no-bash --no-fish
+    "$HOME/.fzf/install" --key-bindings --completion --no-update-rc --no-bash --no-fish || echo "[WARN] fzf install script had issues"
     echo "[OK] fzf installed from source with keybindings"
 else
     echo "[SKIP] fzf already installed from source"
-fi
-
-# Always ensure fzf is sourced at the END of .zshrc (after oh-my-zsh)
-# Remove any existing fzf lines first to avoid duplicates
-if [ -f "$HOME/.zshrc" ]; then
-    # Create a temporary file without fzf lines
-    grep -v "fzf" "$HOME/.zshrc" > "$HOME/.zshrc.tmp" || true
-    mv "$HOME/.zshrc.tmp" "$HOME/.zshrc"
-
-    # Add fzf at the end
-    echo "" >> "$HOME/.zshrc"
-    echo "# fzf keybindings and completion (must be at end)" >> "$HOME/.zshrc"
-    echo "[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh" >> "$HOME/.zshrc"
-    echo "[OK] Added fzf keybindings to end of .zshrc"
 fi
 echo ""
 
@@ -230,18 +215,24 @@ echo ""
 # ============================================================
 echo "[OPTIONAL] Setting Zsh as default shell..."
 
-if [ "$SHELL" != "$(which zsh)" ]; then
+ZSH_PATH=$(which zsh 2>/dev/null)
+
+if [ -n "$ZSH_PATH" ] && [ "$SHELL" != "$ZSH_PATH" ]; then
     echo "[INFO] Current shell: $SHELL"
     echo "[INFO] Attempting to change default shell to zsh..."
 
     # Add zsh to /etc/shells if not present
-    if ! grep -q "$(which zsh)" /etc/shells 2>/dev/null; then
+    if ! grep -q "$ZSH_PATH" /etc/shells 2>/dev/null; then
         echo "[SUDO] Adding zsh to /etc/shells..."
-        echo "$(which zsh)" | sudo tee -a /etc/shells > /dev/null
+        if echo "$ZSH_PATH" | sudo tee -a /etc/shells > /dev/null 2>&1; then
+            echo "[OK] Added zsh to /etc/shells"
+        else
+            echo "[WARN] Could not add to /etc/shells (requires sudo)"
+        fi
     fi
 
     # Try to change shell
-    if chsh -s "$(which zsh)" 2>/dev/null; then
+    if chsh -s "$ZSH_PATH" 2>/dev/null; then
         echo "[OK] Default shell changed to zsh"
     else
         echo "[WARN] Could not change default shell automatically (PAM authentication failed)"

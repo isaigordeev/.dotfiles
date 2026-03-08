@@ -25,7 +25,9 @@ if ! command -v brew > /dev/null 2>&1; then
     # Add Homebrew to PATH for Apple Silicon Macs
     if [[ $(uname -m) == "arm64" ]]; then
         echo "[INFO] Configuring Homebrew for Apple Silicon..."
-        echo 'eval "$(/opt/homebrew/bin/brew shellenv)"' >> "$HOME/.zprofile"
+        if ! grep -q '/opt/homebrew/bin/brew shellenv' "$HOME/.zprofile" 2>/dev/null; then
+            echo 'eval "$(/opt/homebrew/bin/brew shellenv)"' >> "$HOME/.zprofile"
+        fi
         eval "$(/opt/homebrew/bin/brew shellenv)"
     fi
 
@@ -40,8 +42,8 @@ echo ""
 # ============================================================
 echo "[STEP 2/6] Installing required packages..."
 
-# Update Homebrew
-brew update
+# Update Homebrew (ignore errors from broken casks)
+brew update || echo "[WARN] brew update had warnings, continuing..."
 
 # Install packages
 brew install zsh git curl vim neovim fzf ripgrep
@@ -87,14 +89,6 @@ if [ -f "$HOME/.zshrc" ] && [ ! -L "$HOME/.zshrc" ]; then
 fi
 ln -sf "$SCRIPT_DIR/zsh/.zshrc" "$HOME/.zshrc"
 echo "[OK] Linked .zshrc"
-
-# Add syntax highlighting to .zshrc if not already there
-if ! grep -q "zsh-syntax-highlighting.zsh" "$HOME/.zshrc" 2>/dev/null; then
-    echo "" >> "$HOME/.zshrc"
-    echo "# Syntax highlighting (Homebrew)" >> "$HOME/.zshrc"
-    echo "source \$(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh" >> "$HOME/.zshrc"
-    echo "[OK] Added syntax highlighting to .zshrc"
-fi
 
 # Link Zsh theme
 ln -sf "$SCRIPT_DIR/zsh/sobole.zsh-theme" "$HOME/.oh-my-zsh/custom/themes/sobole.zsh-theme"
@@ -180,7 +174,11 @@ if [ "$SHELL" != "$BREW_ZSH" ]; then
     # Add Homebrew zsh to /etc/shells if not present
     if ! grep -q "$BREW_ZSH" /etc/shells 2>/dev/null; then
         echo "[SUDO] Adding Homebrew zsh to /etc/shells..."
-        echo "$BREW_ZSH" | sudo tee -a /etc/shells > /dev/null
+        if echo "$BREW_ZSH" | sudo tee -a /etc/shells > /dev/null 2>&1; then
+            echo "[OK] Added Homebrew zsh to /etc/shells"
+        else
+            echo "[WARN] Could not add to /etc/shells (requires sudo)"
+        fi
     fi
 
     # Try to change shell
@@ -189,7 +187,7 @@ if [ "$SHELL" != "$BREW_ZSH" ]; then
     else
         echo "[WARN] Could not change default shell automatically"
         echo "[INFO] You can change it manually with:"
-        echo "    sudo chsh -s $BREW_ZSH $USER"
+        echo "    sudo chsh -s $BREW_ZSH \$USER"
     fi
 else
     echo "[SKIP] Homebrew zsh is already the default shell"
