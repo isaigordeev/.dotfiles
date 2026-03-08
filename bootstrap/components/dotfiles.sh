@@ -1,0 +1,44 @@
+#!/usr/bin/env bash
+# Component: Link dotfiles (shared)
+# Requires: DOTFILES_DIR to be set
+
+link_dotfiles() {
+    local dotfiles_dir="${DOTFILES_DIR:-$HOME/.dotfiles}"
+    echo "[STEP] Linking dotfiles..."
+
+    # Link Zsh config
+    if [ -f "$HOME/.zshrc" ] && [ ! -L "$HOME/.zshrc" ]; then
+        echo "[BACKUP] Backing up existing .zshrc to .zshrc.backup"
+        mv "$HOME/.zshrc" "$HOME/.zshrc.backup"
+    fi
+    ln -sf "$dotfiles_dir/zsh/.zshrc" "$HOME/.zshrc"
+    echo "[OK] Linked .zshrc"
+
+    # Link Zsh theme
+    ln -sf "$dotfiles_dir/zsh/sobole.zsh-theme" "$HOME/.oh-my-zsh/custom/themes/sobole.zsh-theme"
+    echo "[OK] Linked sobole.zsh-theme"
+
+    # Link Vim config
+    if [ -f "$HOME/.vimrc" ] && [ ! -L "$HOME/.vimrc" ]; then
+        echo "[BACKUP] Backing up existing .vimrc to .vimrc.backup"
+        mv "$HOME/.vimrc" "$HOME/.vimrc.backup"
+    fi
+    ln -sf "$dotfiles_dir/vim/.vimrc" "$HOME/.vimrc"
+    echo "[OK] Linked .vimrc"
+
+    # Link Vim color schemes
+    for color_file in "$dotfiles_dir/vim/.vim/colors"/*.vim; do
+        if [ -f "$color_file" ]; then
+            ln -sf "$color_file" "$HOME/.vim/colors/$(basename "$color_file")"
+            echo "[OK] Linked $(basename "$color_file")"
+        fi
+    done
+
+    # Link Neovim config
+    if [ -d "$HOME/.config/nvim" ] && [ ! -L "$HOME/.config/nvim" ]; then
+        echo "[BACKUP] Backing up existing nvim config to nvim.backup"
+        mv "$HOME/.config/nvim" "$HOME/.config/nvim.backup"
+    fi
+    ln -sf "$dotfiles_dir/nvim" "$HOME/.config/nvim"
+    echo "[OK] Linked nvim config"
+}
