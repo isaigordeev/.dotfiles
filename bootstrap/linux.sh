@@ -20,6 +20,10 @@ source "$SCRIPT_DIR/components/ohmyzsh.sh"
 source "$SCRIPT_DIR/components/zsh_syntax_linux.sh"
 source "$SCRIPT_DIR/components/directories.sh"
 source "$SCRIPT_DIR/components/dotfiles.sh"
+source "$SCRIPT_DIR/components/vscode.sh"
+source "$SCRIPT_DIR/components/hyper.sh"
+source "$SCRIPT_DIR/components/fonts.sh"
+source "$SCRIPT_DIR/components/tig.sh"
 source "$SCRIPT_DIR/components/vim.sh"
 source "$SCRIPT_DIR/components/fzf.sh"
 source "$SCRIPT_DIR/components/shell.sh"
@@ -34,6 +38,14 @@ echo ""
 create_directories
 echo ""
 link_dotfiles
+echo ""
+link_vscode_linux
+echo ""
+link_hyper
+echo ""
+install_fonts_linux
+echo ""
+link_tig
 echo ""
 install_vim_plugins
 echo ""
