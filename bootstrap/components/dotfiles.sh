@@ -26,13 +26,19 @@ link_dotfiles() {
     ln -sf "$dotfiles_dir/vim/.vimrc" "$HOME/.vimrc"
     echo "[OK] Linked .vimrc"
 
-    # Link Vim color schemes
-    for color_file in "$dotfiles_dir/vim/.vim/colors"/*.vim; do
-        if [ -f "$color_file" ]; then
-            ln -sf "$color_file" "$HOME/.vim/colors/$(basename "$color_file")"
-            echo "[OK] Linked $(basename "$color_file")"
-        fi
-    done
+    # Link Vim color schemes (skip if source and target are the same directory)
+    local src_dir="$dotfiles_dir/vim/.vim/colors"
+    local dst_dir="$HOME/.vim/colors"
+    if [ "$(realpath "$src_dir")" != "$(realpath "$dst_dir")" ]; then
+        for color_file in "$src_dir"/*.vim; do
+            if [ -f "$color_file" ]; then
+                ln -sf "$color_file" "$dst_dir/$(basename "$color_file")"
+                echo "[OK] Linked $(basename "$color_file")"
+            fi
+        done
+    else
+        echo "[SKIP] Vim colors already in place (source and target are the same)"
+    fi
 
     # Link Neovim config
     if [ -d "$HOME/.config/nvim" ] && [ ! -L "$HOME/.config/nvim" ]; then
