@@ -40,11 +40,17 @@ link_dotfiles() {
         echo "[SKIP] Vim colors already in place (source and target are the same)"
     fi
 
-    # Link Neovim config
-    if [ -d "$HOME/.config/nvim" ] && [ ! -L "$HOME/.config/nvim" ]; then
-        echo "[BACKUP] Backing up existing nvim config to nvim.backup"
-        mv "$HOME/.config/nvim" "$HOME/.config/nvim.backup"
+    # Link Neovim config (skip if already pointing to the right place)
+    local nvim_src="$dotfiles_dir/nvim"
+    local nvim_dst="$HOME/.config/nvim"
+    if [ "$(realpath "$nvim_src" 2>/dev/null)" != "$(realpath "$nvim_dst" 2>/dev/null)" ]; then
+        if [ -d "$nvim_dst" ] && [ ! -L "$nvim_dst" ]; then
+            echo "[BACKUP] Backing up existing nvim config to nvim.backup"
+            mv "$nvim_dst" "$HOME/.config/nvim.backup"
+        fi
+        ln -sf "$nvim_src" "$nvim_dst"
+        echo "[OK] Linked nvim config"
+    else
+        echo "[SKIP] Neovim config already in place (source and target are the same)"
     fi
-    ln -sf "$dotfiles_dir/nvim" "$HOME/.config/nvim"
-    echo "[OK] Linked nvim config"
 }
