@@ -10,6 +10,7 @@ install_packages_darwin() {
     # Install packages
     brew install zsh git curl vim neovim fzf ripgrep
     brew install zsh-syntax-highlighting
+    brew install protobuf bear
 
     echo "[OK] Packages installed"
 }
