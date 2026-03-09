@@ -72,7 +72,7 @@ lmap("n", "c", function()
    for _, res in pairs(results or {}) do
       find_symbol(res.result)
    end
-   require("telescope.builtin").lsp_document_symbols({ default_text = name })
+   require("telescope.builtin").lsp_document_symbols()
 end, { desc = "Document symbols (focused)" })
 lmap("n", "m", "<cmd>Telescope diagnostics<CR>", { desc = "Diagnostics" })
 lmap("n", "b", "<cmd>Telescope oldfiles<CR>", { desc = "Recent files" })
