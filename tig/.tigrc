@@ -88,6 +88,12 @@ bind status P !git push
 # Stash current uncommitted changes
 bind status S !git stash push
 
+# Restore (discard changes to) tracked file
+bind status R ?git checkout -- %(file)
+
+# Delete untracked file
+bind status D ?git clean -f -- %(file)
+
 # -- Key bindings: stash view -------------------------------------------------
 
 # Apply and remove the selected stash entry

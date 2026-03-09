@@ -102,7 +102,7 @@ return {
 
          -- Format on save for specific filetypes
          vim.api.nvim_create_autocmd("BufWritePre", {
-            pattern = { "*.md", "*.json", "*.rs", "*.go" },
+            pattern = { "*.json", "*.rs", "*.go" },
             callback = function()
                vim.lsp.buf.format({ async = false })
             end,
@@ -218,6 +218,22 @@ return {
 
    -- Rainbow delimiters (replaces luochen1990/rainbow)
    { "HiPhish/rainbow-delimiters.nvim" },
+
+   -- Formatter (prettier for markdown)
+   {
+      "stevearc/conform.nvim",
+      config = function()
+         require("conform").setup({
+            formatters_by_ft = {
+               markdown = { "prettier" },
+            },
+            format_on_save = {
+               timeout_ms = 500,
+               lsp_fallback = true,
+            },
+         })
+      end,
+   },
 
    -- Git: gutter signs, blame popup, hunk preview
    {
