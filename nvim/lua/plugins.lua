@@ -151,7 +151,7 @@ return {
       config = function()
          require("nvim-tree").setup({
             view = { width = 40, number = true },
-            filters = { dotfiles = false },
+            filters = { dotfiles = false, git_ignored = false },
          })
       end,
    },
@@ -176,6 +176,7 @@ return {
             pickers = {
                find_files = {
                   hidden = true,
+                  no_ignore = true,
                   file_ignore_patterns = { "^.git/" },
                },
             },
