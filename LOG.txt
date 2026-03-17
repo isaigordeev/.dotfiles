@@ -1,0 +1,24 @@
+---
+
+- o open task
+- ± uncertain task
+- (!) important
+- (~.) linked (with number of points)
+- x closed task
+
+---
+
+Tue 17 Mar 2026 at 13:17:11
+
+– x finish tutorial for vscode only commands 
+– x use yank for better search
+- x palace rdm
+- x hooks rdm palace
+- x adapt vim better for notes
+- x md config for palace
+- x ru vim
+
+Tue 17 Mar 2026 at 13:17:56
+
+- o better tab navigation plugin for hyper
+
