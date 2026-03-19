@@ -48,7 +48,7 @@ map("n", "<leader>=", "<C-w>=", { desc = "Equalize splits" })
 
 
 -- ─── Fuzzy find (Telescope) ─────────────────────────────────────
-lmap("n", "p", "<cmd>Telescope find_files<CR>", { desc = "Find files" })
+lmap("n", "p", "<cmd>Files<CR>", { desc = "Find files" })
 lmap("n", "B", "<cmd>Telescope buffers<CR>", { desc = "Find buffers" })
 lmap("n", "C", "<cmd>Telescope current_buffer_fuzzy_find<CR>", { desc = "Search in buffer" })
 lmap("n", "a", "<cmd>Telescope live_grep<CR>", { desc = "Live ripgrep" })
@@ -82,7 +82,7 @@ lmap("n", "b", "<cmd>Telescope oldfiles<CR>", { desc = "Recent files" })
 --    require("telescope.builtin").live_grep({ grep_open_files = true })
 -- end, { desc = "Search open buffers" })
 
-map("n", "<C-p>", "<cmd>Telescope find_files<CR>", { desc = "Find files" })
+map("n", "<C-p>", "<cmd>Files<CR>", { desc = "Find files" })
 
 
 -- ─── File tree (nvim-tree, replaces NERDTree) ───────────────────

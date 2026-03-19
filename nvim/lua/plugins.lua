@@ -162,6 +162,15 @@ return {
       end,
    },
 
+   -- fzf.vim (fast native fzf for file finding)
+   {
+      "junegunn/fzf",
+      build = "./install --all",
+   },
+   {
+      "junegunn/fzf.vim",
+   },
+
    -- Fuzzy finder (replaces fzf.vim)
    {
       "nvim-telescope/telescope.nvim",
