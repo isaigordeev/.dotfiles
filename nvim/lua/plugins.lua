@@ -38,7 +38,7 @@ return {
       config = function()
          require("mason-lspconfig").setup({
             ensure_installed = {
-               "clangd", "pyright", "rust_analyzer", "gopls", "ts_ls",
+               "clangd", "rust_analyzer", "gopls", "ts_ls",
             },
          })
 
@@ -56,19 +56,25 @@ return {
             root_markers = { "compile_commands.json", "compile_flags.txt", ".clangd", ".git" },
          })
 
-         vim.lsp.config("pyright", {
-            cmd = { "pyright-langserver", "--stdio" },
+         -- vim.lsp.config("pyright", {
+         --    cmd = { "pyright-langserver", "--stdio" },
+         --    filetypes = { "python" },
+         --    root_markers = { "pyrightconfig.json", "pyproject.toml", "setup.py", "setup.cfg", "requirements.txt", ".git" },
+         --    settings = {
+         --       python = {
+         --          analysis = {
+         --             typeCheckingMode = "strict",
+         --             autoImportCompletions = true,
+         --             diagnosticMode = "workspace",
+         --          },
+         --       },
+         --    },
+         -- })
+
+         vim.lsp.config("ty", {
+            cmd = { "ty", "server" },
             filetypes = { "python" },
-            root_markers = { "pyrightconfig.json", "pyproject.toml", "setup.py", "setup.cfg", "requirements.txt", ".git" },
-            settings = {
-               python = {
-                  analysis = {
-                     typeCheckingMode = "strict",
-                     autoImportCompletions = true,
-                     diagnosticMode = "workspace",
-                  },
-               },
-            },
+            root_markers = { "pyproject.toml", "setup.py", "setup.cfg", "requirements.txt", ".git" },
          })
 
          vim.lsp.config("rust_analyzer", {
@@ -95,7 +101,7 @@ return {
             root_markers = { "tsconfig.json", "jsconfig.json", "package.json", ".git" },
          })
 
-         vim.lsp.enable({ "clangd", "pyright", "rust_analyzer", "gopls", "ts_ls" })
+         vim.lsp.enable({ "clangd", "ty", "rust_analyzer", "gopls", "ts_ls" })
 
          -- Disable diagnostic signs (matches coc-settings.json)
          vim.diagnostic.config({ signs = false })
