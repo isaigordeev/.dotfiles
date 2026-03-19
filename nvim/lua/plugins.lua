@@ -177,7 +177,10 @@ return {
                find_files = {
                   hidden = true,
                   no_ignore = true,
-                  file_ignore_patterns = { "^.git/" },
+                  file_ignore_patterns = {
+                     "^%.git/", "node_modules/", "__pycache__/",
+                     "%.mypy_cache/", "%.ruff_cache/", "%.pytest_cache/",
+                  },
                },
             },
          })
