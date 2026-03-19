@@ -183,10 +183,10 @@ map("n", "<leader>gc", "<cmd>DiffviewClose<CR>", { desc = "Git close diffview" }
 vim.api.nvim_create_autocmd("LspAttach", {
    callback = function(ev)
       local opts = { buffer = ev.buf, silent = true }
-      map("n", "gd", vim.lsp.buf.definition, opts)
-      map("n", "gy", vim.lsp.buf.type_definition, opts)
-      map("n", "gi", vim.lsp.buf.implementation, opts)
-      map("n", "gr", vim.lsp.buf.references, opts)
+      map("n", "gd", "<cmd>Telescope lsp_definitions<CR>", opts)
+      map("n", "gy", "<cmd>Telescope lsp_type_definitions<CR>", opts)
+      map("n", "gi", "<cmd>Telescope lsp_implementations<CR>", opts)
+      map("n", "gr", "<cmd>Telescope lsp_references<CR>", opts)
       map("n", "K", vim.lsp.buf.hover, opts)
    end,
 })
