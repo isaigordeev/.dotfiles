@@ -43,3 +43,6 @@ vim.opt.copyindent = true
 vim.opt.showtabline = 0
 vim.opt.updatetime = 300
 vim.opt.redrawtime = 10000
+
+-- Allow project-specific .nvim.lua config
+vim.opt.exrc = true
