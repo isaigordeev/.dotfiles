@@ -22,3 +22,7 @@ Tue 17 Mar 2026 at 13:17:56
 
 - o better tab navigation plugin for hyper
 
+Sat 21 Mar 2026 at 18:32:17
+
+- o gdb in nvim/vim
+
