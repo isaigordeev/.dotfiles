@@ -66,33 +66,33 @@ if [ "$MODE" = "dark" ]; then
     cat << 'EOF'
 
 
-                        .
-                       .o
-                      .oo
-                     .ooo
-                    .oooo
-                   .ooooo
-                  .oooooo
-                 .ooooooo
-                .oooooooo
-               .ooooooooo
+                              .
+                             .o
+                            .oo
+                           .ooo
+                          .oooo
+                         .ooooo
+                        .oooooo
+                       .ooooooo
+                      .oooooooo
+                     .ooooooooo
+                    .oooooooooo
+                   .ooooooooooo
+                  .oooooooooooo
+                 .ooooooooooooo
+                .oooooooooooo
+               .ooooooooooo
               .oooooooooo
-             .ooooooooooo
-            .oooooooooooo
-           .ooooooooooooo
-          .oooooooooooo
-         .ooooooooooo
-        .oooooooooo
-       .ooooooooo
-      .oooooooo
-     .ooooooo
-    .oooooo
-   .ooooo
-  .oooo
- .ooo
-.oo
-.o
-.
+             .ooooooooo
+            .oooooooo
+           .ooooooo
+          .oooooo
+         .ooooo
+        .oooo
+       .ooo
+      .oo
+     .o
+    .
 
                     D A R K
 
@@ -101,26 +101,21 @@ else
     cat << 'EOF'
 
 
-               \      |      /
-                 \    |    /
-                   \  |  /
-            _  _  _  _|_  _  _  _
-        -- ' .'.'.'.'|'.'.'.'.' --
-           '.'.'.'.'.|.'.'.'.'.'
-       \   .'.'.'.'.'|'.'.'.'.'   /
-        \ '.'.'.'.'.'|'.'.'.'.'  /
-    -----.'.'.'.'.'.'|'.'.'.'.'-----
-         '.'.'.'.'.'.|.'.'.'.'.'
-        / '.'.'.'.'.'|'.'.'.'.'. \
-       /   '.'.'.'.'.|.'.'.'.'.'  \
-           '.'.'.'.'.|.'.'.'.'.'
-        --  '.'.'.'.'|'.'.'.'.' --
-            ~  ~  ~  |  ~  ~  ~
-                   /  |  \
-                 /    |    \
-               /      |      \
+                 .    |    .
+                  \   |   /
+              `.   \  '  /   .'
+                `. .-"""-. .'
+            "*-._ / .ooo. \ _.-*"
+                 | ooooooo |
+            -----| ooooooo |-----
+                 | ooooooo |
+            "*-._ \ 'ooo' / _.-*"
+                .' `-...-' `.
+              .'   /  '  \   `.
+                  /   |   \
+                 '    |    '
 
-                   L I G H T
+                 L I G H T
 
 EOF
 fi
