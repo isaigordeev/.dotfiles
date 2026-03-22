@@ -1,5 +1,24 @@
 [user]
 	name = Isai Gordeev
 	email = isai.gordeev.2022@polytechnique.org
+	signingkey = F4F078EB57EA2C67C23E0F5CB94FFCADE32BE35A
 [core]
 	autocrlf = input
+	pager = delta
+[commit]
+	gpgsign = true
+[gpg]
+	program = /usr/local/bin/gpg
+[diff]
+	tool = vimdiff
+[difftool]
+	prompt = false
+[rebase]
+	gpgSign = true
+[http]
+	postBuffer = 524288000
+[interactive]
+	diffFilter = delta --color-only
+[delta]
+	line-numbers = true
+	syntax-theme = Dracula
