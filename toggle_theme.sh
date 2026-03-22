@@ -121,3 +121,5 @@ EOF
 fi
 
 echo -e "$STATUS"
+echo ""
+date "+%a %d %b %Y at %H:%M:%S"
