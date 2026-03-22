@@ -268,8 +268,34 @@ return {
    {
       "sindrets/diffview.nvim",
       dependencies = { "nvim-lua/plenary.nvim" },
+      config = function()
+         local actions = require("diffview.actions")
+         require("diffview").setup({
+            keymaps = {
+               file_history_panel = {
+                  -- Press 'O' on a commit to see ALL files in that commit
+                  { "n", "O", function()
+                     -- Get commit hash from current line
+                     local line = vim.fn.getline(".")
+                     local hash = line:match("(%x%x%x%x%x%x%x+)")
+                     if hash then
+                        vim.cmd("DiffviewClose")
+                        vim.schedule(function()
+                           vim.cmd("DiffviewOpen " .. hash .. "^!")
+                        end)
+                     end
+                  end, { desc = "Open commit (all files)" } },
+               },
+            },
+         })
+      end,
    },
 
    -- Git: unified diff & git commands (:Git diff, :Git blame, :Git log)
    { "tpope/vim-fugitive" },
+
+
+   -- TODO: nvim-dap (Debug Adapter Protocol) - enable after learning raw GDB
+   -- Plugins: mfussenegger/nvim-dap, rcarriga/nvim-dap-ui, theHamsta/nvim-dap-virtual-text
+   -- Install codelldb via Mason: :MasonInstall codelldb
 }

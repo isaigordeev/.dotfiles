@@ -141,14 +141,29 @@ lmap("n", "T", function()
 end, { desc = "Insert timestamp" })
 
 
--- ─── Git (gitsigns + diffview) ──────────────────────────────────
+-- ─── Git (gitsigns + diffview + fugitive) ───────────────────────
+-- Quick blame popup
 lmap("n", "g", function()
    require("gitsigns").blame_line({ full = true })
 end, { desc = "Git blame popup" })
 
+-- Full blame sidebar (GitLens-style) - navigate with j/k, Enter to see commit
+map("n", "<leader>gb", "<cmd>Git blame<CR>", { desc = "Git blame sidebar" })
+
+-- Open commit at current line in diffview (see all files changed)
+map("n", "<leader>gv", function()
+   local blame = vim.fn.system("git blame -l -L " .. vim.fn.line(".") .. "," .. vim.fn.line(".") .. " -- " .. vim.fn.expand("%"))
+   local hash = blame:match("^(%x+)")
+   if hash and not hash:match("^0+$") then
+      vim.cmd("DiffviewOpen " .. hash .. "^!")
+   else
+      print("No commit for this line")
+   end
+end, { desc = "Git view commit (all files)" })
+
 lmap("n", "d", function()
-   require("gitsigns").preview_hunk()
-end, { desc = "Git diff hunk popup" })
+   require("gitsigns").preview_hunk_inline()
+end, { desc = "Git diff hunk inline" })
 
 map("n", "]c", function() require("gitsigns").nav_hunk("next") end, { desc = "Next git hunk" })
 map("n", "[c", function() require("gitsigns").nav_hunk("prev") end, { desc = "Prev git hunk" })
