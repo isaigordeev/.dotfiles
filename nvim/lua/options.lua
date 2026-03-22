@@ -10,6 +10,9 @@ vim.g.maplocalleader = " "
 vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
 
+-- Git messenger: autofocus popup
+vim.g.git_messenger_always_into_popup = true
+
 -- Colors
 vim.opt.termguicolors = true
 vim.opt.background = "light"

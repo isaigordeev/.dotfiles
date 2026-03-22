@@ -142,10 +142,8 @@ end, { desc = "Insert timestamp" })
 
 
 -- ─── Git (gitsigns + diffview + fugitive) ───────────────────────
--- Quick blame popup
-lmap("n", "g", function()
-   require("gitsigns").blame_line({ full = true })
-end, { desc = "Git blame popup" })
+-- Quick blame popup (git-messenger)
+lmap("n", "g", "<cmd>GitMessenger<CR>", { desc = "Git blame popup" })
 
 -- Full blame sidebar (GitLens-style) - navigate with j/k, Enter to see commit
 map("n", "<leader>gb", "<cmd>Git blame<CR>", { desc = "Git blame sidebar" })

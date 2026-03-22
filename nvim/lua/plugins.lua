@@ -294,6 +294,8 @@ return {
    -- Git: unified diff & git commands (:Git diff, :Git blame, :Git log)
    { "tpope/vim-fugitive" },
 
+   -- Git: commit message popup on current line
+   { "rhysd/git-messenger.vim" },
 
    -- TODO: nvim-dap (Debug Adapter Protocol) - enable after learning raw GDB
    -- Plugins: mfussenegger/nvim-dap, rcarriga/nvim-dap-ui, theHamsta/nvim-dap-virtual-text
