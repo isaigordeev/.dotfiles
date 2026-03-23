@@ -75,6 +75,29 @@ lmap("n", "c", function()
    end
    require("telescope.builtin").lsp_document_symbols()
 end, { desc = "Document symbols (focused)" })
+lmap("n", "i", function()
+   local params = vim.lsp.util.make_position_params()
+   local results = vim.lsp.buf_request_sync(0, "textDocument/documentSymbol", params, 1000)
+   local row = vim.api.nvim_win_get_cursor(0)[1] - 1
+   local parts = {}
+   local function walk(symbols)
+      for _, s in ipairs(symbols or {}) do
+         local range = s.range or (s.location and s.location.range)
+         if range and row >= range.start.line and row <= range["end"].line then
+            table.insert(parts, s.name)
+            if s.children then walk(s.children) end
+         end
+      end
+   end
+   for _, res in pairs(results or {}) do
+      walk(res.result)
+   end
+   if #parts > 0 then
+      print(table.concat(parts, " > "))
+   else
+      print("(top level)")
+   end
+end, { desc = "Show breadcrumb" })
 lmap("n", "m", "<cmd>Telescope diagnostics<CR>", { desc = "Diagnostics" })
 lmap("n", "b", "<cmd>Telescope oldfiles<CR>", { desc = "Recent files" })
 
