@@ -10,6 +10,7 @@ return {
       "nvim-treesitter/nvim-treesitter",
       build = ":TSUpdate",
       config = function()
+         -- Install parsers:  :TSInstall c cpp python rust go lua javascript typescript markdown json bash
          require("nvim-treesitter").setup({
             ensure_installed = {
                "c", "cpp", "python", "rust", "go", "lua",
