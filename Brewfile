@@ -21,6 +21,7 @@ brew "pkgconf"
 brew "tmux"
 brew "tig"  // git
 brew "tree"
+brew "tree-sitter-cli"
 brew "vifm"
 brew "wget"
 brew "zsh"
