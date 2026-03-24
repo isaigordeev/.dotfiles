@@ -49,7 +49,7 @@ map("n", "<leader>=", "<C-w>=", { desc = "Equalize splits" })
 
 -- ─── Fuzzy find (Telescope) ─────────────────────────────────────
 lmap("n", "p", "<cmd>Files<CR>", { desc = "Find files" })
-lmap("n", "B", "<cmd>Telescope buffers<CR>", { desc = "Find buffers" })
+lmap("n", "b", "<cmd>Telescope buffers<CR>", { desc = "Find buffers" })
 lmap("n", "C", "<cmd>Telescope current_buffer_fuzzy_find<CR>", { desc = "Search in buffer" })
 lmap("n", "a", "<cmd>RG<CR>", { desc = "Live ripgrep" })
 lmap("n", "A", "<cmd>Rg<CR>", { desc = "Ripgrep (fzf filter)" })
@@ -157,7 +157,7 @@ lmap("n", "i", function()
    end
 end, { desc = "Show breadcrumb" })
 lmap("n", "m", "<cmd>Telescope diagnostics<CR>", { desc = "Diagnostics" })
-lmap("n", "b", "<cmd>Telescope oldfiles<CR>", { desc = "Recent files" })
+lmap("n", "B", "<cmd>Telescope oldfiles<CR>", { desc = "Recent files" })
 
 -- -- Search across open buffers (equivalent to :Lines)
 -- lmap("n", "e", function()
