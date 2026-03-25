@@ -157,6 +157,9 @@ lmap("n", "i", function()
    end
 end, { desc = "Show breadcrumb" })
 lmap("n", "m", "<cmd>Telescope diagnostics<CR>", { desc = "Diagnostics" })
+lmap("n", "f", function()
+   require("telescope.builtin").live_grep({ search_dirs = { vim.fn.expand("%:p") } })
+end, { desc = "Ripgrep in current file" })
 lmap("n", "B", "<cmd>Telescope oldfiles<CR>", { desc = "Recent files" })
 
 -- -- Search across open buffers (equivalent to :Lines)

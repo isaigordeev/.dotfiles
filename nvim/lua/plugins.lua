@@ -57,26 +57,26 @@ return {
             root_markers = { "compile_commands.json", "compile_flags.txt", ".clangd", ".git" },
          })
 
-         -- vim.lsp.config("pyright", {
-         --    cmd = { "pyright-langserver", "--stdio" },
-         --    filetypes = { "python" },
-         --    root_markers = { "pyrightconfig.json", "pyproject.toml", "setup.py", "setup.cfg", "requirements.txt", ".git" },
-         --    settings = {
-         --       python = {
-         --          analysis = {
-         --             typeCheckingMode = "strict",
-         --             autoImportCompletions = true,
-         --             diagnosticMode = "workspace",
-         --          },
-         --       },
-         --    },
-         -- })
-
-         vim.lsp.config("ty", {
-            cmd = { "ty", "server" },
+         vim.lsp.config("pyright", {
+            cmd = { "pyright-langserver", "--stdio" },
             filetypes = { "python" },
-            root_markers = { "pyproject.toml", "setup.py", "setup.cfg", "requirements.txt", ".git" },
+            root_markers = { "pyrightconfig.json", "pyproject.toml", "setup.py", "setup.cfg", "requirements.txt", ".git" },
+            settings = {
+               python = {
+                  analysis = {
+                     typeCheckingMode = "strict",
+                     autoImportCompletions = true,
+                     diagnosticMode = "workspace",
+                  },
+               },
+            },
          })
+
+         -- vim.lsp.config("ty", {
+         --    cmd = { "ty", "server" },
+         --    filetypes = { "python" },
+         --    root_markers = { "pyproject.toml", "setup.py", "setup.cfg", "requirements.txt", ".git" },
+         -- })
 
          vim.lsp.config("rust_analyzer", {
             cmd = { "rust-analyzer" },
