@@ -76,46 +76,39 @@ if [ "$MODE" = "dark" ]; then
                        .ooooooo
                       .oooooooo
                      .ooooooooo
-                    .oooooooooo
-                   .ooooooooooo
-                  .oooooooooooo
-                 .ooooooooooooo
-                .oooooooooooo
-               .ooooooooooo
-              .oooooooooo
-             .ooooooooo
-            .oooooooo
-           .ooooooo
-          .oooooo
-         .ooooo
-        .oooo
-       .ooo
-      .oo
-     .o
-    .
+                    .oooooooo
+                   .ooooooo
+                  .oooooo
+                 .ooooo
+                .oooo
+               .ooo
+              .oo
+             .o
+            .
 
-                    D A R K
+                    M U R K
 
 EOF
 else
     cat << 'EOF'
 
 
-                 .    |    .
-                  \   |   /
-              `.   \  '  /   .'
-                `. .-"""-. .'
-            "*-._ / .ooo. \ _.-*"
-                 | ooooooo |
-            -----| ooooooo |-----
-                 | ooooooo |
-            _.-*" \ 'ooo' / "*-._
-                .' `-...-' `.
-              .'   /  '  \   `.
-                  /   |   \
-                 '    |    '
+                 .     |     *
+                  \    |    /
+              `.   \   '   /   .'
+                `. .-"""""-. .'
+            "*-._ / .ooooo. \ _.-*"
+                 | ooooooooo |
+           ~-`-.-| ooooooooo |-.~-`~
+                 | ooooooooo |
+            _.-*" \ 'ooooo' / "*-._
+                .' `-.....-' `.
+              .'   /   '   \    *.
+                  /    +    \
+                 '     |     `
 
-                 L I G H T
+
+                    L U M A
 
 EOF
 fi
