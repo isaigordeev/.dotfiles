@@ -51,10 +51,10 @@ fi
 
 # --- Hyper: toggle comment on localPlugins ---
 if grep -q '^[[:space:]]*localPlugins:[[:space:]]*\["light"\],' "$REAL_HYPER"; then
-    sed -i '' 's/^[[:space:]]*localPlugins:[[:space:]]*\["light"\],/\/\/ localPlugins: ["light"],/' "$REAL_HYPER"
+    sed -i '' 's/^[[:space:]]*localPlugins:[[:space:]]*\["light"\],/   \/\/ localPlugins: ["light"],/' "$REAL_HYPER"
     STATUS+="Hyper: dark\n"
 elif grep -q '^[[:space:]]*\/\/ localPlugins:[[:space:]]*\["light"\],' "$REAL_HYPER"; then
-    sed -i '' 's/^[[:space:]]*\/\/ localPlugins:[[:space:]]*\["light"\],/localPlugins: ["light"],/' "$REAL_HYPER"
+    sed -i '' 's/^[[:space:]]*\/\/ localPlugins:[[:space:]]*\["light"\],/   localPlugins: ["light"],/' "$REAL_HYPER"
     STATUS+="Hyper: light\n"
 else
     STATUS+="Hyper: localPlugins not found\n"
