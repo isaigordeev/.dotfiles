@@ -140,6 +140,7 @@
   "window.title": "${dirty}${activeEditorShort}${separator}${rootName}",
   "window.commandCenter": false,
   "window.customTitleBarVisibility": "windowed",
+  "window.zoomLevel": 0.4,
   "chat.commandCenter.enabled": false,
   "workbench.welcomePage.walkthroughs.openOnInstall": false,
 
