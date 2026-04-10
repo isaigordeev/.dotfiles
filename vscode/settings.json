@@ -108,7 +108,7 @@
   "zenMode.restore": true,
   "zenMode.centerLayout": true,
   "zenMode.showTabs": "none",
-  "zenMode.hideLineNumbers": false,
+  "zenMode.hideLineNumbers": true,
 
   // ─── Python / Ruff
   // ─────────────────────────────────────────
@@ -135,7 +135,7 @@
   "explorer.compactFolders": false,
   "explorer.confirmDragAndDrop": false,
   "explorer.decorations.badges": false,
-  "breadcrumbs.enabled": true,
+  "breadcrumbs.enabled": false,
   "breadcrumbs.symbolSortOrder": "position",
   "window.title": "${dirty}${activeEditorShort}${separator}${rootName}",
   "window.commandCenter": false,
