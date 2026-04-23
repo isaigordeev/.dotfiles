@@ -15,7 +15,8 @@ let g:colors_name = "vs_light"
 hi Normal       guifg=#000000 guibg=#F2F2F2
 hi Cursor       guifg=#FFFFFF guibg=#000000
 hi Visual       guibg=#ADD6FF
-hi LineNr       guifg=#6F6F6F guibg=#F2F2F2
+hi LineNr       guifg=#c0c0c0 guibg=#F2F2F2
+hi CursorLineNr guifg=#999999 guibg=#F2F2F2
 hi StatusLine   guifg=#FFFFFF guibg=#16825D
 hi StatusLineNC guifg=#919191 guibg=#F3F3F3
 hi VertSplit    guifg=#D4D4D4 guibg=#FFFFFF
