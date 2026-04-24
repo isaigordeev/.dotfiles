@@ -139,7 +139,7 @@
   "explorer.compactFolders": false,
   "explorer.confirmDragAndDrop": false,
   "explorer.decorations.badges": false,
-  "breadcrumbs.enabled": true,
+  "breadcrumbs.enabled": false,
   "breadcrumbs.filePath": "last",
   "breadcrumbs.symbolPath": "last",
   "breadcrumbs.icons": false,
