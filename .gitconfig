@@ -15,6 +15,8 @@
 	prompt = false
 [rebase]
 	gpgSign = true
+[alias]
+	lg = log --all --oneline --graph --decorate
 [http]
 	postBuffer = 524288000
 [interactive]
