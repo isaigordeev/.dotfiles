@@ -26,3 +26,6 @@ Sat 21 Mar 2026 at 18:32:17
 
 - o gdb in nvim/vim
 
+Sat 25 Apr 2026 at 00:18:59
+
+- tig bootstrap installation
