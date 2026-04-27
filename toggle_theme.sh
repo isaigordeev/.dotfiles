@@ -5,12 +5,16 @@ VIMRC="$HOME/.vimrc"
 NVIM_INIT="$HOME/.config/nvim/init.lua"
 ZSHRC="$HOME/.zshrc"
 HYPER="$HOME/.hyper.js"
+GHOSTTY="$HOME/.config/ghostty/config"
 
 # Resolve symlinks
 REAL_VIMRC="$(readlink "$VIMRC" || echo "$VIMRC")"
 REAL_NVIM="$(readlink "$NVIM_INIT" || echo "$NVIM_INIT")"
 REAL_ZSHRC="$(readlink "$ZSHRC" || echo "$ZSHRC")"
 REAL_HYPER="$(readlink "$HYPER" || echo "$HYPER")"
+REAL_GHOSTTY="$(readlink "$GHOSTTY" || echo "$GHOSTTY")"
+# config is itself in a symlinked dir; resolve fully
+[ -L "$REAL_GHOSTTY" ] || REAL_GHOSTTY="$(cd "$(dirname "$GHOSTTY")" && pwd -P)/$(basename "$GHOSTTY")"
 
 # Track which mode we're switching to
 MODE=""
@@ -58,6 +62,21 @@ elif grep -q '^[[:space:]]*\/\/ localPlugins:[[:space:]]*\["light"\],' "$REAL_HY
     STATUS+="Hyper: light\n"
 else
     STATUS+="Hyper: localPlugins not found\n"
+fi
+
+# --- Ghostty: toggle theme (Catppuccin Latte <-> Mocha) ---
+if [ -f "$REAL_GHOSTTY" ]; then
+    if grep -q "^theme = Catppuccin Latte" "$REAL_GHOSTTY"; then
+        sed -i '' 's/^theme = Catppuccin Latte/theme = Catppuccin Mocha/' "$REAL_GHOSTTY"
+        STATUS+="Ghostty: dark\n"
+    elif grep -q "^theme = Catppuccin Mocha" "$REAL_GHOSTTY"; then
+        sed -i '' 's/^theme = Catppuccin Mocha/theme = Catppuccin Latte/' "$REAL_GHOSTTY"
+        STATUS+="Ghostty: light\n"
+    else
+        STATUS+="Ghostty: theme line not found\n"
+    fi
+else
+    STATUS+="Ghostty: config not found\n"
 fi
 
 # --- Display full screen icon ---

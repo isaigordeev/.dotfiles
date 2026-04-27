@@ -1,0 +1,38 @@
+# Ghostty config — light theme, JetBrains Mono ExtraLight
+# layout/spacing inspired by ~/.dotfiles/hyper/.hyper.js
+
+# --- font ---
+font-family = JetBrains Mono
+font-style = ExtraLight
+font-style-bold = Bold
+font-size = 11.7
+adjust-cell-height = 20%
+font-feature = -liga
+font-feature = -calt
+
+# --- theme ---
+# Try also: "Tomorrow", "GitHub Light Default", "Atom One Light", "Ayu Light"
+theme = Catppuccin Latte
+
+# keep the signature magenta cursor across themes
+cursor-color = f81ce5
+cursor-text = ffffff
+cursor-style = block
+cursor-style-blink = false
+selection-background = f81ce5
+selection-foreground = ffffff
+
+# --- window / layout ---
+# Hyper had `padding: '8px 15%'` -> ~96px horizontal at a 640px window
+window-padding-x = 96
+window-padding-y = 8
+window-padding-balance = true
+window-save-state = always
+macos-titlebar-style = tabs
+
+# --- behavior ---
+bold-is-bright = false
+copy-on-select = false
+mouse-hide-while-typing = true
+confirm-close-surface = false
+shell-integration = detect
