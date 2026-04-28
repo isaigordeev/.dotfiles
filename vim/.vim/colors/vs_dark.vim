@@ -23,7 +23,7 @@ hi PmenuSbar    guibg=#454545
 hi PmenuThumb   guibg=#007ACC
 
 " Comments
-hi Comment      guifg=#828282 gui=italic
+hi Comment      guifg=#888888 gui=italic
 
 " Constants
 hi Constant     guifg=#569CD6
@@ -59,7 +59,7 @@ hi Statement    guifg=#569CD6
 hi Tag          guifg=#569CD6
 hi Label        guifg=#569CD6
 hi Special      guifg=#569CD6
-hi Delimiter    guifg=#808080
+hi Delimiter    guifg=#888888
 hi Title        guifg=#569CD6 gui=bold
 hi Bold         gui=bold
 hi Italic       gui=italic

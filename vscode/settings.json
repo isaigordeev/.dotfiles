@@ -96,14 +96,26 @@
     },
   },
   "editor.tokenColorCustomizations": {
-    "textMateRules": [
-      {
-        "scope": ["comment"],
-        "settings": {
-          "foreground": "#828282",
+    "[Visual Studio Dark]": {
+      "textMateRules": [
+        {
+          "scope": ["comment"],
+          "settings": {
+            "foreground": "#888888",
+          },
         },
-      },
-    ],
+      ],
+    },
+    "[Visual Studio Light]": {
+      "textMateRules": [
+        {
+          "scope": ["comment"],
+          "settings": {
+            "foreground": "#999999",
+          },
+        },
+      ],
+    },
   },
 
   // ─── Zen Mode ──────────────────────────────────────────────────────────────────
@@ -147,7 +159,7 @@
   "window.title": "${dirty}${activeEditorShort}${separator}${rootName}",
   "window.commandCenter": false,
   "window.customTitleBarVisibility": "windowed",
-  "window.zoomLevel": 0.4,
+  "window.zoomLevel": 0.33,
   "chat.commandCenter.enabled": false,
   "workbench.welcomePage.walkthroughs.openOnInstall": false,
 
