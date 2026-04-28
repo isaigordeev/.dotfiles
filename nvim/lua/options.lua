@@ -33,6 +33,8 @@ vim.opt.expandtab = true
 
 -- Navigation & search
 vim.opt.number = true
+vim.opt.cursorline = true
+vim.opt.cursorlineopt = "number"
 vim.opt.signcolumn = "yes"
 vim.opt.incsearch = true
 vim.opt.scrolloff = 4

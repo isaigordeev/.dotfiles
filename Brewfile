@@ -20,6 +20,7 @@ brew "pipx"
 brew "pkgconf"
 brew "tmux"
 brew "tig"  // git
+brew "tokei"
 brew "tree"
 brew "tree-sitter-cli"
 brew "vifm"
