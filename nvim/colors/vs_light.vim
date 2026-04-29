@@ -77,10 +77,10 @@ hi Todo         guifg=#a31515 guibg=NONE gui=bold
 " =====================
 " Diff / Git
 " =====================
-hi DiffAdd      guifg=#098658 guibg=#E8F8F5
-hi DiffChange   guifg=#0451a5 guibg=#F0F0FF
-hi DiffDelete   guifg=#a31515 guibg=#FFECEC
-hi DiffText     guifg=#000000 guibg=#FFD700
+hi DiffAdd      guifg=NONE    guibg=#E6FFEC
+hi DiffChange   guifg=NONE    guibg=#E6FFEC
+hi DiffDelete   guifg=NONE    guibg=#FFEBE9
+hi DiffText     guifg=NONE    guibg=#ABF2BC gui=NONE
 
 " =====================
 " CursorLine and Search

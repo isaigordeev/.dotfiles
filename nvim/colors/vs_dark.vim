@@ -68,10 +68,10 @@ hi Error        guifg=#F44747 guibg=#1E1E1E gui=bold
 hi Todo         guifg=#B5CEA8 guibg=NONE gui=bold
 
 " Diff
-hi DiffAdd      guifg=#B5CEA8 guibg=#1E1E1E
-hi DiffChange   guifg=#569CD6 guibg=#1E1E1E
-hi DiffDelete   guifg=#CE9178 guibg=#1E1E1E
-hi DiffText     guifg=#569CD6 guibg=#1E1E1E
+hi DiffAdd      guifg=NONE    guibg=#0D4429
+hi DiffChange   guifg=NONE    guibg=#0D4429
+hi DiffDelete   guifg=NONE    guibg=#3C1418
+hi DiffText     guifg=NONE    guibg=#1A7F37 gui=NONE
 
 " Match parentheses
 hi MatchParen   guibg=#264F78
