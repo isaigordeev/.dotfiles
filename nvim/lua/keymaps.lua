@@ -279,6 +279,18 @@ lmap("n", "L", function()
 end, { desc = "Git line history" })
 map("n", "<leader>gl", "<cmd>DiffviewFileHistory<CR>", { desc = "Git log (all commits)" })
 map("n", "<leader>go", "<cmd>DiffviewOpen<CR>", { desc = "Git diff vs HEAD" })
+map("n", "<leader>gm", function()
+   vim.fn.jobstart({ "git", "fetch", "origin", "main" }, {
+      on_exit = function(_, code)
+         vim.schedule(function()
+            if code ~= 0 then
+               vim.notify("git fetch failed (showing local origin/main)", vim.log.levels.WARN)
+            end
+            vim.cmd("DiffviewOpen origin/main...HEAD")
+         end)
+      end,
+   })
+end, { desc = "Git diff vs origin/main" })
 map("n", "<leader>gc", "<cmd>DiffviewClose<CR>", { desc = "Git close diffview" })
 
 
