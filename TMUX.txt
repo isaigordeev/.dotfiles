@@ -1,5 +1,33 @@
 Tmux Cheat Sheet
 
+  Essentials (memorize these first)
+
+  ┌──────────────────┬──────────────────────────────────────────────┐
+  │     Shortcut     │                 Description                  │
+  ├──────────────────┼──────────────────────────────────────────────┤
+  │ Ctrl+D           │ Exit shell — closes pane (or window/session  │
+  │                  │ if it was the last pane)                     │
+  ├──────────────────┼──────────────────────────────────────────────┤
+  │ exit             │ Same as Ctrl+D                               │
+  ├──────────────────┼──────────────────────────────────────────────┤
+  │ Ctrl+B d         │ Detach — leave session running in background │
+  ├──────────────────┼──────────────────────────────────────────────┤
+  │ Ctrl+B ?         │ Show all key bindings (q to quit)            │
+  ├──────────────────┼──────────────────────────────────────────────┤
+  │ Ctrl+B :         │ Open tmux command prompt                     │
+  ├──────────────────┼──────────────────────────────────────────────┤
+  │ Ctrl+B x         │ Kill current pane (asks confirmation)        │
+  ├──────────────────┼──────────────────────────────────────────────┤
+  │ Ctrl+B &         │ Kill current window (asks confirmation)      │
+  ├──────────────────┼──────────────────────────────────────────────┤
+  │ tmux kill-session -t name │ Kill a session by name              │
+  ├──────────────────┼──────────────────────────────────────────────┤
+  │ tmux kill-server │ Kill ALL sessions and the tmux server        │
+  └──────────────────┴──────────────────────────────────────────────┘
+
+  Tip: scroll with the trackpad/wheel to auto-enter copy mode
+  (q or Esc to exit). mouse on is set in ~/.tmux.conf.
+
   Starting Tmux
 
   ┌─────────────────────────────────┬──────────────────────────────────┐
