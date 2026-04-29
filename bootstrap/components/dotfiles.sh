@@ -26,6 +26,14 @@ link_dotfiles() {
     ln -sf "$dotfiles_dir/vim/.vimrc" "$HOME/.vimrc"
     echo "[OK] Linked .vimrc"
 
+    # Link Tmux config
+    if [ -f "$HOME/.tmux.conf" ] && [ ! -L "$HOME/.tmux.conf" ]; then
+        echo "[BACKUP] Backing up existing .tmux.conf to .tmux.conf.backup"
+        mv "$HOME/.tmux.conf" "$HOME/.tmux.conf.backup"
+    fi
+    ln -sf "$dotfiles_dir/tmux/.tmux.conf" "$HOME/.tmux.conf"
+    echo "[OK] Linked .tmux.conf"
+
     # Link Vim color schemes (skip if source and target are the same directory)
     local src_dir="$dotfiles_dir/vim/.vim/colors"
     local dst_dir="$HOME/.vim/colors"

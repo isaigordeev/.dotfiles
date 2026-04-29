@@ -1,0 +1,7 @@
+git workdirs
+
+- stih 
+- skazka
+- poema
+
+- main
