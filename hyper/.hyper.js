@@ -142,6 +142,7 @@ module.exports = {
       screenReaderMode: false,
       // set to true to preserve working directory when creating splits or tabs
       preserveCWD: true,
+      scrollback: 100000,
       // for advanced config flags please refer to https://hyper.is/#cfg
    },
    // in development, you can create a directory under
