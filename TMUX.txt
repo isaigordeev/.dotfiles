@@ -92,10 +92,45 @@ Tmux Cheat Sheet
 
   Text/Copy
 
-  ┌──────────┬──────────────────────────────────────────────┐
-  │ Shortcut │                 Description                  │
-  ├──────────┼──────────────────────────────────────────────┤
-  │ Ctrl+B [ │ Enter copy mode                              │
-  ├──────────┼──────────────────────────────────────────────┤
-  │ Ctrl+B ] │ Paste                                        │
-  └──────────┴──────────────────────────────────────────────┘
+  Two flows are configured (~/.tmux.conf):
+
+  A) Mouse drag — drag with the trackpad/wheel to select; release
+     auto-copies to the macOS clipboard and exits copy mode.
+     Paste with cmd+V anywhere outside tmux, or Ctrl+B ] inside tmux.
+
+  B) Vi-style copy mode (mode-keys vi):
+
+  ┌──────────────────┬──────────────────────────────────────────────┐
+  │     Shortcut     │                 Description                  │
+  ├──────────────────┼──────────────────────────────────────────────┤
+  │ Ctrl+B [         │ Enter copy mode                              │
+  ├──────────────────┼──────────────────────────────────────────────┤
+  │ h j k l / arrows │ Move cursor                                  │
+  ├──────────────────┼──────────────────────────────────────────────┤
+  │ w / b            │ Next / previous word                         │
+  ├──────────────────┼──────────────────────────────────────────────┤
+  │ 0 / $            │ Start / end of line                          │
+  ├──────────────────┼──────────────────────────────────────────────┤
+  │ g / G            │ Top / bottom of buffer                       │
+  ├──────────────────┼──────────────────────────────────────────────┤
+  │ /  ?             │ Search forward / backward (n / N to repeat)  │
+  ├──────────────────┼──────────────────────────────────────────────┤
+  │ v                │ Begin selection                              │
+  ├──────────────────┼──────────────────────────────────────────────┤
+  │ V                │ Line-wise selection                          │
+  ├──────────────────┼──────────────────────────────────────────────┤
+  │ Ctrl+v           │ Block (rectangle) selection                  │
+  ├──────────────────┼──────────────────────────────────────────────┤
+  │ y  or  Enter     │ Yank selection → system clipboard, exit      │
+  ├──────────────────┼──────────────────────────────────────────────┤
+  │ q  or  Esc       │ Exit copy mode without copying               │
+  ├──────────────────┼──────────────────────────────────────────────┤
+  │ Ctrl+B ]         │ Paste tmux buffer into the current pane      │
+  └──────────────────┴──────────────────────────────────────────────┘
+
+  Notes:
+   - set-clipboard on is enabled, so OSC 52-aware terminals (Ghostty)
+     get the selection even without pbcopy running.
+   - Holding Option (⌥) while dragging bypasses tmux mouse capture
+     and gives you the terminal's native selection instead — handy
+     when you want to copy across multiple panes at once.
