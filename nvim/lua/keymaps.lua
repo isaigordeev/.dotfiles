@@ -50,7 +50,7 @@ map("n", "<leader>=", "<C-w>=", { desc = "Equalize splits" })
 -- ─── Fuzzy find (Telescope) ─────────────────────────────────────
 lmap("n", "p", "<cmd>Files<CR>", { desc = "Find files" })
 lmap("n", "b", "<cmd>Telescope buffers<CR>", { desc = "Find buffers" })
-lmap("n", "C", "<cmd>Telescope current_buffer_fuzzy_find<CR>", { desc = "Search in buffer" })
+lmap("n", "C", "<cmd>BLines<CR>", { desc = "Search in buffer" })
 lmap("n", "a", "<cmd>RG<CR>", { desc = "Live ripgrep" })
 lmap("n", "A", "<cmd>Rg<CR>", { desc = "Ripgrep (fzf filter)" })
 lmap("n", "e", "<cmd>Telescope lsp_dynamic_workspace_symbols<CR>", { desc = "Workspace symbols" })

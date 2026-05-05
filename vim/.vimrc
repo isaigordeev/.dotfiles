@@ -403,8 +403,11 @@ nnoremap <leader>p :Files<CR>
 " Search buffers (buffer palette)
 nnoremap <leader>b :Buffers<CR>  
 
-" Search symbols accross current buffer
-nnoremap <leader>c :BLines<CR>
+" LSP document symbols (current file outline)
+nnoremap <leader>c :CocList outline<CR>
+
+" Fuzzy search lines in current buffer
+nnoremap <leader>C :BLines<CR>
 
 " Search symbols accross open buffers
 nnoremap <leader>e :Lines<CR>
