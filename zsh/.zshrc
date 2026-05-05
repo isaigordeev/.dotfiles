@@ -118,12 +118,7 @@ export PATH="$HOME/go/bin:$PATH"
 
 
 
-log() {
-  local f="$HOME/logs/$(date +%Y%m%d-%H%M%S).log"
-  mkdir -p "$HOME/logs"
-  echo "logging to $f"
-  script -q "$f"
-}
+source "$HOME/.dotfiles/zsh/aliases.zsh"
 
 
 #export NVM_DIR="$HOME/.nvm"
