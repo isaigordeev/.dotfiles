@@ -115,3 +115,6 @@ bind generic <Ctrl-f> move-page-down
 
 # Scroll one page up
 bind generic <Ctrl-b> move-page-up
+
+# Treat Space like Enter (open/view selection)
+bind generic <Space> enter
