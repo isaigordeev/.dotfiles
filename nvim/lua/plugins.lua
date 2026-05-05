@@ -170,6 +170,9 @@ return {
    },
    {
       "junegunn/fzf.vim",
+      init = function()
+      vim.g.fzf_commits_log_options = '--color=always --format="%C(auto)%h%d %s %C(blue)[%an]%C(reset) %C(black)%C(bold)%cr"'
+      end,
    },
 
    -- Fuzzy finder (replaces fzf.vim)

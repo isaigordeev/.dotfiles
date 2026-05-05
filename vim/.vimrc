@@ -418,7 +418,8 @@ nnoremap <leader>a :RG<CR>
 " Search symbols accross project without order
 nnoremap <leader>A :Rg<CR>
 
-" Git commits (fzf)
+" Git commits (fzf) — include author in log so fzf can filter by it
+let g:fzf_commits_log_options = '--color=always --format="%C(auto)%h%d %s %C(blue)[%an]%C(reset) %C(black)%C(bold)%cr"'
 nnoremap <leader>gj :Commits<CR>
 nnoremap <leader>gk :BCommits<CR>
 
