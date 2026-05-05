@@ -7,7 +7,7 @@ log() {
 
 alias n='nvim'
 alias n.='nvim .'
-nf() { local f; f=$(fzf) && nvim "$f"; }
+np() { local f; f=$(fzf) && nvim "$f"; }
 alias t='tig'
 alias ts='tig status'
 alias v='vim'
