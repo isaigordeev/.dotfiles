@@ -418,6 +418,10 @@ nnoremap <leader>a :RG<CR>
 " Search symbols accross project without order
 nnoremap <leader>A :Rg<CR>
 
+" Git commits (fzf)
+nnoremap <leader>gj :Commits<CR>
+nnoremap <leader>gk :BCommits<CR>
+
 " ============================================================
 "                      COMMENTING
 " ============================================================

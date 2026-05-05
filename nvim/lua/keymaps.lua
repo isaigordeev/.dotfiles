@@ -291,6 +291,8 @@ map("n", "<leader>gm", function()
    })
 end, { desc = "Git diff vs origin/main" })
 map("n", "<leader>gc", "<cmd>DiffviewClose<CR>", { desc = "Git close diffview" })
+map("n", "<leader>gj", "<cmd>Commits<CR>", { desc = "Git commits (fzf)" })
+map("n", "<leader>gk", "<cmd>BCommits<CR>", { desc = "Git commits for current file (fzf)" })
 
 
 -- ─── LSP keymaps (on attach) ───────────────────────────────────
