@@ -1,4 +1,5 @@
 tap "homebrew/services"
+brew "bat"
 brew "freetype"
 brew "fzf"
 brew "cairo"
