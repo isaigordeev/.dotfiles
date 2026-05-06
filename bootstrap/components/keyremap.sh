@@ -4,7 +4,7 @@
 
 install_keyremap_darwin() {
     local dotfiles_dir="${DOTFILES_DIR:-$HOME/.dotfiles}"
-    local src="$dotfiles_dir/macos/keyremap/com.local.KeyRemap.plist"
+    local src="$dotfiles_dir/darwin/keyremap/com.local.KeyRemap.plist"
     local dst_dir="$HOME/Library/LaunchAgents"
     local dst="$dst_dir/com.local.KeyRemap.plist"
 

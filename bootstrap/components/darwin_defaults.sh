@@ -1,12 +1,12 @@
 #!/usr/bin/env bash
-# Component: macOS defaults (Dock, etc.)
+# Component: Darwin defaults (Dock, etc.)
 # Requires: DOTFILES_DIR to be set
 
-apply_macos_defaults() {
+apply_darwin_defaults() {
     local dotfiles_dir="${DOTFILES_DIR:-$HOME/.dotfiles}"
-    local script="$dotfiles_dir/macos/defaults.sh"
+    local script="$dotfiles_dir/darwin/defaults.sh"
 
-    echo "[STEP] Applying macOS defaults..."
+    echo "[STEP] Applying Darwin defaults..."
 
     if [ ! -f "$script" ]; then
         echo "[SKIP] $script not found"
@@ -14,5 +14,5 @@ apply_macos_defaults() {
     fi
 
     bash "$script"
-    echo "[OK] macOS defaults applied"
+    echo "[OK] Darwin defaults applied"
 }
