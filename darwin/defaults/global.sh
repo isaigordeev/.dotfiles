@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+# NSGlobalDomain — system-wide
+
+defaults write NSGlobalDomain AppleInterfaceStyleSwitchesAutomatically -bool true
+defaults write NSGlobalDomain AppleMiniaturizeOnDoubleClick -bool false
+defaults write NSGlobalDomain AppleAntiAliasingThreshold -int 4
+
+defaults write NSGlobalDomain NSAutomaticCapitalizationEnabled -bool false
+defaults write NSGlobalDomain NSAutomaticPeriodSubstitutionEnabled -bool false
+defaults write NSGlobalDomain NSAutomaticSpellingCorrectionEnabled -bool false
+defaults write NSGlobalDomain NSAutomaticInlinePredictionEnabled -bool false
+defaults write NSGlobalDomain WebAutomaticSpellingCorrectionEnabled -bool false
