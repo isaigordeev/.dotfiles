@@ -28,6 +28,7 @@ source "$SCRIPT_DIR/components/tig.sh"
 source "$SCRIPT_DIR/components/vim.sh"
 source "$SCRIPT_DIR/components/fzf.sh"
 source "$SCRIPT_DIR/components/shell.sh"
+source "$SCRIPT_DIR/components/keyremap.sh"
 
 # Run components
 install_homebrew
@@ -55,6 +56,8 @@ echo ""
 install_fzf_darwin
 echo ""
 set_default_shell_darwin
+echo ""
+install_keyremap_darwin
 echo ""
 
 echo "=========================================="
