@@ -56,6 +56,33 @@ fC() {
          *) break ;;
       esac
    done
+
+   # BLines mode: fC FILE → fuzzy-pick a line, open editor at it
+   if [[ -f $1 ]]; then
+      local file=$1
+      local preview
+      if command -v bat >/dev/null 2>&1; then
+         preview="bat --color=always --style=numbers --highlight-line {1} ${(q)file}"
+      else
+         preview="awk -v n={1} 'NR>=n-10 && NR<=n+40 {printf \"%5d  %s\\n\", NR, \$0}' ${(q)file}"
+      fi
+      local pick
+      pick=$(awk '{printf "%d:%s\n", NR, $0}' "$file" \
+         | fzf --ansi --delimiter=: --with-nth=2.. \
+               --no-sort --tiebreak=index --layout=reverse \
+               --preview "$preview" \
+               --preview-window "right:60%:+{1}-/2") || return
+      local line=${pick%%:*}
+      [[ -z $line ]] && return
+      if (( print_only )); then
+         print -r -- "$line"
+      else
+         "${EDITOR:-nvim}" "+${line}" "$file"
+      fi
+      return
+   fi
+
+   # Pipe mode: ... | fC
    local sel
    sel=$(fzf --ansi --no-sort --tiebreak=index --layout=reverse "$@") || return
    if (( print_only )); then
