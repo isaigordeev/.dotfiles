@@ -29,6 +29,7 @@ source "$SCRIPT_DIR/components/vim.sh"
 source "$SCRIPT_DIR/components/fzf.sh"
 source "$SCRIPT_DIR/components/shell.sh"
 source "$SCRIPT_DIR/components/keyremap.sh"
+source "$SCRIPT_DIR/components/macos_defaults.sh"
 
 # Run components
 install_homebrew
@@ -58,6 +59,8 @@ echo ""
 set_default_shell_darwin
 echo ""
 install_keyremap_darwin
+echo ""
+apply_macos_defaults
 echo ""
 
 echo "=========================================="
