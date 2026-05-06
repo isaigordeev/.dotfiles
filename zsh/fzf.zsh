@@ -1,9 +1,25 @@
 # fzf.vim analogs for zsh
-#   frg   (Alt-A)  — :Rg   rg once, fuzzy-filter results
-#   frgl  (Alt-a)  — :RG   live ripgrep (re-runs on each keystroke)
-#   fline          — :BLines analog over stdin (piped only)
+#   ff    (Alt-P)  — :Files file picker
+#   frg   (Alt-A)  — :Rg    rg once, fuzzy-filter results
+#   frgl  (Alt-a)  — :RG    live ripgrep (re-runs on each keystroke)
+#   fline          — :BLines analog; default opens editor, -p prints
 
-_fzf_preview='cat {1} 2>/dev/null | sed -n "$(({2}>5?{2}-5:1)),$(({2}+20))p"'
+if command -v bat >/dev/null 2>&1; then
+   _fzf_preview='bat --color=always --style=numbers --highlight-line {2} {1}'
+   _fzf_file_preview='bat --color=always --style=numbers {}'
+else
+   _fzf_preview='awk -v n={2} "NR>=n-10 && NR<=n+40 {printf \"%5d  %s\n\", NR, \$0}" {1} 2>/dev/null'
+   _fzf_file_preview='awk "NR<=200 {printf \"%5d  %s\n\", NR, \$0}" {} 2>/dev/null'
+fi
+
+ff() {
+   local files
+   files=("${(@f)$(fd --type f --hidden --follow --exclude .git "${1:-}" \
+      | fzf --multi --ansi \
+            --preview "$_fzf_file_preview" \
+            --preview-window 'right:60%')}") || return
+   [[ -n $files[1] ]] && "${EDITOR:-nvim}" "${files[@]}"
+}
 
 frg() {
    local out
@@ -11,7 +27,7 @@ frg() {
       | fzf --ansi --delimiter=: \
             --query "${1:-}" \
             --preview "$_fzf_preview" \
-            --preview-window 'right:60%') || return
+            --preview-window 'right:60%:+{2}-/2') || return
    local file line
    IFS=: read -r file line _ <<< "$out"
    [[ -n $file ]] && "${EDITOR:-nvim}" "+${line}" "$file"
@@ -58,9 +74,9 @@ fline() {
 }
 
 # Keybindings — Alt-A / Alt-a (no widget for fline; it's pipe-driven)
+_ff_widget()   { ff   </dev/tty >/dev/tty; zle reset-prompt }
 _frg_widget()  { frg  </dev/tty >/dev/tty; zle reset-prompt }
 _frgl_widget() { frgl </dev/tty >/dev/tty; zle reset-prompt }
+zle -N _ff_widget
 zle -N _frg_widget
 zle -N _frgl_widget
-bindkey '^[A' _frg_widget
-bindkey '^[a' _frgl_widget
