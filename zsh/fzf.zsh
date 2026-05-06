@@ -14,8 +14,9 @@ fi
 
 fp() {
    local files
-   files=("${(@f)$(fd --type f --hidden --follow --exclude .git "${1:-}" \
+   files=("${(@f)$(fd --type f --hidden --follow --exclude .git \
       | fzf --multi --ansi \
+            --query "${1:-}" \
             --preview "$_fzf_file_preview" \
             --preview-window 'right:60%')}") || return
    [[ -n $files[1] ]] && "${EDITOR:-nvim}" "${files[@]}"
