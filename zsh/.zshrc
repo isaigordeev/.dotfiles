@@ -118,7 +118,11 @@ export PATH="$HOME/go/bin:$PATH"
 
 
 
+export EDITOR='nvim'
+export VISUAL='nvim'
+
 source "$HOME/.dotfiles/zsh/aliases.zsh"
+source "$HOME/.dotfiles/zsh/fzf.zsh"
 
 
 #export NVM_DIR="$HOME/.nvm"
