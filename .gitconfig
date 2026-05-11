@@ -2,26 +2,10 @@
 	name = Isai Gordeev
 	email = isaigordeev@gmail.com
 	signingkey = E32BE35A
-[core]
-	autocrlf = input
-	pager = delta
 [commit]
 	gpgsign = true
-[diff]
-	tool = vimdiff
-[difftool]
-	prompt = false
-[rebase]
-	gpgSign = true
 [alias]
 	lg = log --all --oneline --graph --decorate
-[http]
-	postBuffer = 524288000
-[interactive]
-	diffFilter = delta --color-only
-[delta]
-	line-numbers = true
-	syntax-theme = Dracula
 [sendemail]
 	smtpServer = smtp.gmail.com
 	smtpServerPort = 587
