@@ -1,14 +1,12 @@
 [user]
 	name = Isai Gordeev
 	email = isaigordeev@gmail.com
-	signingkey = F4F078EB57EA2C67C23E0F5CB94FFCADE32BE35A
+	signingkey = E32BE35A
 [core]
 	autocrlf = input
 	pager = delta
 [commit]
 	gpgsign = true
-[gpg]
-	program = /usr/local/bin/gpg
 [diff]
 	tool = vimdiff
 [difftool]
@@ -24,3 +22,8 @@
 [delta]
 	line-numbers = true
 	syntax-theme = Dracula
+[sendemail]
+	smtpServer = smtp.gmail.com
+	smtpServerPort = 587
+	smtpEncryption = tls
+	smtpUser = isai.gordeev.2022@polytechnique.org
