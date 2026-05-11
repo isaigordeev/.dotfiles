@@ -232,7 +232,7 @@ return {
          require("zen-mode").setup({
             window = {
                width = 80,
-               col_offset = -15,
+               col_offset = -20,
                options = { number = true },
             },
          })
