@@ -66,8 +66,12 @@ bind main F !git fetch --all
 # Revert the selected commit (creates a new undo commit)
 bind main ! !git revert %(commit)
 
-# Copy the selected commit hash to the clipboard
-bind main Y !@bash -c "echo -n %(commit) | xclip -selection clipboard"
+# Copy bindings — dispatch to pbcopy (macOS) or xclip (Linux).
+# Generic Y copies file path; per-view overrides copy commit/branch instead.
+bind generic Y !@sh -c "printf %s %(file)   | { command -v pbcopy >/dev/null && pbcopy || xclip -selection clipboard; }"
+bind main    Y !@sh -c "printf %s %(commit) | { command -v pbcopy >/dev/null && pbcopy || xclip -selection clipboard; }"
+bind blame   Y !@sh -c "printf %s %(commit) | { command -v pbcopy >/dev/null && pbcopy || xclip -selection clipboard; }"
+bind refs    Y !@sh -c "printf %s %(branch) | { command -v pbcopy >/dev/null && pbcopy || xclip -selection clipboard; }"
 
 # -- Key bindings: diff view --------------------------------------------------
 
