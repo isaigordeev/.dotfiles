@@ -291,13 +291,8 @@ map("n", "<leader>gm", function()
    })
 end, { desc = "Git diff vs origin/main" })
 map("n", "<leader>gc", "<cmd>DiffviewClose<CR>", { desc = "Git close diffview" })
-map("n", "<leader>gd", function()
-   vim.ui.input({ prompt = "DiffviewOpen range: " }, function(range)
-      if range and range ~= "" then
-         vim.cmd("DiffviewOpen " .. range)
-      end
-   end)
-end, { desc = "Git diff custom range" })
+map("n", "<leader>gd", function() require("git_range").pick() end,
+   { desc = "Git diff range picker" })
 map("n", "<leader>gj", "<cmd>Commits<CR>", { desc = "Git commits (fzf)" })
 map("n", "<leader>gk", "<cmd>BCommits<CR>", { desc = "Git commits for current file (fzf)" })
 
