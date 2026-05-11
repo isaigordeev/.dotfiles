@@ -306,5 +306,11 @@ vim.api.nvim_create_autocmd("LspAttach", {
       map("n", "gi", "<cmd>Telescope lsp_implementations<CR>", opts)
       map("n", "gr", "<cmd>Telescope lsp_references<CR>", opts)
       map("n", "K", vim.lsp.buf.hover, opts)
+      map("n", "ge", function()
+         vim.diagnostic.open_float({ focus = false, scope = "cursor" })
+         vim.diagnostic.open_float()
+      end, opts)
+      map("n", "]d", vim.diagnostic.goto_next, opts)
+      map("n", "[d", vim.diagnostic.goto_prev, opts)
    end,
 })
