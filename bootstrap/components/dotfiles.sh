@@ -34,6 +34,15 @@ link_dotfiles() {
     ln -sf "$dotfiles_dir/tmux/.tmux.conf" "$HOME/.tmux.conf"
     echo "[OK] Linked .tmux.conf"
 
+    # Install TPM (Tmux Plugin Manager)
+    if [ ! -d "$HOME/.tmux/plugins/tpm" ]; then
+        echo "[STEP] Installing TPM..."
+        git clone https://github.com/tmux-plugins/tpm "$HOME/.tmux/plugins/tpm"
+        echo "[OK] TPM installed. In tmux, press prefix + I to install plugins."
+    else
+        echo "[SKIP] TPM already installed"
+    fi
+
     # Link Git config
     if [ -f "$HOME/.gitconfig" ] && [ ! -L "$HOME/.gitconfig" ]; then
         echo "[BACKUP] Backing up existing .gitconfig to .gitconfig.backup"
