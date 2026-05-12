@@ -126,3 +126,9 @@ hi @variable            guifg=#D4D4D4
 hi @variable.parameter  guifg=#D4D4D4
 hi @variable.member     guifg=#D4D4D4
 hi @variable.builtin    guifg=#569CD6
+
+" Enums (match VSCode Visual Studio Dark)
+hi Enum                 guifg=#4EC9B0
+hi @type.enum           guifg=#4EC9B0
+hi @lsp.type.enum       guifg=#4EC9B0
+hi @lsp.type.enumMember guifg=#4EC9B0

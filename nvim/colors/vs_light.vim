@@ -116,3 +116,11 @@ hi DiagnosticUnderlineError gui=undercurl guisp=#FF0000
 hi DiagnosticUnderlineWarn  gui=undercurl guisp=#BF8803
 hi DiagnosticUnderlineInfo  gui=undercurl guisp=#0451a5
 hi DiagnosticUnderlineHint  gui=undercurl guisp=#098658
+
+" =====================
+" Enums (match VSCode Visual Studio Light)
+" =====================
+hi Enum                 guifg=#267F99
+hi @type.enum           guifg=#267F99
+hi @lsp.type.enum       guifg=#267F99
+hi @lsp.type.enumMember guifg=#267F99

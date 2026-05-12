@@ -91,5 +91,12 @@ hi Search       guibg=#90C2F9 guifg=#000000
 hi Visual       guibg=#ADD6FF
 
 " =====================
+" Enums (match VSCode Visual Studio Light)
+" =====================
+hi Enum             guifg=#267F99
+hi CocSemEnum       guifg=#267F99
+hi CocSemEnumMember guifg=#267F99
+
+" =====================
 " End
 " =====================

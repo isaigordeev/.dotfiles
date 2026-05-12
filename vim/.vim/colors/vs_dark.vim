@@ -106,3 +106,8 @@ hi CocUnusedHighlight  guibg=NONE guifg=#6B6B6B gui=undercurl guisp=#6B6B6B cter
 hi CocDeprecatedHighlight guibg=NONE gui=strikethrough guisp=#6B6B6B cterm=strikethrough
 hi CocErrorLine        guibg=NONE
 hi CocWarningLine      guibg=NONE
+
+" Enums (match VSCode Visual Studio Dark)
+hi Enum             guifg=#4EC9B0
+hi CocSemEnum       guifg=#4EC9B0
+hi CocSemEnumMember guifg=#4EC9B0
