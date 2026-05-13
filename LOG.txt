@@ -20,7 +20,7 @@ Tue 17 Mar 2026 at 13:17:11
 
 Tue 17 Mar 2026 at 13:17:56
 
-- o better tab navigation plugin for hyper
+- x better tab navigation plugin for hyper (replaced by tmux) 
 
 Sat 21 Mar 2026 at 18:32:17
 
@@ -28,5 +28,5 @@ Sat 21 Mar 2026 at 18:32:17
 
 Sat 25 Apr 2026 at 00:18:59
 
-- tig bootstrap installation
-- apply gitconfig
+- x tig bootstrap installation
+- x apply gitconfig
