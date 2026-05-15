@@ -64,13 +64,21 @@ else
     STATUS+="Hyper: localPlugins not found\n"
 fi
 
-# --- Ghostty: toggle theme (Catppuccin Latte <-> Mocha) ---
+# --- Ghostty: toggle theme (Catppuccin Latte <-> Mocha) + cursor + bg/fg ---
 if [ -f "$REAL_GHOSTTY" ]; then
     if grep -q "^theme = Catppuccin Latte" "$REAL_GHOSTTY"; then
         sed -i '' 's/^theme = Catppuccin Latte/theme = Catppuccin Mocha/' "$REAL_GHOSTTY"
+        sed -i '' 's/^background = F2F2F2/background = 2f2f2f/' "$REAL_GHOSTTY"
+        sed -i '' 's/^foreground = 000000/foreground = D4D4D4/' "$REAL_GHOSTTY"
+        sed -i '' 's/^cursor-color = 000000/cursor-color = ffffff/' "$REAL_GHOSTTY"
+        sed -i '' 's/^cursor-text = ffffff/cursor-text = 000000/' "$REAL_GHOSTTY"
         STATUS+="Ghostty: dark\n"
     elif grep -q "^theme = Catppuccin Mocha" "$REAL_GHOSTTY"; then
         sed -i '' 's/^theme = Catppuccin Mocha/theme = Catppuccin Latte/' "$REAL_GHOSTTY"
+        sed -i '' 's/^background = 2f2f2f/background = F2F2F2/' "$REAL_GHOSTTY"
+        sed -i '' 's/^foreground = D4D4D4/foreground = 000000/' "$REAL_GHOSTTY"
+        sed -i '' 's/^cursor-color = ffffff/cursor-color = 000000/' "$REAL_GHOSTTY"
+        sed -i '' 's/^cursor-text = 000000/cursor-text = ffffff/' "$REAL_GHOSTTY"
         STATUS+="Ghostty: light\n"
     else
         STATUS+="Ghostty: theme line not found\n"

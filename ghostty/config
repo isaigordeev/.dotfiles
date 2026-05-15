@@ -15,11 +15,12 @@ font-feature = -calt
 theme = Catppuccin Latte
 
 # match nvim colors/vs_light.vim and vs_dark.vim Normal hi-group
+# (toggle_theme.sh swaps these along with the theme)
 background = F2F2F2
 foreground = 000000
 
-# keep the signature magenta cursor across themes
-cursor-color = f81ce5
+# cursor flips with theme (toggle_theme.sh swaps these)
+cursor-color = 000000
 cursor-text = ffffff
 cursor-style = block
 cursor-style-blink = false
