@@ -267,7 +267,7 @@ map("n", "<leader>gr", function()
 end, { desc = "Git reset hunk" })
 
 lmap("n", "gf", "<cmd>DiffviewFileHistory %<CR>", { desc = "Git file history" })
-lmap("n", "gL", function()
+lmap("n", "gl", function()
    local line = vim.fn.line(".")
    local file = vim.fn.expand("%")
    vim.cmd("DiffviewFileHistory -L" .. line .. "," .. line .. ":" .. file)
