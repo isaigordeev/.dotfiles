@@ -226,7 +226,7 @@ end, { desc = "Insert timestamp" })
 
 -- ─── Git (gitsigns + diffview + fugitive) ───────────────────────
 -- Quick blame popup (git-messenger)
-lmap("n", "g", "<cmd>GitMessenger<CR>", { desc = "Git blame popup" })
+lmap("n", "gp", "<cmd>GitMessenger<CR>", { desc = "Git blame popup" })
 
 -- Full blame sidebar (GitLens-style) - navigate with j/k, Enter to see commit
 map("n", "<leader>gb", "<cmd>Git blame<CR>", { desc = "Git blame sidebar" })
@@ -241,10 +241,6 @@ map("n", "<leader>gv", function()
       print("No commit for this line")
    end
 end, { desc = "Git view commit (all files)" })
-
-lmap("n", "d", function()
-   require("gitsigns").preview_hunk_inline()
-end, { desc = "Git diff hunk inline" })
 
 map("n", "]c", function() require("gitsigns").nav_hunk("next") end, { desc = "Next git hunk" })
 map("n", "[c", function() require("gitsigns").nav_hunk("prev") end, { desc = "Prev git hunk" })
@@ -270,26 +266,13 @@ map("n", "<leader>gr", function()
    vim.schedule(function() vim.fn.winrestview(view) end)
 end, { desc = "Git reset hunk" })
 
-lmap("n", "G", "<cmd>DiffviewFileHistory %<CR>", { desc = "Git file history" })
-lmap("n", "L", function()
+lmap("n", "gf", "<cmd>DiffviewFileHistory %<CR>", { desc = "Git file history" })
+lmap("n", "gL", function()
    local line = vim.fn.line(".")
    local file = vim.fn.expand("%")
    vim.cmd("DiffviewFileHistory -L" .. line .. "," .. line .. ":" .. file)
 end, { desc = "Git line history" })
-map("n", "<leader>gl", "<cmd>DiffviewFileHistory<CR>", { desc = "Git log (all commits)" })
-map("n", "<leader>go", "<cmd>DiffviewOpen<CR>", { desc = "Git diff vs HEAD" })
-map("n", "<leader>gm", function()
-   vim.fn.jobstart({ "git", "fetch", "origin", "main" }, {
-      on_exit = function(_, code)
-         vim.schedule(function()
-            if code ~= 0 then
-               vim.notify("git fetch failed (showing local origin/main)", vim.log.levels.WARN)
-            end
-            vim.cmd("DiffviewOpen origin/main...HEAD")
-         end)
-      end,
-   })
-end, { desc = "Git diff vs origin/main" })
+map("n", "<leader>gm", "<cmd>DiffviewFileHistory<CR>", { desc = "Git log (all commits)" })
 map("n", "<leader>gc", "<cmd>DiffviewClose<CR>", { desc = "Git close diffview" })
 map("n", "<leader>gd", function() require("git_range").pick() end,
    { desc = "Git diff range picker" })
