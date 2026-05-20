@@ -1,87 +1,102 @@
 
-MINIMAL VIM & VSCODE & ZSH SETUP
-================================
+DOTFILES
+========
 
-for MacOS 
+A minimal, keyboard-driven dev environment for macOS and Linux.
+Built for older hardware and large codebases (~1M lines) where heavy
+IDEs feel sluggish.
 
-A lightweight, keyboard-friendly setup for Vim and Zsh.
-Perfect for old Linux/macOS systems or large codebases (~1M lines)
-without relying on heavy IDEs like CLion.
-
--------------------------------------------------------------------------------
-0. Set .zshrc
--------------------------------------------------------------------------------
-
-    > ln -fs "$HOME/.dotfiles/zsh/.zshrc" "$HOME/.zshrc"
-
--------------------------------------------------------------------------------
-1. Install Zsh
--------------------------------------------------------------------------------
-
-Download and install Zsh via curl (if not already installed):
-
-    > curl -L https://example.com/install-zsh.sh | sh
+Includes configs for:
+  - Zsh (Oh My Zsh + sobole theme + fzf)
+  - Vim and Neovim
+  - Tmux (with TPM + tmux-resurrect)
+  - Ghostty, Hyper, VSCode, Zed
+  - Tig, JetBrains Mono + Computer Modern fonts
+  - macOS defaults & key remapping
 
 -------------------------------------------------------------------------------
-2. Vim Setup
+QUICK START
 -------------------------------------------------------------------------------
 
-Install vim-plug (plugin manager):
+Clone into ~/.dotfiles:
 
-    > curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
-         https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+    > git clone <repo-url> "$HOME/.dotfiles"
+    > cd "$HOME/.dotfiles"
 
-Install Plugins:
-1. Open Vim:
-    
-    > vim
+Run the bootstrap for your OS:
 
-2. Inside Vim, run:
+    > ./bootstrap/darwin.sh        # macOS
+    > ./bootstrap/linux.sh         # Linux
 
-    :PlugInstall
+The bootstrap is modular (see bootstrap/components/) and handles:
+Homebrew, packages, Oh My Zsh, dotfile symlinks, vim-plug + plugins,
+fzf, fonts, tig, vscode, hyper, key remapping, and macOS defaults.
 
-Reload Vim and enjoy a minimal, fast setup.
+Restart your terminal (or `exec zsh`) when it finishes.
 
 -------------------------------------------------------------------------------
-3. Install Oh My Zsh
+LAYOUT
 -------------------------------------------------------------------------------
+
+    bootstrap/      install scripts (darwin.sh, linux.sh + components/)
+    zsh/            .zshrc, aliases, fzf integration, sobole theme
+    vim/            .vimrc, plugins, color schemes, coc extensions
+    nvim/           init.lua + lazy.nvim setup
+    tmux/           .tmux.conf
+    ghostty/        terminal config
+    hyper/          terminal config
+    vscode/         settings + keybindings
+    zed/            settings
+    tig/            git TUI config
+    fonts/          JetBrains Mono + Computer Modern
+    darwin/         macOS system defaults
+    prompt/         shell prompt definitions
+    Brewfile        Homebrew packages
+
+-------------------------------------------------------------------------------
+MANUAL SETUP (if you'd rather not run bootstrap)
+-------------------------------------------------------------------------------
+
+1. Link the core dotfiles:
+
+    > ln -fs "$HOME/.dotfiles/zsh/.zshrc"      "$HOME/.zshrc"
+    > ln -fs "$HOME/.dotfiles/vim/.vimrc"      "$HOME/.vimrc"
+    > ln -fs "$HOME/.dotfiles/tmux/.tmux.conf" "$HOME/.tmux.conf"
+    > ln -fs "$HOME/.dotfiles/nvim"            "$HOME/.config/nvim"
+
+2. Install Oh My Zsh:
 
     > sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 
--------------------------------------------------------------------------------
-4. Syntax Highlighting
--------------------------------------------------------------------------------
+3. Link the theme:
 
-Add Zsh syntax highlighting to your .zshrc:
+    > ln -fs "$HOME/.dotfiles/zsh/sobole.zsh-theme" \
+             "$HOME/.oh-my-zsh/custom/themes/sobole.zsh-theme"
 
-    > echo "source $(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh" >> ${ZDOTDIR:-$HOME}/.zshrc
+   Then set ZSH_THEME="sobole" in .zshrc.
 
-Reload Zsh:
+4. Install vim-plug and plugins:
 
-    > source ~/.zshrc
+    > curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
+        https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+    > vim +PlugInstall +qall
 
--------------------------------------------------------------------------------
-5. Load a Custom Theme
--------------------------------------------------------------------------------
+5. Install TPM and tmux plugins:
 
-Link a theme file:
+    > git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 
-    > ln -fs "$HOME/.dotfiles/zsh/sobole.zsh-theme" "$HOME/.oh-my-zsh/custom/
-    themes/sobole.zsh-theme"
+   Then inside tmux: prefix + I
 
-Set it in .zshrc:
-
-    ZSH_THEME="sobole"
-
-Reload Zsh:
+6. Reload:
 
     > source ~/.zshrc
 
 -------------------------------------------------------------------------------
-DONE!
+NOTES
 -------------------------------------------------------------------------------
 
-You now have a minimal, fast, keyboard-friendly environment:
-- Vim with plugins via vim-plug
-- Oh My Zsh with syntax highlighting and a custom theme
-- Lightweight setup ideal for big codebases or older systems
+  - tmux prefix bindings: see tmux/.tmux.conf (new windows open to the
+    right of current; & kills window and moves focus left).
+  - toggle_theme.sh switches macOS light/dark mode and adjacent terminal
+    themes in one shot.
+  - MANIFEST.txt lists the git worktrees used alongside main.
