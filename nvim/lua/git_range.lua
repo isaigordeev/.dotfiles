@@ -39,6 +39,7 @@ function M.pick()
       "Last N commits...",
       "Pick base branch/tag (...HEAD)",
       "Pick base commit (..HEAD)",
+      "Pick commit (show its diff)",
       "Custom range...",
    }
    vim.ui.select(choices, { prompt = "Diffview range:" }, function(choice)
@@ -62,6 +63,10 @@ function M.pick()
             diffview(sha .. "..HEAD")
          end)
       elseif choice == choices[6] then
+         pick_with_telescope("git_commits", function(sha)
+            diffview(sha .. "~.." .. sha)
+         end)
+      elseif choice == choices[7] then
          vim.ui.input({ prompt = "Range: " }, function(range)
             if range and range ~= "" then diffview(range) end
          end)
