@@ -1,0 +1,125 @@
+============================================
+  git log
+============================================
+
+--shortstat
+    Same as --stat but just the totals line.
+    Great for activity scans.
+
+--dirstat / --dirstat=lines,cumulative
+    Churn per directory, not per file.
+
+--name-status
+    File list with A/M/D/R markers. Cheap, scriptable.
+
+--follow -- <file>
+    Follow a file's history through renames.
+
+-S"foo"   (pickaxe)
+    Commits that added/removed the string "foo".
+
+-G"regex"
+    Same idea but regex over the diff.
+
+-L :funcName:file.lua
+    History of a single function/range.
+
+--first-parent
+    Clean linear view of merges-as-units. Great on main.
+
+--cherry-mark --left-right A...B
+    See which commits on each side are equivalent.
+
+
+============================================
+  git diff / git show
+============================================
+
+--word-diff   (or --word-diff=color)
+    Inline word changes instead of line changes.
+
+--stat-width=200 --stat-graph-width=40
+    Tame the truncation --stat does in narrow terminals.
+
+-w / --ignore-all-space
+    Diff ignoring whitespace.
+
+--find-renames / -M, --find-copies / -C
+    Detect moved/copied code.
+
+--compact-summary
+    --stat plus mode changes and new/deleted markers.
+
+
+============================================
+  git blame
+============================================
+
+-w -C -C -C
+    Ignore whitespace and chase copies across files
+    (find the real author of moved code).
+
+--ignore-revs-file .git-blame-ignore-revs
+    Skip noisy reformat commits.
+
+
+============================================
+  General
+============================================
+
+git log --oneline --graph --decorate --all
+    The canonical "what's going on" view.
+
+git range-diff main@{1} main
+    Compare two versions of a branch (rebase diff).
+
+git reflog
+    Undo almost anything; pairs with
+        git reset --hard HEAD@{N}
+
+
+============================================
+  Top-level git flags (before the subcommand)
+============================================
+
+git --no-pager log …
+    Dump straight to stdout, no `less`.
+    Essential for scripts and piping.
+
+git -P …
+    Short alias for --no-pager.
+
+git -c <key>=<val> …
+    One-shot config override.
+    E.g. `git -c core.pager=cat log`, or
+         `git -c user.email=other@x.com commit …`.
+
+git -C <path> …
+    Run as if from <path>. Avoids `cd`-ing in scripts:
+        git -C ~/repo status
+
+git --git-dir=… --work-tree=…
+    Operate on a repo whose .git lives elsewhere
+    (bare repos, dotfiles-as-bare pattern).
+
+git --paginate / --no-pager
+    Force pager on/off regardless of config.
+
+git --literal-pathspecs
+    Treat `*` etc. literally, no glob expansion.
+    Useful when filenames contain magic chars.
+
+git --no-optional-locks status
+    Skip writing index.lock etc. Good for status calls from
+    prompts/statuslines so they don't fight an interactive git.
+
+git --exec-path
+    Prints where git's helpers live;
+    --exec-path=<dir> overrides it.
+
+git --version, git --help <cmd> (opens man page),
+git -h after a subcommand (short usage).
+
+The two you'll probably actually reach for daily:
+    -C                    (run elsewhere)
+    --no-optional-locks   (for prompts/statuslines)
