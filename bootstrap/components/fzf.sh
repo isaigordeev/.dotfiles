@@ -4,9 +4,15 @@
 install_fzf_darwin() {
     echo "[STEP] Installing fzf keybindings..."
 
-    if [ -f "$(brew --prefix)/opt/fzf/install" ]; then
-        "$(brew --prefix)/opt/fzf/install" --key-bindings --completion --no-update-rc --no-bash --no-fish
-        echo "[OK] fzf keybindings installed"
+    local fzf_install
+    fzf_install="$(brew --prefix 2>/dev/null)/opt/fzf/install"
+
+    if [ -f "$fzf_install" ]; then
+        if "$fzf_install" --key-bindings --completion --no-update-rc --no-bash --no-fish; then
+            echo "[OK] fzf keybindings installed"
+        else
+            echo "[WARN] fzf keybindings had issues, continuing..."
+        fi
     else
         echo "[SKIP] fzf install script not found"
     fi

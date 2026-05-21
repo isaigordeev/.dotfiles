@@ -78,4 +78,18 @@ link_dotfiles() {
     else
         echo "[SKIP] Neovim config already in place (source and target are the same)"
     fi
+
+    # Link Ghostty config (skip if already pointing to the right place)
+    local ghostty_src="$dotfiles_dir/ghostty"
+    local ghostty_dst="$HOME/.config/ghostty"
+    if [ "$(realpath "$ghostty_src" 2>/dev/null)" != "$(realpath "$ghostty_dst" 2>/dev/null)" ]; then
+        if [ -d "$ghostty_dst" ] && [ ! -L "$ghostty_dst" ]; then
+            echo "[BACKUP] Backing up existing ghostty config to ghostty.backup"
+            mv "$ghostty_dst" "$HOME/.config/ghostty.backup"
+        fi
+        ln -sf "$ghostty_src" "$ghostty_dst"
+        echo "[OK] Linked ghostty config"
+    else
+        echo "[SKIP] Ghostty config already in place (source and target are the same)"
+    fi
 }

@@ -7,10 +7,10 @@ install_packages_darwin() {
     # Update Homebrew (ignore errors from broken casks)
     brew update || echo "[WARN] brew update had warnings, continuing..."
 
-    # Install packages
-    brew install zsh git curl vim neovim fzf ripgrep
-    brew install zsh-syntax-highlighting
-    brew install protobuf bear fd tokei
+    # Install packages (|| true to continue on link failures like MacVim conflicts)
+    brew install zsh git curl vim neovim fzf ripgrep || true
+    brew install zsh-syntax-highlighting || true
+    brew install protobuf bear fd tokei || true
 
     echo "[OK] Packages installed"
 }

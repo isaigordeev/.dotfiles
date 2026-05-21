@@ -13,6 +13,9 @@ apply_darwin_defaults() {
         return
     fi
 
-    bash "$script"
-    echo "[OK] Darwin defaults applied"
+    if bash "$script"; then
+        echo "[OK] Darwin defaults applied"
+    else
+        echo "[WARN] Darwin defaults had issues, continuing..."
+    fi
 }
