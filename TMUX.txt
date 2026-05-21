@@ -44,6 +44,31 @@ Tmux Cheat Sheet
   │ tmux list-sessions              │ List all sessions                │
   └─────────────────────────────────┴──────────────────────────────────┘
 
+  Multiple Servers
+
+  Each server is a separate tmux process with isolated sessions.
+
+  ┌─────────────────────────────────┬──────────────────────────────────┐
+  │            Command              │            Description           │
+  ├─────────────────────────────────┼──────────────────────────────────┤
+  │ tmux -L work                    │ Create/attach to 'work' server   │
+  ├─────────────────────────────────┼──────────────────────────────────┤
+  │ tmux -L work new -s main        │ New session on 'work' server     │
+  ├─────────────────────────────────┼──────────────────────────────────┤
+  │ tmux -L work a                  │ Attach to 'work' server          │
+  ├─────────────────────────────────┼──────────────────────────────────┤
+  │ tmux -L work a -t mysession     │ Attach to specific session       │
+  ├─────────────────────────────────┼──────────────────────────────────┤
+  │ tmux -L work a -d               │ Attach and detach others         │
+  ├─────────────────────────────────┼──────────────────────────────────┤
+  │ tmux -L work kill-server        │ Kill entire 'work' server        │
+  ├─────────────────────────────────┼──────────────────────────────────┤
+  │ pgrep -a tmux                   │ List running tmux servers        │
+  └─────────────────────────────────┴──────────────────────────────────┘
+
+  Note: 'tmux a' is shorthand for 'tmux attach'. Without -L, connects
+  to the default server. Use -L <name> for named servers.
+
   Key Shortcuts (Prefix = Ctrl+B)
 
   Detach/Manage
