@@ -45,5 +45,12 @@ install_packages_linux() {
             ;;
     esac
 
+    # prettier (markdown formatter used by conform.nvim)
+    if command -v npm > /dev/null 2>&1; then
+        sudo npm install -g prettier || echo "[WARN] prettier install failed"
+    else
+        echo "[WARN] npm not found, skipping prettier"
+    fi
+
     echo "[OK] Packages installed"
 }

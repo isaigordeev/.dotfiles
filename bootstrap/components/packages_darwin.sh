@@ -11,6 +11,7 @@ install_packages_darwin() {
     brew install zsh git curl vim neovim fzf ripgrep || true
     brew install zsh-syntax-highlighting || true
     brew install protobuf bear fd tokei || true
+    brew install prettier || true
 
     echo "[OK] Packages installed"
 }
