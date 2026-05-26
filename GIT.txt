@@ -1,4 +1,46 @@
 ============================================
+  Restore a file to a specific commit
+============================================
+
+-- Diff first (preview before restoring) ---
+git diff <commit> -- <file>                 [working tree vs commit]
+git diff <commit> HEAD -- <file>            [commit vs current HEAD]
+git diff <a> <b> -- <file>                  [between two commits]
+git show <commit>:<file>                    [print file at commit]
+git show <commit>:<file> > /tmp/old         [extract without replacing]
+
+-- Restore (modern syntax) -----------------
+git restore -s <commit> -W  <file>          [working tree only]
+git restore -s <commit> -S  <file>          [index only]
+git restore -s <commit> -SW <file>          [both — most common]
+
+<commit> can be a SHA, branch, tag, or relative ref
+(HEAD~3, main@{yesterday}, etc.).
+
+-- Older syntax (still works) --------------
+git checkout <commit> -- <file>
+
+-- Useful variants -------------------------
+git restore -s HEAD~1 path/to/file          [one commit ago]
+git restore -s abc1234 path/to/file         [specific SHA]
+git restore -s main path/to/file            [version on main]
+git restore -s HEAD .                       [discard ALL local changes]
+
+-- Find the right commit -------------------
+git log --oneline -- path/to/file           [history of that file]
+git log --follow --oneline -- path/to/file  [follow renames]
+git log -p -- path/to/file                  [full diff per commit]
+
+-- Short hashes ----------------------------
+Any unambiguous prefix works (min 4, default 7).
+If ambiguous, git errors — add more characters.
+git config --global core.abbrev 10          [set preferred length]
+
+Note: restore rewrites the file but does NOT commit.
+Run `git add` + `git commit` to record the restoration.
+
+
+============================================
   git log
 ============================================
 

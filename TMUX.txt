@@ -159,3 +159,32 @@ Tmux Cheat Sheet
    - Holding Option (⌥) while dragging bypasses tmux mouse capture
      and gives you the terminal's native selection instead — handy
      when you want to copy across multiple panes at once.
+
+  Multiple Servers (separate socket = separate server)
+
+  Each tmux server is identified by its socket. By default everything
+  shares one socket, so all sessions live in one server. Use -L (named
+  socket) or -S (explicit socket path) to start an independent server
+  with its own sessions, options, plugins state, and copy buffers.
+
+  ┌─────────────────────────────────────┬──────────────────────────────┐
+  │              Command                │          Description         │
+  ├─────────────────────────────────────┼──────────────────────────────┤
+  │ tmux -L work new -s main            │ Start server on socket 'work'│
+  ├─────────────────────────────────────┼──────────────────────────────┤
+  │ tmux -L work ls                     │ List sessions on 'work'      │
+  ├─────────────────────────────────────┼──────────────────────────────┤
+  │ tmux -L work attach -t main         │ Attach to 'work' server      │
+  ├─────────────────────────────────────┼──────────────────────────────┤
+  │ tmux -S /tmp/tmux-other new         │ Server at explicit path      │
+  ├─────────────────────────────────────┼──────────────────────────────┤
+  │ tmux -L work kill-server            │ Kill just the 'work' server  │
+  ├─────────────────────────────────────┼──────────────────────────────┤
+  │ tmux -L test -f ~/test.tmux.conf    │ Sandbox a different config   │
+  └─────────────────────────────────────┴──────────────────────────────┘
+
+  Notes:
+   - prefix s only lists sessions in the current server.
+   - Named sockets live in $TMUX_TMPDIR (or /tmp/tmux-<uid>/).
+   - Useful for isolating work/personal contexts or testing a config
+     without touching your main session tree.

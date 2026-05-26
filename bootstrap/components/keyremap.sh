@@ -1,5 +1,8 @@
 #!/usr/bin/env bash
-# Component: Keyboard remap (Right Command -> Return)
+# Component: Keyboard remap (via hidutil UserKeyMapping)
+#   Right Command -> Return
+#   Right Option  -> Backspace
+#   Caps Lock     <-> Backspace  (swap)
 # Requires: DOTFILES_DIR to be set
 
 install_keyremap_darwin() {
