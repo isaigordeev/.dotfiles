@@ -29,4 +29,8 @@ Sat 21 Mar 2026 at 18:32:17
 Sat 25 Apr 2026 at 00:18:59
 
 - x tig bootstrap installation
-- x apply gitconfig
+- x apply gitconfig 
+
+Wed 27 May 2026 at 23:52:37
+
+- x create vm scripting
