@@ -7,13 +7,32 @@ autoload -Uz edit-command-line
 zle -N edit-command-line
 bindkey -M vicmd 'n' edit-command-line
 
-# Cursor shape per mode (block in normal, beam in insert)
+# Cursor shape per mode + mode-aware sobole prompt caret
+# user:  » in normal, › in insert    root:  # in normal, @ in insert
+VI_MODE=ins
+
+# Override sobole's caret to react to vi mode. Color rules mirror the original.
+__sobole::current_caret () {
+   local color sign
+   if [[ "$USER" == 'root' ]] || [[ "$(id -u "$USER")" == 0 ]]; then
+      color='red'
+      [[ $VI_MODE == ins ]] && sign='@' || sign='#'
+   else
+      [[ "$SOBOLE_THEME_MODE" == 'dark' ]] && color='white' || color='black'
+      [[ $VI_MODE == ins ]] && sign='›' || sign='»'
+   fi
+   echo "%{$fg[$color]%}$sign%{$reset_color%}"
+}
+
 function zle-keymap-select {
    case $KEYMAP in
-      vicmd)      print -n '\e[2 q' ;;
-      main|viins) print -n '\e[6 q' ;;
+      vicmd)      VI_MODE=cmd; print -n '\e[2 q' ;;
+      main|viins) VI_MODE=ins; print -n '\e[6 q' ;;
    esac
+   zle reset-prompt
 }
-function zle-line-init { print -n '\e[6 q' }
+function zle-line-init { VI_MODE=ins; print -n '\e[6 q' }
+function zle-line-finish { print -n '\e[2 q' }
 zle -N zle-keymap-select
 zle -N zle-line-init
+zle -N zle-line-finish
