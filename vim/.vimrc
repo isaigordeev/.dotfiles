@@ -401,7 +401,10 @@ autocmd FileType nerdtree setlocal number
 nnoremap <leader>p :Files<CR>   
 
 " Search buffers (buffer palette)
-nnoremap <leader>b :Buffers<CR>  
+nnoremap <leader>b :Buffers<CR>
+
+" Recent files (fzf v:oldfiles)
+nnoremap <leader>B :History<CR>
 
 " LSP document symbols (current file outline)
 nnoremap <leader>c :CocList outline<CR>
