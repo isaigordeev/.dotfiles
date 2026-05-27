@@ -46,12 +46,12 @@ else
     STATUS+="Neovim: init.lua not found\n"
 fi
 
-# --- Zsh: toggle SOBOLE_THEME_MODE ---
-if grep -q "SOBOLE_THEME_MODE=light" "$REAL_ZSHRC"; then
-    sed -i '' 's/SOBOLE_THEME_MODE=light/SOBOLE_THEME_MODE=dark/' "$REAL_ZSHRC"
+# --- Zsh: toggle ISG_THEME_MODE ---
+if grep -q "ISG_THEME_MODE=light" "$REAL_ZSHRC"; then
+    sed -i '' 's/ISG_THEME_MODE=light/ISG_THEME_MODE=dark/' "$REAL_ZSHRC"
     STATUS+="Zsh: dark\n"
 else
-    sed -i '' 's/SOBOLE_THEME_MODE=dark/SOBOLE_THEME_MODE=light/' "$REAL_ZSHRC"
+    sed -i '' 's/ISG_THEME_MODE=dark/ISG_THEME_MODE=light/' "$REAL_ZSHRC"
     STATUS+="Zsh: light\n"
 fi
 

@@ -7,7 +7,7 @@ Built for older hardware and large codebases (~1M lines) where heavy
 IDEs feel sluggish.
 
 Includes configs for:
-  - Zsh (Oh My Zsh + sobole theme + fzf)
+  - Zsh (Oh My Zsh + isg theme (forked from sobole) + fzf)
   - Vim and Neovim
   - Tmux (with TPM + tmux-resurrect)
   - Ghostty, Hyper, VSCode, Zed
@@ -39,7 +39,7 @@ LAYOUT
 -------------------------------------------------------------------------------
 
     bootstrap/      install scripts (darwin.sh, linux.sh + components/)
-    zsh/            .zshrc, aliases, fzf integration, sobole theme
+    zsh/            .zshrc, aliases, fzf integration, isg theme
     vim/            .vimrc, plugins, color schemes, coc extensions
     nvim/           init.lua + lazy.nvim setup
     tmux/           .tmux.conf
@@ -70,10 +70,10 @@ MANUAL SETUP (if you'd rather not run bootstrap)
 
 3. Link the theme:
 
-    > ln -fs "$HOME/.dotfiles/zsh/sobole.zsh-theme" \
-             "$HOME/.oh-my-zsh/custom/themes/sobole.zsh-theme"
+    > ln -fs "$HOME/.dotfiles/zsh/isg.zsh-theme" \
+             "$HOME/.oh-my-zsh/custom/themes/isg.zsh-theme"
 
-   Then set ZSH_THEME="sobole" in .zshrc.
+   Then set ZSH_THEME="isg" in .zshrc.
 
 4. Install vim-plug and plugins:
 

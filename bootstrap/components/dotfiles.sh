@@ -15,8 +15,8 @@ link_dotfiles() {
     echo "[OK] Linked .zshrc"
 
     # Link Zsh theme
-    ln -sf "$dotfiles_dir/zsh/sobole.zsh-theme" "$HOME/.oh-my-zsh/custom/themes/sobole.zsh-theme"
-    echo "[OK] Linked sobole.zsh-theme"
+    ln -sf "$dotfiles_dir/zsh/isg.zsh-theme" "$HOME/.oh-my-zsh/custom/themes/isg.zsh-theme"
+    echo "[OK] Linked isg.zsh-theme"
 
     # Link Vim config
     if [ -f "$HOME/.vimrc" ] && [ ! -L "$HOME/.vimrc" ]; then

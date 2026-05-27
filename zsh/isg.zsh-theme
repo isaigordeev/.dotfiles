@@ -1,9 +1,9 @@
 #
-# Sobole ZSH Theme
+# isg ZSH Theme
 #
-# Author: Nikita Sobolev, github.com/sobolevn
+# Forked from Sobole ZSH Theme by Nikita Sobolev (github.com/sobolevn)
+# Original: https://github.com/sobolevn/sobole-zsh-theme
 # License: WTFPL
-# https://github.com/sobolevn/sobole-zsh-theme
 
 # Testing colors:
 #
@@ -19,8 +19,8 @@
 # These settings changes how your terminal prompt looks like
 # ----------------------------------------------------------------------------
 
-PROMPT='$(__sobole::current_venv)$(__sobole::user_info)$(__sobole::current_dir) $(git_prompt_info)
-$(__sobole::current_caret) '
+PROMPT='$(__isg::current_venv)$(__isg::user_info)$(__isg::current_dir) $(git_prompt_info)
+$(__isg::current_caret) '
 
 PROMPT2='. '
 
@@ -28,7 +28,7 @@ _return_status="%(?..%{$fg[red]%}%? ⚠️%{$reset_color%})"
 
 RPROMPT='%{$(echotc UP 1)%} ${_return_status}%{$(echotc DO 1)%}'
 
-__sobole::current_caret () {
+__isg::current_caret () {
   # This function sets caret color and sign
   # based on theme and privileges.
   if [[ "$USER" == 'root' ]] || [[ "$(id -u "$USER")" == 0 ]]; then
@@ -37,7 +37,7 @@ __sobole::current_caret () {
   else
     CARET_SIGN='»'
 
-    if [[ "$SOBOLE_THEME_MODE" == 'dark' ]]; then
+    if [[ "$ISG_THEME_MODE" == 'dark' ]]; then
       CARET_COLOR='white'
     else
       CARET_COLOR='black'
@@ -47,12 +47,12 @@ __sobole::current_caret () {
   echo "%{$fg[$CARET_COLOR]%}$CARET_SIGN%{$reset_color%}"
 }
 
-__sobole::current_dir () {
+__isg::current_dir () {
   # Settings up current directory and settings max width for it:
-  local max_pwd_length="${SOBOLE_MAX_DIR_LEN:-65}"
+  local max_pwd_length="${ISG_MAX_DIR_LEN:-65}"
   local color
 
-  if [[ "$SOBOLE_THEME_MODE" == 'dark' ]]; then
+  if [[ "$ISG_THEME_MODE" == 'dark' ]]; then
     color='white'
   else
     color='blue'
@@ -65,14 +65,14 @@ __sobole::current_dir () {
   fi
 }
 
-__sobole::user_info () {
+__isg::user_info () {
   # Shows user in the PROMPT if needed.
-  if [[ ! -z "$SOBOLE_DEFAULT_USER" ]] &&
-     [[ "$USER" != "$SOBOLE_DEFAULT_USER" ]]; then
-    # This only works if `$SOBOLE_DEFAULT_USER` is not empty.
+  if [[ ! -z "$ISG_DEFAULT_USER" ]] &&
+     [[ "$USER" != "$ISG_DEFAULT_USER" ]]; then
+    # This only works if `$ISG_DEFAULT_USER` is not empty.
     # So, when you log in as other user, using `su` for example,
     # your shell tells you who you are. Otherwise it stays silent.
-    # You should set `$SOBOLE_DEFAULT_USER` somewhere in your `.zshrc`:
+    # You should set `$ISG_DEFAULT_USER` somewhere in your `.zshrc`:
     echo "@$USER "
   fi
 }
@@ -85,7 +85,7 @@ __sobole::user_info () {
 # Disable the standard prompt:
 export VIRTUAL_ENV_DISABLE_PROMPT=1
 
-__sobole::current_venv () {
+__isg::current_venv () {
   # Despite the fact that `_OLD_VIRTUAL_PATH` is undocumented, it is always
   # set in `activate` script. It is needed to fix `vscode` terminal.
   if [[ ! -z "$VIRTUAL_ENV" ]] && [[ ! -z "$_OLD_VIRTUAL_PATH" ]]; then
@@ -113,7 +113,7 @@ ZSH_THEME_GIT_PROMPT_ADDED="%{$fg[green]%}✚%{$reset_color%}"
 # Made with: http://geoff.greer.fm/lscolors/
 # ----------------------------------------------------------------------------
 
-if [[ "$SOBOLE_THEME_MODE" == 'dark' ]]; then
+if [[ "$ISG_THEME_MODE" == 'dark' ]]; then
   export LSCOLORS='gxfxcxdxbxegedabagacad'
   export LS_COLORS='di=36:ln=35:so=32:pi=33:ex=31:bd=34;46:cd=34;43:su=30;41:sg=30;46:tw=30;42:ow=30;43'
 else
@@ -141,31 +141,31 @@ zstyle ':completion:*:descriptions' format '[%d]'
 
 # ----------------------------------------------------------------------------
 # zsh-syntax-highlighting, fzf, and bat tweaks
-# This setting works only if `$SOBOLE_SYNTAX_HIGHLIGHTING` is not false.
+# This setting works only if `$ISG_SYNTAX_HIGHLIGHTING` is not false.
 # Each tool is only modified if installed.
 # ----------------------------------------------------------------------------
 
-if [[ "$SOBOLE_SYNTAX_HIGHLIGHTING" != 'false' ]]; then
+if [[ "$ISG_SYNTAX_HIGHLIGHTING" != 'false' ]]; then
   typeset -A ZSH_HIGHLIGHT_STYLES
 
   # Disable strings highlighting:
   ZSH_HIGHLIGHT_STYLES[single-quoted-argument]='none'
   ZSH_HIGHLIGHT_STYLES[double-quoted-argument]='none'
 
-  if [[ "$SOBOLE_THEME_MODE" == 'dark' ]]; then
+  if [[ "$ISG_THEME_MODE" == 'dark' ]]; then
     ZSH_HIGHLIGHT_STYLES[path]='fg=white,underline'
   fi
 
-  if [[ "$SOBOLE_THEME_MODE" == 'dark' ]]; then
-    export SOBOLE_SYNTAX_THEME="${SOBOLE_SYNTAX_THEME_LIGHT:-base16-256}"
+  if [[ "$ISG_THEME_MODE" == 'dark' ]]; then
+    export ISG_SYNTAX_THEME="${ISG_SYNTAX_THEME_LIGHT:-base16-256}"
   else
-    export SOBOLE_SYNTAX_THEME="${SOBOLE_SYNTAX_THEME_LIGHT:-Monokai Extended Light}"
+    export ISG_SYNTAX_THEME="${ISG_SYNTAX_THEME_LIGHT:-Monokai Extended Light}"
   fi
 
   # If `bat` is installed, then change the theme for it:
   # https://github.com/sharkdp/bat
   if (( $+commands[bat] )); then
-    export BAT_THEME="$SOBOLE_SYNTAX_THEME"
+    export BAT_THEME="$ISG_SYNTAX_THEME"
   fi
 fi
 
@@ -176,7 +176,7 @@ fi
 # - https://github.com/Aloxaf/fzf-tab
 # ----------------------------------------------------------------------------
 
-if [[ "$SOBOLE_FZF_THEME" != 'false' ]]; then
+if [[ "$ISG_FZF_THEME" != 'false' ]]; then
   if (( $+commands[fzf] )); then
     # This theme is the same for both light and dark themes:
     export FZF_DEFAULT_OPTS="$FZF_DEFAULT_OPTS
@@ -200,8 +200,8 @@ fi
 # less (and man) colors
 # ----------------------------------------------------------------------------
 
-if [[ "$SOBOLE_LESS_THEME" != 'false' ]]; then
-  if [[ "$SOBOLE_THEME_MODE" == 'dark' ]]; then
+if [[ "$ISG_LESS_THEME" != 'false' ]]; then
+  if [[ "$ISG_THEME_MODE" == 'dark' ]]; then
     export LESS_TERMCAP_mb="$(printf '\e[1;35m')"
     export LESS_TERMCAP_md="$(printf '\e[1;35m')"
   else
@@ -219,24 +219,24 @@ fi
 # zsh hooks
 # ----------------------------------------------------------------------------
 
-_SOBOLE_ADD_LINE_SEPARATOR='false'
+_ISG_ADD_LINE_SEPARATOR='false'
 
-__sobole::preexec () {
+__isg::preexec () {
   if [[ $# -eq 0 ]] || [[ "$2" == 'clear' ]]; then
-    _SOBOLE_ADD_LINE_SEPARATOR='false'
+    _ISG_ADD_LINE_SEPARATOR='false'
   else
-    _SOBOLE_ADD_LINE_SEPARATOR='true'
+    _ISG_ADD_LINE_SEPARATOR='true'
   fi
 }
 
-__sobole::precmd () {
+__isg::precmd () {
   local cmd_result="$?"
-  if [[ "$_SOBOLE_ADD_LINE_SEPARATOR" == 'true' ]] ||
+  if [[ "$_ISG_ADD_LINE_SEPARATOR" == 'true' ]] ||
      [[ "$cmd_result" -ne 0 ]]; then
     print
   fi
 }
 
 autoload -Uz add-zsh-hook
-add-zsh-hook preexec __sobole::preexec
-add-zsh-hook precmd __sobole::precmd
+add-zsh-hook preexec __isg::preexec
+add-zsh-hook precmd __isg::precmd

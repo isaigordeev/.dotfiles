@@ -10,9 +10,9 @@ export ZSH="$HOME/.oh-my-zsh"
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
 #
 #
-ZSH_THEME="sobole"
-SOBOLE_THEME_MODE=light
-SOBOLE_DEFAULT_USER=true # show user name 
+ZSH_THEME="isg"
+ISG_THEME_MODE=light
+ISG_DEFAULT_USER=true # show user name
 #
 #
 # Set list of themes to pick from when loading at random
