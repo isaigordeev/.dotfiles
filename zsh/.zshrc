@@ -123,6 +123,8 @@ export VISUAL='nvim'
 
 source "$HOME/.dotfiles/zsh/aliases.zsh"
 source "$HOME/.dotfiles/zsh/fzf.zsh"
+source "$HOME/.dotfiles/zsh/vimode.zsh"
+
 
 
 #export NVM_DIR="$HOME/.nvm"
