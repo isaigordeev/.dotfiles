@@ -92,4 +92,16 @@ link_dotfiles() {
     else
         echo "[SKIP] Ghostty config already in place (source and target are the same)"
     fi
+
+    # Link Claude Code settings (settings.json.local stays untouched — it's
+    # the per-machine override that shouldn't live in the repo)
+    if [ -f "$dotfiles_dir/claude/settings.json" ]; then
+        mkdir -p "$HOME/.claude"
+        if [ -f "$HOME/.claude/settings.json" ] && [ ! -L "$HOME/.claude/settings.json" ]; then
+            echo "[BACKUP] Backing up existing claude settings.json to settings.json.backup"
+            mv "$HOME/.claude/settings.json" "$HOME/.claude/settings.json.backup"
+        fi
+        ln -sf "$dotfiles_dir/claude/settings.json" "$HOME/.claude/settings.json"
+        echo "[OK] Linked claude/settings.json"
+    fi
 }
