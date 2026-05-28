@@ -49,9 +49,8 @@ LAYOUT
     zed/            settings
     tig/            git TUI config
     fonts/          JetBrains Mono + Computer Modern
-    darwin/         macOS system defaults
+    darwin/         macOS system defaults + Brewfile
     prompt/         shell prompt definitions
-    Brewfile        Homebrew packages
 
 -------------------------------------------------------------------------------
 MANUAL SETUP (if you'd rather not run bootstrap)

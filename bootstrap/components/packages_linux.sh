@@ -28,7 +28,7 @@ install_packages_linux() {
             sudo apt-get update || echo "[WARN] apt-get update had warnings, continuing..."
             # Boring essentials
             sudo apt-get install -y \
-                zsh git curl wget jq tree htop tmux vim neovim fzf ripgrep \
+                zsh git gh curl wget jq tree htop tmux vim neovim fzf ripgrep \
                 nodejs npm python3 \
                 || echo "[WARN] Some base packages may have failed"
             # Docs
@@ -51,19 +51,19 @@ install_packages_linux() {
                 || echo "[WARN] tracing tools install failed"
             ;;
         dnf)
-            sudo dnf install -y zsh git curl vim neovim fzf ripgrep nodejs npm || echo "[WARN] Some packages may have failed"
+            sudo dnf install -y zsh git gh curl vim neovim fzf ripgrep nodejs npm || echo "[WARN] Some packages may have failed"
             ;;
         yum)
-            sudo yum install -y zsh git curl vim neovim fzf nodejs npm || echo "[WARN] Some packages may have failed"
+            sudo yum install -y zsh git gh curl vim neovim fzf nodejs npm || echo "[WARN] Some packages may have failed"
             ;;
         pacman)
-            sudo pacman -Sy --noconfirm zsh git curl vim neovim fzf ripgrep nodejs npm || echo "[WARN] Some packages may have failed"
+            sudo pacman -Sy --noconfirm zsh git github-cli curl vim neovim fzf ripgrep nodejs npm || echo "[WARN] Some packages may have failed"
             ;;
         zypper)
-            sudo zypper install -y zsh git curl vim neovim fzf ripgrep nodejs npm || echo "[WARN] Some packages may have failed"
+            sudo zypper install -y zsh git gh curl vim neovim fzf ripgrep nodejs npm || echo "[WARN] Some packages may have failed"
             ;;
         *)
-            echo "[WARN] Unknown package manager. Please install manually: zsh git curl vim neovim fzf ripgrep"
+            echo "[WARN] Unknown package manager. Please install manually: zsh git gh curl vim neovim fzf ripgrep"
             ;;
     esac
 

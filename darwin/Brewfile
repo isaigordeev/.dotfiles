@@ -1,0 +1,68 @@
+tap "homebrew/services"
+
+# Core CLI
+brew "bat"
+brew "curl"
+brew "fd"
+brew "fzf"
+brew "git"
+brew "gh"
+brew "ripgrep"
+brew "tig"   # tui git
+brew "tmux"
+brew "tokei"
+brew "tree"
+brew "vifm"
+brew "wget"
+
+# Editors
+brew "vim"
+brew "neovim"
+
+# Shell
+brew "zsh"
+brew "zsh-syntax-highlighting"
+
+# Build / dev toolchain
+brew "bear"
+brew "cmake"
+brew "pkgconf"
+brew "tree-sitter-cli"
+brew "protobuf"
+brew "prettier"
+
+# Languages / runtimes
+brew "node"
+brew "openjdk"
+brew "maven"
+brew "pipx"
+brew "llvm"
+brew "llvm@17"
+
+# Graphics / media libs
+brew "cairo"
+brew "ffmpeg"
+brew "freetype"
+brew "glfw"
+brew "harfbuzz"
+brew "libidn"
+
+# Infra / DB
+brew "dive"
+brew "minikube"
+brew "mysql"
+
+# GUI apps
+cask "hyper"
+cask "docker-desktop"
+cask "visual-studio-code"
+
+# VS Code extensions
+vscode "charliermarsh.ruff"
+vscode "ms-python.debugpy"
+vscode "ms-python.python"
+vscode "ms-python.vscode-pylance"
+vscode "ms-python.vscode-python-envs"
+vscode "ms-vscode.cpptools"
+vscode "vscjava.vscode-java-pack"
+vscode "vscodevim.vim"
