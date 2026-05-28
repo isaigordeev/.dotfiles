@@ -18,8 +18,8 @@
     "mode": "hold"
   },
   "theme": "light-daltonized",
+  "editorMode": "vim",
   "verbose": true,
   "skipAutoPermissionPrompt": true,
-  "voiceEnabled": true,
-  "editorMode": "vim"
+  "voiceEnabled": true
 }

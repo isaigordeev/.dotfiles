@@ -26,7 +26,29 @@ install_packages_linux() {
     case "$pkg_manager" in
         apt)
             sudo apt-get update || echo "[WARN] apt-get update had warnings, continuing..."
-            sudo apt-get install -y zsh git curl vim neovim fzf ripgrep nodejs npm || echo "[WARN] Some packages may have failed"
+            # Boring essentials
+            sudo apt-get install -y \
+                zsh git curl wget jq tree htop tmux vim neovim fzf ripgrep \
+                nodejs npm python3 \
+                || echo "[WARN] Some base packages may have failed"
+            # Docs
+            sudo apt-get install -y man-db manpages-dev \
+                || echo "[WARN] man pages install failed"
+            # Build toolchain
+            sudo apt-get install -y build-essential pkg-config \
+                || echo "[WARN] build toolchain install failed"
+            # Kernel module + full kernel build deps
+            sudo apt-get install -y \
+                "linux-headers-$(uname -r)" \
+                bc bison flex rsync kmod \
+                libssl-dev libelf-dev libncurses-dev \
+                || echo "[WARN] kernel build deps install failed (linux-headers may not match running kernel)"
+            # USB userspace + headers
+            sudo apt-get install -y usbutils libusb-1.0-0-dev \
+                || echo "[WARN] USB tools install failed"
+            # Tracing & debugging
+            sudo apt-get install -y strace ltrace gdb linux-perf \
+                || echo "[WARN] tracing tools install failed"
             ;;
         dnf)
             sudo dnf install -y zsh git curl vim neovim fzf ripgrep nodejs npm || echo "[WARN] Some packages may have failed"
