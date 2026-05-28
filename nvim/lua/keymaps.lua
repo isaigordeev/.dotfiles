@@ -230,6 +230,8 @@ lmap("n", "gp", "<cmd>GitMessenger<CR>", { desc = "Git blame popup" })
 
 -- Full blame sidebar (GitLens-style) - navigate with j/k, Enter to see commit
 map("n", "<leader>gb", "<cmd>Git blame<CR>", { desc = "Git blame sidebar" })
+map("n", "<leader>gB", "<cmd>windo set scrollbind<CR><cmd>syncbind<CR>",
+   { desc = "Re-sync blame scroll" })
 
 -- Open commit at current line in diffview (see all files changed)
 map("n", "<leader>gv", function()
