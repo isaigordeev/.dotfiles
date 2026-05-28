@@ -302,6 +302,17 @@ return {
    -- Git: commit message popup on current line
    { "rhysd/git-messenger.vim" },
 
+   -- Claude Code IDE integration. nvim acts as the IDE; the `claude` CLI
+   -- (run in a separate terminal in the same project) auto-discovers this
+   -- instance and pipes proposed edits as vim diff buffers.
+   {
+      "coder/claudecode.nvim",
+      dependencies = { "folke/snacks.nvim" },
+      opts = {
+         diff_opts = { layout = "horizontal" },
+      },
+   },
+
    -- TODO: nvim-dap (Debug Adapter Protocol) - enable after learning raw GDB
    -- Plugins: mfussenegger/nvim-dap, rcarriga/nvim-dap-ui, theHamsta/nvim-dap-virtual-text
    -- Install codelldb via Mason: :MasonInstall codelldb
