@@ -26,6 +26,10 @@ set tab-size = 4
 # Case-insensitive search with /
 set ignore-case = yes
 
+# Word-level highlight on changed lines (closest in-tig analog to delta).
+# Path-style so we don't depend on diff-highlight being on $PATH.
+set diff-highlight = /opt/homebrew/opt/git/share/git-core/contrib/diff-highlight/diff-highlight
+
 # Enable mouse scrolling
 set mouse = yes
 
@@ -65,6 +69,10 @@ bind main F !git fetch --all
 
 # Revert the selected commit (creates a new undo commit)
 bind main ! !git revert %(commit)
+
+# Show selected commit via delta (syntax-highlighted unified diff).
+# q exits the pager and returns to tig.
+bind main D !sh -c "git show %(commit) | delta --paging=always"
 
 # Copy bindings — dispatch to pbcopy (macOS) or xclip (Linux).
 # Generic Y copies file path; per-view overrides copy commit/branch instead.
