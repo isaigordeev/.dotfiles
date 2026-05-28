@@ -34,3 +34,7 @@ Sat 25 Apr 2026 at 00:18:59
 Wed 27 May 2026 at 23:52:37
 
 - x create vm scripting
+
+Thu 28 May 2026 at 10:11:58
+
+- o nvim and vim shared base config
