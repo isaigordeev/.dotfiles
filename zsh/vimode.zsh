@@ -7,6 +7,15 @@ autoload -Uz edit-command-line
 zle -N edit-command-line
 bindkey -M vicmd 'n' edit-command-line
 
+# In normal mode: y yanks to ZLE CUTBUFFER AND copies to the system clipboard
+function vi-yank-clipboard() {
+   zle vi-yank
+   printf "%s" "$CUTBUFFER" | pbcopy 2>/dev/null \
+      || printf "%s" "$CUTBUFFER" | xclip -selection clipboard 2>/dev/null
+}
+zle -N vi-yank-clipboard
+bindkey -M vicmd 'y' vi-yank-clipboard
+
 # Cursor shape per mode + mode-aware isg prompt caret
 # user:  » in normal, › in insert    root:  # in normal, @ in insert
 VI_MODE=ins
