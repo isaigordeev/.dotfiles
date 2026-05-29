@@ -17,7 +17,7 @@
     "enabled": true,
     "mode": "hold"
   },
-  "theme": "light-daltonized",
+  "theme": "auto",
   "editorMode": "vim",
   "verbose": true,
   "skipAutoPermissionPrompt": true,
