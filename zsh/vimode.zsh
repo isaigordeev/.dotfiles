@@ -16,6 +16,10 @@ function vi-yank-clipboard() {
 zle -N vi-yank-clipboard
 bindkey -M vicmd 'y' vi-yank-clipboard
 
+# Unbind K (default = run-help → opens man page; sometimes leaves ZLE in a
+# broken redraw state on return)
+bindkey -M vicmd -r 'K'
+
 # Cursor shape per mode + mode-aware isg prompt caret
 # user:  » in normal, › in insert    root:  # in normal, @ in insert
 VI_MODE=ins
