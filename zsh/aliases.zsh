@@ -16,9 +16,18 @@ alias c='claude'
 
 export PALACE_DIR="$HOME/palace/palace"
 
-# Guard: PALACE_DIR's mount point may exist even when locked (gocryptfs etc).
-# Test for a sentinel sub-path that only exists when decrypted.
+# Guard for palace functions. Checks in stages so error messages point at the
+# real problem (wrapper dir missing vs palace missing vs not yet decrypted).
 _palace_check() {
+   local parent="${PALACE_DIR%/*}"
+   if [ ! -d "$parent" ]; then
+      echo "palace: parent '$parent' does not exist" >&2
+      return 1
+   fi
+   if [ ! -d "$PALACE_DIR" ]; then
+      echo "palace: '$PALACE_DIR' does not exist (palace itself missing)" >&2
+      return 1
+   fi
    if [ ! -d "$PALACE_DIR/notes" ]; then
       echo "palace: '$PALACE_DIR' not decrypted — no 'notes/' inside" >&2
       return 1
@@ -71,11 +80,11 @@ tg() {
       -l)
          if command -v fzf > /dev/null 2>&1; then
             local pick
-            pick=$(ls -1 "$note_dir" 2>/dev/null | fzf --prompt='murmur > ') || return 1
+            pick=$(ls -1t "$note_dir" 2>/dev/null | fzf --prompt='murmur > ' --no-sort) || return 1
             [ -z "$pick" ] && return 1
             ( cd "$PALACE_DIR" && ${EDITOR:-nvim} "$note_dir/$pick" )
          else
-            ls -1 "$note_dir"
+            ls -1t "$note_dir"
          fi
          return 0
          ;;
