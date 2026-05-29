@@ -21,15 +21,15 @@ export PALACE_DIR="$HOME/palace/palace"
 _palace_check() {
    local parent="${PALACE_DIR%/*}"
    if [ ! -d "$parent" ]; then
-      echo "palace: parent '$parent' does not exist" >&2
+      echo "palace: parent '$parent' does not exist, clone it" >&2
       return 1
    fi
    if [ ! -d "$PALACE_DIR" ]; then
-      echo "palace: '$PALACE_DIR' does not exist (palace itself missing)" >&2
+      echo "palace: '$PALACE_DIR' does not exist (palace itself missing, decrypt it)" >&2
       return 1
    fi
    if [ ! -d "$PALACE_DIR/notes" ]; then
-      echo "palace: '$PALACE_DIR' not decrypted — no 'notes/' inside" >&2
+      echo "palace: '$PALACE_DIR' is decrypted — no 'notes/' inside" >&2
       return 1
    fi
 }
