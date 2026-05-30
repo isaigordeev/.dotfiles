@@ -49,6 +49,10 @@ install_packages_linux() {
             # Tracing & debugging
             sudo apt-get install -y strace ltrace gdb linux-perf \
                 || echo "[WARN] tracing tools install failed"
+            # Zig (compiler from apt; zls usually not packaged — install manually
+            # from https://github.com/zigtools/zls/releases or via `zigup`)
+            sudo apt-get install -y zig \
+                || echo "[WARN] zig install failed (not all apt repos ship it)"
             ;;
         dnf)
             sudo dnf install -y zsh git gh curl vim neovim fzf ripgrep nodejs npm || echo "[WARN] Some packages may have failed"

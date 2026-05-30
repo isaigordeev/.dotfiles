@@ -38,6 +38,8 @@ brew "maven"
 brew "pipx"
 brew "llvm"
 brew "llvm@17"
+brew "zig"
+brew "zls"   # Zig language server
 
 # Graphics / media libs
 brew "cairo"

@@ -13,7 +13,7 @@ return {
          -- Install parsers:  :TSInstall c cpp python rust go lua javascript typescript markdown json bash
          require("nvim-treesitter").setup({
             ensure_installed = {
-               "c", "cpp", "python", "rust", "go", "lua",
+               "c", "cpp", "python", "rust", "go", "lua", "zig",
                "javascript", "typescript", "markdown", "json", "bash",
             },
          })
@@ -39,7 +39,7 @@ return {
       config = function()
          require("mason-lspconfig").setup({
             ensure_installed = {
-               "clangd", "rust_analyzer", "gopls", "ts_ls",
+               "clangd", "rust_analyzer", "gopls", "ts_ls", "zls",
             },
          })
 
@@ -102,14 +102,20 @@ return {
             root_markers = { "tsconfig.json", "jsconfig.json", "package.json", ".git" },
          })
 
-         vim.lsp.enable({ "clangd", "ty", "rust_analyzer", "gopls", "ts_ls" })
+         vim.lsp.config("zls", {
+            cmd = { "zls" },
+            filetypes = { "zig", "zir" },
+            root_markers = { "build.zig", "build.zig.zon", ".git" },
+         })
+
+         vim.lsp.enable({ "clangd", "ty", "rust_analyzer", "gopls", "ts_ls", "zls" })
 
          -- Disable diagnostic signs (matches coc-settings.json)
          vim.diagnostic.config({ signs = false })
 
          -- Format on save for specific filetypes
          vim.api.nvim_create_autocmd("BufWritePre", {
-            pattern = { "*.json", "*.rs", "*.go" },
+            pattern = { "*.json", "*.rs", "*.go", "*.zig" },
             callback = function()
                vim.lsp.buf.format({ async = false })
             end,
