@@ -34,46 +34,40 @@ _palace_check() {
    fi
 }
 
-# Open today's daily note (create with header if it doesn't exist yet)
-daily() {
+# Create-or-open $PALACE_DIR/<subdir>/<filename> with a date + [[tag]] header,
+# then cd into palace and open in $EDITOR. Used by daily/weekly/shot/tg-create.
+_palace_note() {
+   local subdir="$1" filename="$2" tag="$3"
    _palace_check || return 1
-   local f="$(date +'%Y-%m-%d').md"
-   local note_dir="$PALACE_DIR/notes/management/daily/$(date +'%Y')/$(date +'%m')"
+   local note_dir="$PALACE_DIR/$subdir"
    mkdir -p "$note_dir"
-   local note="$note_dir/$f"
+   local note="$note_dir/$filename"
    if [ ! -s "$note" ]; then
       cat > "$note" <<EOF
 $(date +'%a %d %b %Y at %H:%M:%S')
 
-[[daily]]
+[[$tag]]
 EOF
    fi
    ( cd "$PALACE_DIR" && ${EDITOR:-nvim} "$note" )
 }
 
-# Open this ISO week's note (e.g. 2026-W22.md) under notes/management/weekly/
-weekly() {
-   _palace_check || return 1
-   local f="$(date +'%G-W%V').md"
-   local note_dir="$PALACE_DIR/notes/management/weekly"
-   mkdir -p "$note_dir"
-   local note="$note_dir/$f"
-   if [ ! -s "$note" ]; then
-      cat > "$note" <<EOF
-$(date +'%a %d %b %Y at %H:%M:%S')
+# Today's daily note: notes/management/daily/YYYY/MM/YYYY-MM-DD.md
+daily()  { _palace_note "notes/management/daily/$(date +'%Y/%m')" "$(date +'%Y-%m-%d').md"       daily;  }
 
-[[weekly]]
-EOF
-   fi
-   ( cd "$PALACE_DIR" && ${EDITOR:-nvim} "$note" )
-}
+# This ISO week's note: notes/management/weekly/YYYY-Www.md
+weekly() { _palace_note "notes/management/weekly"                  "$(date +'%G-W%V').md"          weekly; }
+
+# Timestamped daily shot: notes/management/daily/YYYY/MM/YYYY-MM-DDTHH.MM.md
+shot()   { _palace_note "notes/management/daily/$(date +'%Y/%m')" "$(date +'%Y-%m-%dT%H.%M').md" shots;  }
 
 # tg [-l|-n]   manage murmur notes under notes/me/writing/murmur/
-#   -l         fzf-pick an existing note and open it
+#   -l         fzf-pick an existing note (by recency) and open it
 #   -n         create a new note (default; prompts for a name)
 tg() {
    _palace_check || return 1
-   local note_dir="$PALACE_DIR/notes/me/writing/murmur"
+   local subdir="notes/me/writing/murmur"
+   local note_dir="$PALACE_DIR/$subdir"
    mkdir -p "$note_dir"
 
    case "$1" in
@@ -86,44 +80,17 @@ tg() {
          else
             ls -1t "$note_dir"
          fi
-         return 0
          ;;
       -n|"")
          local name
          read "name?murmur note name: "
          [ -z "$name" ] && { echo "tg: empty name" >&2; return 1; }
-         local f="${name}"
-         [[ "$f" != *.md ]] && f="${f}.md"
-         local note="$note_dir/$f"
-         if [ ! -s "$note" ]; then
-            cat > "$note" <<EOF
-$(date +'%a %d %b %Y at %H:%M:%S')
-
-[[murmur]]
-EOF
-         fi
-         ( cd "$PALACE_DIR" && ${EDITOR:-nvim} "$note" )
+         [[ "$name" != *.md ]] && name="${name}.md"
+         _palace_note "$subdir" "$name" murmur
          ;;
       *)
          echo "usage: tg [-l|-n]" >&2
          return 1
          ;;
    esac
-}
-
-# Open a timestamped "shot" note (one file per call, named YYYY-MM-DDTHH.MM.md)
-shot() {
-   _palace_check || return 1
-   local f="$(date +'%Y-%m-%dT%H.%M').md"
-   local note_dir="$PALACE_DIR/notes/management/daily/$(date +'%Y')/$(date +'%m')"
-   mkdir -p "$note_dir"
-   local note="$note_dir/$f"
-   if [ ! -s "$note" ]; then
-      cat > "$note" <<EOF
-$(date +'%a %d %b %Y at %H:%M:%S')
-
-[[shots]]
-EOF
-   fi
-   ( cd "$PALACE_DIR" && ${EDITOR:-nvim} "$note" )
 }

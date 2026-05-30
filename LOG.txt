@@ -39,5 +39,5 @@ Thu 28 May 2026 at 10:11:58
 
 - x nvim and vim shared base config (not realisable)
 - o if like pager make it persistant
-- o palace aliases unite to one better cmd
-- o calendar of activity script for palace
+- x palace aliases unite to one better cmd
+- x calendar of activity script for palace
