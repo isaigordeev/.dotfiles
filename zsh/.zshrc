@@ -135,19 +135,3 @@ source "$HOME/.dotfiles/zsh/vimode.zsh"
 if [ -f "$(brew --prefix 2>/dev/null)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh" ]; then
     source "$(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
 fi
-#
-#
-#
-eval "$(ssh-agent -s)"
-ssh-add ~/.ssh/delos-new
-
-# Created by `pipx` on 2025-11-06 14:50:47
-export PATH="$PATH:/Users/isg/.local/bin"
-
-eval "$(/usr/libexec/path_helper)"
-export PATH="/opt/homebrew/opt/postgresql@16/bin:$PATH"
-export ANDROID_HOME=~/Library/Android/sdk
-export PATH=$ANDROID_HOME/platform-tools:$ANDROID_HOME/emulator:$PATH
-
-export AWS_PROFILE=claude-code-delos
-
