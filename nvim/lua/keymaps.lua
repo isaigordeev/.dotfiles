@@ -214,12 +214,13 @@ lmap("n", "<S-Tab>", "<cmd>source " .. session_path .. "<CR><cmd>echo 'Session l
 lmap("n", "z", "<cmd>ZenMode<CR>", { desc = "Toggle zen mode" })
 
 
--- ─── Timestamps ─────────────────────────────────────────────────
-lmap("n", "t", function()
+-- ─── Notes namespace: <leader>n* ────────────────────────────────
+-- (<leader>nl = palace-link picker, defined in vim/palace-link.vim)
+map("n", "<leader>nt", function()
    vim.api.nvim_put({ os.date("%a %d %b %Y at %H:%M:%S") }, "c", true, true)
 end, { desc = "Insert date" })
 
-lmap("n", "T", function()
+map("n", "<leader>nT", function()
    vim.api.nvim_put({ os.date("%Y-%m-%d %H:%M") }, "c", true, true)
 end, { desc = "Insert timestamp" })
 

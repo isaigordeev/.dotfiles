@@ -15,6 +15,14 @@
 require("options")
 require("russian")
 
+-- Palace wiki-link picker (<leader>nl) — sibling file in ../vim, resolved via
+-- this file's real path (so the dotfiles dir doesn't have to be ~/.dotfiles).
+do
+   local this_file = vim.fn.resolve(debug.getinfo(1, "S").source:sub(2))
+   local dotfiles_dir = vim.fn.fnamemodify(this_file, ":p:h:h")
+   vim.cmd("source " .. dotfiles_dir .. "/vim/palace-link.vim")
+end
+
 -- Bootstrap lazy.nvim
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not vim.loop.fs_stat(lazypath) then

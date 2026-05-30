@@ -393,6 +393,10 @@ let NERDTreeShowHidden=1
 let g:NERDTreeWinSize=40
 autocmd FileType nerdtree setlocal number
 
+" Palace wiki-link picker (<leader>nl) — sibling file, resolved through symlinks
+let s:script_dir = fnamemodify(resolve(expand('<sfile>:p')), ':h')
+execute 'source ' . s:script_dir . '/palace-link.vim'
+
 " ============================================================
 "                      FUZZY FIND
 " ============================================================
@@ -560,10 +564,10 @@ nnoremap <leader>(z :Goyo+9<CR>
 " Insert current date in format: Mon 18 Mar 2024 at 16:58:58
 command! InsertDate execute "normal! a" . strftime("%a %d %b %Y at %H:%M:%S")
 
-nnoremap <Leader>t :InsertDate<CR>
+nnoremap <Leader>nt :InsertDate<CR>
 
 " Insert timestamp in format: 2022-08-22 13:54
-nnoremap <Leader>T :execute "normal! a" . strftime("%Y-%m-%d %H:%M")<CR>
+nnoremap <Leader>nT :execute "normal! a" . strftime("%Y-%m-%d %H:%M")<CR>
 
 " English → Russian key mapping (for leader duplication)
 let g:eng_to_ru_for_leader = {
