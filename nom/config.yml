@@ -26,6 +26,16 @@ feeds:
     name: anthropic-research
   - url: https://ziglang.org/devlog/index.xml
     name: zig-devlog
+  - url: https://danluu.com/atom.xml
+    name: danluu
+  - url: https://research.swtch.com/feed.atom
+    name: russcox
+  - url: https://blog.m-ou.se/index.xml
+    name: marabos
+  - url: https://www.bunniestudios.com/blog/feed/
+    name: bunnie
+  - url: https://lemire.me/blog/feed/
+    name: lemire
 
 theme:
   glamour: light             # article rendering: light, dark, auto, dracula, pink, notty, ascii
