@@ -17,6 +17,15 @@ feeds:
     name: llvm
   - url: https://blog.regehr.org/feed
     name: regehr
+  - url: https://www.modular.com/blog/rss.xml
+    name: modular
+  # Anthropic has no native feed; proxied via openrss.org (third-party scraper)
+  - url: https://openrss.org/feed/www.anthropic.com/news
+    name: anthropic-news
+  - url: https://openrss.org/feed/www.anthropic.com/research
+    name: anthropic-research
+  - url: https://ziglang.org/devlog/index.xml
+    name: zig-devlog
 
 theme:
   glamour: light             # article rendering: light, dark, auto, dracula, pink, notty, ascii

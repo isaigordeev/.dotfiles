@@ -93,6 +93,25 @@ link_dotfiles() {
         echo "[SKIP] Ghostty config already in place (source and target are the same)"
     fi
 
+    # Link nom config (RSS reader). macOS uses Library/Application Support,
+    # Linux uses XDG ~/.config.
+    local nom_src="$dotfiles_dir/nom/config.yml"
+    if [ -f "$nom_src" ]; then
+        local nom_dst
+        if [ "$(uname)" = "Darwin" ]; then
+            nom_dst="$HOME/Library/Application Support/nom/config.yml"
+        else
+            nom_dst="${XDG_CONFIG_HOME:-$HOME/.config}/nom/config.yml"
+        fi
+        mkdir -p "$(dirname "$nom_dst")"
+        if [ -f "$nom_dst" ] && [ ! -L "$nom_dst" ]; then
+            echo "[BACKUP] Backing up existing nom config.yml to config.yml.backup"
+            mv "$nom_dst" "$nom_dst.backup"
+        fi
+        ln -sf "$nom_src" "$nom_dst"
+        echo "[OK] Linked nom config.yml"
+    fi
+
     # Link Claude Code settings (settings.json.local stays untouched — it's
     # the per-machine override that shouldn't live in the repo)
     if [ -f "$dotfiles_dir/claude/settings.json" ]; then

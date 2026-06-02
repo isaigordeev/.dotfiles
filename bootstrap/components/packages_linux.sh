@@ -30,6 +30,7 @@ install_packages_linux() {
             sudo apt-get install -y \
                 zsh git gh curl wget jq tree htop tmux vim neovim fzf ripgrep \
                 nodejs npm python3 \
+                w3m glow \
                 || echo "[WARN] Some base packages may have failed"
             # Docs
             sudo apt-get install -y man-db manpages-dev \
@@ -55,19 +56,19 @@ install_packages_linux() {
                 || echo "[WARN] zig install failed (not all apt repos ship it)"
             ;;
         dnf)
-            sudo dnf install -y zsh git gh curl vim neovim fzf ripgrep nodejs npm || echo "[WARN] Some packages may have failed"
+            sudo dnf install -y zsh git gh curl vim neovim fzf ripgrep nodejs npm w3m glow || echo "[WARN] Some packages may have failed"
             ;;
         yum)
-            sudo yum install -y zsh git gh curl vim neovim fzf nodejs npm || echo "[WARN] Some packages may have failed"
+            sudo yum install -y zsh git gh curl vim neovim fzf nodejs npm w3m || echo "[WARN] Some packages may have failed"
             ;;
         pacman)
-            sudo pacman -Sy --noconfirm zsh git github-cli curl vim neovim fzf ripgrep nodejs npm || echo "[WARN] Some packages may have failed"
+            sudo pacman -Sy --noconfirm zsh git github-cli curl vim neovim fzf ripgrep nodejs npm w3m glow || echo "[WARN] Some packages may have failed"
             ;;
         zypper)
-            sudo zypper install -y zsh git gh curl vim neovim fzf ripgrep nodejs npm || echo "[WARN] Some packages may have failed"
+            sudo zypper install -y zsh git gh curl vim neovim fzf ripgrep nodejs npm w3m glow || echo "[WARN] Some packages may have failed"
             ;;
         *)
-            echo "[WARN] Unknown package manager. Please install manually: zsh git gh curl vim neovim fzf ripgrep"
+            echo "[WARN] Unknown package manager. Please install manually: zsh git gh curl vim neovim fzf ripgrep w3m glow"
             ;;
     esac
 
@@ -76,6 +77,16 @@ install_packages_linux() {
         sudo npm install -g prettier || echo "[WARN] prettier install failed"
     else
         echo "[WARN] npm not found, skipping prettier"
+    fi
+
+    # nom (terminal RSS reader) — not in apt/dnf/pacman, install via Go
+    if command -v nom > /dev/null 2>&1; then
+        echo "[SKIP] nom already installed"
+    elif command -v go > /dev/null 2>&1; then
+        go install github.com/guyfedwards/nom@latest \
+            || echo "[WARN] nom install via 'go install' failed"
+    else
+        echo "[WARN] go not found, skipping nom (install from https://github.com/guyfedwards/nom/releases)"
     fi
 
     echo "[OK] Packages installed"
