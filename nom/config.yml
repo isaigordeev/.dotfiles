@@ -36,6 +36,25 @@ feeds:
     name: bunnie
   - url: https://lemire.me/blog/feed/
     name: lemire
+  - url: https://www.joelonsoftware.com/feed/
+    name: joel
+  - url: https://commandcenter.blogspot.com/feeds/posts/default
+    name: robpike
+  - url: https://wingolog.org/feed/atom
+    name: wingo
+  - url: https://www.brendangregg.com/blog/rss.xml
+    name: gregg
+  - url: https://tavianator.com/feed.atom
+    name: tavianator
+  - url: https://interrupt.memfault.com/feed.xml
+    name: memfault
+  - url: https://lwn.net/headlines/rss
+    name: lwn
+  - url: https://habr.com/ru/rss/companies/yandex/articles/?fl=ru
+    name: yandex
+
+filtering:
+  defaultIncludeFeedName: true
 
 theme:
   glamour: light             # article rendering: light, dark, auto, dracula, pink, notty, ascii
