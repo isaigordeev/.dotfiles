@@ -1,0 +1,27 @@
+feeds:
+  - url: https://matklad.github.io/feed.xml
+    name: matklad
+  - url: https://brooker.co.za/blog/atom.xml
+    name: brooker
+  - url: https://graydon2.dreamwidth.org/data/atom
+    name: graydon
+  - url: https://travisdowns.github.io/feed.xml
+    name: travisdowns
+  - url: https://nullprogram.com/feed/
+    name: nullprogram
+  - url: https://without.boats/index.xml
+    name: boats
+  - url: https://smallcultfollowing.com/babysteps/atom.xml
+    name: babysteps
+  - url: https://blog.llvm.org/index.xml
+    name: llvm
+  - url: https://blog.regehr.org/feed
+    name: regehr
+
+theme:
+  glamour: light             # article rendering: light, dark, auto, dracula, pink, notty, ascii
+  titleColor: "24"           # accent (deep blue) — bar/header bg
+  titleColorFg: "231"        # title text (near-white) on the accent bar
+  filterColor: "24"          # filter prompt accent
+  selectedItemColor: "31"    # selected row accent (teal-ish, readable on light bg)
+  readIcon: ✓
