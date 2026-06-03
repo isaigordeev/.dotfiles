@@ -52,6 +52,10 @@ feeds:
     name: lwn
   - url: https://habr.com/ru/rss/companies/yandex/articles/?fl=ru
     name: yandex
+  - url: https://thephd.dev/feed.xml
+    name: thephd
+  - url: https://gustedt.wordpress.com/feed/
+    name: gustedt
 
 filtering:
   defaultIncludeFeedName: true
