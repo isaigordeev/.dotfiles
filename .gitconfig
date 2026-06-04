@@ -19,6 +19,8 @@
 	conflictStyle = diff3
 [diff]
 	colorMoved = default
+[pager]
+	diff = false
 [sendemail]
 	smtpServer = smtp.gmail.com
 	smtpServerPort = 587
