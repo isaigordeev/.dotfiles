@@ -239,7 +239,12 @@ return {
             window = {
                width = 80,
                col_offset = -20,
-               options = { number = true },
+               options = {
+                  number = true,
+                  wrap = true,
+                  linebreak = true,
+                  breakindent = true,
+               },
             },
          })
       end,
