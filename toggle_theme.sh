@@ -7,6 +7,7 @@ ZSHRC="$HOME/.zshrc"
 HYPER="$HOME/.hyper.js"
 GHOSTTY="$HOME/.config/ghostty/config"
 TMUX_CONF="$HOME/.tmux.conf"
+NOM="$HOME/Library/Application Support/nom/config.yml"
 
 # Resolve symlinks
 REAL_VIMRC="$(readlink "$VIMRC" || echo "$VIMRC")"
@@ -15,6 +16,7 @@ REAL_ZSHRC="$(readlink "$ZSHRC" || echo "$ZSHRC")"
 REAL_HYPER="$(readlink "$HYPER" || echo "$HYPER")"
 REAL_GHOSTTY="$(readlink "$GHOSTTY" || echo "$GHOSTTY")"
 REAL_TMUX="$(readlink "$TMUX_CONF" || echo "$TMUX_CONF")"
+REAL_NOM="$(readlink "$NOM" || echo "$NOM")"
 # config is itself in a symlinked dir; resolve fully
 [ -L "$REAL_GHOSTTY" ] || REAL_GHOSTTY="$(cd "$(dirname "$GHOSTTY")" && pwd -P)/$(basename "$GHOSTTY")"
 
@@ -122,6 +124,21 @@ if [ -f "$REAL_TMUX" ]; then
     tmux source-file "$TMUX_CONF" 2>/dev/null && STATUS+="Tmux: config reloaded\n"
 else
     STATUS+="Tmux: config not found\n"
+fi
+
+# --- nom (RSS reader): toggle glamour theme (article rendering) ---
+if [ -f "$REAL_NOM" ]; then
+    if grep -q "^  glamour: light" "$REAL_NOM"; then
+        sed -i '' 's/^  glamour: light/  glamour: dark/' "$REAL_NOM"
+        STATUS+="nom: dark\n"
+    elif grep -q "^  glamour: dark" "$REAL_NOM"; then
+        sed -i '' 's/^  glamour: dark/  glamour: light/' "$REAL_NOM"
+        STATUS+="nom: light\n"
+    else
+        STATUS+="nom: glamour line not found\n"
+    fi
+else
+    STATUS+="nom: config not found\n"
 fi
 
 # --- Display full screen icon ---
