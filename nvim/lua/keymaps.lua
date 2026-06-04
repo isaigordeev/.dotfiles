@@ -217,8 +217,9 @@ lmap("n", "z", "<cmd>ZenMode<CR>", { desc = "Toggle zen mode" })
 -- ─── Notes namespace: <leader>n* ────────────────────────────────
 -- (<leader>nl = palace-link picker, defined in vim/palace-link.vim)
 map("n", "<leader>nt", function()
-   vim.api.nvim_put({ os.date("%a %d %b %Y at %H:%M:%S") }, "c", true, true)
-end, { desc = "Insert date" })
+   -- format: isg 2026-06-04 13:15:42 +0200  (local time + local UTC offset)
+   vim.api.nvim_put({ os.date("isg %Y-%m-%d %H:%M:%S %z") }, "c", true, true)
+end, { desc = "Insert date stamp (isg, local tz)" })
 
 map("n", "<leader>nT", function()
    vim.api.nvim_put({ os.date("%Y-%m-%d %H:%M") }, "c", true, true)
