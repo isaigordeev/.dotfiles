@@ -169,9 +169,21 @@ lmap("n", "B", "<cmd>History<CR>", { desc = "Recent files (fzf)" })
 map("n", "<C-p>", "<cmd>Files<CR>", { desc = "Find files" })
 
 
+-- ─── Helper: close zen-mode if active, then run cmd ─────────────
+-- Splits/sidebars opened from inside zen-mode collapse the floating window
+-- in a confusing way (focus jumps, current file looks like it changed).
+-- Close zen first so the action lands in the normal layout.
+local function exit_zen_then(cmd)
+   return function()
+      local ok, view = pcall(require, "zen-mode.view")
+      if ok and view.is_open() then require("zen-mode").close() end
+      vim.cmd(cmd)
+   end
+end
+
 -- ─── File tree (nvim-tree, replaces NERDTree) ───────────────────
 map("n", "<C-n>", "<cmd>NvimTreeToggle<CR>", { desc = "Toggle file tree" })
-map("n", "<C-f>", "<cmd>NvimTreeFindFile<CR>", { desc = "Find file in tree" })
+map("n", "<C-f>", exit_zen_then("NvimTreeFindFile"), { desc = "Find file in tree" })
 
 
 -- ─── Commenting (Comment.nvim, replaces NERDCommenter) ──────────
@@ -231,7 +243,7 @@ end, { desc = "Insert timestamp" })
 lmap("n", "gp", "<cmd>GitMessenger<CR>", { desc = "Git blame popup" })
 
 -- Full blame sidebar (GitLens-style) - navigate with j/k, Enter to see commit
-map("n", "<leader>gb", "<cmd>Git blame<CR>", { desc = "Git blame sidebar" })
+map("n", "<leader>gb", exit_zen_then("Git blame"), { desc = "Git blame sidebar" })
 map("n", "<leader>gB", "<cmd>windo set scrollbind<CR><cmd>syncbind<CR>",
    { desc = "Re-sync blame scroll" })
 
