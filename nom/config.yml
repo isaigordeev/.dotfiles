@@ -58,6 +58,8 @@ feeds:
     name: gustedt
   - url: https://sam.zeloof.xyz/feed/
     name: zeloof
+  - url: https://antirez.com/rss
+    name: antirez
 
 filtering:
   defaultIncludeFeedName: true
