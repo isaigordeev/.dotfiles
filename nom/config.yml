@@ -56,6 +56,8 @@ feeds:
     name: thephd
   - url: https://gustedt.wordpress.com/feed/
     name: gustedt
+  - url: https://sam.zeloof.xyz/feed/
+    name: zeloof
 
 filtering:
   defaultIncludeFeedName: true
