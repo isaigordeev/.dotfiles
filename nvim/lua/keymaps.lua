@@ -234,8 +234,9 @@ map("n", "<leader>nt", function()
 end, { desc = "Insert date stamp (isg, local tz)" })
 
 map("n", "<leader>nT", function()
-   vim.api.nvim_put({ os.date("%Y-%m-%d %H:%M") }, "c", true, true)
-end, { desc = "Insert timestamp" })
+   -- format: isg 2026-06-04 11:15:42 UTC  (UTC variant of <leader>nt)
+   vim.api.nvim_put({ os.date("%Y-%m-%d %H:%M:%S %z") }, "c", true, true)
+end, { desc = "Insert date stamp (isg, local tz)" })
 
 
 -- ─── Git (gitsigns + diffview + fugitive) ───────────────────────
