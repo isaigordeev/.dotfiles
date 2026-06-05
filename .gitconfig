@@ -6,6 +6,7 @@
 	gpgsign = true
 [alias]
 	lg = log --all --oneline --graph --decorate
+	lgc = log --oneline --graph --decorate HEAD @{u}
 [core]
 	pager = delta
 [interactive]
