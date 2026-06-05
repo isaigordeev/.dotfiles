@@ -60,7 +60,7 @@ feeds:
     name: zeloof
   - url: https://antirez.com/rss
     name: antirez
-  - url: http://www.aaronsw.com/2002/feeds/pgessays.rss
+  - url: https://www.paulgraham.com/articles.html
     name: paulgraham
 
 filtering:
