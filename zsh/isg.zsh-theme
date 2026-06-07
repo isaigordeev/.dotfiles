@@ -66,13 +66,10 @@ __isg::current_dir () {
 }
 
 __isg::user_info () {
-  # Shows user in the PROMPT if needed.
-  if [[ ! -z "$ISG_DEFAULT_USER" ]] &&
+  if [[ -n "$SSH_TTY" ]]; then
+    echo "#$USER "
+  elif [[ ! -z "$ISG_DEFAULT_USER" ]] &&
      [[ "$USER" != "$ISG_DEFAULT_USER" ]]; then
-    # This only works if `$ISG_DEFAULT_USER` is not empty.
-    # So, when you log in as other user, using `su` for example,
-    # your shell tells you who you are. Otherwise it stays silent.
-    # You should set `$ISG_DEFAULT_USER` somewhere in your `.zshrc`:
     echo "@$USER "
   fi
 }
