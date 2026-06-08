@@ -44,4 +44,8 @@ Thu 28 May 2026 at 10:11:58
 
 isg 2026-06-09 01:01:40 +0200
 
--o miniboot for macos and linux
+- o miniboot for macos and linux
+- o my git repo
+- o my infrastructure
+- o my VPN
+- o my hardware
