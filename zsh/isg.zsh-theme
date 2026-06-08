@@ -66,7 +66,7 @@ __isg::current_dir () {
 }
 
 __isg::user_info () {
-  if [[ -n "$SSH_TTY" ]]; then
+  if [[ -n "$SSH_TTY" ]] || [[ -n "$SSH_CONNECTION" ]]; then
     echo "#$USER "
   elif [[ ! -z "$ISG_DEFAULT_USER" ]] &&
      [[ "$USER" != "$ISG_DEFAULT_USER" ]]; then
