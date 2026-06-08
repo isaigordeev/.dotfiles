@@ -62,6 +62,14 @@ feeds:
     name: antirez
   - url: https://www.paulgraham.com/articles.html
     name: paulgraham
+  - url: https://burntsushi.net/index.xml
+    name: burntsushi
+  - url: https://andrewkelley.me/rss.xml
+    name: andrewkelley
+  - url: https://tigerbeetle.com/blog/atom.xml
+    name: tigerbeetle
+  - url: https://bun.com/rss.xml
+    name: bun
 
 filtering:
   defaultIncludeFeedName: true
