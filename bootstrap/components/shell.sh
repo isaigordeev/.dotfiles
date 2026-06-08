@@ -1,6 +1,30 @@
 #!/usr/bin/env bash
 # Component: Set default shell (shared)
 
+ensure_default_shell_darwin() {
+    echo "[STEP] Verifying default shell..."
+    local brew_zsh
+    brew_zsh="$(brew --prefix 2>/dev/null)/bin/zsh"
+    if [ "$SHELL" = "$brew_zsh" ]; then
+        echo "[OK] Default shell is Homebrew zsh ($brew_zsh)"
+    else
+        echo "[FAIL] Default shell is $SHELL (expected $brew_zsh)"
+        return 1
+    fi
+}
+
+ensure_default_shell_linux() {
+    echo "[STEP] Verifying default shell..."
+    local zsh_path
+    zsh_path="$(which zsh 2>/dev/null)"
+    if [ -n "$zsh_path" ] && [ "$SHELL" = "$zsh_path" ]; then
+        echo "[OK] Default shell is zsh ($zsh_path)"
+    else
+        echo "[FAIL] Default shell is $SHELL (expected zsh at $zsh_path)"
+        return 1
+    fi
+}
+
 set_default_shell_darwin() {
     echo "[STEP] Setting Zsh as default shell..."
 

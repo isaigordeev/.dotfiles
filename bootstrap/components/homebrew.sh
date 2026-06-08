@@ -1,6 +1,15 @@
 #!/usr/bin/env bash
 # Component: Homebrew (Darwin only)
 
+ensure_homebrew() {
+    if command -v brew > /dev/null 2>&1; then
+        echo "[OK] Homebrew installed ($(brew --version | head -1))"
+    else
+        echo "[FAIL] Homebrew not installed"
+        return 1
+    fi
+}
+
 install_homebrew() {
     echo "[STEP] Checking Homebrew..."
 

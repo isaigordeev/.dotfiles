@@ -1,6 +1,26 @@
 #!/usr/bin/env bash
 # Component: fzf keybindings (shared)
 
+ensure_fzf_darwin() {
+    echo "[STEP] Verifying fzf keybindings..."
+    if [ -f "$HOME/.fzf.zsh" ]; then
+        echo "[OK] fzf keybindings installed (~/.fzf.zsh)"
+    else
+        echo "[FAIL] fzf keybindings not installed (~/.fzf.zsh missing)"
+        return 1
+    fi
+}
+
+ensure_fzf_linux() {
+    echo "[STEP] Verifying fzf..."
+    if [ -d "$HOME/.fzf" ]; then
+        echo "[OK] fzf installed (~/.fzf)"
+    else
+        echo "[FAIL] fzf not installed (~/.fzf missing)"
+        return 1
+    fi
+}
+
 install_fzf_darwin() {
     echo "[STEP] Installing fzf keybindings..."
 

@@ -2,6 +2,61 @@
 # Component: Link dotfiles (shared)
 # Requires: DOTFILES_DIR to be set
 
+ensure_dotfiles() {
+    local dotfiles_dir="${DOTFILES_DIR:-$HOME/.dotfiles}"
+    echo "[STEP] Verifying dotfiles..."
+    local failed=0
+
+    _check_link ".zshrc"        "$HOME/.zshrc"        "$dotfiles_dir/zsh/.zshrc"        || failed=1
+    _check_link "isg.zsh-theme" "$HOME/.oh-my-zsh/custom/themes/isg.zsh-theme" \
+                                "$dotfiles_dir/zsh/isg.zsh-theme"                        || failed=1
+    _check_link ".vimrc"        "$HOME/.vimrc"        "$dotfiles_dir/vim/.vimrc"         || failed=1
+    _check_link ".tmux.conf"    "$HOME/.tmux.conf"    "$dotfiles_dir/tmux/.tmux.conf"    || failed=1
+    _check_link ".gitconfig"    "$HOME/.gitconfig"    "$dotfiles_dir/.gitconfig"         || failed=1
+
+    if [ -d "$HOME/.tmux/plugins/tpm" ]; then
+        echo "[OK] TPM installed"
+    else
+        echo "[FAIL] TPM not installed (~/.tmux/plugins/tpm missing)"
+        failed=1
+    fi
+
+    # Vim color schemes
+    local src_dir="$dotfiles_dir/vim/.vim/colors"
+    local dst_dir="$HOME/.vim/colors"
+    if [ "$(realpath "$src_dir" 2>/dev/null)" != "$(realpath "$dst_dir" 2>/dev/null)" ]; then
+        for color_file in "$src_dir"/*.vim; do
+            [ -f "$color_file" ] || continue
+            local base
+            base="$(basename "$color_file")"
+            _check_link "$base" "$dst_dir/$base" "$color_file" || failed=1
+        done
+    else
+        echo "[OK] Vim colors (source and target are the same directory)"
+    fi
+
+    _check_link "nvim config"    "$HOME/.config/nvim"     "$dotfiles_dir/nvim"     || failed=1
+    _check_link "ghostty config" "$HOME/.config/ghostty"  "$dotfiles_dir/ghostty"  || failed=1
+
+    local nom_src="$dotfiles_dir/nom/config.yml"
+    if [ -f "$nom_src" ]; then
+        local nom_dst
+        if [ "$(uname)" = "Darwin" ]; then
+            nom_dst="$HOME/Library/Application Support/nom/config.yml"
+        else
+            nom_dst="${XDG_CONFIG_HOME:-$HOME/.config}/nom/config.yml"
+        fi
+        _check_link "nom config.yml" "$nom_dst" "$nom_src" || failed=1
+    fi
+
+    if [ -f "$dotfiles_dir/claude/settings.json" ]; then
+        _check_link "claude/settings.json" "$HOME/.claude/settings.json" \
+                    "$dotfiles_dir/claude/settings.json" || failed=1
+    fi
+
+    return $failed
+}
+
 link_dotfiles() {
     local dotfiles_dir="${DOTFILES_DIR:-$HOME/.dotfiles}"
     echo "[STEP] Linking dotfiles..."

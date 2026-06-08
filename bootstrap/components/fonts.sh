@@ -2,6 +2,50 @@
 # Component: Fonts installation
 # Requires: DOTFILES_DIR to be set
 
+ensure_fonts_darwin() {
+    local dotfiles_dir="${DOTFILES_DIR:-$HOME/.dotfiles}"
+    echo "[STEP] Verifying fonts..."
+    if [ ! -d "$dotfiles_dir/fonts" ]; then
+        echo "[SKIP] fonts/ directory not found in dotfiles"
+        return 0
+    fi
+    local failed=0
+    for font_file in "$dotfiles_dir/fonts"/*.ttf "$dotfiles_dir/fonts"/*.otf; do
+        [ -f "$font_file" ] || continue
+        local base
+        base="$(basename "$font_file")"
+        if [ -f "$HOME/Library/Fonts/$base" ]; then
+            echo "[OK] Font: $base"
+        else
+            echo "[FAIL] Font missing: $base"
+            failed=1
+        fi
+    done
+    return $failed
+}
+
+ensure_fonts_linux() {
+    local dotfiles_dir="${DOTFILES_DIR:-$HOME/.dotfiles}"
+    echo "[STEP] Verifying fonts..."
+    if [ ! -d "$dotfiles_dir/fonts" ]; then
+        echo "[SKIP] fonts/ directory not found in dotfiles"
+        return 0
+    fi
+    local failed=0
+    for font_file in "$dotfiles_dir/fonts"/*.ttf "$dotfiles_dir/fonts"/*.otf; do
+        [ -f "$font_file" ] || continue
+        local base
+        base="$(basename "$font_file")"
+        if [ -f "$HOME/.local/share/fonts/$base" ]; then
+            echo "[OK] Font: $base"
+        else
+            echo "[FAIL] Font missing: $base"
+            failed=1
+        fi
+    done
+    return $failed
+}
+
 install_fonts_darwin() {
     local dotfiles_dir="${DOTFILES_DIR:-$HOME/.dotfiles}"
 

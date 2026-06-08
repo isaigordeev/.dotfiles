@@ -4,6 +4,18 @@
 #   Caps Lock     <-> Backspace  (swap)
 # Requires: DOTFILES_DIR to be set
 
+ensure_keyremap_darwin() {
+    local dotfiles_dir="${DOTFILES_DIR:-$HOME/.dotfiles}"
+    local src="$dotfiles_dir/darwin/keyremap/com.local.KeyRemap.plist"
+    local dst="$HOME/Library/LaunchAgents/com.local.KeyRemap.plist"
+    echo "[STEP] Verifying keyboard remap..."
+    if [ ! -f "$src" ]; then
+        echo "[SKIP] $src not found in dotfiles"
+        return 0
+    fi
+    _check_link "com.local.KeyRemap.plist" "$dst" "$src" || return 1
+}
+
 install_keyremap_darwin() {
     local dotfiles_dir="${DOTFILES_DIR:-$HOME/.dotfiles}"
     local src="$dotfiles_dir/darwin/keyremap/com.local.KeyRemap.plist"

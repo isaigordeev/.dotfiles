@@ -1,6 +1,26 @@
 #!/usr/bin/env bash
 # Component: Vim plugins (shared)
 
+ensure_vim_plugins() {
+    echo "[STEP] Verifying Vim & Neovim plugins..."
+    local failed=0
+    local vim_plug_path="$HOME/.vim/autoload/plug.vim"
+    if [ -f "$vim_plug_path" ]; then
+        echo "[OK] vim-plug installed"
+    else
+        echo "[FAIL] vim-plug not installed ($vim_plug_path missing)"
+        failed=1
+    fi
+    local lazy_path="$HOME/.local/share/nvim/lazy/lazy.nvim"
+    if [ -d "$lazy_path" ]; then
+        echo "[OK] lazy.nvim installed"
+    else
+        echo "[FAIL] lazy.nvim not found ($lazy_path missing)"
+        failed=1
+    fi
+    return $failed
+}
+
 install_vim_plugins() {
     echo "[STEP] Installing Vim & Neovim plugins..."
 

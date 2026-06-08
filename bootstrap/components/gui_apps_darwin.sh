@@ -6,6 +6,21 @@ _app_installed() {
     [ -d "/Applications/$1.app" ]
 }
 
+ensure_gui_apps_darwin() {
+    echo "[STEP] Verifying GUI apps..."
+    local failed=0
+    local apps=("Visual Studio Code" "Hyper" "Ghostty" "Homerow")
+    for app in "${apps[@]}"; do
+        if _app_installed "$app"; then
+            echo "[OK] $app"
+        else
+            echo "[FAIL] $app not installed (/Applications/$app.app missing)"
+            failed=1
+        fi
+    done
+    return $failed
+}
+
 install_gui_apps_darwin() {
     echo "[STEP] Installing GUI apps..."
 

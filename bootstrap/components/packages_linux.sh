@@ -1,6 +1,21 @@
 #!/usr/bin/env bash
 # Component: Package installation (Linux)
 
+ensure_packages_linux() {
+    echo "[STEP] Verifying packages..."
+    local failed=0
+    local cmds=(zsh git gh curl wget tmux vim nvim fzf rg tree prettier nom)
+    for cmd in "${cmds[@]}"; do
+        if command -v "$cmd" > /dev/null 2>&1; then
+            echo "[OK] $cmd"
+        else
+            echo "[FAIL] $cmd not found"
+            failed=1
+        fi
+    done
+    return $failed
+}
+
 detect_package_manager() {
     if command -v apt-get > /dev/null 2>&1; then
         echo "apt"
