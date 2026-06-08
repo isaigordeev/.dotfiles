@@ -26,9 +26,6 @@ set tab-size = 4
 # Case-insensitive search with /
 set ignore-case = yes
 
-# Word-level highlight on changed lines (closest in-tig analog to delta).
-# Path-style so we don't depend on diff-highlight being on $PATH.
-set diff-highlight = /opt/homebrew/opt/git/share/git-core/contrib/diff-highlight/diff-highlight
 
 # Enable mouse scrolling
 set mouse = yes
