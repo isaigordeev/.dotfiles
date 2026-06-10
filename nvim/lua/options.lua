@@ -51,3 +51,9 @@ vim.opt.redrawtime = 10000
 
 -- Allow project-specific .nvim.lua config
 vim.opt.exrc = true
+
+-- Force the interactive swap dialog instead of the silent W325 auto-ignore
+-- when another nvim already has the file open.
+vim.api.nvim_create_autocmd("SwapExists", {
+   callback = function() vim.v.swapchoice = "" end,
+})
