@@ -44,6 +44,7 @@ return {
          })
 
          -- Configure LSP servers using neovim 0.11+ native API
+         vim.lsp.set_log_level("WARN")
          local capabilities = require("cmp_nvim_lsp").default_capabilities()
 
          -- Apply capabilities to all servers

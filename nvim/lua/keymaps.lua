@@ -176,8 +176,15 @@ map("n", "<C-p>", "<cmd>Files<CR>", { desc = "Find files" })
 local function exit_zen_then(cmd)
    return function()
       local ok, view = pcall(require, "zen-mode.view")
-      if ok and view.is_open() then require("zen-mode").close() end
-      vim.cmd(cmd)
+      if ok and view.is_open() then
+         require("zen-mode").close()
+         -- Defer so zen-mode finishes restoring the original window/buffer
+         -- before the command runs; otherwise NvimTreeFindFile lands on
+         -- the floating buffer instead of the actual file.
+         vim.schedule(function() vim.cmd(cmd) end)
+      else
+         vim.cmd(cmd)
+      end
    end
 end
 
