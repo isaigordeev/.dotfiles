@@ -136,8 +136,7 @@ if [ -f "$(brew --prefix 2>/dev/null)/share/zsh-syntax-highlighting/zsh-syntax-h
     source "$(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
 fi
 
-# ── startup banner (zsh/banner.zsh) ──
-source "$HOME/.dotfiles/zsh/banner.zsh"
+# ── startup banner (engine lives in the isg theme) ──
 source "$HOME/.dotfiles/zsh/banner_logs.zsh"
 
 banner_info "%Bisg%b · zsh"
