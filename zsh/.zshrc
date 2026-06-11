@@ -1,3 +1,7 @@
+# escape hatch — `ZSH_BARE=1 zsh` skips this entire config: no oh-my-zsh,
+# theme, banner, plugins or highlighting; a bare shell for testing
+[[ -n $ZSH_BARE ]] && return
+
 # startup timing — read by log_start (banner_logs.zsh) at render
 zmodload zsh/datetime
 typeset -gF _BANNER_T0=$EPOCHREALTIME
@@ -79,9 +83,47 @@ ISG_DEFAULT_USER=true # show user name
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git)
+# ── init: lite (ZSH_LITE=1) or oh-my-zsh ──
+# The lite path replaces oh-my-zsh with the few things this config
+# actually uses from it: colors, completion, history, prompt_subst,
+# git_prompt_info and the theme. Compare: `ZSH_LITE=1 zsh` vs `zsh`.
+if [[ -n $ZSH_LITE ]]; then
+    setopt prompt_subst interactive_comments extended_glob auto_cd
+    autoload -Uz colors add-zsh-hook && colors
 
-source $ZSH/oh-my-zsh.sh
+    # history (oh-my-zsh defaults)
+    HISTFILE="$HOME/.zsh_history"
+    HISTSIZE=50000
+    SAVEHIST=10000
+    setopt extended_history hist_expire_dups_first hist_ignore_dups \
+           hist_ignore_space inc_append_history share_history
+
+    # completion — full fpath scan at most once a day, cached -C otherwise
+    autoload -Uz compinit
+    if [[ -n $HOME/.zcompdump-lite(#qN.mh-24) ]]; then
+        compinit -C -d "$HOME/.zcompdump-lite"
+    else
+        compinit -d "$HOME/.zcompdump-lite"
+    fi
+    zstyle ':completion:*' menu select
+    zstyle ':completion:*' matcher-list 'm:{a-zA-Z-_}={A-Za-z_-}'
+
+    # minimal git_prompt_info — the one oh-my-zsh function the theme uses
+    git_prompt_info() {
+        local ref
+        ref=$(command git symbolic-ref --short HEAD 2>/dev/null) ||
+        ref=$(command git rev-parse --short HEAD 2>/dev/null) || return 0
+        local state=$ZSH_THEME_GIT_PROMPT_CLEAN
+        [[ -n $(command git status --porcelain 2>/dev/null | head -1) ]] &&
+            state=$ZSH_THEME_GIT_PROMPT_DIRTY
+        echo "${ZSH_THEME_GIT_PROMPT_PREFIX}${ref}${state}${ZSH_THEME_GIT_PROMPT_SUFFIX}"
+    }
+
+    source "$HOME/.dotfiles/zsh/isg.zsh-theme"
+else
+    plugins=(git)
+    source $ZSH/oh-my-zsh.sh
+fi
 
 # User configuration
 
