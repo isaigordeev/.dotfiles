@@ -442,7 +442,7 @@ banner_render() {
     (( ${#_banner_log_lines} )) && print
     # dark theme: blue, like the prompt's current-dir; light: default fg
     local log_on='' log_off=''
-    [[ "$ISG_THEME_MODE" == 'dark' ]] && log_on='%F{blue}' log_off='%f'
+    [[ "$ISG_THEME_MODE" == 'dark' ]] && log_on='%F{grey}' log_off='%f'
     for line in "${_banner_log_lines[@]}"; do
         print -P -- "    ${log_on}· ${line//\%/%%}${log_off}"
     done
