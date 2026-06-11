@@ -163,9 +163,47 @@ return {
       "nvim-tree/nvim-tree.lua",
       dependencies = { "nvim-tree/nvim-web-devicons" },
       config = function()
+         -- Session-scoped stack of previous roots, for back-navigation.
+         local root_history = {}
+         local function tree_root()
+            local ok, core = pcall(require, "nvim-tree.core")
+            local e = ok and core.get_explorer()
+            return e and e.absolute_path or nil
+         end
+
          require("nvim-tree").setup({
             view = { width = 40, number = true },
             filters = { dotfiles = false, git_ignored = false },
+            on_attach = function(bufnr)
+               local api = require("nvim-tree.api")
+               api.config.mappings.default_on_attach(bufnr) -- keep all defaults
+
+               local function push() -- remember the root we're leaving
+                  local r = tree_root()
+                  if r then table.insert(root_history, r) end
+               end
+               -- change-root actions that record history first
+               local function to_node() push(); api.tree.change_root_to_node() end
+               local function to_parent() push(); api.tree.change_root_to_parent() end
+               -- pop the stack and return to the previous root (does not re-push)
+               local function back()
+                  local prev = table.remove(root_history)
+                  if prev then
+                     api.tree.change_root(prev)
+                  else
+                     vim.notify("nvim-tree: no previous root", vim.log.levels.INFO)
+                  end
+               end
+
+               local function map(lhs, fn, desc)
+                  vim.keymap.set("n", lhs, fn,
+                     { buffer = bufnr, noremap = true, silent = true, desc = desc })
+               end
+               map("C", to_node, "nvim-tree: change root to node (+history)")
+               map("<C-]>", to_node, "nvim-tree: change root to node (+history)")
+               map("-", to_parent, "nvim-tree: root to parent (+history)")
+               map("<C-o>", back, "nvim-tree: previous root (back)")
+            end,
          })
       end,
    },
