@@ -135,3 +135,30 @@ source "$HOME/.dotfiles/zsh/vimode.zsh"
 if [ -f "$(brew --prefix 2>/dev/null)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh" ]; then
     source "$(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
 fi
+
+# ── startup banner (zsh/banner.zsh) ──
+source "$HOME/.dotfiles/zsh/banner.zsh"
+
+# ssh-agent, demoted to banner logs (was: noisy "Agent pid" / "Identity added")
+_banner_ssh() {
+    local key=~/.ssh/delos-new fp
+    ssh-add -l &>/dev/null
+    if (( $? == 2 )); then              # no agent reachable → start one
+        eval "$(ssh-agent -s)" >/dev/null
+        banner_log "ssh-agent started · pid $SSH_AGENT_PID"
+    fi
+    [[ -f $key.pub ]] && fp=$(ssh-keygen -lf $key.pub 2>/dev/null | awk '{print $2}')
+    if [[ -n $fp ]] && ssh-add -l 2>/dev/null | command grep -qF "$fp"; then
+        banner_log "ssh · delos-new ✓"
+    else
+        banner_run ssh-add $key
+    fi
+}
+_banner_ssh
+
+banner_info "%Bisg%b · zsh"
+banner_info "%D{%a %d %b %Y · %H:%M}"
+_banner_branch=$(command git symbolic-ref --short HEAD 2>/dev/null)
+banner_info "%~${_banner_branch:+ · $_banner_branch}"
+unset _banner_branch
+banner_render
