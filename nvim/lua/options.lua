@@ -58,19 +58,26 @@ vim.api.nvim_create_autocmd("SwapExists", {
    callback = function() vim.v.swapchoice = "" end,
 })
 
--- Clipboard via OSC 52 so yanks reach the *local* terminal (Ghostty) even
--- over SSH/tmux, where pbcopy/xclip would target the wrong machine or be
--- absent. Copy goes out as OSC 52; paste reads the local register instead of
--- querying the terminal (which can hang or prompt) -- use the terminal's own
--- paste (Cmd+V, bracketed) to bring outside text in.
-local osc52 = require("vim.ui.clipboard.osc52")
-local function paste_reg()
-   return function()
-      return { vim.fn.split(vim.fn.getreg(""), "\n"), vim.fn.getregtype("") }
+-- Clipboard provider, chosen by context:
+--   * Local: leave Neovim's default (pbcopy on macOS, xclip/wl on Linux). It
+--     writes the OS clipboard via a CLI call, so it works in EVERY terminal --
+--     including ones with no OSC 52 support (Terminal.app, Hyper).
+--   * Over SSH: pbcopy would target the remote box, so push to the *local*
+--     terminal with OSC 52 instead. Needs a terminal that supports OSC 52
+--     (Ghostty/iTerm2/kitty/WezTerm/Alacritty), which is what we run.
+-- Paste reads the local register rather than querying the terminal (which can
+-- hang/prompt) -- use the terminal's own paste (Cmd+V, bracketed) for outside
+-- text.
+if vim.env.SSH_TTY or vim.env.SSH_CONNECTION then
+   local osc52 = require("vim.ui.clipboard.osc52")
+   local function paste_reg()
+      return function()
+         return { vim.fn.split(vim.fn.getreg(""), "\n"), vim.fn.getregtype("") }
+      end
    end
+   vim.g.clipboard = {
+      name = "OSC 52",
+      copy = { ["+"] = osc52.copy("+"), ["*"] = osc52.copy("*") },
+      paste = { ["+"] = paste_reg(), ["*"] = paste_reg() },
+   }
 end
-vim.g.clipboard = {
-   name = "OSC 52",
-   copy = { ["+"] = osc52.copy("+"), ["*"] = osc52.copy("*") },
-   paste = { ["+"] = paste_reg(), ["*"] = paste_reg() },
-}
