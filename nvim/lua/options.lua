@@ -57,3 +57,20 @@ vim.opt.exrc = true
 vim.api.nvim_create_autocmd("SwapExists", {
    callback = function() vim.v.swapchoice = "" end,
 })
+
+-- Clipboard via OSC 52 so yanks reach the *local* terminal (Ghostty) even
+-- over SSH/tmux, where pbcopy/xclip would target the wrong machine or be
+-- absent. Copy goes out as OSC 52; paste reads the local register instead of
+-- querying the terminal (which can hang or prompt) -- use the terminal's own
+-- paste (Cmd+V, bracketed) to bring outside text in.
+local osc52 = require("vim.ui.clipboard.osc52")
+local function paste_reg()
+   return function()
+      return { vim.fn.split(vim.fn.getreg(""), "\n"), vim.fn.getregtype("") }
+   end
+end
+vim.g.clipboard = {
+   name = "OSC 52",
+   copy = { ["+"] = osc52.copy("+"), ["*"] = osc52.copy("*") },
+   paste = { ["+"] = paste_reg(), ["*"] = paste_reg() },
+}
