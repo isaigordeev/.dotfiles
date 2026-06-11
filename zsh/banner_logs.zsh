@@ -7,7 +7,6 @@
 
 BANNER_LOG_FUNCS=(
     log_shell
-    log_ssh
 )
 
 log_shell() { banner_log "zsh $ZSH_VERSION · ${HOST%%.*}" }
