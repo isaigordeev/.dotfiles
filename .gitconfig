@@ -16,6 +16,9 @@
 	line-numbers = true
 	light = true
 	syntax-theme = ansi
+	; Always stream to stdout, never open a pager (any length). Delta still
+	; colorizes + adds metadata; output lands in the terminal/tmux scrollback.
+	paging = never
 [merge]
 	conflictStyle = diff3
 [diff]
