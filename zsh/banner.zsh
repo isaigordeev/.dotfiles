@@ -8,11 +8,13 @@
 #     · Identity added: /Users/isg/.ssh/delos-new (...)
 #
 # Interface
-#   banner_info "text"     add a status line, shown right of the mascot
-#                          (prompt escapes allowed: %B %F{..} %~ %D{..} ...)
-#   banner_log  "text"     add a dim log line, shown below the banner
-#   banner_run  cmd ...    run a noisy command, demoting its output to logs
-#   banner_render          draw everything — call once, at the end of .zshrc
+#   banner_info "text"        add a status line, shown right of the mascot
+#                             (prompt escapes allowed: %B %F{..} %~ %D{..} ...)
+#   BANNER_LOG_FUNCS=( ... )  registry of log funcs, run in order by render —
+#                             each func holds one log message (banner_logs.zsh)
+#   banner_log  "text"        add a dim log line, shown below the banner
+#   banner_run  cmd ...       run a noisy command, demoting its output to logs
+#   banner_render             consume the registry and draw — call once, last
 #
 # Config
 #   BANNER_DISABLE=1           skip rendering entirely
@@ -20,6 +22,7 @@
 
 [[ -o interactive ]] || return 0
 
+typeset -ga BANNER_LOG_FUNCS=()
 typeset -ga _banner_info_lines=()
 typeset -ga _banner_log_lines=()
 
@@ -60,7 +63,12 @@ typeset -g _banner_mascot_width=15
 banner_render() {
     [[ -n $BANNER_DISABLE ]] && return 0
     local -i i rows
-    local mascot info line
+    local fn mascot info line
+    # consume the log registry — funcs run in the current shell, so exports
+    # they make (e.g. SSH_AUTH_SOCK) persist in the session
+    for fn in "${BANNER_LOG_FUNCS[@]}"; do
+        (( $+functions[$fn] )) && $fn
+    done
     rows=$(( ${#_banner_mascot} > ${#_banner_info_lines} \
              ? ${#_banner_mascot} : ${#_banner_info_lines} ))
     print
