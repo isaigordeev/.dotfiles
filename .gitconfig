@@ -21,7 +21,7 @@
 [diff]
 	colorMoved = default
 [pager]
-	diff = false
+	diff = true
 [sendemail]
 	smtpServer = smtp.gmail.com
 	smtpServerPort = 587
