@@ -1,9 +1,10 @@
 # banner.zsh — zsh startup banner: mascot · status lines · quiet logs
 #
-#          ▼ q₀       isg · zsh
-#   ┄┬─┬─┬─┬─┬─┬┄     Wed 11 Jun 2026 · 20:42
-#   ┄┤0│1│1│0│1├┄     ~/.dotfiles · main
+#          ▼ q₀        isg · zsh
+#   ┄┬─┬─┬─┬─┬─┬┄      Wed 11 Jun 2026 · 20:42
+#   ┄┤0│1│1│0│1├┄      ~/.dotfiles · main
 #   ┄┴─┴─┴─┴─┴─┴┄
+#   δ(q₀,0)=⟨B,1,R⟩
 #     · ssh-agent started · pid 724
 #     · Identity added: /Users/isg/.ssh/delos-new (...)
 #
@@ -38,16 +39,65 @@ banner_run() {
 }
 
 # ── mascot: turing machine tape ──
-# Keep all lines the same display width (_banner_mascot_width).
-# Head in state q₀, parked over a cell. Swap art freely.
+# Lines may be shorter than _banner_mascot_width (they get padded) but
+# never longer (they get truncated). Swap art freely.
+#
+# A Turing machine is the 7-tuple M = ⟨Q,Γ,b,Σ,δ,q₀,F⟩ (Hopcroft &
+# Ullman) — here instantiated as the 3-state busy beaver:
+#
+#   Q    set of states                   {A, B, C, HALT}
+#   Γ    tape alphabet                   {0, 1}
+#   b    blank symbol,  b ∈ Γ            0
+#   Σ    input symbols, Σ ⊆ Γ∖{b}        {1}
+#   δ    transition function             (Q∖F) × Γ ⇀ Q × Γ × {L,R}
+#   q₀   initial state, q₀ ∈ Q           A
+#   F    final states,  F ⊆ Q            {HALT}
+#
+# δ takes a pair (current state, symbol under the head) and returns a
+# triple (next state, symbol to write, head move):
+#
+#   δ(q₀, 0) = ⟨B, 1, R⟩
+#      │   │     │  │  │
+#      │   │     │  │  └─ then move the head one cell Right
+#      │   │     │  └──── write 1 over the 0
+#      │   │     └─────── switch to state B
+#      │   └───────────── ...while reading symbol 0
+#      └───────────────── in state q₀ (= state A, the initial state)...
+#
+# The mascot is that machine at step zero:
+#
+#          ▼ q₀          head in the initial state q₀ (=A), reading 0
+#   ┄┬─┬─┬─┬─┬─┬┄
+#   ┄┤0│1│1│0│1├┄        the tape; ┄ = blanks (b=0) to infinity
+#   ┄┴─┴─┴─┴─┴─┴┄
+#   δ(q₀,0)=⟨B,1,R⟩      the next move, computed but not yet taken
+#
+# The machine looks up δ for (q₀, 0) — the top-left entry of the busy
+# beaver state table. One step later the tape would read 0│1│1│1│1 and
+# the head would sit one cell to the right, labeled ▼ q_B. So the
+# banner is a freeze-frame of the machine mid-thought.
+#
+# Why it ever stops: δ is partial — when no rule exists for the current
+# (state, symbol) pair, the machine halts. The busy beaver reaches the
+# explicit HALT ∈ F state after 14 steps, having written six 1s — the
+# most a 3-state machine can do and still terminate. A fitting mascot
+# for a shell: maximum output, guaranteed to terminate.
 typeset -ga _banner_mascot=(
     '       ▼ q₀'
     '┄┬─┬─┬─┬─┬─┬┄'
     '┄┤0│1│1│0│1├┄'
     '┄┴─┴─┴─┴─┴─┴┄'
+    'δ(q₀,0)=⟨B,1,R⟩'
 )
-typeset -g _banner_mascot_width=15
+typeset -g _banner_mascot_width=16
 
+# Alternative: signed with the formal 7-tuple instead of a transition
+#   '       ▼ q₀'
+#   '┄┬─┬─┬─┬─┬─┬┄'
+#   '┄┤0│1│1│0│1├┄'
+#   '┄┴─┴─┴─┴─┴─┴┄'
+#   '⟨Q,Γ,b,Σ,δ,q₀,F⟩'
+#
 # Alternative: tape spells the owner, head parked on `i`
 #   '       ▼'
 #   '┄┬─┬─┬─┬─┬─┬┄'
@@ -77,6 +127,7 @@ banner_render() {
         info="${_banner_info_lines[i]:-}"
         print -P -- "  %F{${BANNER_ACCENT:-yellow}}${(r:${_banner_mascot_width}:)mascot}%f   ${info}"
     done
+    (( ${#_banner_log_lines} )) && print
     for line in "${_banner_log_lines[@]}"; do
         print -P -- "    %F{8}· ${line//\%/%%}%f"
     done
