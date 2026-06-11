@@ -67,7 +67,7 @@ __isg::current_dir () {
 
 __isg::user_info () {
   if [[ -n "$SSH_TTY" ]] || [[ -n "$SSH_CONNECTION" ]]; then
-    echo "$fg_bold[green]#$reset_color$USER "
+    echo "$fg[green]#$reset_color$USER "
   elif [[ ! -z "$ISG_DEFAULT_USER" ]] &&
      [[ "$USER" != "$ISG_DEFAULT_USER" ]]; then
     echo "@$USER "
