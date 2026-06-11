@@ -7,9 +7,18 @@
 
 BANNER_LOG_FUNCS=(
     log_shell
+    log_remote
 )
 
 log_shell() { banner_log "zsh $ZSH_VERSION · ${HOST%%.*}" }
+
+log_remote() {
+    if [[ -n $SSH_CONNECTION || -n $SSH_TTY ]]; then
+        banner_log "session · ssh from ${SSH_CONNECTION%% *}"
+    else
+        banner_log "session · local"
+    fi
+}
 
 # ssh-agent: reuse a reachable agent, add the key only if missing —
 # was a noisy "Agent pid" / "Identity added" popping on every shell
