@@ -8,6 +8,7 @@
 BANNER_LOG_FUNCS=(
     log_shell
     log_remote
+    # log_tmux
     log_start
 )
 
@@ -19,6 +20,22 @@ log_remote() {
     else
         banner_log "session · local"
     fi
+}
+
+# tmux, one minimal line — inside: current session · clients · detached;
+# outside: counts only, silent when the server is idle or absent
+log_tmux() {
+    (( $+commands[tmux] )) || return 0
+    local -a detached clients seg
+    detached=( ${(f)"$(command tmux list-sessions \
+        -F '#{?session_attached,,#{session_name}}' 2>/dev/null)"} )
+    clients=( ${(f)"$(command tmux list-clients -F x 2>/dev/null)"} )
+    [[ -n $TMUX ]] && seg+=("$(command tmux display-message -p '#S' 2>/dev/null)")
+    local cs="clients"; (( ${#clients} == 1 )) && cs="client"
+    (( ${#clients} ))  && seg+=("${#clients} $cs")
+    (( ${#detached} )) && seg+=("${#detached} detached")
+    (( ${#seg} )) || return 0
+    banner_log "tmux · ${(j: · :)seg}"
 }
 
 # zshrc start (_BANNER_T0, stamped on .zshrc line 1) → banner render
