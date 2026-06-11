@@ -352,12 +352,32 @@ typeset -g _banner_mascot_width=16
 #   '▀▀▀▀▀▀▀▀▀▀▀▀▀'
 
 # ── toy: the beaver lives through the week ──
-# Each day the machine is ⌊14·d/6⌋ steps into its run (d = 0 on Monday):
-# Mon 0 · Tue 2 · Wed 4 · Thu 7 · Fri 9 · Sat 11 · Sun 14 — on Sunday δ
-# is undefined and it rests in HALT ∈ F, tape full of 1s. The static
-# array above is Monday's step zero (q₀ = qA); this overwrites it with
-# today's frame: simulated tape window around the head, current state,
-# and the pending transition (HALT abbreviated H in the triple).
+# Each day the machine is ⌊14·d/6⌋ steps into its run (d = 0 on Monday).
+# The static array above is Monday's step zero (q₀ = qA); this
+# overwrites it with today's frame: simulated tape window around the
+# head, current state, and the pending transition (HALT → H in the
+# triple). The week, frame by frame (window = head ± 2 cells):
+#
+#   Mon   0  ┄┤0│0│0│0│0├┄  δ(qA,0)=⟨B,1,R⟩  reborn on a blank tape;
+#                                            plants the 1st of six 1s
+#   Tue   2  ┄┤0│0│1│1│0├┄  δ(qA,1)=⟨C,1,L⟩  wrote two 1s, bounced
+#                                            back; turns left
+#   Wed   4  ┄┤0│0│0│1│1├┄  δ(qB,0)=⟨A,1,L⟩  marching left, laying 1s
+#                                            at the frontier
+#   Thu   7  ┄┤1│1│1│1│1├┄  δ(qB,1)=⟨B,1,R⟩  left edge sealed; begins
+#                                            the long right sweep
+#   Fri   9  ┄┤1│1│1│0│0├┄  δ(qB,1)=⟨B,1,R⟩  B's self-loop rides over
+#                                            its own 1s, head → right
+#   Sat  11  ┄┤1│1│1│1│0├┄  δ(qA,1)=⟨C,1,L⟩  6th and last 1 written;
+#                                            turns back inward
+#   Sun  14  ┄┤1│1│1│1│0├┄  δ(HALT,·) = ∅ ∎  qC read a 1 → HALT ∈ F;
+#                                            six 1s, machine rests
+#
+# Stages of the underlying 13-transition run: plant two 1s and bounce
+# (1-2) → march left extending the block (3-5) → turn at the left edge
+# (6) → sweep right over the 1s via δ(B,1)=⟨B,1,R⟩ (7-10) → seal the
+# right edge with the 6th 1 (11) → walk in and hit δ(C,1)=⟨HALT,1,R⟩
+# (12-13). Monday it is reborn at step zero.
 __isg::beaver_mascot() {
     local -i steps=$1 head=0 i
     local state=A sym label move
