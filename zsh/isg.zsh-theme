@@ -351,6 +351,57 @@ typeset -g _banner_mascot_width=16
 #   '▌0▐1▐0█1█▌1▐0'
 #   '▀▀▀▀▀▀▀▀▀▀▀▀▀'
 
+# ── toy: the beaver lives through the week ──
+# Each day the machine is ⌊14·d/6⌋ steps into its run (d = 0 on Monday):
+# Mon 0 · Tue 2 · Wed 4 · Thu 7 · Fri 9 · Sat 11 · Sun 14 — on Sunday δ
+# is undefined and it rests in HALT ∈ F, tape full of 1s. The static
+# array above is Monday's step zero (q₀ = qA); this overwrites it with
+# today's frame: simulated tape window around the head, current state,
+# and the pending transition (HALT abbreviated H in the triple).
+__isg::beaver_mascot() {
+    local -i steps=$1 head=0 i
+    local state=A sym label move
+    local -a rule cells
+    local -A tape
+    local -A delta=(
+        A0 '1 R B'   A1 '1 L C'
+        B0 '1 L A'   B1 '1 R B'
+        C0 '1 L B'   C1 '1 R HALT'
+    )
+    for (( i = 0; i < steps; i++ )); do
+        sym=${tape[$head]:-0}
+        rule=( ${=delta[${state}${sym}]} )
+        (( ${#rule} )) || break
+        tape[$head]=$rule[1]
+        if [[ $rule[2] == R ]]; then (( head++ )); else (( head-- )); fi
+        state=$rule[3]
+    done
+    for i in {-2..2}; do
+        cells+=( "${tape[$(( head + i ))]:-0}" )
+    done
+    sym=${tape[$head]:-0}
+    rule=( ${=delta[${state}${sym}]} )
+    label="q$state"; [[ $state == HALT ]] && label='HALT'
+    if (( ${#rule} )); then
+        move="δ($label,$sym)=⟨${rule[3]/HALT/H},$rule[1],$rule[2]⟩"
+    else
+        move="δ($label,·) = ∅ ∎"
+    fi
+    _banner_mascot=(
+        "       ▼ $label"
+        '┄┬─┬─┬─┬─┬─┬┄'
+        "┄┤$cells[1]│$cells[2]│$cells[3]│$cells[4]│$cells[5]├┄"
+        '┄┴─┴─┴─┴─┴─┴┄'
+        "$move"
+    )
+}
+
+if zmodload zsh/datetime 2>/dev/null; then
+    strftime -s _isg_dow '%u' $EPOCHSECONDS   # 1 = Monday .. 7 = Sunday
+    __isg::beaver_mascot $(( 14 * (_isg_dow - 1) / 6 ))
+    unset _isg_dow
+fi
+
 banner_render() {
     [[ -n $BANNER_DISABLE ]] && return 0
     local -i i rows
