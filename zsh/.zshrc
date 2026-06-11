@@ -1,3 +1,7 @@
+# startup timing — read by log_start (banner_logs.zsh) at render
+zmodload zsh/datetime
+typeset -gF _BANNER_T0=$EPOCHREALTIME
+
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
@@ -131,10 +135,13 @@ source "$HOME/.dotfiles/zsh/vimode.zsh"
 #[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 #[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
-# Syntax highlighting (Homebrew)
-if [ -f "$(brew --prefix 2>/dev/null)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh" ]; then
-    source "$(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
+# Syntax highlighting (Homebrew) — prefix derived from brew's own path
+# (/usr/local/bin/brew → /usr/local) instead of the slow `brew --prefix`
+_brew_prefix="${HOMEBREW_PREFIX:-${commands[brew]:h:h}}"
+if [[ -f "$_brew_prefix/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh" ]]; then
+    source "$_brew_prefix/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
 fi
+unset _brew_prefix
 
 # ── startup banner (engine lives in the isg theme) ──
 source "$HOME/.dotfiles/zsh/banner_logs.zsh"

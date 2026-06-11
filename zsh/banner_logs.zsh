@@ -8,6 +8,7 @@
 BANNER_LOG_FUNCS=(
     log_shell
     log_remote
+    log_start
 )
 
 log_shell() { banner_log "zsh $ZSH_VERSION · ${HOST%%.*}" }
@@ -18,6 +19,13 @@ log_remote() {
     else
         banner_log "session · local"
     fi
+}
+
+# zshrc start (_BANNER_T0, stamped on .zshrc line 1) → banner render
+log_start() {
+    [[ -n $_BANNER_T0 ]] || return 0
+    local -i ms=$(( (EPOCHREALTIME - _BANNER_T0) * 1000 ))
+    banner_log "start · ${ms} ms"
 }
 
 # ssh-agent: reuse a reachable agent, add the key only if missing —
