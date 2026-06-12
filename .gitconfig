@@ -19,6 +19,18 @@
 	; Always stream to stdout, never open a pager (any length). Delta still
 	; colorizes + adds metadata; output lands in the terminal/tmux scrollback.
 	paging = never
+	; jj-like minimalism: drop the box/rule "boarding lines" but keep the
+	; +/- background highlight (minus-/plus-style left at defaults).
+	hunk-header-style = omit
+	file-decoration-style = none
+	file-style = blue
+	; line-number gutter without the dotted/solid vertical bars -- just the
+	; numbers and a ":" separator, like jj.
+	line-numbers-left-format = "{nm:>4} "
+	line-numbers-right-format = "{np:>4} : "
+	line-numbers-left-style = blue
+	line-numbers-right-style = blue
+	line-numbers-zero-style = "#cccccc"
 [merge]
 	conflictStyle = diff3
 [diff]
