@@ -125,6 +125,10 @@ else
     source $ZSH/oh-my-zsh.sh
 fi
 
+# keep the whole history — both init paths above default SAVEHIST to 10k,
+# which trims the file (recovered Jun 2026 after a wipe; see .zsh_history.bak-*)
+SAVEHIST=50000
+
 # User configuration
 
 # export MANPATH="/usr/local/man:$MANPATH"
