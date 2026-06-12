@@ -16,14 +16,19 @@
 	line-numbers = true
 	light = true
 	syntax-theme = ansi
-	; Always stream to stdout, never open a pager (any length). Delta still
-	; colorizes + adds metadata; output lands in the terminal/tmux scrollback.
-	paging = never
+	; Page with quit-if-one-screen: short diffs auto-quit and stay in the
+	; terminal (feels like stdout), long diffs open in less (wrapped +
+	; navigable), -X keeps content in scrollback on quit. Paging is also what
+	; enables delta's clean line-wrapping of long lines.
+	paging = auto
+	pager = less -RFX
 	; jj-like minimalism: drop the box/rule "boarding lines" but keep the
 	; +/- background highlight (minus-/plus-style left at defaults).
 	hunk-header-style = omit
 	file-decoration-style = none
 	file-style = blue
+	; drop the "Δ" modified-file symbol -- show just the path
+	file-modified-label = ""
 	; line-number gutter without the dotted/solid vertical bars -- just the
 	; numbers and a ":" separator, like jj.
 	line-numbers-left-format = "{nm:>4} "
