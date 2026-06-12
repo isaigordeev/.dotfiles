@@ -21,7 +21,7 @@
 	; navigable), -X keeps content in scrollback on quit. Paging is also what
 	; enables delta's clean line-wrapping of long lines.
 	paging = auto
-	pager = less -RFX
+	pager = never
 	; jj-like minimalism: drop the box/rule "boarding lines" but keep the
 	; +/- background highlight (minus-/plus-style left at defaults).
 	hunk-header-style = omit
