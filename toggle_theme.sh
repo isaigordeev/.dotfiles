@@ -141,59 +141,8 @@ else
     STATUS+="nom: config not found\n"
 fi
 
-# --- Display full screen icon ---
+# --- Splash: mascot + status, banner-style (mascots.sh) ---
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+source "$SCRIPT_DIR/mascots.sh"
 clear
-if [ "$MODE" = "dark" ]; then
-    cat << 'EOF'
-
-
-                              .
-                             .o
-                            .oo
-                           .ooo
-                          .oooo
-                         .ooooo
-                        .oooooo
-                       .ooooooo
-                      .oooooooo
-                     .ooooooooo
-                    .oooooooo
-                   .ooooooo
-                  .oooooo
-                 .ooooo
-                .oooo
-               .ooo
-              .oo
-             .o
-            .
-
-                    M U R K
-
-EOF
-else
-    cat << 'EOF'
-
-
-                 .     |     *
-                  \    |    /
-              `.   \   '   /   .'
-                `. .-"""""-. .'
-            "*-._ / .ooooo. \ _.-*"
-                 | ooooooooo |
-           ~-`-.-| ooooooooo |-.~-`~
-                 | ooooooooo |
-            _.-*" \ 'ooooo' / "*-._
-                .' `-.....-' `.
-              .'   /   '   \    *.
-                  /    +    \
-                 '     |     `
-
-
-                    L U M A
-
-EOF
-fi
-
-echo -e "$STATUS"
-echo ""
-date "+%a %d %b %Y at %H:%M:%S"
+splash_render "$MODE" "$STATUS"
