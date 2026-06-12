@@ -8,14 +8,11 @@
 # Show dates as relative time (e.g. "2 hours ago")
 set main-view-date = relative
 
-# Shorten author names in main view
-set main-view-author = full
+# Hide the author column in main view
+set main-view-author = no
 
-# Show short commit hash column in main view
-set main-view-id = yes
-
-# Number of characters to use for the commit hash column
-set main-view-id-width = 8
+# Hide the commit hash (id) column in main view
+set main-view-id = no
 
 # Show relative dates in blame view
 set blame-view-date = relative
@@ -51,9 +48,6 @@ bind main O !git checkout %(commit)
 
 # Create a new branch from the selected commit (prompts for branch name)
 bind main B !git checkout -b %(prompt) %(commit)
-
-# Hard reset current branch to the selected commit (destructive)
-bind main X !git reset --hard %(commit)
 
 # Start an interactive rebase from the selected commit
 bind main R !git rebase -i %(commit)
