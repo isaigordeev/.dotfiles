@@ -144,10 +144,13 @@ if [[ "$ISG_SYNTAX_HIGHLIGHTING" != 'false' ]]; then
     ZSH_HIGHLIGHT_STYLES[path]='fg=white,underline'
   fi
 
+  # Custom bat/syntect themes that mirror the vim colorschemes exactly, so
+  # fzf/bat previews match the editor (see bat/themes/vs_*.tmTheme). Override
+  # per-mode with ISG_SYNTAX_THEME_DARK / ISG_SYNTAX_THEME_LIGHT.
   if [[ "$ISG_THEME_MODE" == 'dark' ]]; then
-    export ISG_SYNTAX_THEME="${ISG_SYNTAX_THEME_LIGHT:-base16-256}"
+    export ISG_SYNTAX_THEME="${ISG_SYNTAX_THEME_DARK:-vs_dark}"
   else
-    export ISG_SYNTAX_THEME="${ISG_SYNTAX_THEME_LIGHT:-Monokai Extended Light}"
+    export ISG_SYNTAX_THEME="${ISG_SYNTAX_THEME_LIGHT:-vs_light}"
   fi
 
   # If `bat` is installed, then change the theme for it:

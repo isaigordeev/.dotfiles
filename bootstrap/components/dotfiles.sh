@@ -38,6 +38,10 @@ ensure_dotfiles() {
     _check_link "nvim config"    "$HOME/.config/nvim"     "$dotfiles_dir/nvim"     || failed=1
     _check_link "ghostty config" "$HOME/.config/ghostty"  "$dotfiles_dir/ghostty"  || failed=1
 
+    if [ -d "$dotfiles_dir/bat" ]; then
+        _check_link "bat config"  "$HOME/.config/bat"      "$dotfiles_dir/bat"      || failed=1
+    fi
+
     local nom_src="$dotfiles_dir/nom/config.yml"
     if [ -f "$nom_src" ]; then
         local nom_dst
@@ -146,6 +150,22 @@ link_dotfiles() {
         echo "[OK] Linked ghostty config"
     else
         echo "[SKIP] Ghostty config already in place (source and target are the same)"
+    fi
+
+    # Link bat config dir (carries custom vs_dark/vs_light preview themes).
+    # Rebuild bat's theme cache so BAT_THEME=vs_dark/vs_light resolves.
+    local bat_src="$dotfiles_dir/bat"
+    local bat_dst="$HOME/.config/bat"
+    if [ -d "$bat_src" ] && [ "$(realpath "$bat_src" 2>/dev/null)" != "$(realpath "$bat_dst" 2>/dev/null)" ]; then
+        if [ -d "$bat_dst" ] && [ ! -L "$bat_dst" ]; then
+            echo "[BACKUP] Backing up existing bat config to bat.backup"
+            mv "$bat_dst" "$HOME/.config/bat.backup"
+        fi
+        ln -sf "$bat_src" "$bat_dst"
+        echo "[OK] Linked bat config"
+        if command -v bat >/dev/null 2>&1; then
+            bat cache --build >/dev/null 2>&1 && echo "[OK] Rebuilt bat theme cache"
+        fi
     fi
 
     # Link nom config (RSS reader). macOS uses Library/Application Support,

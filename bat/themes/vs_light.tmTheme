@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<!--
+  vs_light — bat/syntect theme mirroring vim/.vim/colors/vs_light.vim
+  Keep hex values in sync with that file. Rebuild after edits: bat cache --build
+-->
+<dict>
+  <key>name</key>
+  <string>vs_light</string>
+  <key>settings</key>
+  <array>
+
+    <!-- Global / editor chrome -->
+    <dict>
+      <key>settings</key>
+      <dict>
+        <key>background</key>    <string>#F2F2F2</string>
+        <key>foreground</key>    <string>#000000</string>
+        <key>caret</key>         <string>#000000</string>
+        <key>lineHighlight</key> <string>#E5EBF1</string>
+        <key>selection</key>     <string>#ADD6FF</string>
+        <key>gutterForeground</key> <string>#c0c0c0</string>
+        <key>invisibles</key>    <string>#c0c0c0</string>
+      </dict>
+    </dict>
+
+    <!-- Comments -->
+    <dict>
+      <key>name</key><string>Comment</string>
+      <key>scope</key><string>comment, punctuation.definition.comment</string>
+      <key>settings</key><dict>
+        <key>fontStyle</key><string>italic</string>
+        <key>foreground</key><string>#999999</string>
+      </dict>
+    </dict>
+    <dict>
+      <key>name</key><string>Doc comment</string>
+      <key>scope</key><string>comment.block.documentation</string>
+      <key>settings</key><dict><key>foreground</key><string>#008000</string></dict>
+    </dict>
+
+    <!-- Strings -->
+    <dict>
+      <key>name</key><string>String</string>
+      <key>scope</key><string>string, string.quoted, string.template</string>
+      <key>settings</key><dict><key>foreground</key><string>#a31515</string></dict>
+    </dict>
+    <dict>
+      <key>name</key><string>Escape / special char</string>
+      <key>scope</key><string>constant.character.escape, string.regexp, constant.other.placeholder</string>
+      <key>settings</key><dict><key>foreground</key><string>#811f3f</string></dict>
+    </dict>
+
+    <!-- Numbers / language constants -->
+    <dict>
+      <key>name</key><string>Number / Float</string>
+      <key>scope</key><string>constant.numeric</string>
+      <key>settings</key><dict><key>foreground</key><string>#098658</string></dict>
+    </dict>
+    <dict>
+      <key>name</key><string>Boolean</string>
+      <key>scope</key><string>constant.language</string>
+      <key>settings</key><dict><key>foreground</key><string>#098658</string></dict>
+    </dict>
+    <dict>
+      <key>name</key><string>Named constant</string>
+      <key>scope</key><string>support.constant, constant.other</string>
+      <key>settings</key><dict><key>foreground</key><string>#0000FF</string></dict>
+    </dict>
+
+    <!-- Keywords (blue), storage class (blue), operator (black) -->
+    <dict>
+      <key>name</key><string>Keyword / storage</string>
+      <key>scope</key><string>keyword, keyword.control, keyword.other, storage, storage.type, storage.modifier</string>
+      <key>settings</key><dict><key>foreground</key><string>#0000FF</string></dict>
+    </dict>
+    <dict>
+      <key>name</key><string>Operator</string>
+      <key>scope</key><string>keyword.operator, punctuation.separator, punctuation.terminator</string>
+      <key>settings</key><dict><key>foreground</key><string>#000000</string></dict>
+    </dict>
+
+    <!-- Types / classes: #0451a5; enum: teal -->
+    <dict>
+      <key>name</key><string>Type / class / struct</string>
+      <key>scope</key><string>entity.name.type, entity.name.class, entity.other.inherited-class, support.type, support.class, storage.type.class</string>
+      <key>settings</key><dict><key>foreground</key><string>#0451a5</string></dict>
+    </dict>
+    <dict>
+      <key>name</key><string>Enum</string>
+      <key>scope</key><string>entity.name.type.enum, variable.other.enummember, constant.other.enum</string>
+      <key>settings</key><dict><key>foreground</key><string>#267F99</string></dict>
+    </dict>
+
+    <!-- Functions: #0451a5 (matches vs_light.vim) -->
+    <dict>
+      <key>name</key><string>Function</string>
+      <key>scope</key><string>entity.name.function, support.function, meta.function-call, variable.function</string>
+      <key>settings</key><dict><key>foreground</key><string>#0451a5</string></dict>
+    </dict>
+
+    <!-- Variables: plain black (matches VS Light) -->
+    <dict>
+      <key>name</key><string>Variable</string>
+      <key>scope</key><string>variable, variable.other, variable.parameter, meta.definition.variable</string>
+      <key>settings</key><dict><key>foreground</key><string>#000000</string></dict>
+    </dict>
+    <dict>
+      <key>name</key><string>Builtin variable (this/self)</string>
+      <key>scope</key><string>variable.language</string>
+      <key>settings</key><dict><key>foreground</key><string>#0000FF</string></dict>
+    </dict>
+
+    <!-- Tags (maroon), attributes, punctuation (black) -->
+    <dict>
+      <key>name</key><string>Tag</string>
+      <key>scope</key><string>entity.name.tag</string>
+      <key>settings</key><dict><key>foreground</key><string>#800000</string></dict>
+    </dict>
+    <dict>
+      <key>name</key><string>Tag attribute</string>
+      <key>scope</key><string>entity.other.attribute-name</string>
+      <key>settings</key><dict><key>foreground</key><string>#e50000</string></dict>
+    </dict>
+    <dict>
+      <key>name</key><string>Punctuation / delimiter</string>
+      <key>scope</key><string>punctuation, meta.brace, punctuation.definition</string>
+      <key>settings</key><dict><key>foreground</key><string>#000000</string></dict>
+    </dict>
+
+    <!-- Errors -->
+    <dict>
+      <key>name</key><string>Invalid</string>
+      <key>scope</key><string>invalid, invalid.illegal</string>
+      <key>settings</key><dict><key>foreground</key><string>#FF0000</string></dict>
+    </dict>
+
+    <!-- Markdown -->
+    <dict>
+      <key>name</key><string>Heading</string>
+      <key>scope</key><string>markup.heading, entity.name.section</string>
+      <key>settings</key><dict>
+        <key>fontStyle</key><string>bold</string>
+        <key>foreground</key><string>#800000</string>
+      </dict>
+    </dict>
+    <dict>
+      <key>name</key><string>Bold</string>
+      <key>scope</key><string>markup.bold</string>
+      <key>settings</key><dict>
+        <key>fontStyle</key><string>bold</string>
+        <key>foreground</key><string>#000080</string>
+      </dict>
+    </dict>
+    <dict>
+      <key>name</key><string>Italic</string>
+      <key>scope</key><string>markup.italic</string>
+      <key>settings</key><dict>
+        <key>fontStyle</key><string>italic</string>
+        <key>foreground</key><string>#0000FF</string>
+      </dict>
+    </dict>
+    <dict>
+      <key>name</key><string>Link</string>
+      <key>scope</key><string>markup.underline.link, string.other.link</string>
+      <key>settings</key><dict><key>foreground</key><string>#0451a5</string></dict>
+    </dict>
+    <dict>
+      <key>name</key><string>Raw / code</string>
+      <key>scope</key><string>markup.raw, markup.inline.raw</string>
+      <key>settings</key><dict><key>foreground</key><string>#098658</string></dict>
+    </dict>
+
+  </array>
+</dict>
+</plist>
