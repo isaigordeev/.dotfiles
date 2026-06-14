@@ -52,11 +52,7 @@ __isg::current_dir () {
   local max_pwd_length="${ISG_MAX_DIR_LEN:-65}"
   local color
 
-  if [[ "$ISG_THEME_MODE" == 'dark' ]]; then
-    color='white'
-  else
-    color='blue'
-  fi
+  color='blue'
 
   if [[ $(echo -n "$PWD" | wc -c) -gt "$max_pwd_length" ]]; then
     echo "%{$fg_bold[$color]%}%-1~ ... %2~%{$reset_color%} "
@@ -110,13 +106,8 @@ ZSH_THEME_GIT_PROMPT_ADDED="%{$fg[green]%}✚%{$reset_color%}"
 # Made with: http://geoff.greer.fm/lscolors/
 # ----------------------------------------------------------------------------
 
-if [[ "$ISG_THEME_MODE" == 'dark' ]]; then
-  export LSCOLORS='gxfxcxdxbxegedabagacad'
-  export LS_COLORS='di=36:ln=35:so=32:pi=33:ex=31:bd=34;46:cd=34;43:su=30;41:sg=30;46:tw=30;42:ow=30;43'
-else
-  export LSCOLORS='exfxcxdxBxegedabagacab'
-  export LS_COLORS='di=34:ln=35:so=32:pi=33:ex=1;31:bd=34;46:cd=34;43:su=30;41:sg=30;46:tw=30;42:ow=30;41'
-fi
+export LSCOLORS='exfxcxdxBxegedabagacab'
+export LS_COLORS='di=34:ln=35:so=32:pi=33:ex=1;31:bd=34;46:cd=34;43:su=30;41:sg=30;46:tw=30;42:ow=30;41'
 
 # Turns on colors with default unix `ls` command:
 export CLICOLOR=1
